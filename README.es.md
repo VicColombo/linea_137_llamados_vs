@@ -18,3 +18,5 @@ En este repositorio se encuentran:
 
 
 [^1]: La versión a es la que menos modificaciones tiene sobre los datos originales, la d, la que más modificaciones tiene.
+
+
