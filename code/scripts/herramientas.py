@@ -31,7 +31,7 @@ def pedir_columnas(dataframe):
 
             # si existe, imprimo y pongo ok
 
-            if c in list(df_2):
+            if c in list(dataframe):
                 print(c, 'ok\n')
                 correctas.append(c)
 
@@ -52,7 +52,7 @@ def pedir_columnas(dataframe):
     if len(erroneas)==0:
         return correctas
     else:
-        return pedir_columnas(df_2)
+        return pedir_columnas(dataframe)
 
 
 
