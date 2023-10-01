@@ -75,3 +75,37 @@ def seteo_agrupador(dataframe):
     
     return(dataframe)
 
+
+
+
+
+
+def mapData(dist_matrix, X, y, metric, title):
+    mds = MDS(metric=metric, dissimilarity='precomputed', random_state=0)
+    # Get the embeddings
+    pts = mds.fit_transform(dist_matrix)
+    # Plot the embedding, colored according to the class of the points
+    fig = plt.figure(2, (15,6))
+    ax = fig.add_subplot(1,2,1) 
+    
+    # pts[:, 0] pts in column 1 (first dimension),y=pts[:, 1] pts in column 2 (second dimension) 
+
+    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=['blue', 'red'], hue_order=['NO', 'YES'])
+
+
+
+    # Add the second plot
+    ax = fig.add_subplot(1,2,2)
+    # Plot the points again
+    plt.scatter(pts[:, 0], pts[:, 1])
+    
+    # Annotate each point by its corresponding face image
+    for x, ind in zip(X, range(pts.shape[0])):
+        im = x.reshape(64,64)
+        imagebox = OffsetImage(im, zoom=0.3, cmap=plt.cm.gray)
+        i = pts[ind, 0]
+        j = pts[ind, 1]
+        ab = AnnotationBbox(imagebox, (i, j), frameon=False)
+        ax.add_artist(ab)
+    plt.title(title)    
+    plt.show()
