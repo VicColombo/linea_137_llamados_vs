@@ -1,26 +1,28 @@
-\documentclass[10 pt]{article}
+\documentclass[10pt, spanish]{article}
 \usepackage[a4paper, total={7in, 9.5in}]{geometry}
-\usepackage[spanish]{babel}
+\usepackage{babel}
 \usepackage{csquotes}
 \usepackage{graphicx} 
 \usepackage{caption}
 \usepackage{hyperref}
-\usepackage{graphicx}
 \usepackage{float}
 \usepackage{url}
 \usepackage{color}
 \usepackage{siunitx}
 \usepackage{hhline}
 \usepackage{multirow}
-\usepackage{natbib}
+%\usepackage{natbib}
+\usepackage{cite}
 \bibliographystyle{plainnat}
 \usepackage{todonotes}
-
+\usepackage{bookmark}
+\usepackage{printlen}
+\usepackage{adjustbox}
 
 
 
 \begin{document}
-
+\printlength\textwidth
 \begin{titlepage}
 
 \begin{center}
@@ -114,11 +116,12 @@ CONCLUSIONES
 
 \section*{Introducción}\label{intro}
 
-En general los datos sobre delitos sexuales son difíciles de recabar, no necesariamente por su naturaleza sino por el contexto social que los rodea. A las víctimas a menudo no se les ofrece empatía, contención ni un lugar seguro para relatar y denunciar lo sucedido, muchas veces son re victimizadas por el sistema judicial y/o por la sociedad misma y algunas veces, como se muestra en el documental Línea 137 \citep{vasallo2020linea137}, no reconocen algunas situaciones de violencia sexual. Esto puede tener que ver en parte con el ocultamiento de ese tipo de violencia cuando ocurre, la naturalización si la violencia se da al interior de una pareja y la falta de educación sexual no solo o no necesariamente de la víctima sino de su entorno social en general \citep{contreras2016violencia}. Al mismo tiempo, recopilar y analizar estos datos para tener información estadística confiable sobre la problemática es importante para poder pensar e implementar soluciones efectivas.
-
+En general los datos sobre delitos sexuales son difíciles de recabar, no necesariamente por su naturaleza sino por el contexto social que los rodea. A las víctimas a menudo no se les ofrece empatía, contención ni un lugar seguro para relatar y denunciar lo sucedido, muchas veces son re victimizadas por el sistema judicial y/o por la sociedad misma y algunas veces, como se muestra en el documental Línea 137 \cite{vasallo2020linea137}, no reconocen algunas situaciones de violencia sexual. Esto puede tener que ver en parte con el ocultamiento de ese tipo de violencia cuando ocurre, la naturalización si la violencia se da al interior de una pareja y la falta de educación sexual no solo o no necesariamente de la víctima sino de su entorno social en general \cite{contreras2016violencia}. Al mismo tiempo, recopilar y analizar estos datos para tener información estadística confiable sobre la problemática es importante para poder pensar e implementar soluciones efectivas.
 El programa Las Víctimas contra las Violencias depende del Ministerio de Justicia y Derechos Humanos de la Nación y fue creado en el año 2006 con el objetivo de brindar atención e intervención institucional a víctimas de abusos y violencia familiar o sexual\footnote{Dentro de la categoría de violencia familiar se incluyen varios tipos de violencia, entre ellos, la sexual}. Para denunciar \todo{no es una línea para denunciar} y solicitar asistencia las víctimas cuentan, desde 2016, con la línea nacional de emergencia 137 que funciona las 24 horas del día, todo el año, y cuenta en al menos cinco ciudades del país con equipos especializados para llevar a cabo el acompañamiento y las intervenciones necesarias. Los registros de esas llamadas e intervenciones se encuentran digitalizados al menos desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se recopilan bajo la clasificación de llamados e intervenciones domiciliarias por situaciones de violencia familiar y llamados e intervenciones domiciliarias por situaciones de violencia sexual. 
 
 Para este trabajo he tomado en principio los llamados de denuncias por violencia sexual desde enero de 2017 hasta julio de 2021. El \textit{dataset} se compone en total de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En la tabla \ref{tablavar} se detallan las variables y su tipo.
+
+
 
 
 
@@ -127,6 +130,7 @@ Para este trabajo he tomado en principio los llamados de denuncias por violencia
 \centering
 \caption{Resumen de las variables.}
 \label{tablavar}
+\begin{adjustbox}{width={\textwidth},totalheight={\textheight},keepaspectratio}%
 \begin{tabular}{|l|l|l|l|} 
 \hline
 Descriptor & Tipo variable & Variables & Observaciones         
@@ -154,6 +158,7 @@ Violencia sexual                 & Cualitativa  &  \begin{tabular}[c]{@{}l@{}} v
 Otras violencias & Cualitativa & \begin{tabular}[c]{@{}l@{}} ofv\_sentimiento\_amenaza, \\ ofv\_amenazas\_explicitas, \\ ofv\_violencia\_fisica, ofv\_intento\_ahorcar, \\ ofv\_intento\_quemar,  ofv\_intento\_ahogar, \\ ofv\_amenaza\_muerte, \\ ofv\_uso\_sustancias\_psicoactivas, \\ ofv\_intento\_privacion\_libertad, \\ ofv\_privacion\_libertad, \\ ofv\_uso\_arma\_blanca, \\ ofv\_uso\_arma\_fuego, \\ ofv\_enganio\_seduccion, ofv\_intento\_matar, \\ ofv\_uso\_animal\_victimizar, \\ ofv\_grooming, ofv\_otra\_forma\_violencia, \\ ofv\_no\_sabe\_no\_contesta\end{tabular} &  \\ 
 \hline
 \end{tabular}
+\end{adjustbox}
 \end{table}
 
 
