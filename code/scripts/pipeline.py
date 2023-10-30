@@ -194,7 +194,7 @@ print('se guardó llamados_v4 como xlsx')
 
 # V5 --> elimino variables con poca información
 
-columnas_pocos_si = []
+'''columnas_pocos_si = []
 for i in llamados:
     if (llamados[i]== 'SI').sum() < 191:
         columnas_pocos_si.append(i)
@@ -218,7 +218,7 @@ llamados.drop(['vs_amenazas_verbales_contenido_sexual',
 
 
 llamados.to_excel("/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5 .xlsx", index=False)
-print('se guardó llamados_v5 como xlsx')
+print('se guardó llamados_v5 como xlsx')'''
 
 ####################################################################
 
