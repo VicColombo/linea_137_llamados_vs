@@ -1,7 +1,6 @@
 import pandas as pd
 
-
-
+###########################################################################3
 
 
 # 1 contar los si y los no, devolver "si" en el caso de que haya algún "si" en la selección
@@ -11,10 +10,6 @@ def hay_si(x):
         if s == 'SI':
             return 'SI'
     return 'NO'
-
-
-
-
 
 
 # 2 pedir los nombre de columnas a agrupar, chequear que existan en el df y si no volver a pedir.
@@ -77,7 +72,7 @@ def seteo_agrupador(dataframe):
 
 
 
-
+####################################################################
 
 
 def mapData(dist_matrix, X, y, metric, title):
@@ -109,3 +104,88 @@ def mapData(dist_matrix, X, y, metric, title):
         ax.add_artist(ab)
     plt.title(title)    
     plt.show()
+
+
+
+############################################################################
+
+# funciones para construcción de variables
+
+# agresor_fam_no_fam
+
+lista_familiar = ['Abuela', 'Abuelo', 'Hermana', 'Hermano', 'Madrastra', 'Madre', 'Otro pariente', 'Padrastro', 'Padre', 'Tío' ]
+lista_no_familiar = ['Desconocido', 'Conocido no familiar (Amigo, vecino, entre otros)']
+lista_pareja_exp = ['Pareja de la víctima', 'Ex pareja de la víctima']
+
+def fam_nofam (x):
+    if x in lista_familiar:
+        return 'Familiar'
+    elif x in lista_no_familiar:
+        return 'No Familiar'
+    elif x in lista_pareja_exp:
+        return 'Pareja/Ex'
+    elif x == 'NS/NC':
+        return x
+    else:
+        return 'N/A'
+
+    
+
+# genero agresor
+
+# género dell agresor
+lista_hombre = [ 'Abuelo', 'Hermano', 'Padrastro', 'Padre', 'Tío' ]
+lista_mujer = [ 'Abuela','Hermana','Madrastra', 'Madre']
+lista_no_especificado = ['Ex pareja de la víctima','Pareja de la víctima', 
+                                   'Otro pariente','Conocido no familiar (Amigo, vecino, entre otros)', 'Desconocido']
+
+def genero_agresor (x):
+    if x in lista_mujer:
+        return 'Femenino'
+    elif x in lista_hombre:
+        return 'Masculino'
+    elif x in lista_no_especificado:
+        return 'No especificado'
+    elif x == 'NS/NC':
+        return x
+    else:
+        return 'N/A'
+
+
+#  conoce victima agresor
+
+lista_conocido = ['Abuela', 'Abuelo','Pareja de la víctima', 'Ex pareja de la víctima', 'Conocido no familiar (Amigo, vecino, entre otros)', 'Hermana', 'Hermano', 'Madrastra', 'Madre', 'Otro pariente', 'Padrastro', 'Padre', 'Tío' ]
+lista_no_conocido = ['Desconocido', ]
+lista_no_declarado = ['NS/NC']
+
+def conocido_no_conocido (x):
+    if x in lista_conocido:
+        return 'Agresor conocido por víctima'
+    elif x in lista_no_conocido:
+        return 'Agresor no conocido por víctima'
+    elif x in lista_no_declarado:
+        return 'NS/NC'
+    else:
+        return 'N/A'
+
+
+
+# reduccion vinculo llamante
+
+lista_institucion = ['Hospital', 'Comisaría', 'Escuela', 'Defensoría', 'Otra Institución', 'Otra institución']
+lista_conocide = ['Madre', 'Vecina/o', 'Padre', 'Familiar', 'Otro conocido', 'Abuela/o','Hermana/o']
+
+
+def tipo_vinculo_llamante (x):
+    if x in lista_institucion:
+        return 'Institución'
+    elif x in lista_conocide:
+        return 'Conocido (fam/no fam)'
+    elif x == 'NS/NC':
+        return x
+    elif x == 'Víctima':
+        return x
+    elif x == 'Agresor/a':
+        return x
+    else:
+        return 'N/A'

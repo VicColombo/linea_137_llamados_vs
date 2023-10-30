@@ -31,14 +31,6 @@ llamados.drop(['vs_explotacion_sexual','vs_explotacion_sexual_comercial','vs_exp
 llamados.rename(columns={"ofv_uso_arma": "ofv_uso_arma_group", "ofv_intento_violencia_fisica": "ofv_intento_violencia_fisica_group"}, inplace=True)
 #llamados.columns
 
-
-
-
-llamados['victima_genero'] = llamados['victima_genero'].fillna('NS/NC')
-
-
-
-
 cols = [col for col in llamados.columns if col not in ['llamante_edad', 'victima_edad']]
 llamados_2 = llamados[cols]
 
