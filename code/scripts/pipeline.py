@@ -1,18 +1,13 @@
 # librerías
 
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-import gower
-from sklearn.manifold import MDS
 
-from matplotlib import pyplot as plt
-import seaborn as sns         
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+#import os
 
-from herramientas import seteo_agrupador,mapData,tipo_vinculo_llamante,conocido_no_conocido,genero_agresor,fam_nofam
+
+
+
+from herramientas import seteo_agrupador,tipo_vinculo_llamante,conocido_no_conocido,genero_agresor,fam_nofam
 from variables import orden_columnas
 
 ######################################################
@@ -145,6 +140,7 @@ llamados['agresor_conocido_no_conocido'] = \
 llamados['tipo_vinculo_llamante'] = \
     llamados.llamante_vinculo.apply(tipo_vinculo_llamante)
 
+
 llamados.to_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx', index=False)
 
 ####################################################################
@@ -194,44 +190,24 @@ print('se guardó llamados_v4 como xlsx')
 
 # V5 --> elimino variables con poca información
 
-'''columnas_pocos_si = []
+columnas_pocos_si = []
 for i in llamados:
     if (llamados[i]== 'SI').sum() < 191:
         columnas_pocos_si.append(i)
+    
+vs = list(llamados.loc[:, llamados.columns.str.startswith('vs')].columns)
+ofv = list(llamados.loc[:, llamados.columns.str.startswith('ofv')].columns)
 
-print('variables con menos de 1% SI: \n\n',columnas_pocos_si)
+for i in vs:
+    if i in columnas_pocos_si:
+        llamados.drop(i, axis=1, inplace=True)
 
-print('eliminación de variables de vs o ofv con pocos SI')
-
-
-llamados.drop(['vs_amenazas_verbales_contenido_sexual', 
-                'vs_existencia_facilitador_corrupcion_nnya', 
-                'vs_eyaculacion_partes_cuerpo', 
-                'ofv_amenaza_muerte', 
-                'ofv_uso_sustancias_psicoactivas', 
-                'ofv_intento_privacion_libertad', 
-                'ofv_privacion_libertad', 
-                'ofv_uso_animal_victimizar', 
-                'ofv_intento_violencia_fisica_group', 
-                'ofv_uso_arma_group'],
-  axis=1, inplace=True)
+for i in ofv:
+    if i in columnas_pocos_si:
+        llamados.drop(i, axis=1, inplace=True)   
 
 
-llamados.to_excel("/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5 .xlsx", index=False)
-print('se guardó llamados_v5 como xlsx')'''
+llamados.to_excel("/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx", index=False)
+print('se guardó llamados_v5 como xlsx')
 
-####################################################################
-
-'''gower_data = gower.gower_matrix(llamados)
-
-
-# mapping SI/NO in "victima_convive_agresor" labels to 'y_convive'
-y_convive = []
-for value in llamados_2['victima_convive_agresor']:
-    if value == 'SI':
-        y_convive.append('SI')
-    elif value == 'NO':
-        y_convive.append('NO')
-
-mapData(gower_data, llamados_2, y_convive, False, 
-        'Non-metric MDS with Gower')'''
+###################################################################

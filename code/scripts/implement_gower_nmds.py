@@ -12,34 +12,14 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 
 
-llamados= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_group_I.xlsx')
+llamados= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx')
 
 
-
-# droppear las variables que están agrupadas en otras, fecha y hora separadas y provincia id
-
-llamados.drop(['vs_explotacion_sexual','vs_explotacion_sexual_comercial','vs_explotacion_sexual_viajes_turismo',
-              'vs_sospecha_trata_personas_fines_sexuales', 'vs_violacion_via_vaginal', 'vs_violacion_via_anal', 
-               'vs_violacion_via_oral', 'ofv_uso_arma_blanca','ofv_uso_arma_fuego', 'ofv_intento_ahorcar', 
-               'ofv_intento_quemar', 'ofv_intento_ahogar','ofv_intento_matar', 'llamado_fecha', 'llamado_hora',
-              'llamado_provincia_id'], axis=1, inplace=True)
-
-
-
-# corregir nombres de columnas (TO DO: pasar al pipeline de agrupación luego)
-
-llamados.rename(columns={"ofv_uso_arma": "ofv_uso_arma_group", "ofv_intento_violencia_fisica": "ofv_intento_violencia_fisica_group"}, inplace=True)
-#llamados.columns
-
-cols = [col for col in llamados.columns if col not in ['llamante_edad', 'victima_edad']]
+cols = [col for col in llamados.columns if col not in ['llamante_edad', 'victima_edad','agresor_fam_no_fam', 'genero_agresor', 'agresor_conocido_no_conocido','tipo_vinculo_llamante']]
 llamados_2 = llamados[cols]
 
 
-
-
 del llamados
-
-
 
 gower_data = gower.gower_matrix(llamados_2)
 print("gower_data done")
@@ -78,9 +58,9 @@ for value in llamados_2['victima_convive_agresor']:
     else:
         y_convive.append('NS/NC')
 
-
+#cambiar el título según la versión de llamados que uso
 mapData(gower_data, llamados_2, y_convive, False, 
-        'Non-metric MDS with Gower')
+        'Non-metric MDS with Gower - llamados_v5')
 
 
 

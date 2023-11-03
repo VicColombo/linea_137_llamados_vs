@@ -102,7 +102,8 @@ def mapData(dist_matrix, X, y, metric, title):
         j = pts[ind, 1]
         ab = AnnotationBbox(imagebox, (i, j), frameon=False)
         ax.add_artist(ab)
-    plt.title(title)    
+    plt.title(title)  
+    plt.savefig('gower_v5.png')
     plt.show()
 
 
