@@ -1,4 +1,9 @@
-import pandas as pd
+
+import seaborn as sns
+from matplotlib import pyplot as plt
+from sklearn.manifold import MDS
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+import os
 
 ###########################################################################3
 
@@ -56,13 +61,15 @@ def pedir_columnas(dataframe):
 # 3 armar el agrupador pidiendo los nombres de columnas a agrupar, el nombre de la nueva col que las agrupa
 # y devolviendo el df con la nueva columnas con los valores correctos
 
-def seteo_agrupador(dataframe):
+def seteo_agrupador(dataframe,columnas_agrupar, nueva_col_agrup):
     
+    # estos pasos crean columnas_agrupar y nueva_col_group por input
     # 1
     
-    columnas_agrupar = pedir_columnas(dataframe)
+    #columnas_agrupar = pedir_columnas(dataframe)
     
-    nueva_col_agrup = input('\nIngresá el nombre de la nueva variable agrupadora para las columnas: ')
+    
+    #nueva_col_agrup = input('\nIngresá el nombre de la nueva variable agrupadora para las columnas: ')
    
     # 2
     
@@ -75,7 +82,7 @@ def seteo_agrupador(dataframe):
 ####################################################################
 
 
-def mapData(dist_matrix, X, y, metric, title):
+def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
     mds = MDS(metric=metric, dissimilarity='precomputed', random_state=0)
     # Get the embeddings
     pts = mds.fit_transform(dist_matrix)
@@ -85,26 +92,11 @@ def mapData(dist_matrix, X, y, metric, title):
     
     # pts[:, 0] pts in column 1 (first dimension),y=pts[:, 1] pts in column 2 (second dimension) 
 
-    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=['blue', 'red'], hue_order=['NO', 'YES'])
+    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=['blue', 'red', 'grey'], hue_order=['NO', 'SI', 'NS/NC'])
 
-
-
-    # Add the second plot
-    ax = fig.add_subplot(1,2,2)
-    # Plot the points again
-    plt.scatter(pts[:, 0], pts[:, 1])
-    
-    # Annotate each point by its corresponding face image
-    for x, ind in zip(X, range(pts.shape[0])):
-        im = x.reshape(64,64)
-        imagebox = OffsetImage(im, zoom=0.3, cmap=plt.cm.gray)
-        i = pts[ind, 0]
-        j = pts[ind, 1]
-        ab = AnnotationBbox(imagebox, (i, j), frameon=False)
-        ax.add_artist(ab)
     plt.title(title)  
-    plt.savefig('gower_v5.png')
-    plt.show()
+    plt.savefig(os.path.join(image_path, image_name))
+    #plt.show()
 
 
 

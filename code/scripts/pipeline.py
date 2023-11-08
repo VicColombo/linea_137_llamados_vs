@@ -121,7 +121,7 @@ llamados['victima_edad'].loc[(llamados['victima_edad'] < 0)] = None
 
 
 llamados.to_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx', index=False)
-
+print('se guardó llamados v2')
 #######################################################################################
 
 #V3--> construcción de variables
@@ -142,32 +142,21 @@ llamados['tipo_vinculo_llamante'] = \
 
 
 llamados.to_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx', index=False)
-
+print('se guardó llamados v3')
 ####################################################################
 
 # V4 --> agrupar variables
 
 ### agrupar variables cualitativamente (por tipo de violencia)
 
-'''Nombres de las nuevas variables:
-vs_explotacion_sexual_group (vs_explotacion_sexual, vs_explotacion_sexual_comercial, vs_explotacion_sexual_viajes_turismo,vs_sospecha_trata_personas_fines_sexuales)
-
-vs_violacion_group (vs_violacion_via_vaginal, vs_violacion_via_anal, vs_violacion_via_oral)
-
-ofv_uso_arma (ofv_uso_arma_blanca, ofv_uso_arma_fuego)
-
-ofv_intento_violencia_fisica (ofv_intento_ahorcar, ofv_intento_quemar,ofv_intento_ahogar,ofv_intento_matar)'''
-
-
-print('ahora corre el agrupador de variables para lograr: \n\n 1) vs_explotacion_sexual_group: vs_explotacion_sexual, vs_explotacion_sexual_comercial, vs_explotacion_sexual_viajes_turismo,vs_sospecha_trata_personas_fines_sexuales\n\n',
+'''print('ahora corre el agrupador de variables para lograr: \n\n 1) vs_explotacion_sexual_group: vs_explotacion_sexual, vs_explotacion_sexual_comercial, vs_explotacion_sexual_viajes_turismo,vs_sospecha_trata_personas_fines_sexuales\n\n',
 	'2) vs_violacion_group: vs_violacion_via_vaginal, vs_violacion_via_anal, vs_violacion_via_oral\n\n',
 	'3) ofv_uso_arma_group: ofv_uso_arma_blanca, ofv_uso_arma_fuego\n\n',
 	'4) ofv_intento_violencia_fisica_group: ofv_intento_ahorcar, ofv_intento_quemar,ofv_intento_ahogar,ofv_intento_matar\n\n',
-    '5)  vs_tentativa_group: vs_tentativa_violacion,vs_Intento_violación_tercera_persona\n\n')
+    '5)  vs_tentativa_group: vs_tentativa_violacion,vs_Intento_violación_tercera_persona\n\n')'''
 
 
-
-print('1)\n')
+'''print('1)\n')
 seteo_agrupador(llamados)
 print('2)\n')
 seteo_agrupador(llamados)
@@ -176,11 +165,32 @@ seteo_agrupador(llamados)
 print('4)\n')
 seteo_agrupador(llamados)
 print('5)\n')
-seteo_agrupador(llamados)
+seteo_agrupador(llamados)'''
 
+columnas_agrupar_1 = ['vs_explotacion_sexual', 'vs_explotacion_sexual_comercial', 'vs_explotacion_sexual_viajes_turismo','vs_sospecha_trata_personas_fines_sexuales']
+nueva_col_agrup_1 = 'vs_explotacion_sexual_group'
+columnas_agrupar_2 = ['vs_violacion_via_vaginal', 'vs_violacion_via_anal', 'vs_violacion_via_oral']
+nueva_col_agrup_2 = 'vs_violacion_group'
+columnas_agrupar_3 = ['ofv_uso_arma_blanca', 'ofv_uso_arma_fuego']
+nueva_col_agrup_3 = 'ofv_uso_arma_group'
+columnas_agrupar_4 = ['ofv_intento_ahorcar', 'ofv_intento_quemar','ofv_intento_ahogar','ofv_intento_matar']
+nueva_col_agrup_4 = 'ofv_intento_violencia_fisica_group'
+columnas_agrupar_5 = ['vs_tentativa_violacion','vs_Intento_violación_tercera_persona']
+nueva_col_agrup_5 = 'vs_tentativa_group'
 
-'''llamados.drop([['vs_Intento_violación_tercera_persona', 'vs_amenazas_verbales_contenido_sexual', 'vs_existencia_facilitador_corrupcion_nnya', 'vs_eyaculacion_partes_cuerpo', 'ofv_amenaza_muerte', 'ofv_uso_sustancias_psicoactivas', 'ofv_intento_privacion_libertad', 'ofv_privacion_libertad', 'ofv_uso_animal_victimizar', 'ofv_intento_violencia_fisica_group', 'ofv_uso_arma_group']],
-  axis=1, inplace=True)'''
+#1
+seteo_agrupador(llamados,columnas_agrupar_1, nueva_col_agrup_1)
+#2
+seteo_agrupador(llamados,columnas_agrupar_2, nueva_col_agrup_2)
+#3
+seteo_agrupador(llamados,columnas_agrupar_3, nueva_col_agrup_3)
+#4
+seteo_agrupador(llamados,columnas_agrupar_4, nueva_col_agrup_4)
+#5
+seteo_agrupador(llamados,columnas_agrupar_5, nueva_col_agrup_5)
+
+llamados.drop(columnas_agrupar_1 + columnas_agrupar_2+columnas_agrupar_3+columnas_agrupar_4+columnas_agrupar_5,
+  axis=1, inplace=True)
 
 llamados.to_excel("/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx", index=False)
 
