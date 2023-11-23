@@ -2,7 +2,7 @@
 import seaborn as sns
 from matplotlib import pyplot as plt
 from sklearn.manifold import MDS
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+#from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import os
 
 ###########################################################################3
@@ -80,21 +80,23 @@ def seteo_agrupador(dataframe,columnas_agrupar, nueva_col_agrup):
 
 
 ####################################################################
-
+palette_sino ={"SI": "#1E88E5", "NO": "#FFC107", "NS/NC": "#D81B60"}
 
 def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
-    mds = MDS(metric=metric, dissimilarity='precomputed', random_state=0)
+    mds = MDS(metric=metric, dissimilarity='precomputed', random_state=0, normalized_stress=True) 
     # Get the embeddings
     pts = mds.fit_transform(dist_matrix)
     # Plot the embedding, colored according to the class of the points
-    fig = plt.figure(2, (15,6))
-    ax = fig.add_subplot(1,2,1) 
-    
+    fig, ax = plt.subplots(figsize=(15,10))
+ 
+    # USAR AX PARA AGREGAR EL TEXTO LUEGO
     # pts[:, 0] pts in column 1 (first dimension),y=pts[:, 1] pts in column 2 (second dimension) 
 
-    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=['blue', 'red', 'grey'], hue_order=['NO', 'SI', 'NS/NC'])
+    sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=(palette_sino)), #hue_order=['NO', 'SI','NS/NC'])
 
-    plt.title(title)  
+    plt.title(title)
+    plt.text(0.905, 0.96, ('Stress: ' + str(round(mds.stress_,2))), fontsize=13, bbox = {'facecolor': 'white', 'alpha': 1.0, 'pad': 5},transform = ax.transAxes)
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
     plt.savefig(os.path.join(image_path, image_name))
     #plt.show()
 

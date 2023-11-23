@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.7.14)  7 NOV 2023 19:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.7.14)  15 NOV 2023 18:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -44,6 +44,15 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen145
 \Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks17
+
+
+Package geometry Warning: Over-specification in `h'-direction.
+    `width' (505.89pt) is ignored.
+
+
+Package geometry Warning: Over-specification in `v'-direction.
+    `height' (686.56499pt) is ignored.
+
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2022/01/26 3.70 The Babel package
 \babel@savecnt=\count196
@@ -530,8 +539,7 @@ Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \tc@urx=\dimen280
 \tc@ury=\dimen281
 Package trimclip Info: Using driver 'tc-pdftex.def'.
-
-(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+ (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
 \adjbox@Width=\dimen282
@@ -558,30 +566,30 @@ Package csquotes Info: Adjusting default style.
 
 
 Package csquotes Warning: No style for language 'nil'.
-(csquotes)                Using fallback style on input line 24.
+(csquotes)                Using fallback style on input line 25.
 
 Package csquotes Info: Redefining alias 'default' -> 'fallback'.
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -591,15 +599,15 @@ LaTeX Font Info:    ... okay on input line 24.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(45.80893pt, 505.89pt, 45.80894pt)
-* v-part:(T,H,B)=(63.39273pt, 686.56499pt, 95.08913pt)
+* h-part:(L,W,R)=(108.405pt, 380.69788pt, 108.405pt)
+* v-part:(T,H,B)=(108.405pt, 628.23685pt, 108.405pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=505.89pt
-* \textheight=686.56499pt
-* \oddsidemargin=-26.46106pt
-* \evensidemargin=-26.46106pt
-* \topmargin=-45.87726pt
+* \textwidth=380.69788pt
+* \textheight=628.23685pt
+* \oddsidemargin=36.13501pt
+* \evensidemargin=36.13501pt
+* \topmargin=-0.86499pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -640,7 +648,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 25.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -650,86 +658,89 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count330
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 <imagenes/uba2.jpg, id=13, 233.4321pt x 233.9139pt>
 File: imagenes/uba2.jpg Graphic file (type jpg)
 <use imagenes/uba2.jpg>
-Package pdftex.def Info: imagenes/uba2.jpg  used on input line 32.
+Package pdftex.def Info: imagenes/uba2.jpg  used on input line 33.
 (pdftex.def)             Requested size: 70.03017pt x 70.1747pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.65 \end{titlepage}
-                     [1 <./imagenes/uba2.jpg>]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+l.66 \end{titlepage}
+                     [1 <./imagenes/uba2.jpg>] (./main.tdo
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 1.
+)
+\tf@tdo=\write4
+\openout4 = `main.tdo'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.126 \newpage
-               [1]
+l.74 \newpage
+              [1]
+Overfull \hbox (0.98335pt too wide) in paragraph at lines 100--109
+[]\OT1/cmr/m/n/10 METODOLOG[]IA? Reducci^^Son de dimensiones - agrupamiento cualitativo de variables
+ []
+
+[2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 137.
+(Font)              <8> on input line 134.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 137.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 137.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 137.
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 137.
- [2]
+(Font)              <6> on input line 134.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 134.
 
-LaTeX Warning: Text page 3 contains only floats.
-
-[3]
-Overfull \hbox (120.19482pt too wide) in paragraph at lines 223--224
-[]\OT1/cmr/m/n/10 las variables vs[]violacion[]via[]vaginal, vs[]violacion[]via[]anal, vs[]violacion[]via[]oral, vs[]tentativa[]violacion y vs[]intento[]violacion[]tercera[]persona
+Overfull \hbox (44.94572pt too wide) in paragraph at lines 186--191
+\OT1/cmr/m/n/10 La variable \OT1/cmr/m/it/10 llamado[]provincia[]id \OT1/cmr/m/n/10 llevaba otro nombre hasta el a~no 2019: \OT1/cmr/m/it/10 llamado[]provincia[]indec[]id
  []
 
 
-Overfull \hbox (16.6222pt too wide) in paragraph at lines 229--230
-[]\OT1/cmr/m/n/10 las variables vs[]explotacion[]sexual, vs[]explotacion[]sexual[]comercial y vs[]explotacion[]sexual[]viajes[]turismo se agrupan
+Overfull \hbox (2.16566pt too wide) in paragraph at lines 186--191
+\OT1/cmr/m/n/10 ser normalizados a may^^Suscula; adem^^Sas, por ejemplo en la variable \OT1/cmr/m/it/10 victima[]vinculo[]agresor
+ []
+
+[3] [4]
+Overfull \hbox (79.1255pt too wide) in paragraph at lines 223--224
+[]\OT1/cmr/m/n/10 las variables vs[]violacion[]via[]vaginal, vs[]violacion[]via[]anal, vs[]violacion[]via[]oral, vs[]tentativa[]violacion
  []
 
 
-Overfull \hbox (2.63904pt too wide) in paragraph at lines 237--237
-\OT1/cmr/m/n/10 agrupamiento 
+Overfull \hbox (93.39757pt too wide) in paragraph at lines 229--230
+[]\OT1/cmr/m/n/10 las variables vs[]explotacion[]sexual, vs[]explotacion[]sexual[]comercial y vs[]explotacion[]sexual[]viajes[]turismo
+ []
+
+[5]
+Overfull \hbox (27.79367pt too wide) in paragraph at lines 249--250
+[]\OT1/cmr/m/n/10 3. Tengo un agrupamiento cualitativo pensado simplemente para achicar la dimensionalidad
  []
 
 
-Overfull \hbox (2.63904pt too wide) in paragraph at lines 237--237
-\OT1/cmr/m/n/10 agrupamiento 
+Overfull \hbox (72.9827pt too wide) in paragraph at lines 249--250
+\OT1/cmr/m/n/10 juntando variables entre s^^S^^P. Las variables originales est^^San en la imagen adjunta "variables[]vs[]ofv[]original",
  []
 
-
-Overfull \hbox (18.55571pt too wide) in paragraph at lines 239--239
-\OT1/cmr/m/n/10 representatividad[]  
- []
-
-
-Overfull \hbox (18.55571pt too wide) in paragraph at lines 239--239
-\OT1/cmr/m/n/10 representatividad[]  
- []
-
-
-LaTeX Warning: Marginpar on page 4 moved.
-
-[4] (./main.bbl) [5] (./main.aux) ) 
+[6] (./main.bbl) [7] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 27646 strings out of 480171
- 552778 string characters out of 5894489
- 828998 words of memory out of 5000000
- 45148 multiletter control sequences out of 15000+600000
+ 27632 strings out of 480171
+ 552431 string characters out of 5894489
+ 829600 words of memory out of 5000000
+ 45132 multiletter control sequences out of 15000+600000
  472331 words of font info for 38 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  99i,16n,94p,1269b,950s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (7 pages, 390999 bytes).
+Output written on main.pdf (9 pages, 392052 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 134 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

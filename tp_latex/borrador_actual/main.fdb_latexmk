@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex main"] 1699382305 "main.aux" "main.bbl" "main" 1699382306
+["bibtex main"] 1700069891 "main.aux" "main.bbl" "main" 1700069892
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
   "bibtex_reporte.bib" 1696349825 867 59d5f8239932d9b001c29afc03d0889e ""
-  "main.aux" 1699382306 5891 1044dadc8b05b0cbec7aeb4e26262fa5 "pdflatex"
+  "main.aux" 1700069892 3961 64b3ade363f7808cb13569880d10b7fe "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1699382305 "/home/vcolombo/Documents/Vic/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex" "main.pdf" "main" 1699382306
+["pdflatex"] 1700069891 "/home/vcolombo/Documents/Vic/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex" "main.pdf" "main" 1700069892
   "/etc/texmf/web2c/texmf.cnf" 1689329041 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/vcolombo/Documents/Vic/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex" 1699382301 16136 a48f7a25f77f79612454d87f20932254 ""
+  "/home/vcolombo/Documents/Vic/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex" 1700069886 15648 d5a0f9442eb96948735ea094f9e73e02 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -178,10 +178,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1689329049 166835 3237b25953d3dec94d74e36efc3a402b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1689329055 1435914 ce5bfc23ec2f46618b7e70ec2325a048 ""
   "imagenes/uba2.jpg" 1696255240 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1699382306 5891 1044dadc8b05b0cbec7aeb4e26262fa5 "pdflatex"
-  "main.bbl" 1699382305 702 90109d71caac4685b280cf024acc9842 "bibtex main"
-  "main.tex" 1699382301 16136 a48f7a25f77f79612454d87f20932254 ""
+  "main.aux" 1700069892 3961 64b3ade363f7808cb13569880d10b7fe "pdflatex"
+  "main.bbl" 1700069891 702 90109d71caac4685b280cf024acc9842 "bibtex main"
+  "main.tdo" 1700069892 222 d274221985db63866802acd3ce808ff0 "pdflatex"
+  "main.tex" 1700069886 15648 d5a0f9442eb96948735ea094f9e73e02 ""
   (generated)
   "main.aux"
   "main.log"
   "main.pdf"
+  "main.tdo"

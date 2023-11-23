@@ -1,15 +1,17 @@
 
 import pandas as pd
 import gower
-
-
-from sklearn.manifold import MDS
-
+import seaborn as sns
 from matplotlib import pyplot as plt
-import seaborn as sns         
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+
+#from sklearn.manifold import MDS
+
+#from matplotlib import pyplot as plt
+#import seaborn as sns         
+#from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from herramientas import mapData
-import os
+#import os
+from sklearn.manifold import MDS
 
 
 image_path = '/home/vcolombo/Documents/Vic/linea_137_llamados_vs'
@@ -21,7 +23,7 @@ image_name_v2_edad_l= 'image_name_v2_edad_l.png'
 image_name_v2_edad_com = 'image_name_v2_edad_com.png'
 
 
-## llamados V2
+'''## llamados V2
 
 llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx')
 
@@ -49,7 +51,7 @@ print("gower_data done")
 
 
 #cambiar el título según la versión de llamados que uso
-mapData(gower_data_v2, llamados_2, y_convive, False, 'Non-metric MDS with Gower - llamados_v2', image_path,image_name_v2)
+mapData(gower_data_v2, llamados_2, y_convive, False, 'Exploración de "víctima convive con el agresor" con NMDS y dist. de Gower. V2. ', image_path,image_name_v2)
 
 del y_convive
 del llamados_2
@@ -84,7 +86,7 @@ print("gower_data done")
 
 #cambiar el título según la versión de llamados que uso
 mapData(gower_data_v4, llamados_2, y_convive, False, 
-        'Non-metric MDS with Gower - llamados_v4', image_path,image_name_v4)
+        'Exploración de "víctima convive con el agresor" con NMDS y dist. de Gower. V4.', image_path,image_name_v4)
 
 del y_convive
 del llamados_2
@@ -119,7 +121,7 @@ print("gower_data done")
 
 #cambiar el título según la versión de llamados que uso
 mapData(gower_data_v5, llamados_2, y_convive, False, 
-        'Non-metric MDS with Gower - llamados_v5', image_path,image_name_v5)
+        'Exploración de "víctima convive con el agresor" con NMDS y dist. de Gower. V5.', image_path,image_name_v5)
 
 
 del y_convive
@@ -162,7 +164,7 @@ print("gower_data done")
 
 #cambiar el título según la versión de llamados que uso
 mapData(gower_data_v2, llamados_2, y_convive, False, 
-        'Non-metric MDS with Gower - llamados_v2 completo victima edad', image_path,image_name_v2_edad_v)
+        'Exploración de "víctima convive con el agresor" con NMDS y dist. de Gower. Datos completos edad de la víctima.', image_path,image_name_v2_edad_v)
 
 del y_convive
 del llamados_2
@@ -205,14 +207,13 @@ print("gower_data done")
 
 #cambiar el título según la versión de llamados que uso
 mapData(gower_data_v2, llamados_2, y_convive, False, 
-        'Non-metric MDS with Gower - llamados_v2 completo llamante edad', image_path,image_name_v2_edad_l)
+        'Exploración de "víctima convive con el agresor" con NMDS y dist. de Gower. Datos completos de edad de quien llama', image_path,image_name_v2_edad_l)
 
 del y_convive
 del llamados_2
 del gower_data_v2
 
-
-
+'''
 ## llamados v2 completo edades
 
 llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx')
@@ -220,6 +221,7 @@ llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/d
 
 # completo_llamante_edad
 completo_edades = llamados_v2[~(llamados_v2['victima_edad'].isnull()) & ~(llamados_v2['llamante_edad'].isnull())]
+
 
 del llamados_v2
 
@@ -240,9 +242,28 @@ print("gower_data done")
 
 #cambiar el título según la versión de llamados que uso
 mapData(gower_data_v2, completo_edades, y_convive, False, 
-        'Non-metric MDS with Gower - llamados_v2 edades completas', image_path,image_name_v2_edad_com)
+        'Exploración de "víctima convive con el agresor" con NMDS y dist. de Gower. Datos completos de edades', image_path,image_name_v2_edad_com)
 
 del y_convive
 del completo_edades
-del gower_data_v2
 
+
+
+stress = []
+# Max value for n_components
+max_range = 21
+for dim in range(1, max_range):
+    # Set up the MDS object
+    mds = MDS(n_components=dim, dissimilarity='precomputed', random_state=0)
+    # Apply MDS
+    pts = mds.fit_transform(gower_data_v2)
+    # Retrieve the stress value
+    stress.append(mds.stress_)
+# Plot stress vs. n_components    
+plt.plot(range(1, max_range), stress)
+plt.xticks(range(1, max_range, 2))
+plt.xlabel('n_components')
+plt.ylabel('stress')
+plt.show()
+
+del gower_data_v2

@@ -1,5 +1,5 @@
 \documentclass[10pt, spanish]{article}
-\usepackage[a4paper, total={7in, 9.5in}]{geometry}
+\usepackage[a4paper, total={7in, 9.5in}, margin=1.5in]{geometry}
 \usepackage{babel}
 \usepackage{csquotes}
 \usepackage{graphicx} 
@@ -18,6 +18,7 @@
 \usepackage{bookmark}
 \usepackage{printlen}
 \usepackage{adjustbox}
+
 
 
 
@@ -66,59 +67,51 @@ Victoria Colombo
 
 \newpage
 
+
+
+\listoftodos
+
+\newpage
+
 \section*{Estructura propuesta del trabajo}
+
+
+
 
 RESUMEN
 
+
+
 INTRODUCCIÓN 
-
-- que tipos de datos son estos porque es relevante el trabajo con este tipo de datos
-
-- Explicación del programa que origina los datos
-
-- Algunas estadísticas o patrones de datos comunes a esta problemática encontrados en otros trabajos a nivel mundial o a nivel local. 
-
-- Por aquí agregar algo sobre la frecuencia con que las víctimas conviven con sus agresores. Por ejemplo durante la pandemia los números de violencia de género específicamente contra las mujeres no bajaron subieron estaban en sus casas.
+- antedecentes: explicación del programa que origina los datos. Algunas estadísticas o patrones de datos comunes a esta problemática encontrados en otros trabajos a nivel mundial o a nivel local.
+Por aquí agregar algo sobre la frecuencia con que las víctimas conviven con sus agresores. Por ejemplo durante la pandemia los números de violencia de género específicamente contra las mujeres no bajaron subieron estaban en sus casas.
 Problemas con los tipos de datos falta de denuncias
 
+- objetivos: imputar los NS/NC de convive no convive con probabilidad de SI/NO  
+
+
+DATOS
+- por menor de la construcción del data set que es distinto para datos abiertos que es el original
+- preprocesamiento: prepro para juntarlos + limpieza
+- Descripción: análisis medidas de centralidad, cantidad de faltantes y de NS/NC.
+- armado de variables tipo género agresor, etc.
+
+
 METODOLOGÍA?
+Reducción de dimensiones
+- agrupamiento cualitativo de variables 
+- quitar las variables poco informativas
+- Método de ordenamiento para visualizar en dimensiones reducidas
+- NMDS usando una matriz de distancias de gower: visualizar patrones en los casos
+- NMDS hecho con distintas combinaciones de variables
+Predictivo
+- Predictivo para llenar los NS/NC  
 
-DESCRIPCIÓN DE LOS DATOS
+RESULTADOS
 
-Descripción del DataSet
 
-Quizás por menor de la construcción del data set que es distinto para datos abiertos que es el original
+DISCUSIÓN Y CONCLUSIONES
 
-Análisis medidas de centralidad 
-
-OTRA SECCIÓN (análisis y reducción de dimensiones?)
-
-reorganización de variables agrupamiento
-
-Visualización con métodos que reducen las dimensiones
-
-Análisis puntualizado de la variable víctima convive con el agresor
-
-PREDICTIVO
-
-Modelo que llene los blancos no saben o contesta de víctima convive con el agresor
-
-CONCLUSIONES
-
-Estructura de maca
-
-Introduccion
-    -Antecedentes
-    -Objetivos
-Datos
-    -Preprocesamiento
-    -Descripcion
-Metodologia
-    -Métodos estadísticos
-    -clasificación
-    -Métodos predictivos
-Resultados
-Discusión y conclusiones
 Bibliografía
 
  
@@ -131,10 +124,17 @@ Bibliografía
 
 
 
-\section*{Introducción}\label{intro}
+\section{Introducción}\label{intro}
+
+1. dificultad de recabar datos
 
 En general los datos sobre delitos sexuales son difíciles de recabar, no necesariamente por su naturaleza sino por el contexto social que los rodea. A las víctimas a menudo no se les ofrece empatía, contención ni un lugar seguro para relatar y denunciar lo sucedido, muchas veces son re victimizadas por el sistema judicial y/o por la sociedad misma y algunas veces, como se muestra en el documental Línea 137 \cite{vasallo2020linea137}, no reconocen algunas situaciones de violencia sexual. Esto puede tener que ver en parte con el ocultamiento de ese tipo de violencia cuando ocurre, la naturalización si la violencia se da al interior de una pareja y la falta de educación sexual no solo o no necesariamente de la víctima sino de su entorno social en general \cite{contreras2016violencia}. Al mismo tiempo, recopilar y analizar estos datos para tener información estadística confiable sobre la problemática es importante para poder pensar e implementar soluciones efectivas.
+
+2. descripción del programa
 El programa Las Víctimas contra las Violencias depende del Ministerio de Justicia y Derechos Humanos de la Nación y fue creado en el año 2006 con el objetivo de brindar atención e intervención institucional a víctimas de abusos y violencia familiar o sexual\footnote{Dentro de la categoría de violencia familiar se incluyen varios tipos de violencia, entre ellos, la sexual}. Para denunciar \todo{no es una línea para denunciar} y solicitar asistencia las víctimas cuentan, desde 2016, con la línea nacional de emergencia 137 que funciona las 24 horas del día, todo el año, y cuenta en al menos cinco ciudades del país con equipos especializados para llevar a cabo el acompañamiento y las intervenciones necesarias. Los registros de esas llamadas e intervenciones se encuentran digitalizados al menos desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se recopilan bajo la clasificación de llamados e intervenciones domiciliarias por situaciones de violencia familiar y llamados e intervenciones domiciliarias por situaciones de violencia sexual. 
+
+
+\section{Datos}\label{datos}
 
 Para este trabajo he tomado en principio los llamados de denuncias por violencia sexual desde enero de 2017 hasta julio de 2021. El \textit{dataset} se compone en total de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En la tabla \ref{tablavar} se detallan las variables y su tipo.
 
@@ -192,9 +192,9 @@ A modo de análisis exploratorio, realicé histogramas univariados para ver la f
 Me propongo como continuación de este análisis explorar la fecha y hora de los llamados, las edades de las víctimas y llamantes, las formas de violencia más comunes, y construir una variable de género del agresor utilizando la variable que estipula el vínculo entre la víctima y el agresor, ya que en algunas de sus categorías el género se encuentra expresado inequívocamente (por ejemplo en las categorías padre, madre, hermano). Además, me interesa sumar análisis multivariados para ver la interacción entre algunas de las variables. Por último, tengo la intención de investigar asociaciones entre variables como edad de la víctima y vínculo con el agresor.
 
 
-\section{Descripción de los datos}\label{dat}
+\section{Resultados}\label{res}
 
-\section{Reducción de dimensiones y análisis}\label{red}
+\section{Discusión y conclusiones}\label{conc}
 
 
 
@@ -234,11 +234,7 @@ Las variables ofv uso arma blanca ofv uso arma fuego se agrupan en una sola vari
 Las varaibles ofv intento ahogar ofv intento quemar 
 ofv intento matar ofv intento ahorcar se agrupan en una sola variable ofv intento violencia potencialmente fatal/ intento violencia extrema.
 
-\todo{este agrupamiento vs eliminación se puede revisitar, si las cosas se ven raras o algo en el plot o o si el predictivo es muy raro o lo que sea. o se pueden hacer las dos cosas, eliminación y agrupación y ver cómo sale con cada una}
-
-Candidatas a eliminarse si esa fuera la elección: \todo{estos puntos de corte también se pueden re evaluar o buscar biblio sobre establecer puntos de corte para variables con poca representatividad}
-
-VS con un punto de corte de al menos 10 ocurrencias en todo el dataset: vs\_explotacion\_sexual\_viajes\_turismo
+Candidatas a eliminarse si esa fuera la elección: VS con un punto de corte de al menos 10 ocurrencias en todo el dataset: vs\_explotacion\_sexual\_viajes\_turismo
 
 
 
@@ -256,18 +252,6 @@ Me parece bien el agrupamiento que proponés. Como te decía, acá es más impor
 El hecho de que vos puedas justificar desde el dominio, después te facilita la interpretación. Por ejemplo, cuando juntás todos los tipos de explotación en una sola. Está bien, porque explotación es algo bien delimitado, y para un trabajo donde no hay tantos datos, no sería posible entrar a indagar mucho sobre la variante de explotación.
 
 
-
-
-
-
-
-
-\section{Construcción de un modelo predictivo}\label{pred}
-
-
-\section{Resultados}\label{res}
-
-\section{Conclusiones}\label{conc}
 
 
 
