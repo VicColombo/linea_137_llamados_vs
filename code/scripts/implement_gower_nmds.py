@@ -14,7 +14,7 @@ from herramientas import mapData
 from sklearn.manifold import MDS
 
 
-image_path = '/home/vcolombo/Documents/Vic/linea_137_llamados_vs'
+image_path = '/home/vcolombo/Documents/Vic/linea_137_llamados_vs/images'
 image_name_v2 = 'nmds_v2.png'
 image_name_v4 = 'nmds_v4.png'
 image_name_v5 = 'nmds_v5.png'
@@ -55,7 +55,7 @@ mapData(gower_data_v2, llamados_2, y_convive, False, 'Exploración de "víctima 
 
 del y_convive
 del llamados_2
-del gower_data_v2
+del gower_data_v2'''
 
 
 
@@ -213,7 +213,7 @@ del y_convive
 del llamados_2
 del gower_data_v2
 
-'''
+
 ## llamados v2 completo edades
 
 llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx')
@@ -249,7 +249,7 @@ del completo_edades
 
 
 
-stress = []
+'''stress = []
 # Max value for n_components
 max_range = 21
 for dim in range(1, max_range):
@@ -264,6 +264,6 @@ plt.plot(range(1, max_range), stress)
 plt.xticks(range(1, max_range, 2))
 plt.xlabel('n_components')
 plt.ylabel('stress')
-plt.show()
+plt.show()'''
 
 del gower_data_v2
