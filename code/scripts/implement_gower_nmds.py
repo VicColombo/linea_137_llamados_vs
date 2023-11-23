@@ -1,8 +1,7 @@
 
 import pandas as pd
 import gower
-import seaborn as sns
-from matplotlib import pyplot as plt
+
 
 #from sklearn.manifold import MDS
 
@@ -11,7 +10,7 @@ from matplotlib import pyplot as plt
 #from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from herramientas import mapData
 #import os
-from sklearn.manifold import MDS
+
 
 
 image_path = '/home/vcolombo/Documents/Vic/linea_137_llamados_vs/images'
@@ -246,24 +245,5 @@ mapData(gower_data_v2, completo_edades, y_convive, False,
 
 del y_convive
 del completo_edades
-
-
-
-'''stress = []
-# Max value for n_components
-max_range = 21
-for dim in range(1, max_range):
-    # Set up the MDS object
-    mds = MDS(n_components=dim, dissimilarity='precomputed', random_state=0)
-    # Apply MDS
-    pts = mds.fit_transform(gower_data_v2)
-    # Retrieve the stress value
-    stress.append(mds.stress_)
-# Plot stress vs. n_components    
-plt.plot(range(1, max_range), stress)
-plt.xticks(range(1, max_range, 2))
-plt.xlabel('n_components')
-plt.ylabel('stress')
-plt.show()'''
 
 del gower_data_v2
