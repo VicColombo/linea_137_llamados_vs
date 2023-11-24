@@ -87,12 +87,12 @@ def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
     # Get the embeddings
     pts = mds.fit_transform(dist_matrix)
     # Plot the embedding, colored according to the class of the points
-    fig, ax = plt.subplots(figsize=(15,10))
+    ax = plt.subplots(figsize=(15,10))
  
     # USAR AX PARA AGREGAR EL TEXTO LUEGO
     # pts[:, 0] pts in column 1 (first dimension),y=pts[:, 1] pts in column 2 (second dimension) 
 
-    sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=(palette_sino)), #hue_order=['NO', 'SI','NS/NC'])
+    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=(palette_sino)), #hue_order=['NO', 'SI','NS/NC'])
 
     plt.title(title)
     plt.text(0.905, 0.96, ('Stress: ' + str(round(mds.stress_,2))), fontsize=13, bbox = {'facecolor': 'white', 'alpha': 1.0, 'pad': 5},transform = ax.transAxes)
