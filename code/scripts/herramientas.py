@@ -92,10 +92,10 @@ def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
     # USAR AX PARA AGREGAR EL TEXTO LUEGO
     # pts[:, 0] pts in column 1 (first dimension),y=pts[:, 1] pts in column 2 (second dimension) 
 
-    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=(palette_sino)), #hue_order=['NO', 'SI','NS/NC'])
+    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=(palette_sino)) #hue_order=['NO', 'SI','NS/NC'])
 
     plt.title(title)
-    plt.text(0.905, 0.96, ('Stress: ' + str(round(mds.stress_,2))), fontsize=13, bbox = {'facecolor': 'white', 'alpha': 1.0, 'pad': 5},transform = ax.transAxes)
+    plt.text(1.0121, 0.85, ('Stress: ' + str(round(mds.stress_,2))), fontsize=13, bbox = {'facecolor': 'white', 'alpha': 1.0, 'pad': 5},transform = ax.transAxes)
     plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
     plt.savefig(os.path.join(image_path, image_name))
     #plt.show()
