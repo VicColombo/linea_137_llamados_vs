@@ -22,7 +22,7 @@ image_name_v2_edad_l= 'image_name_v2_edad_l.png'
 image_name_v2_edad_com = 'image_name_v2_edad_com.png'
 
 
-'''## llamados V2
+## llamados V2
 
 llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx')
 
@@ -54,11 +54,11 @@ mapData(gower_data_v2, llamados_2, y_convive, False, 'Exploración de "víctima 
 
 del y_convive
 del llamados_2
-del gower_data_v2'''
+del gower_data_v2
 
 
 
-## llamados V4
+'''## llamados V4
 
 llamados_v4= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx')
 
@@ -246,4 +246,4 @@ mapData(gower_data_v2, completo_edades, y_convive, False,
 del y_convive
 del completo_edades
 
-del gower_data_v2
+del gower_data_v2'''
