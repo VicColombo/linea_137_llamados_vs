@@ -14,11 +14,11 @@ from variables import orden_columnas
 
 # V1 --> unir los datasets
 
-data_2017 = pd.read_csv('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2017.csv',  engine= 'python')
-data_2018 = pd.read_csv('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2018.csv', engine= 'python')
-data_2019 =pd.read_csv('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2019.csv', encoding='latin-1')
-data_2020 =pd.read_csv('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2020.csv', engine= 'python')
-data_2021 =pd.read_csv('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2021.csv', engine= 'python')
+data_2017 = pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2017.csv',  engine= 'python')
+data_2018 = pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2018.csv', engine= 'python')
+data_2019 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2019.csv', encoding='latin-1')
+data_2020 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2020.csv', engine= 'python')
+data_2021 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2021.csv', engine= 'python')
 
 
 ## quitar caso_id
@@ -120,7 +120,7 @@ llamados['victima_edad'].loc[(llamados['victima_edad'] >= 103)] = None
 llamados['victima_edad'].loc[(llamados['victima_edad'] < 0)] = None
 
 
-llamados.to_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx', index=False)
+llamados.to_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx', index=False)
 print('se guardó llamados v2')
 #######################################################################################
 
@@ -141,7 +141,7 @@ llamados['tipo_vinculo_llamante'] = \
     llamados.llamante_vinculo.apply(tipo_vinculo_llamante)
 
 
-llamados.to_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx', index=False)
+llamados.to_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx', index=False)
 print('se guardó llamados v3')
 ####################################################################
 
@@ -192,7 +192,7 @@ seteo_agrupador(llamados,columnas_agrupar_5, nueva_col_agrup_5)
 llamados.drop(columnas_agrupar_1 + columnas_agrupar_2+columnas_agrupar_3+columnas_agrupar_4+columnas_agrupar_5,
   axis=1, inplace=True)
 
-llamados.to_excel("/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx", index=False)
+llamados.to_excel("/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx", index=False)
 
 print('se guardó llamados_v4 como xlsx')
 
@@ -217,7 +217,7 @@ for i in ofv:
         llamados.drop(i, axis=1, inplace=True)   
 
 
-llamados.to_excel("/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx", index=False)
+llamados.to_excel("/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx", index=False)
 print('se guardó llamados_v5 como xlsx')
 
 ###################################################################
