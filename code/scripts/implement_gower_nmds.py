@@ -9,11 +9,13 @@ import gower
 #import seaborn as sns         
 #from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from herramientas import mapData
-#import os
+import os
+
+dataset_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(''))), 'datasets')
+image_path='/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs'
 
 
-
-image_path = '/home/vcolombo/Documents/Vic/linea_137_llamados_vs/images'
+#image_path = '/home/vcolombo/Documents/Vic/linea_137_llamados_vs/images'
 image_name_v2 = 'nmds_v2.png'
 image_name_v4 = 'nmds_v4.png'
 image_name_v5 = 'nmds_v5.png'
@@ -24,7 +26,7 @@ image_name_v2_edad_com = 'image_name_v2_edad_com.png'
 
 ## llamados V2
 
-llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx')
+llamados_v2= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v2.xlsx'))
 
 # mapping SI/NO in "victima_convive_agresor" labels to 'y_convive'
 y_convive = []
@@ -58,7 +60,7 @@ del gower_data_v2
 
 
 
-'''## llamados V4
+## llamados V4
 
 llamados_v4= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx')
 
@@ -91,7 +93,7 @@ del y_convive
 del llamados_2
 del gower_data_v4
 
-
+'''
 ## llamados v5
 
 
@@ -247,3 +249,7 @@ del y_convive
 del completo_edades
 
 del gower_data_v2'''
+
+## Nota importante: no corrí gower solo sobre v3 porque v3 tiene las varaibles construidas 
+## tipo "género del agresor" y v4 suma variables agrupadas de violencia, que es otra forma de
+## construir variables. Entonces directamente corrí sobre v4 que tiene todo el featuring engineering.
