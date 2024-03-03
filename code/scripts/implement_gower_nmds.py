@@ -60,7 +60,7 @@ del gower_data_v2
 
 
 
-## llamados V4
+'''## llamados V4
 
 llamados_v4= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx')
 
@@ -91,7 +91,7 @@ mapData(gower_data_v4, llamados_2, y_convive, False,
 
 del y_convive
 del llamados_2
-del gower_data_v4
+del gower_data_v4'''
 
 '''
 ## llamados v5
