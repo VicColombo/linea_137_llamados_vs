@@ -15,11 +15,11 @@ from variables import orden_columnas
 
 # V1 --> unir los datasets
 
-data_2017 = pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2017.csv',  engine= 'python')
-data_2018 = pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2018.csv', engine= 'python')
-data_2019 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2019.csv', encoding='latin-1')
-data_2020 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2020.csv', engine= 'python')
-data_2021 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2021.csv', engine= 'python')
+data_2017 = pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2017.csv',  parse_dates=['llamado_fecha_hora'], engine= 'python')
+data_2018 = pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2018.csv', parse_dates=['llamado_fecha_hora'], engine= 'python')
+data_2019 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2019.csv', parse_dates=['llamado_fecha_hora'], encoding='latin-1')
+data_2020 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2020.csv', parse_dates=['llamado_fecha_hora'],engine= 'python')
+data_2021 =pd.read_csv('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/csv/llamados_atendidos_abuso_sexual_2021.csv', parse_dates=['llamado_fecha_hora'], engine= 'python')
 
 
 ## quitar caso_id
@@ -99,26 +99,29 @@ llamados['llamante_edad'] = pd.to_numeric(llamados['llamante_edad'], errors='coe
 - llamado_provincia: 'Santa Fé' = 'Santa Fe' '''
 
 
+llamados.loc[:, 'llamante_genero'] = llamados['llamante_genero'].replace({' Masculino': 'Masculino', 'Trans': 'Transgénero'})
+llamados.loc[:, 'llamante_vinculo'] = llamados['llamante_vinculo'].replace({'Vecino': 'Vecina/o', ' Madre':'Madre'})
 
-llamados.llamante_genero.replace({' Masculino':'Masculino', 'Trans':'Transgénero'}, inplace = True)
-llamados.llamante_vinculo.replace({'Vecino': 'Vecina/o', ' Madre':'Madre'}, inplace = True)
-llamados.victima_a_resguardo.replace({'No': 'NO'}, inplace = True)
-llamados.victima_genero.replace({'Trans': 'Transgénero'}, inplace = True)
-llamados.victima_vinculo_agresor.replace({'Pareja de la vícitma': 'Pareja de la víctima', 'Pareja ': 'Pareja de la víctima','Pareja': 'Pareja de la víctima', 'Ex pareja': 'Ex pareja de la víctima'}, inplace = True)
-llamados.hecho_lugar.replace({'Otro(Especificar en observaciones)': 'Otro' }, inplace = True)
-llamados.caso_judicializado.replace({'NS/NS': 'NS/NC', 'Sin datos':'NS/NC'}, inplace = True)
-llamados.llamado_provincia.replace({'Ciudad Autónoma de Buenos Aires': 'CABA'}, inplace = True)
-llamados.llamado_provincia.replace({'Santa Fé': 'Santa Fe'}, inplace = True)
+llamados.loc[:, 'victima_a_resguardo'] = llamados['victima_a_resguardo'].replace({'No': 'NO'})
+llamados.loc[:, 'victima_genero'] = llamados['victima_genero'].replace({'Trans': 'Transgénero'})
+llamados.loc[:, 'victima_vinculo_agresor'] = llamados['victima_vinculo_agresor'].replace({'Pareja de la vícitma': 'Pareja de la víctima', 'Pareja ': 'Pareja de la víctima','Pareja': 'Pareja de la víctima', 'Ex pareja': 'Ex pareja de la víctima'})
+llamados.loc[:, 'hecho_lugar'] = llamados['hecho_lugar'].replace({'Otro(Especificar en observaciones)': 'Otro'})
+llamados.loc[:, 'caso_judicializado'] = llamados['caso_judicializado'].replace({'NS/NS': 'NS/NC', 'Sin datos':'NS/NC'})
+llamados.loc[:, 'llamado_provincia'] = llamados['llamado_provincia'].replace({'Ciudad Autónoma de Buenos Aires': 'CABA', 'Santa Fé': 'Santa Fe'})
 llamados.replace('Ns/Nc', 'NS/NC', inplace=True)
-llamados['victima_genero'] = llamados['victima_genero'].fillna('NS/NC')
+llamados.loc[:, 'victima_genero'] = llamados['victima_genero'].fillna('NS/NC')
+
 
 # Outliers de edad considerados error de carga
 
-llamados['llamante_edad'].loc[(llamados['llamante_edad'] >= 100)] = None
-llamados['llamante_edad'].loc[(llamados['llamante_edad'] < 3)] = None
 
-llamados['victima_edad'].loc[(llamados['victima_edad'] >= 103)] = None
-llamados['victima_edad'].loc[(llamados['victima_edad'] < 0)] = None
+
+llamados.loc[llamados['llamante_edad'] >= 100, 'llamante_edad'] = None
+llamados.loc[llamados['llamante_edad'] < 3, 'llamante_edad'] = None
+
+llamados.loc[llamados['victima_edad'] >= 103, 'victima_edad'] = None
+llamados.loc[llamados['victima_edad'] < 0, 'victima_edad'] = None
+
 
 
 llamados.to_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx', index=False)
