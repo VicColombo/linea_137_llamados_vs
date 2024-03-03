@@ -1,6 +1,7 @@
 # librerías
 
 import pandas as pd
+import numpy as np
 
 #import os
 
@@ -141,6 +142,46 @@ llamados['tipo_vinculo_llamante'] = \
     llamados.llamante_vinculo.apply(tipo_vinculo_llamante)
 
 
+# arma fin de semana
+
+llamados['fin_de_semana'] = np.where(llamados['llamado_fecha_hora'].dt.day_of_week.isin([5,6]), 1,0)
+
+# arma momento del día mañana, mediodía, tarde, noche, madrugada c la hora
+
+def day_part(hour):
+    if hour in [6,7,8,9,10,11]:
+        return "mañana"
+    elif hour in [12,13]:
+        return "mediodía"
+    elif hour in [14,15,16,17,18,19]:
+        return "tarde"
+    elif hour in [20,21,22,23,0]:
+        return "noche"
+    elif hour in [1,2,3,4]:
+        return "madrugada"
+
+
+llamados['momento_dia'] = (llamados['llamado_fecha_hora'].dt.hour).apply(day_part)
+
+
+# arma estación del año
+
+verano_empieza = pd.to_datetime("12-21", format="%m-%d").dayofyear
+otoño_empieza = pd.to_datetime("03-21", format="%m-%d").dayofyear
+invierno_empieza = pd.to_datetime("06-21", format="%m-%d").dayofyear
+primavera_empieza = pd.to_datetime("09-21", format="%m-%d").dayofyear
+
+for index, date in llamados["llamado_fecha_hora"].items():
+    if (date.dayofyear >= verano_empieza) or (date.dayofyear < otoño_empieza):
+        llamados.at[index, "estacion_del_año"] = "Verano"
+    elif (date.dayofyear >= otoño_empieza) and (date.dayofyear < invierno_empieza):
+        llamados.at[index, "estacion_del_año"] = "Otoño"
+    elif (date.dayofyear >= invierno_empieza) and (date.dayofyear < primavera_empieza):
+        llamados.at[index, "estacion_del_año"] = "Invierno"
+    else:
+        llamados.at[index, "estacion_del_año"] = "Primavera"
+
+
 llamados.to_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx', index=False)
 print('se guardó llamados v3')
 ####################################################################
@@ -221,3 +262,7 @@ llamados.to_excel("/Users/vcolombo/Documents/tp especializacion/linea_137_llamad
 print('se guardó llamados_v5 como xlsx')
 
 ###################################################################
+
+
+
+
