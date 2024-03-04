@@ -14,7 +14,7 @@ import os
 dataset_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(''))), 'datasets')
 
 
-image_path = '/home/vcolombo/Documents/Vic/linea_137_llamados_vs/images'
+image_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(''))), 'images')
 image_name_v2 = 'nmds_v2.png'
 image_name_v4 = 'nmds_v4.png'
 image_name_v4_2 = 'nmds_v4_2.png'
@@ -69,7 +69,7 @@ del gower_data_v2
 '''
 ## llamados V4 con eliminación variables construidas en V3
 
-llamados_v4= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx')
+llamados_v4= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v4.xlsx'))
 
 # mapping SI/NO in "victima_convive_agresor" labels to 'y_convive'
 y_convive = []
@@ -103,7 +103,7 @@ del gower_data_v4
 ### llamados V4 sin eliminación de variables construidas V3
 
 
-llamados_v4= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx')
+llamados_v4= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v4.xlsx'))
 
 # mapping SI/NO in "victima_convive_agresor" labels to 'y_convive'
 y_convive = []
@@ -138,7 +138,7 @@ del gower_data_v4
 ## llamados v5 con eliminación de variables construidas en V3
 
 
-llamados_v5= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx')
+llamados_v5= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v5.xlsx'))
 
 # mapping SI/NO in "victima_convive_agresor" labels to 'y_convive'
 y_convive = []
@@ -174,7 +174,7 @@ del gower_data_v5
 ## llamados v5 sin eliminación de variables construidas en V3
 
 
-llamados_v5= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx')
+llamados_v5= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v5.xlsx'))
 
 # mapping SI/NO in "victima_convive_agresor" labels to 'y_convive'
 y_convive = []
@@ -211,7 +211,7 @@ del gower_data_v5
 
 ## Con edades completas
 # V2 completo_victima_edad
-llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx')
+llamados_v2= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v2.xlsx'))
 
 
 
@@ -252,7 +252,7 @@ del gower_data_v2
 
 ## V4 completo víctima edad
 
-llamados_v4= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx')
+llamados_v4= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v4.xlsx'))
 
 
 completo_victima_edad = llamados_v4[~(llamados_v4['victima_edad'].isnull())]
@@ -293,7 +293,7 @@ del gower_data_v2
 
 ## V5 completo víctima edad
 
-llamados_v5= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx')
+llamados_v5= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v5.xlsx'))
 
 
 completo_victima_edad = llamados_v5[~(llamados_v5['victima_edad'].isnull())]
@@ -334,7 +334,7 @@ del gower_data_v2
 
 ## llamados v2 completo llamante edad
 
-llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx')
+llamados_v2= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v2.xlsx'))
 
 
 # completo_llamante_edad
@@ -374,8 +374,7 @@ del llamados_2
 del gower_data_v2
 
 ## v4 completo llamante edad
-
-llamados_v4= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx')
+llamados_v4= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v4.xlsx'))
 
 
 # completo_llamante_edad
@@ -416,7 +415,7 @@ del gower_data_v2
 
 ## v5 completo llamante edad
 
-llamados_v5= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx')
+llamados_v5= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v5.xlsx'))
 
 
 # completo_llamante_edad
@@ -457,7 +456,7 @@ del gower_data_v2
 
 ## llamados v2 completo edades
 
-llamados_v2= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx')
+llamados_v2= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v2.xlsx'))
 
 
 
@@ -492,7 +491,7 @@ del gower_data_v2
 
 ## v4 completo edades
 
-llamados_v4= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx')
+llamados_v4= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v4.xlsx'))
 
 
 
@@ -527,7 +526,7 @@ del gower_data_v2
 
 ## v5 completo edades
 
-llamados_v5= pd.read_excel('/home/vcolombo/Documents/Vic/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx')
+llamados_v5= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v5.xlsx'))
 
 
 
