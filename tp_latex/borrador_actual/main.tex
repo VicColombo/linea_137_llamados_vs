@@ -88,24 +88,85 @@ Por aquí agregar algo sobre la frecuencia con que las víctimas conviven con su
 Problemas con los tipos de datos falta de denuncias
 
 - objetivos: imputar los NS/NC de convive no convive con probabilidad de SI/NO  
-
+\todo{introducción}
 
 DATOS
 - por menor de la construcción del data set que es distinto para datos abiertos que es el original
-- preprocesamiento: prepro para juntarlos + limpieza
-- Descripción: análisis medidas de centralidad, cantidad de faltantes y de NS/NC.
-- armado de variables tipo género agresor, etc.
+- preprocesamiento: prepro para juntarlos + limpieza --> script pipeline
+- Descripción: análisis medidas de centralidad, cantidad de faltantes y de NS/NC. --> notebook epxloración
+- Análisis con respecto a convive
+\todo{análisis respecto a convive}
+
+METODOLOGÍA
 
 
-METODOLOGÍA?
-Reducción de dimensiones
-- agrupamiento cualitativo de variables 
-- quitar las variables poco informativas
-- Método de ordenamiento para visualizar en dimensiones reducidas
-- NMDS usando una matriz de distancias de gower: visualizar patrones en los casos
-- NMDS hecho con distintas combinaciones de variables
-Predictivo
-- Predictivo para llenar los NS/NC  
+1. Manipulación de variables y reducción de dimensiones
+- armado de variables para ver otros patrones: género agresor, agresor conocido/no conocido, agresor familiar no familiar, momento del día, estación del año OK
+\todo{poner gráficos con respecto a estas nuevas variables}
+\todo{esto va en datos o en metodología???}
+
+Manual:
+A. reducir la cardinalidad de hecho lugar, provincia, llamante vínculo y agresor vínculo. Esto es porque eventualmente
+voy a hacer encoding con one hot y si no me va a estallar el encoder.
+- provincia: con porcentaje que aparece cada provincia o con agrupación por zona del país. OK
+Norte (NOA, NEA), Central (Cuyana, Pampeana), Patagónica, Bs as, CABA, NS/NC. Se podrían haber elegido otras formas de agrupar pero lo cierto es que CABA y Buenos Aires representan el 80 de los llamados, NS/NC el 9 por ciento, Córdoba, Santa Fe, Tucumán, y Mendoza el 7 por ciento, y el resto de la provincias representan individualmente menos del 1 pr ciento de los llamados recibidos.
+
+- hecho lugar: ver porcentajes que representan y agrupar por dominio OK
+Otro: le sumé a la categoría Otro (5 pct), que representa el 5pct de los casos,  Residencia turística (menos del 1 pct),Obra en construcción (menos del 1 pct), Taxi (menos del 1 pct),Albergue transitorio (menos del 1 pct),Automóvil (menos de 1 pct),Comercio (menos de 2pct),Ámbito educativo(menos de 3 pct),Vivienda de un familiar (3 pct) que están todas por debajo del 3 pct.
+Espacio público: Subterráneo/Tren/Colectivo menos del 1pct, Plaza y Descampado son menos del 1 pct, Calle 3pct
+Después quedaron las categoirías originales: vivienda de la víctima(25pct), vivienda del agresor(13pct), redes sociales(12), y NS/NC(29)
+
+
+- llamante vínculo: agrupé por dominio y con vistas a porcentajes representados. OK
+ Institición (Hospital 1.86pct pct, Comisaría 24.91 pct, Escuela 0.42 pct, Defensoría 0.10 pct, Otra Institución 2.04 pct), Conocido de la víctima (puede ser familiar o no familiar) (Madre 16.09 pct, Vecina/o 3.05, Padre 4.54 pct, Familiar 17.28 pct, Otro conocido 6.95 pct, Abuela/o 1.20 pct,Hermana/o 1.01 pct), Agresor 0.09 pct, víctima 14.28 pct, y NS/NC 6.17 pct.
+
+- agresor vínculo: agrupé por dominio de conocido no conocido pero distinguiendo si el conocido es familiar o no, porque las categorías que ya existen en la variable vínculo cn el agresor me lo permiten y porque la cantidad de casos en que el agresor es conocido pero no familiar es mucho más alta que la cantidad de casos de cada fmailiar. OK
+Conocido: Conocido no familiar 19.79, Conocido familiar: Padre 11.59, Otro pariente 10.09, Padrastro 8.66, Tío 6.26, abuelo 3.23, Hermano 2.77, Ex pareja 1.79, Pareja 1.04, Madre 0.97, Abuela 0.76, Hermana 0.15, Madrastra 0.10. NS/NC 17.28. Desconocido 15.45  
+
+
+B. agrupar variables de violencia x dominio OK script pipeline \todo{describir}
+C. quitar las variables poco informativas xq tienen baja tasa de rta. OK script pipeline  \todo{describir}
+
+Correlación:
+A. quiero saber más o menos cómo correlacionan las variables a convive. 
+
+- Podría correr chi sq2 para las categóricas y pearson o algún otro para las numéricas. Sin embargo, haciendo
+un test rápido veo que no puedo cumplir 1 de los requerimientos básicos de chi sq2.
+
+- Paso todas las cat. a dummy con get dummy. \todo{pasar todas estas a dummy} y chequeo correlación con convive a ver si elimino alguna otra
+
+
+-----
+
+2. Visualización:
+
+Intento ver si usando un método de ordenamiento para visualizar el dataset en dimensiones reducidas me da una
+idea de agrupamientos con repsecto a las tres categorías de convive. Elijo NMDS porque me permite trabajar con
+variables de distinto tipo sin transformaciones.
+
+
+
+A. NMDS usando una matriz de distancias de gower: visualizar patrones en los casos. 
+
+- 4 versiones: 
+- edad numérica, y 
+- uso solo los datos completos de edad victima, 
+- luego solo completos de edad llamante, 
+- luego datos completos de ambos.
+
+
+3. Predictivo
+
+Finalmente aplico un SVM para predecir los NS/NC de convive como si fueran faltantes.
+
+Preparación: 
+A. reemplazo NS/NC por NA.
+B. Dados los faltantes en la variable edad, voy a usar mis dos versiones del dataset, una con
+edad pasada a categórica y luego a dummy, y otra con edad dejada en numérica con sus faltantes y todo
+C. aplico disitntos encoders a la variables, porque en algunas me interesa mantener la ordinalidad y en otras no
+
+
+D. Predictivo para llenar los NS/NC  
 
 RESULTADOS
 

@@ -8,10 +8,12 @@ import numpy as np
 
 
 
-from herramientas import seteo_agrupador,tipo_vinculo_llamante,conocido_no_conocido,genero_agresor,fam_nofam
+from herramientas import seteo_agrupador,tipo_vinculo_llamante,conocido_no_conocido,genero_agresor,fam_nofam,tipo_hecho_lugar,provincias_red
 from variables import orden_columnas
 
 ######################################################
+
+# PREPROCESAMIENTO
 
 # V1 --> unir los datasets
 
@@ -128,6 +130,9 @@ llamados.to_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamad
 print('se guardó llamados v2')
 #######################################################################################
 
+
+# 
+
 #V3--> construcción de variables
 
 llamados['agresor_fam_no_fam'] = \
@@ -143,6 +148,12 @@ llamados['agresor_conocido_no_conocido'] = \
 
 llamados['tipo_vinculo_llamante'] = \
     llamados.llamante_vinculo.apply(tipo_vinculo_llamante)
+
+# hecho lugar
+
+
+llamados['hecho_lugar'] = \
+    llamados.hecho_lugar.apply(tipo_hecho_lugar)
 
 
 # arma fin de semana
@@ -160,7 +171,7 @@ def day_part(hour):
         return "tarde"
     elif hour in [20,21,22,23,0]:
         return "noche"
-    elif hour in [1,2,3,4]:
+    elif hour in [1,2,3,4,5]:
         return "madrugada"
 
 
@@ -184,6 +195,10 @@ for index, date in llamados["llamado_fecha_hora"].items():
     else:
         llamados.at[index, "estacion_del_año"] = "Primavera"
 
+# arma variable llamados por regiín del país
+
+llamados['llamado_provincia_red'] = \
+    llamados.llamado_provincia.apply(provincias_red)
 
 llamados.to_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx', index=False)
 print('se guardó llamados v3')

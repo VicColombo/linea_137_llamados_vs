@@ -106,19 +106,39 @@ def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
 
 # funciones para construcción de variables
 
-# agresor_fam_no_fam
+# reducción llamado provincia
+    
+lista_norte=['Jujuy', 'Salta', 'Tucumán', 'Catamarca', 'La Rioja', 'Santiago del Estero','Formosa', 'Chaco', 'Corrientes', 'Misiones']
+lista_centro = ['San Luis', 'San Juan', 'Mendoza','Córdoba', 'Entre Ríos','La Pampa', 'Santa Fe']
+lista_patagonia=['Chubut', 'Neuquén', 'Río Negro', 'Santa Cruz', 'Tierra del Fuego']
 
-lista_familiar = ['Abuela', 'Abuelo', 'Hermana', 'Hermano', 'Madrastra', 'Madre', 'Otro pariente', 'Padrastro', 'Padre', 'Tío' ]
+def provincias_red(x):
+    if x == 'NS/NC':
+        return x
+    elif x == 'CABA':
+        return x
+    elif x=='Buenos Aires':
+        return x
+    elif x in lista_norte:
+        return 'Región Norte'
+    elif x in lista_centro:
+        return 'Región Central'
+    elif x in lista_patagonia:
+        return 'Región Patagónica'
+    else:
+        return 'N/A'
+
+# agresor conocido fam, conocido no fam
+
+lista_familiar = ['Pareja de la víctima', 'Ex pareja de la víctima', 'Abuela', 'Abuelo', 'Hermana', 'Hermano', 'Madrastra', 'Madre', 'Otro pariente', 'Padrastro', 'Padre', 'Tío' ]
 lista_no_familiar = ['Desconocido', 'Conocido no familiar (Amigo, vecino, entre otros)']
-lista_pareja_exp = ['Pareja de la víctima', 'Ex pareja de la víctima']
+
 
 def fam_nofam (x):
     if x in lista_familiar:
         return 'Familiar'
     elif x in lista_no_familiar:
-        return 'No Familiar'
-    elif x in lista_pareja_exp:
-        return 'Pareja/Ex'
+        return 'Conocido No Familiar'
     elif x == 'NS/NC':
         return x
     else:
@@ -149,17 +169,18 @@ def genero_agresor (x):
 
 #  conoce victima agresor
 
-lista_conocido = ['Abuela', 'Abuelo','Pareja de la víctima', 'Ex pareja de la víctima', 'Conocido no familiar (Amigo, vecino, entre otros)', 'Hermana', 'Hermano', 'Madrastra', 'Madre', 'Otro pariente', 'Padrastro', 'Padre', 'Tío' ]
-lista_no_conocido = ['Desconocido', ]
+lista_conocido_familiar = ['Abuela', 'Abuelo','Pareja de la víctima', 'Ex pareja de la víctima', 'Hermana', 'Hermano', 'Madrastra', 'Madre', 'Otro pariente', 'Padrastro', 'Padre', 'Tío' ]
 lista_no_declarado = ['NS/NC']
 
 def conocido_no_conocido (x):
-    if x in lista_conocido:
-        return 'Agresor conocido por víctima'
-    elif x in lista_no_conocido:
-        return 'Agresor no conocido por víctima'
+    if x in lista_conocido_familiar:
+        return 'Agresor conocido (familiar))'
+    elif x == 'Desconocido':
+        return x
     elif x in lista_no_declarado:
         return 'NS/NC'
+    elif x == 'Conocido no familiar (Amigo, vecino, entre otros)':
+        return x
     else:
         return 'N/A'
 
@@ -182,5 +203,26 @@ def tipo_vinculo_llamante (x):
         return x
     elif x == 'Agresor/a':
         return x
+    else:
+        return 'N/A'
+
+# reducción hecho lugar
+lista_otro = ['Residencia turística','Otro','Obra en construcción', 'Taxi','Albergue transitorio','Automóvil','Comercio','Ámbito educativo','Vivienda de un familiar' ]
+lista_espacio_publico = ['Subterráneo/Tren/Colectivo','Plaza','Descampado','Calle']
+
+
+def tipo_hecho_lugar (x):
+    if x in lista_otro:
+        return 'Otro'
+    elif x in lista_espacio_publico:
+        return 'Espacio público'
+    elif x == 'NS/NC':
+        return x
+    elif x == 'Vivienda de la Víctima':
+        return x
+    elif x == 'Vivienda del Agresor':
+        return x
+    elif x == 'Redes Sociales':
+          return x
     else:
         return 'N/A'
