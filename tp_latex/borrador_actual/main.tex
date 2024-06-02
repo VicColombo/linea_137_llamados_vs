@@ -93,7 +93,69 @@ Problemas con los tipos de datos falta de denuncias
 DATOS
 - por menor de la construcción del data set que es distinto para datos abiertos que es el original
 - preprocesamiento: prepro para juntarlos + limpieza --> script pipeline
+
+Descripción de la limpieza del dataset:
+
+Notas sobre la normalización
+1.1 nombres de columnas
+1.1.1 caso_id
+en la unificación de datasets el de llamados de 2019 tiene el encoding distinto/roto
+
+2017 y 2018 no tienen la columna caso_id pero los otros sí
+
+voy a droppear todos los caso id
+
+1.1.2 llamante_vinculo
+
+2017 2018: llamante_quien_llama
+2019 adelante: llamante_vinculo
+
+normalizo los nombres a llamante_vinculo
+
+1.1.3 provincia_id
+
+llamado_provincia_id (string): provincia desde la que se realiza el llamado a la Línea 137/0800-222-1717, según la codificación de provincia implementada por INDEC (hasta 05/2019 nombre campo llamado_provincia_indec_id)
+
+2017 2018 2019 llamado_provincia_indec_id ==  2021 llamado_provincia_id
+
+normalizo a llamado_provincia_id
+
+
+1.1.4 fecha_hora
+cambio fecha hora por dos columnas fecha y hora
+
+1.2 Tipos de datos
+paso a integer: llamante_edad, victima_edad para eso los faltantes los pasé a NA, porque estaban como Sin datos, era una columna de mixed types. Al pasar a integer los valores string (sin dato, NS/NC etc pasaron solos a N/A con coerce errors)
+dejo todos los otros datos en categorical (cambio los que no estaban)
+
+1.3 Valores erróneos
+
+normalicé los valores que tomaban las columnas porque había errores de tipeo en la carga y valores no normalizados que eran sinónimos en al menos 9 columnas:
+normalizo variaciones de NS/NC:  ‘Ns/Nc’ / 'NS/NS' / 'Sin datos' = 'NS/NC'
+normalizo No/no a NO
+normalizo si/Sí/Si a SI
+llamante_edad: cargué como NA los mayores a 100 y menores a 3 por considerarlos error Sin dato paso a N/A cuando se pasó a numérico. HABÍA 192 FILAS CON 999 parece más que error una carga adrede para no dejar el campo acío, puede ser por desconocimiento del tipo de formulario o del procedimiento para llenarlo.
+ictima_edad: cargué como NA por considerarlos erróneos los mayores o iguales a 103 y los menores a 0. Sin dato/sin datos/NS/NC 1779. De nueo 98 filas con 999 parece ser adrede
+quito espacios de comienzo y final de string (llamante género: ‘ Masculino’ = ‘Masculino’, ' Madre' = 'Madre')
+desmarco expresión de género en datos: llamante_genero: Trans = Transgénero, llamante_vinculo: Vecino = Vecina/o, victima_genero_ Trans = Transgénero
+normalizo variaciones victima_vinculo_agresor: 'Pareja de la vícitma' = 'Pareja de la víctima' 'Pareja ' = 'Pareja de la víctima' Ex pareja = Ex pareja de la víctima
+acorto valores de variables por cuestiones gráficas. hecho_lugar: Otro(Especificar en observaciones) = Otro
+llamado_provincia: 'Ciudad Autónoma de Buenos Aires' = 'CABA', llamado_provincia: 'Santa Fé' = 'Santa Fe'
+
+
+victima edad: saqué los que parecían ser errores:  111 125 y 221
+
+normalicé nombres de provincias uinifiqué caba con ciudad autonoma de buenos aires, santa fé y santa fe dejé solo santa fe
+
+
+
+
 - Descripción: análisis medidas de centralidad, cantidad de faltantes y de NS/NC. --> notebook epxloración
+
+\todo{ver y resumir acá toda la descripción de faltantes que hay en el documento notas}
+
+
+
 - Análisis con respecto a convive
 \todo{análisis respecto a convive}
 
@@ -120,22 +182,66 @@ Después quedaron las categoirías originales: vivienda de la víctima(25pct), v
 - llamante vínculo: agrupé por dominio y con vistas a porcentajes representados. OK
  Institición (Hospital 1.86pct pct, Comisaría 24.91 pct, Escuela 0.42 pct, Defensoría 0.10 pct, Otra Institución 2.04 pct), Conocido de la víctima (puede ser familiar o no familiar) (Madre 16.09 pct, Vecina/o 3.05, Padre 4.54 pct, Familiar 17.28 pct, Otro conocido 6.95 pct, Abuela/o 1.20 pct,Hermana/o 1.01 pct), Agresor 0.09 pct, víctima 14.28 pct, y NS/NC 6.17 pct.
 
-- agresor vínculo: agrupé por dominio de conocido no conocido pero distinguiendo si el conocido es familiar o no, porque las categorías que ya existen en la variable vínculo cn el agresor me lo permiten y porque la cantidad de casos en que el agresor es conocido pero no familiar es mucho más alta que la cantidad de casos de cada fmailiar. OK
+- agresor vínculo: me quedé con la agrupación previa de conocido no conocido pero distinguiendo si el conocido es familiar o no, porque las categorías que ya existen en la variable vínculo cn el agresor me lo permiten y porque la cantidad de casos en que el agresor es conocido pero no familiar es mucho más alta que la cantidad de casos de cada fmailiar. OK
 Conocido: Conocido no familiar 19.79, Conocido familiar: Padre 11.59, Otro pariente 10.09, Padrastro 8.66, Tío 6.26, abuelo 3.23, Hermano 2.77, Ex pareja 1.79, Pareja 1.04, Madre 0.97, Abuela 0.76, Hermana 0.15, Madrastra 0.10. NS/NC 17.28. Desconocido 15.45  
 
 
 B. agrupar variables de violencia x dominio OK script pipeline \todo{describir}
+
+violencia sexual:
+
+se agrupan en una sola variable porque comparten dominio semántico (?) y jurídico:
+
+vs explotación sexual
+vs explotación sexual comercial
+vs explotación sexual viajes turismo
+vs sospecha trata personas fines sexuales
+https://www.argentina.gob.ar/justicia/derechofacil/leysimple/trata-de-personas
+https://www.argentina.gob.ar/trabajo/trata-de-personas
+
+Nueva variable: explotación sexual
+
+se agrupan en una nueva variable porque … violación?:
+
+vs violacion via vaginal
+vs violacion via anal
+vs violacion via oral
+
+Nueva variable: violación
+
+ofv:
+
+se agrupan en una sola variable por dominio:
+
+ofv intento ahogar
+ofv intento quemar 
+ofv intento matar
+ofv intento ahorcar
+
+Nueva variable: intento violencia potencialmente fatal
+
+
+Se agrupan en una nueva variable por dominio:
+
+ofv uso arma blanca
+ofv uso arma fuego
+
+Nueva variable: uso de arma
+
+
 C. quitar las variables poco informativas xq tienen baja tasa de rta. OK script pipeline  \todo{describir}
 
 Correlación:
-A. quiero saber más o menos cómo correlacionan las variables a convive. 
+- correlacion entre numerica y binaria: point biserial -> edad v, edad ll, fecha_hora contra victima convive si/no
+- correlacion entre binaria y binaria: phi coefficient -> violencia (todas), fin de semana,  resguardo
+- correlacion entre categorica y categorica: chi2 -> provincia, ll genero, ll vinculo, caso judic, lugar, v genero, v nacionalidad, vic vinculo agr, vic discapacidad contra convive
 
-- Podría correr chi sq2 para las categóricas y pearson o algún otro para las numéricas. Sin embargo, haciendo
-un test rápido veo que no puedo cumplir 1 de los requerimientos básicos de chi sq2.
+Entonces el dataset reducido tiene: 
+- reducción de llamante_vinculo, victima_vinculo_agresor, hecho_lugar, y llamado_provincia. Eliminación de las originales no reducidas.
+- nuevas variables: violacion, uso de arma, explotacion sexual, intento violencia potencialmente fatal que agrupan cada una otras variables. Eliminación de las que fueron agrupadas.
+- Eliminación de las variables poco informativas (menos de 191 SI) \todo{poner el porcentaje que representa ese 191}
 
-- Paso todas las cat. a dummy con get dummy. \todo{pasar todas estas a dummy} y chequeo correlación con convive a ver si elimino alguna otra
-
-
+Tiene en total [cantidad de variables], es decir [cantidad de  variables] menos que el original \todo{poner la cantidad de variables que quedan en este dataset (es el 5) y las que había en el original}
 -----
 
 2. Visualización:
@@ -148,11 +254,11 @@ variables de distinto tipo sin transformaciones.
 
 A. NMDS usando una matriz de distancias de gower: visualizar patrones en los casos. 
 
-- 4 versiones: 
-- edad numérica, y 
-- uso solo los datos completos de edad victima, 
-- luego solo completos de edad llamante, 
-- luego datos completos de ambos.
+versiones:  
+- uso solo los datos completos de edad victima, ll2 ll5
+- luego solo completos de edad llamante, ll2 ll5
+- luego datos completos de ambos. ll2 ll5
+
 
 
 3. Predictivo
