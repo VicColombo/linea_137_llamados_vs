@@ -154,7 +154,7 @@ llamados['tipo_vinculo_llamante'] = \
 # hecho lugar
 
 
-llamados['hecho_lugar'] = \
+llamados['hecho_lugar_red'] = \
     llamados.hecho_lugar.apply(tipo_hecho_lugar)
 
 
@@ -274,16 +274,18 @@ for i in llamados:
     
 vs = list(llamados.loc[:, llamados.columns.str.startswith('vs')].columns)
 ofv = list(llamados.loc[:, llamados.columns.str.startswith('ofv')].columns)
-
+borradas = []
 for i in vs:
     if i in columnas_pocos_si:
+        borradas.append(i)
         llamados.drop(i, axis=1, inplace=True)
 
 for i in ofv:
     if i in columnas_pocos_si:
+        borradas.append(i)
         llamados.drop(i, axis=1, inplace=True)   
 
-print('Se eliminaron las columnas poco informativas: ', columnas_pocos_si)
+print('Se eliminaron las columnas poco informativas: ', borradas)
 
 
 llamados.to_excel("/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx", index=False)
