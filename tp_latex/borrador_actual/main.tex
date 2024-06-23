@@ -315,7 +315,7 @@ Entonces el dataset reducido tiene:
 - Eliminación de las variables poco informativas (menos de 191 SI) \todo{poner el porcentaje que representa ese 191}
 
 Correlación:
-- correlacion entre numerica y binaria: point biserial -> edad v, edad ll, fecha_hora contra victima convive si/no
+- correlacion entre numerica y binaria: point biserial -> edad v, edad ll, fecha_hora contra victima convive si/no, SIN NS/NC
 
 Primero testeé la normalidad de las variables de edad con el test de shapiro wilkinson y con un histograma. Ninguna de las dos es normal, lo que hace perder fuerza a los resultados de la correlación point biserial. Sin embargo, la voy a hacer.
 
@@ -333,7 +333,7 @@ Para llamante edad el test indica una correlación positiva muy débil, es decir
 
 Para victima edad el test indica una correlación negativa débil, es decir, a mayor edad de la víctima, menos probabilidad de que esta conviva con el agresor. El p-valor de 0.0000 indicaría también en este caso que la correlación observada podría ser estadísticamente significativa. 
 
-Nuevamente es necesario recordar que la confiabilidad en los resultados de estos tests se ve afectada negativamente por la falta de normalidad de las variables.
+Nuevamente es necesario recordar que la confiabilidad en los resultados de estos tests se ve afectada por la falta de normalidad de las variables.
 
 
 - correlacion entre binaria y binaria: phi coefficient -> violencia (todas), fin de semana,  resguardo
@@ -342,13 +342,13 @@ The phi coefficient is a measure of the degree of association between two binary
 
 Two binary variables are considered positively associated if most of the data falls along the diagonal cells (i.e., a and d are larger than b and c). In contrast, two binary variables are considered negatively associated if most of the data falls off the diagonal.
 
-Se midió la correlación entre la variable victima_convive_agresor y las variables binarias: fin_de_semana,vs_explotacion_sexual_group,vs_violacion_group,vs_tentativa_group, vs_tocamiento_sexual,vs_intento_tocamiento, vs_grooming, vs_exhibicionismo,vs_obligacion_sacarse_fotos_pornograficas, vs_acoso_sexual,vs_iniciacion_sexual_forzada_inducida, vs_otra_forma_violencia_sexual,vs_no_sabe_no_contesta, ofv_sentimiento_amenaza,ofv_amenaza_explicita,ofv_violencia_fisica,ofv_enganio_seduccion,ofv_grooming,ofv_otra_forma_violencia,ofv_no_sabe_no_contesta,victima_a_resguardo. 
+Se midió la correlación entre la variable victima_convive_agresor SIN NS/NC y las variables binarias: fin_de_semana,vs_explotacion_sexual_group,vs_violacion_group,vs_tentativa_group, vs_tocamiento_sexual,vs_intento_tocamiento, vs_grooming, vs_exhibicionismo,vs_obligacion_sacarse_fotos_pornograficas, vs_acoso_sexual,vs_iniciacion_sexual_forzada_inducida, vs_otra_forma_violencia_sexual,vs_no_sabe_no_contesta, ofv_sentimiento_amenaza,ofv_amenaza_explicita,ofv_violencia_fisica,ofv_enganio_seduccion,ofv_grooming,ofv_otra_forma_violencia,ofv_no_sabe_no_contesta,victima_a_resguardo. 
 
 Los valores de phi sobre la correlación entre cada una de estas variables binarias y la variable target victima_convive_agresor todos positivos pero todos muy bajos, siendo el más alto 0.41 para victima_a_resguardo, 0.16 para vs_grooming, y 0.11 para vs_no_sa_no_contesta. En los tres casos el p-valor es de 0. Puede verse la tabla completa de resultados en el anexo.
 
 - correlacion entre categorica y categorica: chi2 -> provincia, ll genero, ll vinculo, caso judic, lugar, v genero, v nacionalidad, vic vinculo agr, vic discapacidad contra convive
 
-CORRER PRIMERO EL PIPELINE PARA REDUCIR LLAMADO PROVINCIA Y LAS OTRAS ASÍ NO TENGO ESTA DESGRACIA DE CANTIDAD DE NIVELES
+Correlación entre categórica y categórica: chi cuadrado, SIN NS/NC en convive
 
 Tiene en total [cantidad de variables], es decir [cantidad de  variables] menos que el original \todo{poner la cantidad de variables que quedan en este dataset (es el 5) y las que había en el original}
 -----
