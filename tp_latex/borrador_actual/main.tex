@@ -236,6 +236,57 @@ A modo de análisis exploratorio, realicé histogramas univariados para ver la f
 Me propongo como continuación de este análisis explorar la fecha y hora de los llamados, las edades de las víctimas y llamantes, las formas de violencia más comunes, y construir una variable de género del agresor utilizando la variable que estipula el vínculo entre la víctima y el agresor, ya que en algunas de sus categorías el género se encuentra expresado inequívocamente (por ejemplo en las categorías padre, madre, hermano). Además, me interesa sumar análisis multivariados para ver la interacción entre algunas de las variables. Por último, tengo la intención de investigar asociaciones entre variables como edad de la víctima y vínculo con el agresor.
 
 
+
+Las variables de vs y ofv toman los valores SI NO.
+
+En general hay muchos más NO que sí.
+
+Algunas resultan muy poco informativas como vs explotacion sexual viajes turismo (0,02) y ofv intento matar (0,01) resultan muy poco informativas (ocurrencia de 0,02 y 0,01).
+
+Muchas pertenecen al mismo dominio de tipo de violencia, por ejemplo: vs violacion via vaginal vs violacion via anal vs violacion via oral.
+
+Una forma de reducir las dimensaiones del dataset para ver tendencias (?) \todo{por qué quiero reducir las dimensiones del dataset} es agrupar variables similares entre sí.
+
+También podría eliminar las poco o nada informativas pero por el momento voy a agruparlas nomás.
+
+Los agrupamientos propuestos se basan en conocimiento de dominio: la pertenencia de las distintas variables dentro de un agrupamiento al mismo tipo de violencia ejercida sobre una víctima.
+
+
+
+
+las variables vs\_violacion\_via\_vaginal,  vs\_violacion\_via\_anal,  vs\_violacion\_via\_oral, vs\_tentativa\_violacion y vs\_intento\_violacion\_tercera\_persona se agrupan en una sola variable de violación
+
+las variables vs\_tocamiento\_sexual y \\ vs\_intento\_tocamiento se agrupan en una sola variable de tocamiento sexual
+
+
+
+las variables vs\_explotacion\_sexual,  vs\_explotacion\_sexual\_comercial y vs\_explotacion\_sexual\_viajes\_turismo se agrupan en una sola variable de explotación
+
+
+Las variables ofv uso arma blanca ofv uso arma fuego se agrupan en una sola variable de uso de arma
+
+Las varaibles ofv intento ahogar ofv intento quemar 
+ofv intento matar ofv intento ahorcar se agrupan en una sola variable ofv intento violencia potencialmente fatal/ intento violencia extrema.
+
+Candidatas a eliminarse si esa fuera la elección: VS con un punto de corte de al menos 10 ocurrencias en todo el dataset: vs\_explotacion\_sexual\_viajes\_turismo
+
+
+
+OFV con un punto de corte de al menos 10 ocurrencias de SI en todo el dataset: ofv uso animal victimizar
+ofv intento ahogar
+ofv intento quemar 
+ofv intento matar
+
+
+* del mail con soria:
+
+3. Tengo un agrupamiento cualitativo pensado simplemente para achicar la dimensionalidad juntando variables entre sí. Las variables originales están en la imagen adjunta "variables\_vs\_ofv\_original", y el agrupamiento propuesto está ejemplificado para las de violencia sexual aquí, para las de ofv es bastante similar. Lo que me gustaría es nuevamente algún material de apoyo bibliográfico para estas técnicas manuales de reducción de dimensionalidad. Quizás no haya o no sea necesario tener tanto basamento, si les parece que es así, también acepto esa respuesta.
+
+Me parece bien el agrupamiento que proponés. Como te decía, acá es más importante poder justificar desde el dominio, y no tanto desde los datos en sí. No hay reglas escritas que te digan si una variable tiene una distribución, por ejemplo, 96\% SI y 4\% no, hay que descartarla.
+El hecho de que vos puedas justificar desde el dominio, después te facilita la interpretación. Por ejemplo, cuando juntás todos los tipos de explotación en una sola. Está bien, porque explotación es algo bien delimitado, y para un trabajo donde no hay tantos datos, no sería posible entrar a indagar mucho sobre la variante de explotación.
+
+
+
 \section{Metodología}\label{met}
 
 
@@ -245,8 +296,10 @@ Me propongo como continuación de este análisis explorar la fecha y hora de los
 \todo{esto va en datos o en metodología???}
 
 Manual:
-A. reducir la cardinalidad de hecho lugar, provincia, llamante vínculo y agresor vínculo. Esto es porque eventualmente
-voy a hacer encoding con one hot y si no me va a estallar el encoder.
+A. reducir la cardinalidad de hecho lugar, provincia, llamante vínculo y agresor vínculo. 
+
+Si bien al principio la idea era que la primera prueba de svm fuera con el dataset completo, normalizado pero con poca o ninguna intervención en la construcción de variables; llegados a este punto, la cardinalidad de alta de estasvaraibles lleva a tomar la decisón de reducrilas sin antes correr el experimento con svm porque ya está probado en la literatura que alta cardinalidad con encoders tipo one hot es mala y el target o ordinal encoder que funcionan bien para alta cardinalidad no me convencve para etsas vaiables porque no hay ordinalidad que preserar y porque el target implica tener otros cuidados para no incurrir en data leackage
+
 - provincia: con porcentaje que aparece cada provincia o con agrupación por zona del país. OK
 Norte (NOA, NEA), Central (Cuyana, Pampeana), Patagónica, Bs as, CABA, NS/NC. Se podrían haber elegido otras formas de agrupar pero lo cierto es que CABA y Buenos Aires representan el 80 de los llamados, NS/NC el 9 por ciento, Córdoba, Santa Fe, Tucumán, y Mendoza el 7 por ciento, y el resto de la provincias representan individualmente menos del 1 pr ciento de los llamados recibidos.
 
@@ -306,13 +359,14 @@ ofv uso arma fuego
 Nueva variable: uso de arma
 
 
-C. quitar las variables poco informativas xq tienen baja tasa de rta. OK script pipeline  \todo{describir}
+C. quitar las variables poco informativas xq tienen baja tasa de rta.(menos de 191 SI, es decir 1 por ciento o menos de SI)
+Las borradas son: ['vs_amenazas_verbales_contenido_sexual', 'vs_existencia_facilitador_corrupcion_nnya', 'vs_eyaculacion_partes_cuerpo', 'ofv_amenaza_muerte', 'ofv_uso_sustancias_psicoactivas', 'ofv_intento_privacion_libertad', 'ofv_privacion_libertad', 'ofv_uso_animal_victimizar', 'ofv_uso_arma_group', 'ofv_intento_violencia_fisica_group']
 
 Entonces el dataset reducido tiene: 
 - reducción de llamante_vinculo, victima_vinculo_agresor, hecho_lugar, y llamado_provincia. Eliminación de las originales no reducidas.
 - nuevas variables: violacion, uso de arma, explotacion sexual, intento violencia potencialmente fatal que agrupan cada una otras variables. Eliminación de las que fueron agrupadas.
 
-- Eliminación de las variables poco informativas (menos de 191 SI) \todo{poner el porcentaje que representa ese 191}
+
 
 Correlación:
 - correlacion entre numerica y binaria: point biserial -> edad v, edad ll, fecha_hora contra victima convive si/no, SIN NS/NC
@@ -372,14 +426,18 @@ versiones:
 
 
 3. Predictivo
+Encoding Methods for Categorical Data: A Comparative Analysis for Linear Models, Decision Trees, and Support Vector Machines
 
 Finalmente aplico un SVM para predecir los NS/NC de convive como si fueran faltantes.
-
+Uso el dataset con todas las variables modificadas y etc.
 Preparación: 
 A. reemplazo NS/NC por NA.
 B. Dados los faltantes en la variable edad, voy a usar mis dos versiones del dataset, una con
 edad pasada a categórica y luego a dummy, y otra con edad dejada en numérica con sus faltantes y todo
 C. aplico disitntos encoders a la variables, porque en algunas me interesa mantener la ordinalidad y en otras no
+
+
+Ordinal encoder para timestampt y escalar. Lo de escalar lo saqué de Encoding Methods for Categorical Data: A Comparative Analysis for Linear Models, Decision Trees, and Support Vector Machines
 
 
 D. Predictivo para llenar los NS/NC  
@@ -391,57 +449,9 @@ D. Predictivo para llenar los NS/NC
 
 
 
-Tratamient y reducción de variables que describen violencia sexual y otras formas de violencia con un criterio cualitativo
-
-Las variables vs y ofv son muchas, hay muchas categorías dentro de cada una.
-
-Las variables de vs y ofv toman los valores SI NO.
-
-En general hay muchos más NO que sí.
-
-Algunas resultan muy poco informativas como vs explotacion sexual viajes turismo (0,02) y ofv intento matar (0,01) resultan muy poco informativas (ocurrencia de 0,02 y 0,01).
-
-Muchas pertenecen al mismo dominio de tipo de violencia, por ejemplo: vs violacion via vaginal vs violacion via anal vs violacion via oral.
-
-Una forma de reducir las dimensaiones del dataset para ver tendencias (?) \todo{por qué quiero reducir las dimensiones del dataset} es agrupar variables similares entre sí.
-
-También podría eliminar las poco o nada informativas pero por el momento voy a agruparlas nomás.
-
-Los agrupamientos propuestos se basan en conocimiento de dominio: la pertenencia de las distintas variables dentro de un agrupamiento al mismo tipo de violencia ejercida sobre una víctima.
 
 
 
-
-las variables vs\_violacion\_via\_vaginal,  vs\_violacion\_via\_anal,  vs\_violacion\_via\_oral, vs\_tentativa\_violacion y vs\_intento\_violacion\_tercera\_persona se agrupan en una sola variable de violación
-
-las variables vs\_tocamiento\_sexual y \\ vs\_intento\_tocamiento se agrupan en una sola variable de tocamiento sexual
-
-
-
-las variables vs\_explotacion\_sexual,  vs\_explotacion\_sexual\_comercial y vs\_explotacion\_sexual\_viajes\_turismo se agrupan en una sola variable de explotación
-
-
-Las variables ofv uso arma blanca ofv uso arma fuego se agrupan en una sola variable de uso de arma
-
-Las varaibles ofv intento ahogar ofv intento quemar 
-ofv intento matar ofv intento ahorcar se agrupan en una sola variable ofv intento violencia potencialmente fatal/ intento violencia extrema.
-
-Candidatas a eliminarse si esa fuera la elección: VS con un punto de corte de al menos 10 ocurrencias en todo el dataset: vs\_explotacion\_sexual\_viajes\_turismo
-
-
-
-OFV con un punto de corte de al menos 10 ocurrencias de SI en todo el dataset: ofv uso animal victimizar
-ofv intento ahogar
-ofv intento quemar 
-ofv intento matar
-
-
-* del mail con soria:
-
-3. Tengo un agrupamiento cualitativo pensado simplemente para achicar la dimensionalidad juntando variables entre sí. Las variables originales están en la imagen adjunta "variables\_vs\_ofv\_original", y el agrupamiento propuesto está ejemplificado para las de violencia sexual aquí, para las de ofv es bastante similar. Lo que me gustaría es nuevamente algún material de apoyo bibliográfico para estas técnicas manuales de reducción de dimensionalidad. Quizás no haya o no sea necesario tener tanto basamento, si les parece que es así, también acepto esa respuesta.
-
-Me parece bien el agrupamiento que proponés. Como te decía, acá es más importante poder justificar desde el dominio, y no tanto desde los datos en sí. No hay reglas escritas que te digan si una variable tiene una distribución, por ejemplo, 96\% SI y 4\% no, hay que descartarla.
-El hecho de que vos puedas justificar desde el dominio, después te facilita la interpretación. Por ejemplo, cuando juntás todos los tipos de explotación en una sola. Está bien, porque explotación es algo bien delimitado, y para un trabajo donde no hay tantos datos, no sería posible entrar a indagar mucho sobre la variante de explotación.
 
 
 

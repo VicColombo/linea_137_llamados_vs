@@ -226,3 +226,18 @@ def tipo_hecho_lugar (x):
           return x
     else:
         return 'N/A'
+
+
+def categoria_edad (x):
+    if (x >= 0) and (x <= 11) :
+        return 'Niñez'
+    elif (x >= 12) and (x <=18):
+        return 'Adolescencia'
+    elif (x >= 19) and (x <=30):
+        return 'Juventud'
+    elif (x>=31) and (x<=65) :
+        return 'Vejez'
+    elif x>=66:
+        return 'Vejez mayor'
+    else:
+        return 'NS/NC'
