@@ -296,7 +296,7 @@ El hecho de que vos puedas justificar desde el dominio, después te facilita la 
 \todo{esto va en datos o en metodología???}
 
 Manual:
-A. reducir la cardinalidad de hecho lugar, provincia, llamante vínculo y agresor vínculo. 
+A. reducir la cardinalidad de hecho lugar, provincia, llamante vínculo y victima_vinculo_agresor vínculo. 
 
 Si bien al principio la idea era que la primera prueba de svm fuera con el dataset completo, normalizado pero con poca o ninguna intervención en la construcción de variables; llegados a este punto, la cardinalidad de alta de estasvaraibles lleva a tomar la decisón de reducrilas sin antes correr el experimento con svm porque ya está probado en la literatura que alta cardinalidad con encoders tipo one hot es mala y el target o ordinal encoder que funcionan bien para alta cardinalidad no me convencve para etsas vaiables porque no hay ordinalidad que preserar y porque el target implica tener otros cuidados para no incurrir en data leackage
 
@@ -438,6 +438,9 @@ C. aplico disitntos encoders a la variables, porque en algunas me interesa mante
 
 
 Ordinal encoder para timestampt y escalar. Lo de escalar lo saqué de Encoding Methods for Categorical Data: A Comparative Analysis for Linear Models, Decision Trees, and Support Vector Machines
+
+
+Si bien al principio la idea era que la primera prueba de svm fuera con el dataset completo, normalizado pero con poca o ninguna intervención en la construcción de variables; llegados a este punto, la cardinalidad de alta de estasvaraibles lleva a tomar la decisón de reducrilas sin antes correr el experimento con svm porque ya está probado en la literatura que alta cardinalidad con encoders tipo one hot es mala y el target o ordinal encoder que funcionan bien para alta cardinalidad no me convencve para etsas vaiables porque no hay ordinalidad que preserar y porque el target implica tener otros cuidados para no incurrir en data leackage
 
 
 D. Predictivo para llenar los NS/NC  

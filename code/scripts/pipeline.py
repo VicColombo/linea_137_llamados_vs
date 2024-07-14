@@ -137,9 +137,6 @@ print('se guardó llamados v2')
 
 #V3--> construcción de variables
 
-llamados['agresor_fam_no_fam'] = \
-    llamados.victima_vinculo_agresor.apply(fam_nofam)
-
 
 llamados['genero_agresor'] = \
     llamados.victima_vinculo_agresor.apply(genero_agresor)
