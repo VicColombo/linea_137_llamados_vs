@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  21 JUL 2024 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  21 JUL 2024 15:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -525,10 +525,8 @@ Package csquotes Info: Redefining alias 'default' -> 'spanish'.
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count331
 \l__pdf_internal_box=\box74
-) (./main.aux
-LaTeX Info: Redefining \. on input line 12.
-LaTeX Info: Redefining \% on input line 12.
 )
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -549,7 +547,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -610,7 +607,6 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 22.
- (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -618,7 +614,7 @@ Package hyperref Info: Link coloring OFF on input line 22.
 File: translations-basic-dictionary-spanish.trsl (spanish translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 22.
-<imagenes/uba2.jpg, id=31, 233.4321pt x 233.9139pt>
+<imagenes/uba2.jpg, id=7, 233.4321pt x 233.9139pt>
 File: imagenes/uba2.jpg Graphic file (type jpg)
 <use imagenes/uba2.jpg>
 Package pdftex.def Info: imagenes/uba2.jpg  used on input line 30.
@@ -626,26 +622,431 @@ Package pdftex.def Info: imagenes/uba2.jpg  used on input line 30.
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./imagenes/uba2.jpg>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 78.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 78.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 78.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 78.
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 78.
 
-Overfull \hbox (8.8721pt too wide) in paragraph at lines 89--116
+Package natbib Warning: Citation `vasallo2020linea137' on page 1 undefined on input line 83.
+
+
+Package natbib Warning: Citation `contreras2016violencia' on page 1 undefined on input line 83.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 85.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 85.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 85.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 85.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 85.
+
+LaTeX Warning: Reference `tablavar' on page 1 undefined on input line 90.
+
+
+Overfull \hbox (8.8721pt too wide) in paragraph at lines 99--126
  [][] 
+ []
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:151: Missing $ inserted.
+<inserted text> 
+                $
+l.151 2017 2018 2019 llamado\_provincia_
+                                        indec_id   2021 llamado\_provincia\_id
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:153: Missing $ inserted.
+<inserted text> 
+                $
+l.153 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:167: Missing $ inserted.
+<inserted text> 
+                $
+l.167 llamante_
+               edad: cargué como NA los mayores a 100 y menores a 3 por con...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 167.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:167: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.167 llamante_edad: cargué
+                             como NA los mayores a 100 y menores a 3 por con...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 167.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:167: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.167 ...error Sin dato paso a N/A cuando se pasó
+                                                   a numérico. HABÍA 192 F...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 167.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:167: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.167 ...n dato paso a N/A cuando se pasó a numé
+                                                  rico. HABÍA 192 FILAS CON...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 167.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:167: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.167 ... a N/A cuando se pasó a numérico. HABÍ
+                                                  A 192 FILAS CON 999 parece...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 167.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:167: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.167 ...rico. HABÍA 192 FILAS CON 999 parece má
+                                                  s que error una carga adre...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 167.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:167: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.167 ... carga adrede para no dejar el campo ací
+                                                  o, puede ser por desconoci...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:167: Missing { inserted.
+<to be read again> 
+                   \begingroup 
+l.167 ... carga adrede para no dejar el campo ací
+                                                  o, puede ser por desconoci...
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+
+LaTeX Warning: Command \i invalid in math mode on input line 167.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 168.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:168: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.168 ictima_edad: cargué
+                           como NA por considerarlos erróneos los mayores o...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 168.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:168: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.168 ...: cargué como NA por considerarlos erró
+                                                  neos los mayores o iguales...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 169.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:169: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.169 ...comienzo y final de string (llamante\_gé
+                                                  nero: ‘ Masculino’ = �...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \textquoteleft invalid in math mode on input line 169.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 169.
+
+
+LaTeX Warning: Command \textquoteleft invalid in math mode on input line 169.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 169.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 170.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:170: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.170 desmarco expresió
+                        n de género en datos: llamante\_genero: Trans = Tra...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 170.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:170: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.170 desmarco expresión de gé
+                                nero en datos: llamante\_genero: Trans = Tra...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 170.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:170: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.170 ...datos: llamante\_genero: Trans = Transgé
+                                                  nero, llamante_vinculo: Ve...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 170.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:170: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.170 ...cina/o, victima\_genero_ Trans = Transgé
+                                                  nero
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 171.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.171 ...tima\_vinculo\_agresor: 'Pareja de la ví
+                                                  citma' = 'Pareja de la ví...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Missing { inserted.
+<to be read again> 
+                   \begingroup 
+l.171 ...tima\_vinculo\_agresor: 'Pareja de la ví
+                                                  citma' = 'Pareja de la ví...
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+
+LaTeX Warning: Command \i invalid in math mode on input line 171.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 171.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.171 ...areja de la vícitma' = 'Pareja de la ví
+                                                  ctima' 'Pareja ' = 'Pareja...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Missing { inserted.
+<to be read again> 
+                   \begingroup 
+l.171 ...areja de la vícitma' = 'Pareja de la ví
+                                                  ctima' 'Pareja ' = 'Pareja...
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+
+LaTeX Warning: Command \i invalid in math mode on input line 171.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Double superscript.
+<recently read> ^
+                 
+l.171 ... la vícitma' = 'Pareja de la víctima' '
+                                                  Pareja ' = 'Pareja de la v...
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 171.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.171 ...a víctima' 'Pareja ' = 'Pareja de la ví
+                                                  ctima' Ex pareja = Ex pare...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Missing { inserted.
+<to be read again> 
+                   \begingroup 
+l.171 ...a víctima' 'Pareja ' = 'Pareja de la ví
+                                                  ctima' Ex pareja = Ex pare...
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+
+LaTeX Warning: Command \i invalid in math mode on input line 171.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 171.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.171 ...víctima' Ex pareja = Ex pareja de la ví
+                                                  ctima
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:171: Missing { inserted.
+<to be read again> 
+                   \begingroup 
+l.171 ...víctima' Ex pareja = Ex pareja de la ví
+                                                  ctima
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+
+LaTeX Warning: Command \i invalid in math mode on input line 171.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 172.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:172: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.172 ... valores de variables por cuestiones grá
+                                                  ficas. hecho\_lugar: Otro(...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 173.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:173: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.173 llamado\_provincia: 'Ciudad Autó
+                                       noma de Buenos Aires' = 'CABA', llama...
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 173.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:173: Please use \mathaccent for accents in math mode.
+\add@accent ... \let \ignorespaces \relax \accent 
+                                                  #1 #2\egroup \ifmmode \els...
+l.173 ... = 'CABA', llamado\_provincia: 'Santa Fé
+                                                  ' = 'Santa Fe'
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:174: Missing $ inserted.
+<inserted text> 
+                $
+l.174 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:174: Missing } inserted.
+<inserted text> 
+                }
+l.174 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:174: Missing } inserted.
+<inserted text> 
+                }
+l.174 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:174: Missing } inserted.
+<inserted text> 
+                }
+l.174 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:174: Missing } inserted.
+<inserted text> 
+                }
+l.174 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:174: Missing } inserted.
+<inserted text> 
+                }
+l.174 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (4602.99405pt too wide) in paragraph at lines 163--174
+\OT1/cmr/m/n/10 'NS/NC' nor-ma-li-zo No/no a NO nor-ma-li-zo si/S^^S^^P/Si a SI llamante$[]\OML/cmm/m/it/10 dad \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 cargu[]comoNAlosmayoresa\OT1/cmr/m/n/10 100\OML/cmm/m/it/10 ymenoresa\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 porconsiderarloserrorSindatopasoaN=Acuandosepas[]anum[]rico:HAB[]A\OT1/cmr/m/n/10 192\OML/cmm/m/it/10 FILASCON\OT1/cmr/m/n/10 999\OML/cmm/m/it/10 parecem[]squeerrorunacargaadredeparanodejarelcampoac[]$ 
  []
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.130 
-       [1]
+l.178 n
+       ormalicé nombres de provincias uinifiqué caba con ciudad autonoma d... [1]
 
 LaTeX Warning: Text page 2 contains only floats.
 
@@ -653,42 +1054,71 @@ LaTeX Warning: Text page 2 contains only floats.
 Overfull \vbox (0.23497pt too high) has occurred while \output is active []
 
  [2]
-Overfull \hbox (119.53148pt too wide) in paragraph at lines 160--161
-[]\OT1/cmr/m/n/10 las va-ria-bles vs[]violacion[]via[]vaginal, vs[]violacion[]via[]anal, vs[]violacion[]via[]oral, vs[]tentativa[]violacion y vs[]intento[]violacion[]tercera[]persona
- []
 
-
-Overfull \hbox (3.62325pt too wide) in paragraph at lines 166--167
-[]\OT1/cmr/m/n/10 las va-ria-bles vs[]explotacion[]sexual, vs[]explotacion[]sexual[]comercial y vs[]explotacion[]sexual[]viajes[]turismo se agru-
- []
+LaTeX Warning: Marginpar on page 3 moved.
 
 
 LaTeX Warning: Marginpar on page 3 moved.
 
-[3] (./main.bbl) [4] (./main.aux
+
+Overfull \hbox (119.53148pt too wide) in paragraph at lines 234--235
+[]\OT1/cmr/m/n/10 las va-ria-bles vs[]violacion[]via[]vaginal, vs[]violacion[]via[]anal, vs[]violacion[]via[]oral, vs[]tentativa[]violacion y vs[]intento[]violacion[]tercera[]persona
+ []
+
+[3]
+Overfull \hbox (3.62325pt too wide) in paragraph at lines 240--241
+[]\OT1/cmr/m/n/10 las va-ria-bles vs[]explotacion[]sexual, vs[]explotacion[]sexual[]comercial y vs[]explotacion[]sexual[]viajes[]turismo se agru-
+ []
+
+
+LaTeX Warning: Marginpar on page 4 moved.
+
+[4] (./main.bbl)
+
+Package natbib Warning: There were undefined citations.
+
+[5] (./main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
+
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 72DE248EA4D90ED4EB3A4A6F026A690E;946.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  4F1638D24BF33C4840E9782C17C42351;839.
  ) 
 Here is how much of TeX's memory you used:
- 27729 strings out of 474116
- 566460 string characters out of 5743683
+ 27749 strings out of 474116
+ 566929 string characters out of 5743683
  1958187 words of memory out of 5000000
- 49681 multiletter control sequences out of 15000+600000
- 561141 words of font info for 46 fonts, out of 8000000 for 9000
+ 49703 multiletter control sequences out of 15000+600000
+ 561449 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1286b,975s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (5 pages, 397327 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (6 pages, 446035 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
- 25 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 127 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
+ 28 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
