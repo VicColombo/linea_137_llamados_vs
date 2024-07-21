@@ -1,10 +1,11 @@
 \documentclass[10pt, spanish]{article}
-\usepackage[a4paper, total={7in, 9.5in}, margin=1.5in]{geometry}
+\usepackage[a4paper, margin=1.5in]{geometry}
 \usepackage{babel}
 \usepackage{csquotes}
 \usepackage{graphicx} 
 \usepackage{caption}
 \usepackage{hyperref}
+\hypersetup{pageanchor=false}
 \usepackage{float}
 \usepackage{url}
 \usepackage{color}
@@ -120,8 +121,6 @@ Para este trabajo he tomado en principio los llamados de denuncias por violencia
 
 \begin{table}[ht!]
 \centering
-\caption{Resumen de las variables.}
-\label{tablavar}
 \begin{adjustbox}{width={\textwidth},totalheight={\textheight},keepaspectratio}%
 \begin{tabular}{|l|l|l|l|} 
 \hline
@@ -150,6 +149,8 @@ Violencia sexual                 & Cualitativa  &  \begin{tabular}[c]{@{}l@{}} v
 Otras violencias & Cualitativa & \begin{tabular}[c]{@{}l@{}} ofv\_sentimiento\_amenaza, \\ ofv\_amenazas\_explicitas, \\ ofv\_violencia\_fisica, ofv\_intento\_ahorcar, \\ ofv\_intento\_quemar,  ofv\_intento\_ahogar, \\ ofv\_amenaza\_muerte, \\ ofv\_uso\_sustancias\_psicoactivas, \\ ofv\_intento\_privacion\_libertad, \\ ofv\_privacion\_libertad, \\ ofv\_uso\_arma\_blanca, \\ ofv\_uso\_arma\_fuego, \\ ofv\_enganio\_seduccion, ofv\_intento\_matar, \\ ofv\_uso\_animal\_victimizar, \\ ofv\_grooming, ofv\_otra\_forma\_violencia, \\ ofv\_no\_sabe\_no\_contesta\end{tabular} &  \\ 
 \hline
 \end{tabular}
+\caption{Resumen de las variables.}
+\label{tablavar}
 \end{adjustbox}
 \end{table}
 
@@ -465,6 +466,6 @@ D. Predictivo para llenar los NS/NC
 
 \newpage
 
-\bibliography{bibtex_reporte.bib}
+\bibliography{bibtex_reporte}
 
 \end{document}
