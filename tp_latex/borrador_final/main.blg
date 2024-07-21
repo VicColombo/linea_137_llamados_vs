@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: plainnat.bst
+Database file #1: bibtex_reporte.bib
+Warning--entry type for "vasallo2020linea137" isn't style-file defined
+--line 13 of file bibtex_reporte.bib
+Warning--to sort, need author or key in vasallo2020linea137
+You've used 2 entries,
+            2773 wiz_defined-function locations,
+            600 strings with 5162 characters,
+and the built_in function-call counts, 708 in all, are:
+= -- 55
+> -- 39
+< -- 0
++ -- 14
+- -- 12
+* -- 54
+:= -- 96
+add.period$ -- 3
+call.type$ -- 2
+change.case$ -- 10
+chr.to.int$ -- 2
+cite$ -- 6
+duplicate$ -- 31
+empty$ -- 69
+format.name$ -- 13
+if$ -- 150
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 15
+num.names$ -- 4
+pop$ -- 32
+preamble$ -- 1
+purify$ -- 8
+quote$ -- 0
+skip$ -- 32
+stack$ -- 0
+substring$ -- 5
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 22
+warning$ -- 1
+while$ -- 3
+width$ -- 0
+write$ -- 25
+(There were 2 warnings)

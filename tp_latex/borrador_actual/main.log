@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  19 JUL 2024 17:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  21 JUL 2024 14:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,6 +559,40 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen293
 \@vwid@roff=\dimen294
 ))
+\bibdata{bibtex_reporte}
+(./main.bbl
+
+./main.bbl:1: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \begin{thebibliography}{2}
+                              
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./main.bbl:1: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \begin{thebibliography}{2}
+                              
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\bibcite{contreras2016violencia}{Contreras et~al.(2016)Contreras, Both, Guedes, and Dartnall}
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--14
+[]\OT1/cmr/m/n/10 Juan Ma-nuel
+ []
+
+\bibcite{vasallo2020linea137}{{Vassallo, L.}(2020)}
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -656,7 +690,7 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<imagenes/uba2.jpg, id=12, 233.4321pt x 233.9139pt>
+<imagenes/uba2.jpg, id=16, 233.4321pt x 233.9139pt>
 File: imagenes/uba2.jpg Graphic file (type jpg)
 <use imagenes/uba2.jpg>
 Package pdftex.def Info: imagenes/uba2.jpg  used on input line 34.
@@ -1705,7 +1739,17 @@ Overfull \hbox (442.88037pt too wide) in paragraph at lines 402--403
 \OT1/cmr/m/n/10 va-ria-ble tar-get victima$[]\OML/cmm/m/it/10 onvive[]gresortodospositivosperotodosmuybajos; siendoelm[]salto\OT1/cmr/m/n/10 0[]41\OML/cmm/m/it/10 paravictima[][]esguardo; \OT1/cmr/m/n/10 0[]16\OML/cmm/m/it/10 paravs[]rooming; y\OT1/cmr/m/n/10 0[]11\OML/cmm/m/it/10 paravs[]o[]a[]o[]ontesta:Enlostrescasoselp \OMS/cmsy/m/n/10 ^^@
  []
 
-[7] [8] (./main.bbl) [9] (./main.aux
+[7] [8] (./main.bbl
+pdfTeX warning (ext4): destination with the same identifier (name{cite.contreras2016violencia}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.9   Dartnall]{contreras2016violencia}
+                                       
+pdfTeX warning (ext4): destination with the same identifier (name{cite.vasallo2020linea137}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.15 ...{Vassallo, L.}(2020)]{vasallo2020linea137}
+                                                  ) [9] (./main.aux
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
 )
@@ -1722,18 +1766,18 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 28733 strings out of 474116
- 586464 string characters out of 5743683
+ 28736 strings out of 474116
+ 586493 string characters out of 5743683
  1969187 words of memory out of 5000000
  50654 multiletter control sequences out of 15000+600000
  561449 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,16n,101p,1287b,977s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (11 pages, 468603 bytes).
+Output written on main.pdf (11 pages, 469006 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
