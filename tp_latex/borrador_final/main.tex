@@ -16,277 +16,70 @@
 \bibliographystyle{plainnat}
 \usepackage{todonotes}
 
-
-
-
 \begin{document}
 
 \begin{titlepage}
 
-\begin{center}
-\vspace*{-0.5in}
-\begin{figure}[htb]
-\begin{center}
-\includegraphics[scale=.3]{imagenes/uba2.jpg}
-\end{center}
-\end{figure}
-
-\begin{large}
-Maestría en Explotación de Datos y Descubrimiento del Conocimiento\\
-\vspace*{0.15in}
-Universidad de Buenos Aires \\
-
-\vspace*{0.6in}
-\end{large}
-
-\begin{large}
-TÍTULO DEL TRABAJO\\
-
-
-\end{large}
-\vspace*{0.2in}
-\vspace*{0.3in}
-
-
-\vspace*{0.3in}
-\rule{80mm}{0.1mm}\\
-\vspace*{0.1in}
-\begin{large}
-Victoria Colombo
-
-\vspace*{0.3in}
-
-\vspace*{0.1in}fecha
-\end{large}
-\end{center}
-
-\end{titlepage}
+    \begin{center}
+    \vspace*{-0.5in}
+    \begin{figure}[htb]
+    \begin{center}
+    \includegraphics[scale=.3]{images/uba2.jpg}
+    \end{center}
+    \end{figure}
+    
+    \begin{large}
+    Maestría en Explotación de Datos y Descubrimiento del Conocimiento\\
+    \vspace*{0.15in}
+    Universidad de Buenos Aires \\
+    
+    \vspace*{0.6in}
+    \end{large}
+    
+    \begin{large}
+    TÍTULO DEL TRABAJO\\
+    
+    
+    \end{large}
+    \vspace*{0.2in}
+    \vspace*{0.3in}
+    
+    
+    \vspace*{0.3in}
+    \rule{80mm}{0.1mm}\\
+    \vspace*{0.1in}
+    \begin{large}
+    Victoria Colombo
+    
+    \vspace*{0.3in}
+    
+    \vspace*{0.1in}fecha
+    \end{large}
+    \end{center}
+    
+    \end{titlepage}
 
 \newpage
 
+\begin{abstract}
 
-\section*{Resumen}
-
-
-ACÁ VA EL RESUMEN
-
-
+\end{abstract}
+\newpage
 \section*{Introducción}\label{intro}
 
-- antedecentes: explicación del programa que origina los datos. Algunas estadísticas o patrones de datos comunes a esta problemática encontrados en otros trabajos a nivel mundial o a nivel local.
-Por aquí agregar algo sobre la frecuencia con que las víctimas conviven con sus agresores. Por ejemplo durante la pandemia los números de violencia de género específicamente contra las mujeres no bajaron subieron estaban en sus casas.
-Problemas con los tipos de datos falta de denuncias
+\section*{Datos}\label{datos}
 
-- objetivos: imputar los NS/NC de convive no convive con probabilidad de SI/NO  
+\section*{Metodología}\label{met}
 
+\section*{Resultados}\label{red}
 
-En general los datos sobre delitos sexuales son difíciles de recabar, no necesariamente por su naturaleza sino por el contexto social que los rodea. A las víctimas a menudo no se les ofrece empatía, contención ni un lugar seguro para relatar y denunciar lo sucedido, muchas veces son re victimizadas por el sistema judicial y/o por la sociedad misma y algunas veces, como se muestra en el documental Línea 137 \citep{vasallo2020linea137}, no reconocen algunas situaciones de violencia sexual. Esto puede tener que ver en parte con el ocultamiento de ese tipo de violencia cuando ocurre, la naturalización si la violencia se da al interior de una pareja y la falta de educación sexual no solo o no necesariamente de la víctima sino de su entorno social en general \citep{contreras2016violencia}. Al mismo tiempo, recopilar y analizar estos datos para tener información estadística confiable sobre la problemática es importante para poder pensar e implementar soluciones efectivas.
-
-El programa Las Víctimas contra las Violencias depende del Ministerio de Justicia y Derechos Humanos de la Nación y fue creado en el año 2006 con el objetivo de brindar atención e intervención institucional a víctimas de abusos y violencia familiar o sexual\footnote{Dentro de la categoría de violencia familiar se incluyen varios tipos de violencia, entre ellos, la sexual}. Para denunciar \todo{no es una línea para denunciar} y solicitar asistencia las víctimas cuentan, desde 2016, con la línea nacional de emergencia 137 que funciona las 24 horas del día, todo el año, y cuenta en al menos cinco ciudades del país con equipos especializados para llevar a cabo el acompañamiento y las intervenciones necesarias. Los registros de esas llamadas e intervenciones se encuentran digitalizados al menos desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se recopilan bajo la clasificación de llamados e intervenciones domiciliarias por situaciones de violencia familiar y llamados e intervenciones domiciliarias por situaciones de violencia sexual. 
-
-
-\section{Datos}\label{dat}
-
-Para este trabajo he tomado los llamados de denuncias por violencia sexual desde enero de 2017 hasta julio de 2021. Para cada año descargué El \textit{dataset} se compone en total de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, el victimario, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En la tabla \ref{tablavar} detallo las variables y su tipo.
-
-
-
-
-\begin{table}[ht!]
-\centering
-\caption{Resumen de las variables.}
-\label{tablavar}
-\begin{tabular}{|l|l|l|l|} 
-\hline
-Descriptor & Tipo variable & Variables & Observaciones         
-\\ 
-\hline
-\multirow{2}{*}{Víctima} & Cuantitativa & victima\_edad &  
-\\ 
-\cline{2-4}
- & Cualitativa & \begin{tabular}[c]{@{}l@{}}victima\_genero, victima\_nacionalidad, \\ victima\_discapacidad,\\ victima\_vinculo\_agresor,\\victima\_convive\_agresor,\\ victima\_a\_resguardo\end{tabular} & \begin{tabular}[c]{@{}l@{}}victima\_genero toma los valores: \\masculino, femenino, trans, \\ NS/NC.\end{tabular}           
- \\ 
-\hline
-\multirow{2}{*}{Llamante} & Cuantitativa         & {llamante\_edad}&               \\ 
-\cline{2-4}
- & Cualitativa& llamante\_genero, llamante\_vinculo & \begin{tabular}[c]{@{}l@{}}llamante\_genero toma los valores: \\masculino, femenino, trans, \\ NS/NC.\\llamante\_vinculo\_ refiere a vínculo \\con la víctima.\end{tabular}                \\ 
-\hline
-\multirow{2}{*}{Llamado}& Cuantitativa & llamado\_fecha\_hora&                                             \\ 
-\cline{2-4} & Cualitativa & \begin{tabular}[c]{@{}l@{}} caso\_id, llamado\_provincia, \\ llamado\_provincia\_id, \\ caso\_judicializado, hecho\_lugar\end{tabular} & \begin{tabular}[c]{@{}l@{}} llamado\_provincia\_id refiere al id \\numérico para las provincias \\según codificación INDEC.\end{tabular}                                \\ 
-\hline
-Violencia sexual                 & Cualitativa  &  \begin{tabular}[c]{@{}l@{}} vs\_violacion\_via\_vaginal, \\ vs\_violacion\_via\_anal, \\ vs\_violacion\_via\_oral, \\ vs\_tentativa\_violacion, \\ vs\_tocamiento\_sexual, \\ vs\_intento\_tocamiento, \\ vs\_intento\_violacion\_tercera\_persona, \\ vs\_grooming, vs\_exhibicionismo, \\ vs\_amenazas\_verbales\_contenido\_sexual, \\ vs\_explotacion\_sexual, \\ vs\_explotacion\_sexual\_comercial, \\ vs\_explotacion\_sexual\_viajes\_turismo,\\ vs\_sospecha\_trata\_personas- \\ \_fines\_sexuales, \\ vs\_existencia\_facilitador-\\
-\_corrupcion\_nnya, \\ vs\_obligacion\_sacarse\_fotos\_pornograficas, \\ vs\_eyaculacion\_partes\_cuerpo, \\ vs\_acoso\_sexual, \\ vs\_iniciacion\_sexual\_forzada\_inducida, \\ vs\_otra\_forma\_violencia\_sexual, \\ vs\_no\_sabe\_no\_contesta \end{tabular} &
-
-\begin{tabular}[b]{@{}l@{}} vs\_existencia\_facilitador-\\
-\_corrupcion\_nnya \\ refiere a la existencia de un \\ facilitador de la corrupción de \\ niños, niñas y adolescentes.\\\\ vs\_no\_sabe\_no\_contesta refiere \\ violencia sexual que se desconoce \\ o que no hace referencia a los otros \\ campos mencionados.\end{tabular}                                                  \\ 
-\hline
-Otras violencias & Cualitativa & \begin{tabular}[c]{@{}l@{}} ofv\_sentimiento\_amenaza, \\ ofv\_amenazas\_explicitas, \\ ofv\_violencia\_fisica, ofv\_intento\_ahorcar, \\ ofv\_intento\_quemar,  ofv\_intento\_ahogar, \\ ofv\_amenaza\_muerte, \\ ofv\_uso\_sustancias\_psicoactivas, \\ ofv\_intento\_privacion\_libertad, \\ ofv\_privacion\_libertad, \\ ofv\_uso\_arma\_blanca, \\ ofv\_uso\_arma\_fuego, \\ ofv\_enganio\_seduccion, ofv\_intento\_matar, \\ ofv\_uso\_animal\_victimizar, \\ ofv\_grooming, ofv\_otra\_forma\_violencia, \\ ofv\_no\_sabe\_no\_contesta\end{tabular} &  \\ 
-\hline
-\end{tabular}
-\end{table}
-
-DATOS
-- por menor de la construcción del data set que es distinto para datos abiertos que es el original
-- preprocesamiento: prepro para juntarlos + limpieza --> script pipeline
-
-Descripción de la limpieza del dataset:
-
-Notas sobre la normalización
-nombres de columnas
-
-caso\_id
-en la unificación de datasets el de llamados de 2019 tiene el encoding distinto/roto
-2017 y 2018 no tienen la columna caso\_id pero los otros sí
-voy a droppear todos los caso id
-
-llamante\_vinculo
-2017 2018: llamante\_quien\_llama
-2019 adelante: llamante\_vinculo
-
-normalizo los nombres a llamante\_vinculo
-
-provincia\_id
-
-llamado\_provincia\_id (string): provincia desde la que se realiza el llamado a la Línea 137/0800-222-1717, según la codificación de provincia implementada por INDEC (hasta 05/2019 nombre campo llamado\_provincia\_indec\_id)
-2017 2018 2019 llamado\_provincia_indec_id   2021 llamado\_provincia\_id
-normalizo a llamado\_provincia\_id
-
-fecha\_hora
-cambio fecha hora por dos columnas fecha y hora
-
-Tipos de datos
-paso a integer: llamante\_edad, victima\_edad para eso los faltantes los pasé a NA, porque estaban como Sin datos, era una columna de mixed types. Al pasar a integer los valores string (sin dato, NS/NC etc pasaron solos a N/A con coerce errors)
-dejo todos los otros datos en categorical (cambio los que no estaban)
-
-Valores erróneos
-
-normalicé los valores que tomaban las columnas porque había errores de tipeo en la carga y valores no normalizados que eran sinónimos en al menos 9 columnas:
-normalizo variaciones de NS/NC:  ‘Ns/Nc’ / 'NS/NS' / 'Sin datos' = 'NS/NC'
-normalizo No/no a NO
-normalizo si/Sí/Si a SI
-llamante_edad: cargué como NA los mayores a 100 y menores a 3 por considerarlos error Sin dato paso a N/A cuando se pasó a numérico. HABÍA 192 FILAS CON 999 parece más que error una carga adrede para no dejar el campo acío, puede ser por desconocimiento del tipo de formulario o del procedimiento para llenarlo.
-ictima_edad: cargué como NA por considerarlos erróneos los mayores o iguales a 103 y los menores a 0. Sin dato/sin datos/NS/NC 1779. De nueo 98 filas con 999 parece ser adrede
-quito espacios de comienzo y final de string (llamante\_género: ‘ Masculino’ = ‘Masculino’, ' Madre' = 'Madre')
-desmarco expresión de género en datos: llamante\_genero: Trans = Transgénero, llamante_vinculo: Vecino = Vecina/o, victima\_genero_ Trans = Transgénero
-normalizo variaciones victima\_vinculo\_agresor: 'Pareja de la vícitma' = 'Pareja de la víctima' 'Pareja ' = 'Pareja de la víctima' Ex pareja = Ex pareja de la víctima
-acorto valores de variables por cuestiones gráficas. hecho\_lugar: Otro(Especificar en observaciones) = Otro
-llamado\_provincia: 'Ciudad Autónoma de Buenos Aires' = 'CABA', llamado\_provincia: 'Santa Fé' = 'Santa Fe'
-
-
-victima edad: saqué los que parecían ser errores:  111 125 y 221
-
-normalicé nombres de provincias uinifiqué caba con ciudad autonoma de buenos aires, santa fé y santa fe dejé solo santa fe
-
-
-
-
-- Descripción: análisis medidas de centralidad, cantidad de faltantes y de NS/NC. --> notebook epxloración
-
-\todo{ver y resumir acá toda la descripción de faltantes que hay en el documento notas}
-
-
-
-- Análisis con respecto a convive
-\todo{análisis respecto a convive}
-
-
-
-
-\section{Metodología}\label{met}
-
-Los datos de los llamados desde 2017 hasta julio de 2021 fueron descargados del portal mencionado en la sección anterior en cinco archivos de formato csv separados, uno por año. La unificación de esos archivos en un solo \textit{dataset} implicó realizar algunas modificaciones para sortear problemas de correspondencias entre años. La variable \textit{caso\_id} solo existe desde el primer trimestre de 2020, los casos anteriores a esa fecha no contaban con ella, por lo tanto tomé la decisión de eliminarla también para 2020 y 2021. La variable \textit{llamado\_provincia\_id} llevaba otro nombre hasta el año 2019: \textit{llamado\_provincia\_indec\_id} y fue entonces modificada en 2017, 2018 y 2019 para llevar el nombre actual. 
-\newline
-Los \textit{types} de las variables cualitativas fueron cambiados a \textit{categorical}\footnote{El análisis exploratorio y el resto del trabajo con datos fue y será realizado en Python} \todo[color=red!40]{esto va en metodología}. Además, los valores que tomaban al menos 9 de esas variables categóricas debieron ser normalizados por errores varios en la carga o valores cargados con sinónimos. Por ejemplo, muchos NS/NC fueron cargados en minúscula y en mayúscula en la misma columna y debieron ser normalizados a mayúscula; además, por ejemplo en la variable \textit{victima\_vinculo\_agresor} se repetían algunos valores cargados con distinta ortografía como "Ex pareja de la víctima" y "Ex-pareja de la víctima" y "Expareja de la víctima" que debieron ser normalizados.
-Los \textit{types} de las variables cuantitativas de edad fueron pasados a \textit{integer}. Los valores numéricos de \textit{victima\_edad} y \textit{llamante\_edad} tenían errores de carga evidentes ya que aparecían valores numéricos demasiado altos para ser edades como: 125, 221, 324. Las filas con esos valores no fueron eliminadas por el momento porque considero que el resto de los datos de la fila no están errados y es posible que los necesite más adelante. En cambio, los datos fueron marcados para no ser utilizados en análisis que incluyan las variables de edad.
-A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero}, \textit{victima\_discapacidad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor}, \textit{llamante\_edad}, \textit{llamante\_genero}, \textit{llamante\_vinculo} y \textit{hecho\_lugar}. Además, realicé un agrupamiento de las categorías de vínculos entre agresor y víctima para poder distinguir entre parejas, familiares y no familiares (conocidos). Algunos de estos histogramas se comentan en la sección siguiente. 
-
-Me propongo como continuación de este análisis explorar la fecha y hora de los llamados, las edades de las víctimas y llamantes, las formas de violencia más comunes, y construir una variable de género del agresor utilizando la variable que estipula el vínculo entre la víctima y el agresor, ya que en algunas de sus categorías el género se encuentra expresado inequívocamente (por ejemplo en las categorías padre, madre, hermano). Además, me interesa sumar análisis multivariados para ver la interacción entre algunas de las variables. Por último, tengo la intención de investigar asociaciones entre variables como edad de la víctima y vínculo con el agresor.
-
-
-
-
-\section{Reducción de dimensiones y análisis}\label{red}
-
-
-
-
-Tratamient y reducción de variables que describen violencia sexual y otras formas de violencia con un criterio cualitativo
-
-Las variables vs y ofv son muchas, hay muchas categorías dentro de cada una.
-
-Las variables de vs y ofv toman los valores SI NO.
-
-En general hay muchos más NO que sí.
-
-Algunas resultan muy poco informativas como vs explotacion sexual viajes turismo (0,02) y ofv intento matar (0,01) resultan muy poco informativas (ocurrencia de 0,02 y 0,01).
-
-Muchas pertenecen al mismo dominio de tipo de violencia, por ejemplo: vs violacion via vaginal vs violacion via anal vs violacion via oral.
-
-Una forma de reducir las dimensaiones del dataset para ver tendencias (?) \todo{por qué quiero reducir las dimensiones del dataset} es agrupar variables similares entre sí.
-
-También podría eliminar las poco o nada informativas pero por el momento voy a agruparlas nomás.
-
-Los agrupamientos propuestos se basan en conocimiento de dominio: la pertenencia de las distintas variables dentro de un agrupamiento al mismo tipo de violencia ejercida sobre una víctima.
-
-
-
-
-las variables vs\_violacion\_via\_vaginal,  vs\_violacion\_via\_anal,  vs\_violacion\_via\_oral, vs\_tentativa\_violacion y vs\_intento\_violacion\_tercera\_persona se agrupan en una sola variable de violación
-
-las variables vs\_tocamiento\_sexual y \\ vs\_intento\_tocamiento se agrupan en una sola variable de tocamiento sexual
-
-
-
-las variables vs\_explotacion\_sexual,  vs\_explotacion\_sexual\_comercial y vs\_explotacion\_sexual\_viajes\_turismo se agrupan en una sola variable de explotación
-
-
-Las variables ofv uso arma blanca ofv uso arma fuego se agrupan en una sola variable de uso de arma
-
-Las varaibles ofv intento ahogar ofv intento quemar 
-ofv intento matar ofv intento ahorcar se agrupan en una sola variable ofv intento violencia potencialmente fatal/ intento violencia extrema.
-
-\todo{este agrupamiento vs eliminación se puede revisitar, si las cosas se ven raras o algo en el plot o o si el predictivo es muy raro o lo que sea. o se pueden hacer las dos cosas, eliminación y agrupación y ver cómo sale con cada una}
-
-Candidatas a eliminarse si esa fuera la elección: \todo{estos puntos de corte también se pueden re evaluar o buscar biblio sobre establecer puntos de corte para variables con poca representatividad}
-
-VS con un punto de corte de al menos 10 ocurrencias en todo el dataset: vs\_explotacion\_sexual\_viajes\_turismo
-
-
-
-OFV con un punto de corte de al menos 10 ocurrencias de SI en todo el dataset: ofv uso animal victimizar
-ofv intento ahogar
-ofv intento quemar 
-ofv intento matar
-
-
-* del mail con soria:
-
-3. Tengo un agrupamiento cualitativo pensado simplemente para achicar la dimensionalidad juntando variables entre sí. Las variables originales están en la imagen adjunta "variables\_vs\_ofv\_original", y el agrupamiento propuesto está ejemplificado para las de violencia sexual aquí, para las de ofv es bastante similar. Lo que me gustaría es nuevamente algún material de apoyo bibliográfico para estas técnicas manuales de reducción de dimensionalidad. Quizás no haya o no sea necesario tener tanto basamento, si les parece que es así, también acepto esa respuesta.
-
-Me parece bien el agrupamiento que proponés. Como te decía, acá es más importante poder justificar desde el dominio, y no tanto desde los datos en sí. No hay reglas escritas que te digan si una variable tiene una distribución, por ejemplo, 96\% SI y 4\% no, hay que descartarla.
-El hecho de que vos puedas justificar desde el dominio, después te facilita la interpretación. Por ejemplo, cuando juntás todos los tipos de explotación en una sola. Está bien, porque explotación es algo bien delimitado, y para un trabajo donde no hay tantos datos, no sería posible entrar a indagar mucho sobre la variante de explotación.
-
-
-
-
-
-
-
-
-\section{Construcción de un modelo predictivo}\label{pred}
-
-
-\section{Resultados}\label{res}
-
-\section{Conclusiones}\label{conc}
-
-
-
-
-
-
+\section*{Discusión y conclusiones}\label{conc}
 \newpage
 
-\bibliography{bibtex_reporte}
+
+\bibliography{bibtex_reporte.bib}
+
+\newpage
+\section*{Anexo}\label{anex}
 
 \end{document}
