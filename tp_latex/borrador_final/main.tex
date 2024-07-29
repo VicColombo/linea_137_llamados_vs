@@ -67,13 +67,73 @@
 \newpage
 \section*{Introducción}\label{intro}
 
+
+La violencia sexual es todo acto o intento de acto sexual, o comentarios o insinuaciones sexuales no deaseados, intentados o consumados contra la sexualidad de otra persona de manera coercitiva, por cualquier persona sin importar el vínculo con la víctima, y en cualquier ámbito, incluyendo el hogar y el trabajo \citep*{ferris2002world}. Estudios sobre violencia sexual a nivel mundial demuestran que las víctimas de violencia sexual son mayormente mujeres y los perpetradores mayormente hombres, y además, que los perpetradores son en la amplia mayoría de los casos conocidos por las víctimas, no extraños \citep*{garcia2005multi,contreras2016violencia}. A nivel local, en esta misma línea, el más reciente informe nacional \textit{Relevamiento de fuentes secundarias de datos sobre violencia sexual} de la UFEM \citep*{ufem_relevamiento} especifica que la violencia sexual “afecta particularmente a las mujeres cis y personas LGBTI+“ (p.7). Estas estadísticas se ven reflejadas   
+
+
+
+
+la situaci;on es m;as compleja, no? menos denuncias de hombres, menos denuncas de minor;ias no cis género excede el trabajo por los tiposde datos que tengo
+Por ejemplo durante la pandemia los números de violencia de género específicamente contra las mujeres no bajaron subieron estaban en sus casas.
+
+
+La  recopilación, sistematización, y análisis de datos sobre violencia sexual por parte de los Estados es crucial para planificar y llevar adelante políticas efectivas de prevención, asistencia, y erradicación de la violencia sexual. En Argentina no hay un sistema estatal único y centralizado de este tipo de información. Sin embargo, existen entidades judiciales y programas estatales que, además de ofrecer auxilio, asistencia y/o acceso a la justicia, recaban datos sobre violencia sexual, y mantienen un registro público de ellos en el Portal de Datos Abiertos del Ministerio de Justicia. 
+
+En este trabajo en paticular analizaré registros provenientes del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia y Derechos Humanos de la Nación, fue creado en el año 2006 con el objetivo de brindar atención e intervención institucional a víctimas de abusos y violencia familiar o sexual. Para solicitar asistencia, acompañamiento, y asesoramiento para el acceso a la justicia, las víctimas cuentan, desde 2016, con la línea nacional de emergencia 137 que funciona las 24 horas del día, todo el año, y cuenta en al menos cinco ciudades del país con equipos especializados para llevar a cabo el acompañamiento y las intervenciones necesarias. Los registros de esas llamadas e intervenciones se encuentran digitalizados al menos desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran dos tipos de \textit{datasets}: llamados e intervenciones domiciliarias por situaciones de violencia familiar, y llamados e intervenciones domiciliarias por situaciones de violencia sexual. \todo{rever cómo sigue el programa ahora}
+
+
+
+\subsection*{objetivo}
+- objetivos: imputar los NS/NC de convive no convive con probabilidad de SI/NO 
+El dataset tiene muchos datos faltantes, como se verá en la sección \nameref{datos} a continuación.
+
+
 \section*{Datos}\label{datos}
+
+Para este trabajo he tomado en principio los llamados de denuncias por violencia sexual desde enero de 2017 hasta julio de 2021. El \textit{dataset} se compone en total de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En la tabla \ref{tablavar} se detallan las variables y su tipo.
+
+\begin{table}[ht!]
+    \centering
+    \caption{Resumen de las variables.}
+    \label{tablavar}
+    \begin{tabular}{|l|l|l|l|} 
+    \hline
+    Descriptor & Tipo variable & Variables & Observaciones         
+    \\ 
+    \hline
+    \multirow{2}{*}{Víctima} & Cuantitativa & victima\_edad &  
+    \\ 
+    \cline{2-4}
+     & Cualitativa & \begin{tabular}[c]{@{}l@{}}victima\_genero, victima\_nacionalidad, \\ victima\_discapacidad,\\ victima\_vinculo\_agresor,\\victima\_convive\_agresor,\\ victima\_a\_resguardo\end{tabular} & \begin{tabular}[c]{@{}l@{}}victima\_genero toma los valores: \\masculino, femenino, trans, \\ NS/NC.\end{tabular}           
+     \\ 
+    \hline
+    \multirow{2}{*}{Llamante} & Cuantitativa         & {llamante\_edad}&               \\ 
+    \cline{2-4}
+     & Cualitativa& llamante\_genero, llamante\_vinculo & \begin{tabular}[c]{@{}l@{}}llamante\_genero toma los valores: \\masculino, femenino, trans, \\ NS/NC.\\llamante\_vinculo\_ refiere a vínculo \\con la víctima.\end{tabular}                \\ 
+    \hline
+    \multirow{2}{*}{Llamado}& Cuantitativa & llamado\_fecha\_hora&                                             \\ 
+    \cline{2-4} & Cualitativa & \begin{tabular}[c]{@{}l@{}} caso\_id, llamado\_provincia, \\ llamado\_provincia\_id, \\ caso\_judicializado, hecho\_lugar\end{tabular} & \begin{tabular}[c]{@{}l@{}} llamado\_provincia\_id refiere al id \\numérico para las provincias \\según codificación INDEC.\end{tabular}                                \\ 
+    \hline
+    Violencia sexual                 & Cualitativa  &  \begin{tabular}[c]{@{}l@{}} vs\_violacion\_via\_vaginal, \\ vs\_violacion\_via\_anal, \\ vs\_violacion\_via\_oral, \\ vs\_tentativa\_violacion, \\ vs\_tocamiento\_sexual, \\ vs\_intento\_tocamiento, \\ vs\_intento\_violacion\_tercera\_persona, \\ vs\_grooming, vs\_exhibicionismo, \\ vs\_amenazas\_verbales\_contenido\_sexual, \\ vs\_explotacion\_sexual, \\ vs\_explotacion\_sexual\_comercial, \\ vs\_explotacion\_sexual\_viajes\_turismo,\\ vs\_sospecha\_trata\_personas- \\ \_fines\_sexuales, \\ vs\_existencia\_facilitador-\\
+    \_corrupcion\_nnya, \\ vs\_obligacion\_sacarse\_fotos\_pornograficas, \\ vs\_eyaculacion\_partes\_cuerpo, \\ vs\_acoso\_sexual, \\ vs\_iniciacion\_sexual\_forzada\_inducida, \\ vs\_otra\_forma\_violencia\_sexual, \\ vs\_no\_sabe\_no\_contesta \end{tabular} &
+    
+    \begin{tabular}[b]{@{}l@{}} vs\_existencia\_facilitador-\\
+    \_corrupcion\_nnya \\ refiere a la existencia de un \\ facilitador de la corrupción de \\ niños, niñas y adolescentes.\\\\ vs\_no\_sabe\_no\_contesta refiere \\ violencia sexual que se desconoce \\ o que no hace referencia a los otros \\ campos mencionados.\end{tabular}                                                  \\ 
+    \hline
+    Otras violencias & Cualitativa & \begin{tabular}[c]{@{}l@{}} ofv\_sentimiento\_amenaza, \\ ofv\_amenazas\_explicitas, \\ ofv\_violencia\_fisica, ofv\_intento\_ahorcar, \\ ofv\_intento\_quemar,  ofv\_intento\_ahogar, \\ ofv\_amenaza\_muerte, \\ ofv\_uso\_sustancias\_psicoactivas, \\ ofv\_intento\_privacion\_libertad, \\ ofv\_privacion\_libertad, \\ ofv\_uso\_arma\_blanca, \\ ofv\_uso\_arma\_fuego, \\ ofv\_enganio\_seduccion, ofv\_intento\_matar, \\ ofv\_uso\_animal\_victimizar, \\ ofv\_grooming, ofv\_otra\_forma\_violencia, \\ ofv\_no\_sabe\_no\_contesta\end{tabular} &  \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    
 
 \section*{Metodología}\label{met}
 
 \section*{Resultados}\label{red}
 
 \section*{Discusión y conclusiones}\label{conc}
+cruzamiento de datos ovd líneas de asistencia, observatorio de género.
+acceso y análisis de datos extensivo a provincias, no solo benos aitres
+
 \newpage
 
 
