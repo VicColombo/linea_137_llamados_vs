@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1722441702.64463 "main.aux" "main.bbl" "main" 1722441703.78951 0
+["bibtex main"] 1722441913.33554 "main.aux" "main.bbl" "main" 1722442117.4215 0
   "./bibtex_reporte.bib" 1722431244.39144 2022 24b949984b81fdb78629e1c9c663027d ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1722441703.55792 2026 8084911496d84c1f3410b837d03c3c2b "pdflatex"
+  "main.aux" 1722442117.16165 2026 6b58d1c59740d69719de20c3815ee36a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1722441702.73322 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1722441703.78966 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1722441701.43555 12481 ea3de63d960e431c57de97205a8e33fe ""
+["pdflatex"] 1722442116.3082 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1722442117.42165 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1722442116.09998 12505 cfbfcbff889575b8b46a178567a77cb2 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -179,10 +179,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1714906201 8221447 788a2b891939645b305e1f76a4adad8d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "images/uba2.jpg" 1721825197.71324 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1722441703.55792 2026 8084911496d84c1f3410b837d03c3c2b "pdflatex"
-  "main.bbl" 1722441702.73083 2047 54f001422fca7f5a99db40035342961a "bibtex main"
-  "main.out" 1722441703.36788 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1722441701.43555 12481 ea3de63d960e431c57de97205a8e33fe ""
+  "main.aux" 1722442117.16165 2026 6b58d1c59740d69719de20c3815ee36a "pdflatex"
+  "main.bbl" 1722441913.42178 2047 54f001422fca7f5a99db40035342961a "bibtex main"
+  "main.out" 1722442116.89869 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1722442116.09998 12505 cfbfcbff889575b8b46a178567a77cb2 ""
   (generated)
   "main.aux"
   "main.log"
