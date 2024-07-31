@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  28 JUL 2024 22:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  30 JUL 2024 18:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -648,7 +648,7 @@ LaTeX Warning: Text page 3 contains only floats.
 
 Overfull \vbox (0.23497pt too high) has occurred while \output is active []
 
- [3] (./main.bbl) [4] [5] (./main.aux
+ [3] [4] (./main.bbl) [5] [6] (./main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -660,18 +660,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27674 strings out of 474116
- 565580 string characters out of 5743683
- 1950187 words of memory out of 5000000
- 49633 multiletter control sequences out of 15000+600000
+ 27676 strings out of 474116
+ 565605 string characters out of 5743683
+ 1955187 words of memory out of 5000000
+ 49634 multiletter control sequences out of 15000+600000
  560400 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,15n,101p,1300b,975s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,15n,101p,2580b,975s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (6 pages, 378868 bytes).
+Output written on main.pdf (7 pages, 380595 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
