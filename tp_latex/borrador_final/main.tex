@@ -12,7 +12,7 @@
 \usepackage{siunitx}
 \usepackage{hhline}
 \usepackage{multirow}
-\usepackage{natbib}
+\usepackage[round]{natbib}
 \bibliographystyle{plainnat}
 \usepackage{todonotes}
 
@@ -67,29 +67,39 @@
 \newpage
 \section*{Introducción}\label{intro}
 
+\subsection*{Estado del arte}
 
-La violencia sexual comprende una multiplicidad de conductas o intentos de conductas, que van desde actos sexuales hasta comentarios sexuales, dirigidos contra la sexualidad de otra persona de manera coercitiva. Estudios sobre violencia sexual a nivel mundial demuestran que las víctimas son mayormente mujeres y los perpetradores mayormente hombres \citetext{\citealp[p.~149]{ferris2002world}; \citealp[p.~15]{contreras2016violencia}}. En Argentina, el más reciente informe \textit{Relevamiento de fuentes secundarias de datos sobre violencia sexual} de la UFEM \citep*{ufem_relevamiento} reafirma estas estadísticas y agrega información sobre disidencias de género, especificando que la violencia sexual “afecta particularmente a las mujeres cis y personas LGBTI+“ (p.7). Estas tendencias se reflejan también en el \textit{dataset} que analizo en el presente trabajo (ver \nameref{datos}). En cuanto a la cuestión de qué identidades de género son mayormente víctimas y qué identidades son mayormente victimarias, es importante que remarque que la situación es muy compleja. Por ejemplo, Rita Segato habla en \textit{La guerra contra las mujeres} \citep*{segato2016guerra} de la violencia sexual hacia cuerpos femininos y \textit{feminizados} (resaltado propio). Con esto último quiere decir cuerpos percibidos o construidos por los abusadores como femeninos con respecto a posiciones de poder: menores, débiles, racializados, pertenecientes a disidencias sexuales. Esto se condice con hallazgos presentados tanto en el informe citado de UFEM como en compendio sobre \textit{Violencia sexual en latinoamérica y el caribe} \citep*{contreras2016violencia} sobre la incidencia mayor de la violencia sexual contra identidades masculinas durante la niñez y la adolescencia niñez y adolescencia, es decir, en períodos en que los cuerpos son más vulnerables y por lo tanto, feminizados. Al mismo tiempo, en general los hombres son más reacios a denunciar haber sufrido violencia sexual, y lo mismo sucede, auqnue por distintos motivos, con disidencias de género. Las denuncias de violencia sexual contra personas de la comunidad LGBTI+ son menos que las denuncias en que la víctima es una mujer heterosexual, cisgénero. ¿Quiere decir esto que esas personas sufren menos violencia sexual? ¿O quiere decir que, como minoría, tienen menos acceso a la justicia y por ende sus casos están subrepresentados en los \textit{datasets}?   
+La violencia sexual comprende una multiplicidad de conductas o intentos de conductas, que van desde actos hasta comentarios sexuales, dirigidos contra la sexualidad de otra persona de manera coercitiva. Por la naturaleza misma del hecho y en gran parte, los prejuicios y tabúes sobre sexualidad que circulan en las distintas sociedades, los datos sobre violencia sexual son difíciles de recabar. Aún así el tema ha sido explorado largamente y estudios a nivel mundial encuentran que las víctimas son mayormente mujeres y los perpetradores mayormente hombres \citetext{\citealp[p.~149]{ferris2002world}; \citealp[p.~15]{contreras2016violencia}}; y además, que en la mayoría de los casos los agresores son personas conocidas por las víctimas: parejas, ex parejas, u otros conocidos \citep*{garcia2005multi, contreras2016violencia,unicef2018analisis}.
 
-, y además, que los perpetradores son en la amplia mayoría de los casos conocidos por las víctimas, no extraños
+La cuestión de qué identidades de género son mayormente víctimas y qué identidades son mayormente victimarias es sumamente compleja. Por un lado porque son pocos los informes que no se limitan a hablar de hombres y mujeres asumiendo (o ignorando por falta de datos) en el análisis las identidades de género y orientaciones sexuales de los sujetos\footnote{De todos los estudios e informes consultados para este trabajo, solamente el \textit{Relevamiento de fuentes secundarias de datos sobre violencia sexual} de la \citet{ufem_relevamiento} menciona identidades de género cuando especifica que la violencia sexual “afecta particularmente a las mujeres cis y personas LGBTI+“ (p.7).}. Esto dificulta las generalizaciones y las comparaciones. Si las denuncias de violencia sexual contra disidencias de género representan una minoría en los datos, ¿quiere decir esto que esas personas sufren menos violencia sexual?, ¿O quiere decir que, como minoría social, están subrepresentados en general y que tienen menos acceso a la justicia? Por otro lado, se estima que las estadísticas sobre violencia sexual contra hombres (podemos asumir que estas estimaciones refieren hombres cis género heterosexuales) subrepresentan ampliamente la cantidad real de casos \citep*[p.~149]{ferris2002world}. El hecho de que exista menor cantidad de denuncias no tiene que ver solamente con que haya menor cantidad de casos, sino muy probablemente también con la existencia de prejuicios y estigmas sociales que producen ocultamiento de este tipo de incidentes y coartan la posibilidad de acceso a la justicia para estas víctimas \citep*[p.~149]{ferris2002world}. Estas particularidades sobre género y sexualidad de víctimas y victimarios exceden a este trabajo de especialización y no serán abordadas. Me limito entonces a especifcar que cuando en mi análisis hable sobre víctimas, victimarios, y personas que realizan los llamados, no podré hacer distinción sobre sus identidades de género más allá de las únicas tres categorías registradas en el \textit{dataset}: hombre, mujer, y transgénero (sin especificar si se trata de una mujer o un hombre transgénero).  
 
+La cuestión del conocimiento de los agresores por parte de las víctimas ha sido ampliamente estudiada, aún con las limitaciones que impone (cita), y viene a desmentir una creencia que circula en el sentido común popular de que hay un mayor riesgo de sufrir violencia sexual por parte de agresores desconocidos e inidentificables.  
 
-la situaci;on es m;as compleja, no? menos denuncias de hombres, menos denuncas de minor;ias no cis género excede el trabajo por los tiposde datos que tengo
+Â En violencia sexual, el 80,5\% de las NNyA víctimas fueron agredidas por un familiar o conocido.
+Â El 61,1\% de las NNyA víctimas de violencia sexual fueron agredidas por un familiar: padre y padrastro concentran el 26,5\%; abuelo y tío el 16,3 por ciento.
+
 Por ejemplo durante la pandemia los números de violencia de género específicamente contra las mujeres no bajaron subieron estaban en sus casas.
 
+Como espero haya quedado demostrado en este estado del arte, el trabajo con datos de este tipo presenta desafíos y complicaciones por la naturaleza misma del hecho de violencia sexual: en gran parte, los prejuicios y tabúes sobre sexualidad que circulan en las distintas sociedades hacen que los datos sean difíciles de recabar parcial o completamente; a menudo resultando en registros incompletos. El \textit{dataset} que analizo en este trabajo no es la excepción, como se verá más adelante en la sección \nameref{datos}
 
-La  recopilación, sistematización, y análisis de datos sobre violencia sexual por parte de los Estados es crucial para planificar y llevar adelante políticas efectivas de prevención, asistencia, y erradicación de la violencia sexual. En Argentina no hay un sistema estatal único y centralizado de este tipo de información. Sin embargo, existen entidades judiciales y programas estatales que, además de ofrecer auxilio, asistencia y/o acceso a la justicia, recaban datos sobre violencia sexual, y mantienen un registro público de ellos en el Portal de Datos Abiertos del Ministerio de Justicia. 
-
-En este trabajo en paticular analizaré registros provenientes del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia y Derechos Humanos de la Nación, fue creado en el año 2006 con el objetivo de brindar atención e intervención institucional a víctimas de abusos y violencia familiar o sexual. Para solicitar asistencia, acompañamiento, y asesoramiento para el acceso a la justicia, las víctimas cuentan, desde 2016, con la línea nacional de emergencia 137 que funciona las 24 horas del día, todo el año, y cuenta en al menos cinco ciudades del país con equipos especializados para llevar a cabo el acompañamiento y las intervenciones necesarias. Los registros de esas llamadas e intervenciones se encuentran digitalizados al menos desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran dos tipos de \textit{datasets}: llamados e intervenciones domiciliarias por situaciones de violencia familiar, y llamados e intervenciones domiciliarias por situaciones de violencia sexual. \todo{rever cómo sigue el programa ahora}
-
-
+La  recopilación, sistematización, y análisis de datos sobre violencia sexual por parte de los Estados es crucial para planificar y llevar adelante políticas efectivas de prevención, asistencia, y erradicación de la violencia sexual. En Argentina no hay un sistema estatal único y centralizado de este tipo de información. Sin embargo, existen entidades judiciales y programas estatales que, además de ofrecer auxilio, asistencia y/o acceso a la justicia, recaban datos sobre violencia sexual, y mantienen un registro público de ellos en el Portal de Datos Abiertos del Ministerio de Justicia.
 
 \subsection*{objetivo}
+
+
+
+En este trabajo en paticular analizaré registros provenientes del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia y Derechos Humanos de la Nación. El programa fue creado en el año 2006 con el objetivo de brindar atención e intervención institucional a víctimas de abusos y violencia familiar o sexual. Desde el año 2016, las víctimas cuentan con la línea telefónica nacional 137, que funciona las 24 horas del día, para solicitar asistencia, acompañamiento, y asesoramiento para el acceso a la justicia. Los registros de esas llamadas e intervenciones se encuentran digitalizados al menos desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran dos tipos de \textit{datasets}: llamados e intervenciones domiciliarias por situaciones de violencia familiar, y llamados e intervenciones domiciliarias por situaciones de violencia sexual. \todo{rever cómo sigue el programa ahora}
+
+
+
+
 - objetivos: imputar los NS/NC de convive no convive con probabilidad de SI/NO 
 El dataset tiene muchos datos faltantes, como se verá en la sección \nameref{datos} a continuación.
 
 
 \section*{Datos}\label{datos}
 
+PONER INFO SOBRE CONOCIDOS DE LAS V´CITIMAS Y SOBRE G´ENEROS AFECTADOS
 Para este trabajo he tomado en principio los llamados de denuncias por violencia sexual desde enero de 2017 hasta julio de 2021. El \textit{dataset} se compone en total de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En la tabla \ref{tablavar} se detallan las variables y su tipo.
 
 \begin{table}[ht!]
@@ -133,6 +143,9 @@ Para este trabajo he tomado en principio los llamados de denuncias por violencia
 \section*{Discusión y conclusiones}\label{conc}
 cruzamiento de datos ovd líneas de asistencia, observatorio de género.
 acceso y análisis de datos extensivo a provincias, no solo benos aitres
+
+
+en \textit{La guerra contra las mujeres}, \citeyearpar{segato2016guerra}, Rita Segato habla de la violencia sexual como algo siempre dirigido hacia cuerpos femeninos y \textit{feminizados} (resaltado propio). Con esto último quiere decir cuerpos percibidos o construidos por los abusadores como femeninos con respecto a posiciones de poder: menores, débiles, racializados, pertenecientes a disidencias sexuales. Esto se condice con datos sobre la mayor incidencia de la violencia sexual contra identidades masculinas durante la niñez y la adolescencia, es decir, en períodos en que los cuerpos y los sujetos son más vulnerables, y por lo tanto, también percibidos como feminizados \citep*{contreras2016violencia,ufem_relevamiento,ferris2002world}.
 
 \newpage
 
