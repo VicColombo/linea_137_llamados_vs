@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,11 @@ Lorraine~E Ferris.
 Claudia Garc{\'\i}a-Moreno, Henrica~AFM Jansen, Mary Ellsberg, Lori Heise, Charlotte Watts, et~al.
 \newblock \emph{WHO multi-country study on women’s health and domestic violence against women}.
 \newblock World Health Organization, 2005.
+
+\bibitem[Murphy-Oikonen et~al.(2022)Murphy-Oikonen, McQueen, Miller, Chambers, and Hiebert]{murphy2022unfounded}
+Jodie Murphy-Oikonen, Karen McQueen, Ainsley Miller, Lori Chambers, and Alexa Hiebert.
+\newblock Unfounded sexual assault: Women’s experiences of not being believed by the police.
+\newblock \emph{Journal of interpersonal violence}, 37\penalty0 (11-12):\penalty0 NP8916--NP8940, 2022.
 
 \bibitem[Segato(2016)]{segato2016guerra}
 Rita~Laura Segato.
