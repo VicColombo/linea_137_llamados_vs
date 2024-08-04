@@ -281,7 +281,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
@@ -293,11 +292,11 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
