@@ -1,15 +1,16 @@
 # Fdb version 4
-["bibtex main"] 1722804477.6933 "main.aux" "main.bbl" "main" 1722804478.8027 0
+["bibtex main"] 1722891905.66755 "main.aux" "main.bbl" "main" 1722891906.75417 0
   "./bibtex_reporte.bib" 1722804477.49261 3125 e5f6604ccda6a4d18170bc8eeeaa273a ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1722804478.57783 2387 a366acd6da4f8217227317677ddbea60 "pdflatex"
+  "main.aux" 1722891906.51156 2623 03945d6eb584ecf952a45b22283defb3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1722804477.82099 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1722804478.80283 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1722804395.04709 12449 2707bdb1ed15ebc8c1f7f8e8b64c9bbe ""
+["pdflatex"] 1722891905.7658 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1722891906.75435 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1722891904.43673 14934 415b76b4a19c530e8997494eb12917ae ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm" 1136768653 1328 5442e22a7072966dbaf88ca900acf3f0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -24,6 +25,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1136768653 1504 1747189e0441d1c18f3ea56fafc1c480 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm" 1136768653 520 82a3d37183f34b6eb363a161dfc002c2 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb" 1248133631 32298 c6d25bb16d1eac01ebdc6d7084126a1e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -176,10 +178,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1714906201 8221447 788a2b891939645b305e1f76a4adad8d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "images/uba2.jpg" 1721825197.71324 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1722804478.57783 2387 a366acd6da4f8217227317677ddbea60 "pdflatex"
-  "main.bbl" 1722804477.80509 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
-  "main.out" 1722804478.39102 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1722804395.04709 12449 2707bdb1ed15ebc8c1f7f8e8b64c9bbe ""
+  "main.aux" 1722891906.51156 2623 03945d6eb584ecf952a45b22283defb3 "pdflatex"
+  "main.bbl" 1722891905.7632 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
+  "main.out" 1722891906.30432 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1722891904.43673 14934 415b76b4a19c530e8997494eb12917ae ""
   (generated)
   "main.aux"
   "main.log"

@@ -86,42 +86,72 @@ En este trabajo analizo llamados para reportar violencia sexual a la línea 137 
 
 \section*{Datos}\label{datos}
 
+Para este trabajo descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 \textit{datasets} en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
+En dos variables los nombres (no así el contenido) diferían en los distintos años, por lo tanto realicé las siguientes modificaciones para poder unificar los 5 archivos en un solo \textit{dataset}: 
 
-Para este trabajo he tomado en principio los llamados de denuncias por violencia sexual desde enero de 2017 hasta julio de 2021. El \textit{dataset} se compone en total de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En la tabla \ref{tablavar} se detallan las variables y su tipo.
+\begin{itemize}
+    \item Eliminé la variable \textit{caso\_id}, que solo existe a partir de 2020.
+    \item El nombre de la variable \textit{llamado\_provincia\_id}, llamada hasta el año 2019: \textit{llamado\_provincia\_indec\_id}, fue normalizado en 2017, 2018 y 2019 a \textit{llamado\_provincia\_id}.
+\end{itemize}
+
+
+El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
 
 \begin{table}[ht!]
     \centering
     \caption{Resumen de las variables.}
     \label{tablavar}
-    \begin{tabular}{|l|l|l|l|} 
+    \begin{tabular}{|l|l|l|} 
     \hline
-    Descriptor & Tipo variable & Variables & Observaciones         
+    \textbf{Descriptor} & \textbf{Tipo variable} & \textbf{Variable(s)}         
     \\ 
     \hline
-    \multirow{2}{*}{Víctima} & Cuantitativa & victima\_edad &  
+    \multirow{2}{*}{Víctima} & Cuantitativa & victima\_edad 
     \\ 
-    \cline{2-4}
-     & Cualitativa & \begin{tabular}[c]{@{}l@{}}victima\_genero, victima\_nacionalidad, \\ victima\_discapacidad,\\ victima\_vinculo\_agresor,\\victima\_convive\_agresor,\\ victima\_a\_resguardo\end{tabular} & \begin{tabular}[c]{@{}l@{}}victima\_genero toma los valores: \\masculino, femenino, trans, \\ NS/NC.\end{tabular}           
+    \cline{2-3}
+     & Cualitativa & \begin{tabular}[c]{@{}l@{}}victima\_genero, victima\_nacionalidad, victima\_discapacidad, \\ victima\_vinculo\_agresor, victima\_convive\_agresor, victima\_a\_resguardo\end{tabular}          
      \\ 
     \hline
-    \multirow{2}{*}{Llamante} & Cuantitativa         & {llamante\_edad}&               \\ 
-    \cline{2-4}
-     & Cualitativa& llamante\_genero, llamante\_vinculo & \begin{tabular}[c]{@{}l@{}}llamante\_genero toma los valores: \\masculino, femenino, trans, \\ NS/NC.\\llamante\_vinculo\_ refiere a vínculo \\con la víctima.\end{tabular}                \\ 
+    \multirow{2}{*}{Llamante} & Cuantitativa         & {llamante\_edad}             
+    \\ 
+    \cline{2-3}
+     & Cualitativa& llamante\_genero, llamante\_vinculo                  
+     \\ 
     \hline
-    \multirow{2}{*}{Llamado}& Cuantitativa & llamado\_fecha\_hora&                                             \\ 
-    \cline{2-4} & Cualitativa & \begin{tabular}[c]{@{}l@{}} caso\_id, llamado\_provincia, \\ llamado\_provincia\_id, \\ caso\_judicializado, hecho\_lugar\end{tabular} & \begin{tabular}[c]{@{}l@{}} llamado\_provincia\_id refiere al id \\numérico para las provincias \\según codificación INDEC.\end{tabular}                                \\ 
+    \multirow{2}{*}{Llamado}& Ordinal & llamado\_fecha\_hora                                            
+    \\ 
+    \cline{2-3} & Cualitativa & \begin{tabular}[c]{@{}l@{}} caso\_id, llamado\_provincia llamado\_provincia\_id, \\ caso\_judicializado, hecho\_lugar\end{tabular}                                
+    \\ 
     \hline
-    Violencia sexual                 & Cualitativa  &  \begin{tabular}[c]{@{}l@{}} vs\_violacion\_via\_vaginal, \\ vs\_violacion\_via\_anal, \\ vs\_violacion\_via\_oral, \\ vs\_tentativa\_violacion, \\ vs\_tocamiento\_sexual, \\ vs\_intento\_tocamiento, \\ vs\_intento\_violacion\_tercera\_persona, \\ vs\_grooming, vs\_exhibicionismo, \\ vs\_amenazas\_verbales\_contenido\_sexual, \\ vs\_explotacion\_sexual, \\ vs\_explotacion\_sexual\_comercial, \\ vs\_explotacion\_sexual\_viajes\_turismo,\\ vs\_sospecha\_trata\_personas- \\ \_fines\_sexuales, \\ vs\_existencia\_facilitador-\\
-    \_corrupcion\_nnya, \\ vs\_obligacion\_sacarse\_fotos\_pornograficas, \\ vs\_eyaculacion\_partes\_cuerpo, \\ vs\_acoso\_sexual, \\ vs\_iniciacion\_sexual\_forzada\_inducida, \\ vs\_otra\_forma\_violencia\_sexual, \\ vs\_no\_sabe\_no\_contesta \end{tabular} &
-    
-    \begin{tabular}[b]{@{}l@{}} vs\_existencia\_facilitador-\\
-    \_corrupcion\_nnya \\ refiere a la existencia de un \\ facilitador de la corrupción de \\ niños, niñas y adolescentes.\\\\ vs\_no\_sabe\_no\_contesta refiere \\ violencia sexual que se desconoce \\ o que no hace referencia a los otros \\ campos mencionados.\end{tabular}                                                  \\ 
+    Violencia sexual                 & Cualitativa  &  \begin{tabular}[c]{@{}l@{}} vs\_violacion\_via\_vaginal, vs\_violacion\_via\_anal, vs\_violacion\_via\_oral, \\ vs\_tentativa\_violacion, vs\_tocamiento\_sexual, vs\_intento\_tocamiento, \\ vs\_intento\_violacion\_tercera\_persona, vs\_grooming, vs\_exhibicionismo, \\ vs\_amenazas\_verbales\_contenido\_sexual, vs\_explotacion\_sexual,\\ vs\_explotacion\_sexual\_comercial, vs\_explotacion\_sexual\_viajes\_turismo, \\ vs\_sospecha\_trata\_personas\_fines\_sexuales, \\ vs\_existencia\_facilitador\_corrupcion\_nnya, \\ vs\_obligacion\_sacarse\_fotos\_pornograficas, vs\_eyaculacion\_partes\_cuerpo, \\ vs\_acoso\_sexual, vs\_iniciacion\_sexual\_forzada\_inducida, \\ vs\_otra\_forma\_violencia\_sexual, vs\_no\_sabe\_no\_contesta \end{tabular} 
+    \\ 
     \hline
-    Otras violencias & Cualitativa & \begin{tabular}[c]{@{}l@{}} ofv\_sentimiento\_amenaza, \\ ofv\_amenazas\_explicitas, \\ ofv\_violencia\_fisica, ofv\_intento\_ahorcar, \\ ofv\_intento\_quemar,  ofv\_intento\_ahogar, \\ ofv\_amenaza\_muerte, \\ ofv\_uso\_sustancias\_psicoactivas, \\ ofv\_intento\_privacion\_libertad, \\ ofv\_privacion\_libertad, \\ ofv\_uso\_arma\_blanca, \\ ofv\_uso\_arma\_fuego, \\ ofv\_enganio\_seduccion, ofv\_intento\_matar, \\ ofv\_uso\_animal\_victimizar, \\ ofv\_grooming, ofv\_otra\_forma\_violencia, \\ ofv\_no\_sabe\_no\_contesta\end{tabular} &  \\ 
+    Otras violencias & Cualitativa & \begin{tabular}[c]{@{}l@{}} ofv\_sentimiento\_amenaza, ofv\_amenazas\_explicitas, ofv\_violencia\_fisica, \\ ofv\_intento\_ahorcar, ofv\_intento\_quemar,  ofv\_intento\_ahogar, \\ ofv\_amenaza\_muerte, ofv\_uso\_sustancias\_psicoactivas, \\ ofv\_intento\_privacion\_libertad, ofv\_privacion\_libertad, \\ ofv\_uso\_arma\_blanca, ofv\_uso\_arma\_fuego, ofv\_enganio\_seduccion,\\ ofv\_intento\_matar, ofv\_uso\_animal\_victimizar, ofv\_grooming, \\ ofv\_otra\_forma\_violencia, ofv\_no\_sabe\_no\_contesta\end{tabular} 
+    \\ 
     \hline
     \end{tabular}
-    \end{table}
-    
+\end{table}
+
+Acá nota al pie sobre python\footnote{El análisis exploratorio y el resto del trabajo con datos fue y será realizado en Python} \todo[color=red!40]{esto va en metodología}.
+
+El siguiente paso fue limpiar los datos de errores de carga: errores de tipeo, valores cargados con sinónimos o abreviaturas, y errores ortográficos:
+\begin{itemize}
+    \item Normalicé en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”.
+    \item Normalicé para todas las variables pertinentes los valores SI, NO, y NS/NC dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, con tildes en SI, etc.
+    \item Consideré y normalicé todos los valores “Sin datos” como NS/NC.
+    \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo “Madre” =/= “  Madre” 
+    \item desmarco expresión de género en datos: llamante\_genero: Trans = Transgénero
+    \item llamante\_vinculo: Vecino = Vecina/o, victima\_genero\_ Trans = Transgénero
+    normalizo variaciones victima\_vinculo\_agresor: “Pareja de la vícitma” = “Pareja de la víctima”
+    acorto valores de variables por cuestiones gráficas. hecho\_lugar: Otro(Especificar en observaciones) = Otro
+llamado\_provincia: “Ciudad Autónoma de Buenos Aires” = “CABA”, llamado\_provincia: “Santa Fé” = “Santa Fe”
+\end{itemize}
+ 
+
+ Los valores numéricos de \textit{victima\_edad} y \textit{llamante\_edad} tenían errores de carga evidentes ya que aparecían valores numéricos demasiado altos para ser edades como: 125, 221, 324. Las filas con esos valores no fueron eliminadas por el momento porque considero que el resto de los datos de la fila no están errados y es posible que los necesite más adelante. En cambio, los datos fueron marcados para no ser utilizados en análisis que incluyan las variables de edad.
+
+A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero}, \textit{victima\_discapacidad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor}, \textit{llamante\_edad}, \textit{llamante\_genero}, \textit{llamante\_vinculo} y \textit{hecho\_lugar}. Además, realicé un agrupamiento de las categorías de vínculos entre agresor y víctima para poder distinguir entre parejas, familiares y no familiares (conocidos). Algunos de estos histogramas se comentan en la sección siguiente. 
+
 
 \section*{Metodología}\label{met}
 
