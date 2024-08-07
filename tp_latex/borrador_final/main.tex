@@ -148,14 +148,40 @@ El siguiente paso fue limpiar los datos de errores de tipeo, valores cargados co
 
  Luego, las variables numéricas \textit{victima\_edad} y \textit{llamante\_edad} tenían errores de carga evidentes, aparecían edades como: 125, 221, 324. Eliminé esos valores y dejé las celdas vacías como datos faltantes de edad. \todo{quizás poner cuántas tenían ese problema}
 
-A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero},\textit{victima\_edad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor},  y \textit{hecho\_lugar}. Además, construí la variable agresor conocido no conocido para explorar la dicotomía extraños-conocidos en relación a las víctimas y los agresores.
+A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero},\textit{victima\_edad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor},  y \textit{hecho\_lugar}. Además, construí la variable agresor conocido no conocido para explorar la dicotomía extraños-conocidos en relación a las víctimas y los agresores. La variable estación del año, fin de semana y momento del día para explorar frecuencia de los llamados. Exploré la variable provincia para ver la cantidad de llamados por región. 
 
-histogramas
+relación entre convive y otras variables como edad de la víctima y de quien llama y tmb quién llama (instituciones etc)
 
+histogramas y gráficos exploratorios de esas variables
 
+Datos faltantes
+
+datos faltantes en forma de NS/NC y en forma de datos vacíos. Dónde están y cuántos son. Cuántos en la variable de interés victima convive agresor. 
+posible relación de datos faltantes de edad con quien llama tanto en edad de la victima como en edad de quien llama
+relación entre los faltante de edad y NSNC en convive
+
+Las variables de vs y ofv toman los valores SI NO.
+
+En general en todas las variables de violencia hay muchos más NO que sí.
 
 
 \section*{Metodología}\label{met}
+
+El objetivo es imputar los NS/NC de convive como si o no. Primero quiero ver si utilizando un método de visualización que permita plasmar interacciones entre variables reduciendo las dimensiones a 2 para poder ser representado gráficamente se pueden detectar asociaciones lineales entre los valores de convive y el resto de las variables. Para esto usé NMDS. Luego, para intentar predecir los NSNC como si o no usé SVM. 
+
+A modo de un segundo preprocesamiento para poder llevar a cabo estas tareas, decidí reducir las dimensiones del dataset a mano primero agrupando variables y reduciendo la cantidad de categorías en algunas otras variables. lA REDUCCI´OND E CARDINALIDAD DE algunas variables es especialemnte útil para la aplicación de SVM ya que esta conlleva encodear las features y para uno de los encoders elegidos, one-hot, la alta cardinalidad de features puede resultar problemática.
+
+
+Habiendp hecho los gráficos de más arriba para explorar posibles interacciones entre dos o tres variables, me pareció valioso explorar más dimensiones y plasmarlo en dos dimensiones. Para eso apliqué NMDS
+
+Reducción manual de dimensiones
+Algunas resultan muy poco informativas como vs explotacion sexual viajes turismo (0,02) y ofv intento matar (0,01) resultan muy poco informativas (ocurrencia de 0,02 y 0,01). 
+
+Para intentar 
+
+Explicar agrupamiento de variables. 
+
+
 
 \section*{Resultados}\label{red}
 
