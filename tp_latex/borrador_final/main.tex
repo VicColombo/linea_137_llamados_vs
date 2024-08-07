@@ -134,23 +134,25 @@ El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables
 
 Acá nota al pie sobre python\footnote{El análisis exploratorio y el resto del trabajo con datos fue y será realizado en Python} \todo[color=red!40]{esto va en metodología}.
 
-El siguiente paso fue limpiar los datos de errores de carga: errores de tipeo, valores cargados con sinónimos o abreviaturas, y errores ortográficos:
+El siguiente paso fue limpiar los datos de errores de tipeo, valores cargados con sinónimos o abreviaturas, y errores ortográficos:
 \begin{itemize}
-    \item Normalicé en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”.
+    \item Normalicé en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”, otro tanto hice con “Pareja de la vícitma”.
     \item Normalicé para todas las variables pertinentes los valores SI, NO, y NS/NC dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, con tildes en SI, etc.
-    \item Consideré y normalicé todos los valores “Sin datos” como NS/NC.
+    \item Normalicé todos los valores “Sin datos” a NS/NC por cosniderarlos equivalentes.
     \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo “Madre” =/= “  Madre” 
-    \item desmarco expresión de género en datos: llamante\_genero: Trans = Transgénero
-    \item llamante\_vinculo: Vecino = Vecina/o, victima\_genero\_ Trans = Transgénero
-    normalizo variaciones victima\_vinculo\_agresor: “Pareja de la vícitma” = “Pareja de la víctima”
-    acorto valores de variables por cuestiones gráficas. hecho\_lugar: Otro(Especificar en observaciones) = Otro
-llamado\_provincia: “Ciudad Autónoma de Buenos Aires” = “CABA”, llamado\_provincia: “Santa Fé” = “Santa Fe”
+    \item Convertí en la variable llamante\_vinculo el valor “Vecino” a “Vecina/o” ya que  no necesariamente se refiere unívocamente a personas de género masculino.
+    \item Normalicé en llamado\_provincia “Ciudad Autónoma de Buenos Aires” a “CABA” ya que ambos valores aparecían. 
+    \item Corregí en llamado\_provincia las instancias de “Santa Fé” a “Santa Fe”.
 \end{itemize}
  
 
- Los valores numéricos de \textit{victima\_edad} y \textit{llamante\_edad} tenían errores de carga evidentes ya que aparecían valores numéricos demasiado altos para ser edades como: 125, 221, 324. Las filas con esos valores no fueron eliminadas por el momento porque considero que el resto de los datos de la fila no están errados y es posible que los necesite más adelante. En cambio, los datos fueron marcados para no ser utilizados en análisis que incluyan las variables de edad.
+ Luego, las variables numéricas \textit{victima\_edad} y \textit{llamante\_edad} tenían errores de carga evidentes, aparecían edades como: 125, 221, 324. Eliminé esos valores y dejé las celdas vacías como datos faltantes de edad. \todo{quizás poner cuántas tenían ese problema}
 
-A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero}, \textit{victima\_discapacidad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor}, \textit{llamante\_edad}, \textit{llamante\_genero}, \textit{llamante\_vinculo} y \textit{hecho\_lugar}. Además, realicé un agrupamiento de las categorías de vínculos entre agresor y víctima para poder distinguir entre parejas, familiares y no familiares (conocidos). Algunos de estos histogramas se comentan en la sección siguiente. 
+A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero},\textit{victima\_edad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor},  y \textit{hecho\_lugar}. Además, construí la variable agresor conocido no conocido para explorar la dicotomía extraños-conocidos en relación a las víctimas y los agresores.
+
+histogramas
+
+
 
 
 \section*{Metodología}\label{met}

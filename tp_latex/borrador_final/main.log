@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  5 AUG 2024 23:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  7 AUG 2024 10:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -640,12 +640,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 74.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 78.
- [2] [3]
-Overfull \hbox (44.2266pt too wide) in paragraph at lines 144--148
-[]\OT1/cmr/m/n/10 llamante[]vinculo: Ve-cino = Ve-ci-na/o, vic-ti-ma[]genero[] Trans = Transg^^Sene-ro nor-ma-li-zo va-ria-cio-nes vic-ti-ma[]vinculo[]agresor:
- []
-
-[4] [5] (./main.bbl
+ [2] [3] [4] [5] (./main.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 23--26
 []\OT1/cmr/m/n/10 Ministerio de Jus-ti-cia de la Rep^^Subli-ca Ar-gen-ti-na.  Nue-va L^^S^^Pnea 137: am-plia-ci^^Son de ser-vi-cios de aten-
  []
@@ -675,18 +670,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27749 strings out of 474116
- 566997 string characters out of 5743683
+ 27758 strings out of 474116
+ 567193 string characters out of 5743683
  1950187 words of memory out of 5000000
- 49686 multiletter control sequences out of 15000+600000
+ 49694 multiletter control sequences out of 15000+600000
  562682 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1924b,1023s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on main.pdf (8 pages, 456494 bytes).
+Output written on main.pdf (8 pages, 456411 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
+ 177 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
