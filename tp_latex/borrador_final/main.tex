@@ -87,11 +87,12 @@ En este trabajo analizo llamados para reportar violencia sexual a la línea 137 
 \section*{Datos}\label{datos}
 
 Para este trabajo descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 \textit{datasets} en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
-En dos variables los nombres (no así el contenido) diferían en los distintos años, por lo tanto realicé las siguientes modificaciones para poder unificar los 5 archivos en un solo \textit{dataset}: 
+
+Como primer paso, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas\footnote{La limpieza, normalización, y preprocesamiento del \textit{dataset} y la aplicación de los métodos exploratorios y predictivos fueron realizados en Python}:
 
 \begin{itemize}
     \item Eliminé la variable \textit{caso\_id}, que solo existe a partir de 2020.
-    \item El nombre de la variable \textit{llamado\_provincia\_id}, llamada hasta el año 2019: \textit{llamado\_provincia\_indec\_id}, fue normalizado en 2017, 2018 y 2019 a \textit{llamado\_provincia\_id}.
+    \item Cambié el nombre de la variable \textit{llamado\_provincia\_indec\_id} en los \textit{datasets} de 2017, 2018, y 2019 a su equivalente en 2020 y 2021: \textit{llamado\_provincia\_id}.
 \end{itemize}
 
 
@@ -132,9 +133,9 @@ El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables
     \end{tabular}
 \end{table}
 
-Acá nota al pie sobre python\footnote{El análisis exploratorio y el resto del trabajo con datos fue y será realizado en Python} \todo[color=red!40]{esto va en metodología}.
 
-El siguiente paso fue limpiar los datos de errores de tipeo, valores cargados con sinónimos o abreviaturas, y errores ortográficos:
+
+El siguiente paso fue limpiar los datos con errores de carga como ser de errores de tipeo, valores cargados con sinónimos o abreviaturas, o errores ortográficos:
 \begin{itemize}
     \item Normalicé en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”, otro tanto hice con “Pareja de la vícitma”.
     \item Normalicé para todas las variables pertinentes los valores SI, NO, y NS/NC dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, con tildes en SI, etc.
@@ -146,19 +147,27 @@ El siguiente paso fue limpiar los datos de errores de tipeo, valores cargados co
 \end{itemize}
  
 
- Luego, las variables numéricas \textit{victima\_edad} y \textit{llamante\_edad} tenían errores de carga evidentes, aparecían edades como: 125, 221, 324. Eliminé esos valores y dejé las celdas vacías como datos faltantes de edad. \todo{quizás poner cuántas tenían ese problema}
+ Luego, en las variables numéricas \textit{victima\_edad} y \textit{llamante\_edad} aparecían edades como: 125, 221, 324 que consideré errores de carga. Eliminé esos valores y dejé las celdas vacías como datos faltantes. \todo{quizás poner cuántas tenían ese problema}
 
 A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero},\textit{victima\_edad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor},  y \textit{hecho\_lugar}. Además, construí la variable agresor conocido no conocido para explorar la dicotomía extraños-conocidos en relación a las víctimas y los agresores. La variable estación del año, fin de semana y momento del día para explorar frecuencia de los llamados. Exploré la variable provincia para ver la cantidad de llamados por región. 
 
-relación entre convive y otras variables como edad de la víctima y de quien llama y tmb quién llama (instituciones etc)
-
 histogramas y gráficos exploratorios de esas variables
 
-Datos faltantes
+Para ver interacciones entre la variable de interés \textit{victima\_convive\_agresor} y variables podrían estar relacionadas o aportar información que determine si el valor de la primera es más probablemente SI o NO,  realicé gráficos que exploran la la relación entre \textit{victima\_convive\_agresor}, \textit{victima\_edad}, \textit{llamante\_edad}, \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia} (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
+
+GRAFICOS P ESAS
+
+
+
+\subsection*{Datos faltantes}\label{faltantes}
 
 datos faltantes en forma de NS/NC y en forma de datos vacíos. Dónde están y cuántos son. Cuántos en la variable de interés victima convive agresor. 
+Cuantos datos faltantes en edad de la víctima y edad del llamante
+
 posible relación de datos faltantes de edad con quien llama tanto en edad de la victima como en edad de quien llama
 relación entre los faltante de edad y NSNC en convive
+
+relaci;on entre NSNC de convive y quien llama (instituciones)
 
 Las variables de vs y ofv toman los valores SI NO.
 
@@ -177,13 +186,22 @@ Habiendp hecho los gráficos de más arriba para explorar posibles interacciones
 Reducción manual de dimensiones
 Algunas resultan muy poco informativas como vs explotacion sexual viajes turismo (0,02) y ofv intento matar (0,01) resultan muy poco informativas (ocurrencia de 0,02 y 0,01). 
 
-Para intentar 
+Despues medí correlación para ver si podía sacar más variables pero al final no saqué ninguna. Explicar cómo queda el dataset final
 
-Explicar agrupamiento de variables. 
+Después apliqué encoders para hacer SVM e hice SVM con la librería tal y con una búsqueda de hiperparámetros. Además experimenté con diferentes versiones del dataset cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes. Teniendo en cuenta estas variaciones en el tratamiento de la variable edad, los experimentos que realicé con SVM fueron: 
+tal tal tal
+
+cada uno probando los siguientes hiperparámentros
+
+VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES 
 
 
+\section*{Resultados}\label{resultados}
+NMDS vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés.
 
-\section*{Resultados}\label{red}
+VER DE RE ARMAR NMDS y que separe solo SI de NO y luego un tercero que haga SI NO NSNC
+
+Todos dieron bien y luego el mejor modelo lo apliqué a 
 
 \section*{Discusión y conclusiones}\label{conc}
 cruzamiento de datos ovd líneas de asistencia, observatorio de género.
