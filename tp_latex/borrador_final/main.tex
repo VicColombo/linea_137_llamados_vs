@@ -147,7 +147,25 @@ El siguiente paso fue limpiar los datos con errores de carga como ser de errores
 \end{itemize}
  
 
- Luego, en las variables numéricas \textit{victima\_edad} y \textit{llamante\_edad} aparecían edades como: 125, 221, 324 que consideré errores de carga. Eliminé esos valores y dejé las celdas vacías como datos faltantes. \todo{quizás poner cuántas tenían ese problema}
+ Luego, las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban \textit{outliers} demasiado extremos para ser edades reales (ver cuadro \ref{tabla_out}). Los consideré errores de carga o bien números aleatorios ingresados para no dejar el campo vacío, y por lo tanto eliminé dejando las celdas vacías como datos faltantes. \todo{BOXPLOT?}
+
+
+\begin{table}[]
+    \centering
+    \caption{Outliers en variables de edad.}
+    \label{tabla_out}
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \textbf{Variable}                        & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
+    \multirow{2}{*}{llamante\_edad} & 999     & 192               \\ \cline{2-3} 
+                                    & 0       & 3                 \\ \hline
+    \multirow{4}{*}{victima\_edad}  & 999     & 98                \\ \cline{2-3} 
+                                    & 224     & 1                 \\ \cline{2-3} 
+                                    & 125     & 1                 \\ \cline{2-3} 
+                                    & 111     & 1                 \\ \hline
+    \end{tabular}
+    \end{table}
+
 
 A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero},\textit{victima\_edad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor},  y \textit{hecho\_lugar}. Además, construí la variable agresor conocido no conocido para explorar la dicotomía extraños-conocidos en relación a las víctimas y los agresores. La variable estación del año, fin de semana y momento del día para explorar frecuencia de los llamados. Exploré la variable provincia para ver la cantidad de llamados por región. 
 
@@ -176,7 +194,12 @@ En general en todas las variables de violencia hay muchos más NO que sí.
 
 \section*{Metodología}\label{met}
 
-El objetivo es imputar los NS/NC de convive como si o no. Primero quiero ver si utilizando un método de visualización que permita plasmar interacciones entre variables reduciendo las dimensiones a 2 para poder ser representado gráficamente se pueden detectar asociaciones lineales entre los valores de convive y el resto de las variables. Para esto usé NMDS. Luego, para intentar predecir los NSNC como si o no usé SVM. 
+El objetivo es imputar los NS/NC de convive como si o no. 
+
+Intento ver si usando un método de ordenamiento para visualizar el dataset en dimensiones reducidas me da una
+idea de agrupamientos con repsecto a las tres categorías de convive. Elijo NMDS porque me permite trabajar con
+variables de distinto tipo sin transformaciones.
+ Luego, para intentar predecir los NSNC como si o no usé SVM. 
 
 A modo de un segundo preprocesamiento para poder llevar a cabo estas tareas, decidí reducir las dimensiones del dataset a mano primero agrupando variables y reduciendo la cantidad de categorías en algunas otras variables. lA REDUCCI´OND E CARDINALIDAD DE algunas variables es especialemnte útil para la aplicación de SVM ya que esta conlleva encodear las features y para uno de los encoders elegidos, one-hot, la alta cardinalidad de features puede resultar problemática.
 

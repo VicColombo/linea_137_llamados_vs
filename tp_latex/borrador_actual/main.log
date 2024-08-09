@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  7 AUG 2024 14:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  9 AUG 2024 12:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -684,148 +684,42 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 114.
 
-LaTeX Warning: Reference `tablavar' on page 3 undefined on input line 119.
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:151: You can't use `\hrule' here except with leaders.
-\caption@hrule ->\hrule 
-                        \@height \z@ 
-l.151 \caption{Resumen de las variables.}
-                                         
-To put a horizontal rule in an hbox or an alignment,
-you should use \leaders or \hrulefill (see The TeXbook).
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:151: Missing number, treated as zero.
-<to be read again> 
-                   \vskip 
-l.151 \caption{Resumen de las variables.}
-                                         
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:151: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \vskip 
-l.151 \caption{Resumen de las variables.}
-                                         
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:151: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.151 \caption{Resumen de las variables.}
-                                         
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:151: Missing } inserted.
-<inserted text> 
-                }
-l.151 \caption{Resumen de las variables.}
-                                         
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:153: LaTeX Error: \begin{table} on input line 121 ended by \end{adjustbox}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.153 \end{adjustbox}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:153: Missing } inserted.
-<inserted text> 
-                }
-l.153 \end{adjustbox}
-                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:154: Too many }'s.
-\color@endbox ->\color@endgroup \egroup 
-                                        
-l.154 \end{table}
-                 
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:154: LaTeX Error: \begin{document} ended by \end{table}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.154 \end{table}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:154: Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.154 \end{table}
-                 
-Things are pretty mixed up, but I think the worst is over.
-
-[3]
-Overfull \hbox (78.46216pt too wide) in paragraph at lines 190--191
+Overfull \hbox (78.46216pt too wide) in paragraph at lines 127--128
 []\OT1/cmr/m/n/10 las va-ria-bles vs[]violacion[]via[]vaginal, vs[]violacion[]via[]anal, vs[]violacion[]via[]oral, vs[]tentativa[]violacion
  []
 
 
-Overfull \hbox (93.17645pt too wide) in paragraph at lines 196--197
+Overfull \hbox (93.17645pt too wide) in paragraph at lines 133--134
 []\OT1/cmr/m/n/10 las va-ria-bles vs[]explotacion[]sexual, vs[]explotacion[]sexual[]comercial y vs[]explotacion[]sexual[]viajes[]turismo
  []
 
-[4]
+[3]
 
-LaTeX Warning: Marginpar on page 5 moved.
+LaTeX Warning: Marginpar on page 4 moved.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:232: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:169: Missing $ inserted.
 <inserted text> 
                 $
-l.232 ..., provincia, llamante vínculo y victima_
+l.169 ..., provincia, llamante vínculo y victima_
                                                   vinculo_agresor vínculo.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 232.
+LaTeX Warning: Command \' invalid in math mode on input line 169.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:232: Please use \mathaccent for accents in math mode.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:169: Please use \mathaccent for accents in math mode.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.232 ...te vínculo y victima_vinculo_agresor ví
+l.169 ...te vínculo y victima_vinculo_agresor ví
                                                   nculo.
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:232: Missing { inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:169: Missing { inserted.
 <to be read again> 
                    \begingroup 
-l.232 ...te vínculo y victima_vinculo_agresor ví
+l.169 ...te vínculo y victima_vinculo_agresor ví
                                                   nculo.
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
@@ -833,20 +727,20 @@ so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
 
-LaTeX Warning: Command \i invalid in math mode on input line 232.
+LaTeX Warning: Command \i invalid in math mode on input line 169.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:233: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:170: Missing $ inserted.
 <inserted text> 
                 $
-l.233 
+l.170 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:233: Missing } inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:170: Missing } inserted.
 <inserted text> 
                 }
-l.233 
+l.170 
       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -854,166 +748,166 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[5]
-Overfull \hbox (118.7753pt too wide) in paragraph at lines 258--264
+[4]
+Overfull \hbox (118.7753pt too wide) in paragraph at lines 195--201
 \OT1/cmr/m/n/10 ris-mo vs sos-pe-cha tra-ta per-so-nas fi-nes se-xua-les https://www.argentina.gob.ar/justicia/derechofacil/leysimple/trata-
  []
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:296: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:233: Missing $ inserted.
 <inserted text> 
                 $
-l.296 Las borradas son: ['vs_
+l.233 Las borradas son: ['vs_
                              amenazas_verbales_contenido_sexual', 'vs_existe...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:297: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:234: Missing $ inserted.
 <inserted text> 
                 $
-l.297 
+l.234 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (1163.79462pt too wide) in paragraph at lines 295--297
+Overfull \hbox (1163.79462pt too wide) in paragraph at lines 232--234
 \OT1/cmr/m/n/10 es de-cir 1 por cien-to o me-nos de SI) Las bo-rra-das son: ['vs$[]\OML/cmm/m/it/10 menazas[]erbales[]ontenido[]exual[];[] vs[]xistencia[]acilitador[]orrupcion[]nya[];[] vs[]yaculacion[]artes[]uerpo[];[] ofv[]menaza[]uerte[];[] ofv[]so[]ustancias[]sicoactivas[];[] ofv[]ntento[]rivacion[]ibertad[];[] ofv[]rivacion[]ibertad[];[] ofv[]so[]nimal[]ictimizar[];[] ofv[]so[]rma[]roup[];[] ofv[]ntento[]iolencia[]isica[]roup[]\OT1/cmr/m/n/10 ]$ 
  []
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:299: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:236: Missing $ inserted.
 <inserted text> 
                 $
-l.299 - reducción de llamante_
+l.236 - reducción de llamante_
                                vinculo, victima_vinculo_agresor, hecho_lugar...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 299.
+LaTeX Warning: Command \' invalid in math mode on input line 236.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:299: Please use \mathaccent for accents in math mode.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:236: Please use \mathaccent for accents in math mode.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.299 ...o_lugar, y llamado_provincia. Eliminació
+l.236 ...o_lugar, y llamado_provincia. Eliminació
                                                   n de las originales no red...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 300.
+LaTeX Warning: Command \' invalid in math mode on input line 237.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:300: Please use \mathaccent for accents in math mode.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:237: Please use \mathaccent for accents in math mode.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.300 ...pan cada una otras variables. Eliminació
+l.237 ...pan cada una otras variables. Eliminació
                                                   n de las que fueron agrupa...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:301: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:238: Missing $ inserted.
 <inserted text> 
                 $
-l.301 
+l.238 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (353.73344pt too wide) in paragraph at lines 298--301
+Overfull \hbox (353.73344pt too wide) in paragraph at lines 235--238
 []\OT1/cmr/m/n/10 Entonces el da-ta-set re-du-ci-do tie-ne: - re-duc-ci^^Son de llamante$[]\OML/cmm/m/it/10 inculo; victima[]inculo[]gresor; hecho[]ugar; yllamado[]rovincia:Eliminaci[]ndelasoriginalesnoreducidas: \OMS/cmsy/m/n/10 ^^@
  []
 
 
-Overfull \hbox (379.93697pt too wide) in paragraph at lines 298--301
+Overfull \hbox (379.93697pt too wide) in paragraph at lines 235--238
 \OML/cmm/m/it/10 nuevasvariables \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 violacion; usodearma; explotacionsexual; intentoviolenciapotencialmentefatalqueagrupancadaunaotrasvariables:Eliminaci[]ndelasquefueronagrupadas:$ 
  []
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:305: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:242: Missing $ inserted.
 <inserted text> 
                 $
-l.305 ...point biserial -> edad v, edad ll, fecha_
+l.242 ...point biserial -> edad v, edad ll, fecha_
                                                   hora contra victima conviv...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:306: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:243: Missing $ inserted.
 <inserted text> 
                 $
-l.306 
+l.243 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-[6]
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:332: Missing $ inserted.
+[5]
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:269: Missing $ inserted.
 <inserted text> 
                 $
-l.332 ...a correlación entre la variable victima_
+l.269 ...a correlación entre la variable victima_
                                                   convive_agresor SIN NS/NC ...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:332: Double subscript.
-l.332 ...lencia,ofv_no_sabe_no_contesta,victima_a_
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:269: Double subscript.
+l.269 ...lencia,ofv_no_sabe_no_contesta,victima_a_
                                                   resguardo.
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:333: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:270: Missing $ inserted.
 <inserted text> 
                 $
-l.333 
+l.270 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (62.73077pt too wide) in paragraph at lines 332--333
+Overfull \hbox (62.73077pt too wide) in paragraph at lines 269--270
 []\OT1/cmr/m/n/10 Se mi-di^^So la co-rre-la-ci^^Son en-tre la va-ria-ble victima$[]\OML/cmm/m/it/10 onvive[]gresorSINNS=NCylasvariablesbinarias \OT1/cmr/m/n/10 :
  []
 
 
-Overfull \hbox (1663.8304pt too wide) in paragraph at lines 332--333
+Overfull \hbox (1663.8304pt too wide) in paragraph at lines 269--270
 \OML/cmm/m/it/10 fin[]e[]emana; vs[]xplotacion[]exual[]roup; vs[]iolacion[]roup; vs[]entativa[]roup; vs[]ocamiento[]exual; vs[]ntento[]ocamiento; vs[]rooming; vs[]xhibicionismo; vs[]bligacion[]acarse[]otos[]ornograficas; vs[]coso[]exual; vs[]niciacion[]exual[]orzada[]nducida; vs[]tra[]orma[]iolencia[]exual; vs[]o[]abe[]o[]ontesta; ofv[]entimiento[]menaza; ofv[]menaza[]xplicita; ofv[]iolencia[]isica; ofv[]nganio[]educcion; ofv[]rooming; ofv[]tra[]orma[]iolencia; ofv[]o[]abe[]o[]ontesta; victima[][]esguardo:$ 
  []
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:334: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:271: Missing $ inserted.
 <inserted text> 
                 $
-l.334 ...es binarias y la variable target victima_
+l.271 ...es binarias y la variable target victima_
                                                   convive_agresor todos posi...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 334.
+LaTeX Warning: Command \' invalid in math mode on input line 271.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:334: Please use \mathaccent for accents in math mode.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:271: Please use \mathaccent for accents in math mode.
 \add@accent ... \let \ignorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
-l.334 ...tivos pero todos muy bajos, siendo el má
+l.271 ...tivos pero todos muy bajos, siendo el má
                                                   s alto 0.41 para victima_a...
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:334: Double subscript.
-l.334 ... siendo el más alto 0.41 para victima_a_
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:271: Double subscript.
+l.271 ... siendo el más alto 0.41 para victima_a_
                                                   resguardo, 0.16 para vs_gr...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:335: Missing $ inserted.
+/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_actual/main.tex:272: Missing $ inserted.
 <inserted text> 
                 $
-l.335 
+l.272 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (442.88037pt too wide) in paragraph at lines 334--335
+Overfull \hbox (442.88037pt too wide) in paragraph at lines 271--272
 \OT1/cmr/m/n/10 va-ria-ble tar-get victima$[]\OML/cmm/m/it/10 onvive[]gresortodospositivosperotodosmuybajos; siendoelm[]salto\OT1/cmr/m/n/10 0[]41\OML/cmm/m/it/10 paravictima[][]esguardo; \OT1/cmr/m/n/10 0[]16\OML/cmm/m/it/10 paravs[]rooming; y\OT1/cmr/m/n/10 0[]11\OML/cmm/m/it/10 paravs[]o[]a[]o[]ontesta:Enlostrescasoselp \OMS/cmsy/m/n/10 ^^@
  []
 
-[7] [8] (./main.bbl) [9] (./main.aux
+[6] [7] (./main.bbl) [8] (./main.aux
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
 )
@@ -1030,18 +924,18 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 28705 strings out of 474116
- 585900 string characters out of 5743683
- 1961187 words of memory out of 5000000
- 50628 multiletter control sequences out of 15000+600000
- 561449 words of font info for 47 fonts, out of 8000000 for 9000
+ 28667 strings out of 474116
+ 585115 string characters out of 5743683
+ 1947187 words of memory out of 5000000
+ 50594 multiletter control sequences out of 15000+600000
+ 561103 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,16n,101p,1287b,977s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (11 pages, 461460 bytes).
+ 99i,9n,101p,1287b,977s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (10 pages, 433696 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
+ 149 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

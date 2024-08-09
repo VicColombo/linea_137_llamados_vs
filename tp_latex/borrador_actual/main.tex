@@ -116,71 +116,8 @@ El programa Las Víctimas contra las Violencias depende del Ministerio de Justic
 
 \section{Datos}\label{datos}
 
-Para este trabajo he tomado en principio los llamados de denuncias por violencia sexual desde enero de 2017 hasta julio de 2021. El \textit{dataset} se compone en total de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En la tabla \ref{tablavar} se detallan las variables y su tipo.
-
-\begin{table}[ht!]
-\centering
-\begin{adjustbox}{width={\textwidth},totalheight={\textheight},keepaspectratio}%
-\begin{tabular}{|l|l|l|l|} 
-\hline
-Descriptor & Tipo variable & Variables & Observaciones         
-\\ 
-\hline
-\multirow{2}{*}{Víctima} & Cuantitativa & victima\_edad &  
-\\ 
-\cline{2-4}
- & Cualitativa & \begin{tabular}[c]{@{}l@{}}victima\_genero, victima\_nacionalidad, \\ victima\_discapacidad,\\ victima\_vinculo\_agresor,\\victima\_convive\_agresor,\\ victima\_a\_resguardo\end{tabular} & \begin{tabular}[c]{@{}l@{}}victima\_genero toma los valores: \\masculino, femenino, trans, \\ NS/NC.\end{tabular}           
- \\ 
-\hline
-\multirow{2}{*}{Llamante} & Cuantitativa         & {llamante\_edad}&               \\ 
-\cline{2-4}
- & Cualitativa& llamante\_genero, llamante\_vinculo & \begin{tabular}[c]{@{}l@{}}llamante\_genero toma los valores: \\masculino, femenino, trans, \\ NS/NC.\\llamante\_vinculo\_ refiere a vínculo \\con la víctima.\end{tabular}                \\ 
-\hline
-\multirow{2}{*}{Llamado}& Cuantitativa & llamado\_fecha\_hora&                                             \\ 
-\cline{2-4} & Cualitativa & \begin{tabular}[c]{@{}l@{}} caso\_id, llamado\_provincia, \\ llamado\_provincia\_id, \\ caso\_judicializado, hecho\_lugar\end{tabular} & \begin{tabular}[c]{@{}l@{}} llamado\_provincia\_id refiere al id \\numérico para las provincias \\según codificación INDEC.\end{tabular}                                \\ 
-\hline
-Violencia sexual                 & Cualitativa  &  \begin{tabular}[c]{@{}l@{}} vs\_violacion\_via\_vaginal, \\ vs\_violacion\_via\_anal, \\ vs\_violacion\_via\_oral, \\ vs\_tentativa\_violacion, \\ vs\_tocamiento\_sexual, \\ vs\_intento\_tocamiento, \\ vs\_intento\_violacion\_tercera\_persona, \\ vs\_grooming, vs\_exhibicionismo, \\ vs\_amenazas\_verbales\_contenido\_sexual, \\ vs\_explotacion\_sexual, \\ vs\_explotacion\_sexual\_comercial, \\ vs\_explotacion\_sexual\_viajes\_turismo,\\ vs\_sospecha\_trata\_personas- \\ \_fines\_sexuales, \\ vs\_existencia\_facilitador-\\
-\_corrupcion\_nnya, \\ vs\_obligacion\_sacarse\_fotos\_pornograficas, \\ vs\_eyaculacion\_partes\_cuerpo, \\ vs\_acoso\_sexual, \\ vs\_iniciacion\_sexual\_forzada\_inducida, \\ vs\_otra\_forma\_violencia\_sexual, \\ vs\_no\_sabe\_no\_contesta \end{tabular} &
-
-\begin{tabular}[b]{@{}l@{}} vs\_existencia\_facilitador-\\
-\_corrupcion\_nnya \\ refiere a la existencia de un \\ facilitador de la corrupción de \\ niños, niñas y adolescentes.\\\\ vs\_no\_sabe\_no\_contesta refiere \\ violencia sexual que se desconoce \\ o que no hace referencia a los otros \\ campos mencionados.\end{tabular}                                                  \\ 
-\hline
-Otras violencias & Cualitativa & \begin{tabular}[c]{@{}l@{}} ofv\_sentimiento\_amenaza, \\ ofv\_amenazas\_explicitas, \\ ofv\_violencia\_fisica, ofv\_intento\_ahorcar, \\ ofv\_intento\_quemar,  ofv\_intento\_ahogar, \\ ofv\_amenaza\_muerte, \\ ofv\_uso\_sustancias\_psicoactivas, \\ ofv\_intento\_privacion\_libertad, \\ ofv\_privacion\_libertad, \\ ofv\_uso\_arma\_blanca, \\ ofv\_uso\_arma\_fuego, \\ ofv\_enganio\_seduccion, ofv\_intento\_matar, \\ ofv\_uso\_animal\_victimizar, \\ ofv\_grooming, ofv\_otra\_forma\_violencia, \\ ofv\_no\_sabe\_no\_contesta\end{tabular} &  \\ 
-\hline
-\end{tabular}
-\caption{Resumen de las variables.}
-\label{tablavar}
-\end{adjustbox}
-\end{table}
 
 
-
-
-
-
-
-
-Los datos de los llamados desde 2017 hasta julio de 2021 fueron descargados del portal mencionado en la sección anterior en cinco archivos de formato csv separados, uno por año. La unificación de esos archivos en un solo \textit{dataset} implicó realizar algunas modificaciones para sortear problemas de correspondencias entre años. La variable \textit{caso\_id} solo existe desde el primer trimestre de 2020, los casos anteriores a esa fecha no contaban con ella, por lo tanto tomé la decisión de eliminarla también para 2020 y 2021. La variable \textit{llamado\_provincia\_id} llevaba otro nombre hasta el año 2019: \textit{llamado\_provincia\_indec\_id} y fue entonces modificada en 2017, 2018 y 2019 para llevar el nombre actual. 
-\newline
-Los \textit{types} de las variables cualitativas fueron cambiados a \textit{categorical}\footnote{El análisis exploratorio y el resto del trabajo con datos fue y será realizado en Python} \todo[color=red!40]{esto va en metodología}. Además, los valores que tomaban al menos 9 de esas variables categóricas debieron ser normalizados por errores varios en la carga o valores cargados con sinónimos. Por ejemplo, muchos NS/NC fueron cargados en minúscula y en mayúscula en la misma columna y debieron ser normalizados a mayúscula; además, por ejemplo en la variable \textit{victima\_vinculo\_agresor} se repetían algunos valores cargados con distinta ortografía como "Ex pareja de la víctima" y "Ex-pareja de la víctima" y "Expareja de la víctima" que debieron ser normalizados.
-Los \textit{types} de las variables cuantitativas de edad fueron pasados a \textit{integer}. Los valores numéricos de \textit{victima\_edad} y \textit{llamante\_edad} tenían errores de carga evidentes ya que aparecían valores numéricos demasiado altos para ser edades como: 125, 221, 324. Las filas con esos valores no fueron eliminadas por el momento porque considero que el resto de los datos de la fila no están errados y es posible que los necesite más adelante. En cambio, los datos fueron marcados para no ser utilizados en análisis que incluyan las variables de edad.
-A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero}, \textit{victima\_discapacidad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor}, \textit{llamante\_edad}, \textit{llamante\_genero}, \textit{llamante\_vinculo} y \textit{hecho\_lugar}. Además, realicé un agrupamiento de las categorías de vínculos entre agresor y víctima para poder distinguir entre parejas, familiares y no familiares (conocidos). Algunos de estos histogramas se comentan en la sección siguiente. 
-
-Me propongo como continuación de este análisis explorar la fecha y hora de los llamados, las edades de las víctimas y llamantes, las formas de violencia más comunes, y construir una variable de género del agresor utilizando la variable que estipula el vínculo entre la víctima y el agresor, ya que en algunas de sus categorías el género se encuentra expresado inequívocamente (por ejemplo en las categorías padre, madre, hermano). Además, me interesa sumar análisis multivariados para ver la interacción entre algunas de las variables. Por último, tengo la intención de investigar asociaciones entre variables como edad de la víctima y vínculo con el agresor.
-
-
-
-Las variables de vs y ofv toman los valores SI NO.
-
-En general hay muchos más NO que sí.
-
-Algunas resultan muy poco informativas como vs explotacion sexual viajes turismo (0,02) y ofv intento matar (0,01) resultan muy poco informativas (ocurrencia de 0,02 y 0,01).
-
-Muchas pertenecen al mismo dominio de tipo de violencia, por ejemplo: vs violacion via vaginal vs violacion via anal vs violacion via oral.
-
-Una forma de reducir las dimensaiones del dataset para ver tendencias (?) \todo{por qué quiero reducir las dimensiones del dataset} es agrupar variables similares entre sí.
-
-También podría eliminar las poco o nada informativas pero por el momento voy a agruparlas nomás.
 
 Los agrupamientos propuestos se basan en conocimiento de dominio: la pertenencia de las distintas variables dentro de un agrupamiento al mismo tipo de violencia ejercida sobre una víctima.
 
