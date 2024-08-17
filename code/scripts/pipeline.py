@@ -17,7 +17,7 @@ from variables import orden_columnas
 # V1 --> unir los datasets
 
 dataset_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(''))), 'datasets')
-llamados_v2= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v2.xlsx'), parse_dates=['llamado_fecha_hora'])
+#llamados_v2= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_v2.xlsx'), parse_dates=['llamado_fecha_hora'])
 
 data_2017 =pd.read_csv(os.path.join(dataset_dir,'csv/llamados_atendidos_abuso_sexual_2017.csv'),  parse_dates=['llamado_fecha_hora'], engine= 'python')
 data_2018 =pd.read_csv(os.path.join(dataset_dir,'csv/llamados_atendidos_abuso_sexual_2018.csv'),  parse_dates=['llamado_fecha_hora'], engine= 'python')
