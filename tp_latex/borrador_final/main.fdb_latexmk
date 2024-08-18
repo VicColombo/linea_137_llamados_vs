@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1723211060.17618 "main.aux" "main.bbl" "main" 1723212867.22846 0
+["bibtex main"] 1724003218.1785 "main.aux" "main.bbl" "main" 1724003219.30939 0
   "./bibtex_reporte.bib" 1722804477.49261 3125 e5f6604ccda6a4d18170bc8eeeaa273a ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1723212866.99222 2903 5a6793606d876024121198fc77bf971b "pdflatex"
+  "main.aux" 1724003219.05659 3244 98c206dd38051c2ce2f1cd3576284499 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1723212866.14686 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1723212867.22859 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1723212865.91374 19263 325fcd395ee53efca99db519f3ab884b ""
+["pdflatex"] 1724003218.28177 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1724003219.30955 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1724003216.86772 22367 a0d9432c3fdf53551dc80dbd3e4e7055 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -180,11 +180,12 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1714906219.55691 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1714906201 8221447 788a2b891939645b305e1f76a4adad8d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
+  "images/latex_boxplot_edades_outliers.png" 1723882225.97829 19525 6f219b83bbcd445740b24ed770aa9eb2 ""
   "images/uba2.jpg" 1721825197.71324 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1723212866.99222 2903 5a6793606d876024121198fc77bf971b "pdflatex"
-  "main.bbl" 1723211060.26436 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
-  "main.out" 1723212866.77764 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1723212865.91374 19263 325fcd395ee53efca99db519f3ab884b ""
+  "main.aux" 1724003219.05659 3244 98c206dd38051c2ce2f1cd3576284499 "pdflatex"
+  "main.bbl" 1724003218.27898 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
+  "main.out" 1724003218.81785 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1724003216.86772 22367 a0d9432c3fdf53551dc80dbd3e4e7055 ""
   (generated)
   "main.aux"
   "main.log"

@@ -98,7 +98,7 @@ Como primer paso, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso
 
 El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
 
-\begin{table}[ht!]
+\begin{table}[H]
     \centering
     \caption{Resumen de las variables.}
     \label{tablavar}
@@ -134,40 +134,52 @@ El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables
 \end{table}
 
 
-
+\subsection*{Limpieza de los datos}
 El siguiente paso fue limpiar los datos con errores de carga como ser de errores de tipeo, valores cargados con sinónimos o abreviaturas, o errores ortográficos:
 \begin{itemize}
-    \item Normalicé en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”, otro tanto hice con “Pareja de la vícitma”.
-    \item Normalicé para todas las variables pertinentes los valores SI, NO, y NS/NC dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, con tildes en SI, etc.
-    \item Normalicé todos los valores “Sin datos” a NS/NC por cosniderarlos equivalentes.
+    \item Unifiqué en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”, otro tanto hice con “Pareja de la vícitma” que presentaba variaciones similares.
+    \item Unifiqué para todas las variables pertinentes los valores SI, NO, y NS/NC dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, etc.
+    \item Sustituí todos los valores “Sin datos” por NS/NC por considerarlos equivalentes.
     \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo “Madre” =/= “  Madre” 
     \item Convertí en la variable llamante\_vinculo el valor “Vecino” a “Vecina/o” ya que  no necesariamente se refiere unívocamente a personas de género masculino.
-    \item Normalicé en llamado\_provincia “Ciudad Autónoma de Buenos Aires” a “CABA” ya que ambos valores aparecían. 
+    \item Unifiqué en llamado\_provincia “Ciudad Autónoma de Buenos Aires” y “CABA” optando por “CABA”. 
     \item Corregí en llamado\_provincia las instancias de “Santa Fé” a “Santa Fe”.
 \end{itemize}
  
+\subsection*{Exploración de los datos}
+Las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban \textit{outliers}, como se aprecia en el \textit{boxplot} de la figura \ref{box_edades_log}, en el que los datos están escalados logarítmicamente para mejor legibilidad del gráfico. Dada la naturaleza de ambas variables, evalué los \textit{outliers} utilizando el sentido común y conocimiento de dominio antes que fórmulas clásicas como las cotas superior e inferior basadas en el IQR. De esta manera, los valores demasiado altos para ser la edad de una persona o demasiado bajos para ser la edad de una persona que llama por teléfono, los consideré errores de carga o bien números aleatorios ingresados para no dejar el campo vacío, y por lo tanto eliminé dejando las celdas vacías como datos faltantes\footnote{En el \nameref{anex} se puede consultar el cuadro \nameref{tabla_out}, con los valores que tomaban los \textit{outliers} eliminados en cada variable de edad, y comprobar que la mayoría eran 999 en ambas variables, muy probablemente un valor por defecto ingresado para no dejar el campo vacío.}. En total, removí 195 valores en \textit{llamante\_edad}, y 101 valores en \textit{victima\_edad}. 
 
- Luego, las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban \textit{outliers} demasiado extremos para ser edades reales (ver cuadro \ref{tabla_out}). Los consideré errores de carga o bien números aleatorios ingresados para no dejar el campo vacío, y por lo tanto eliminé dejando las celdas vacías como datos faltantes. \todo{BOXPLOT?}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_boxplot_edades_outliers.png}
+    \caption{Distribución las variables de edad en escala logarítmica.}
+    \label{box_edades_log}
+    \end{center}
+    \end{figure}
 
 
-\begin{table}[]
+Una vez removidos estos valores, tomé las medidas descriptivas de las variables de edad que se observan en el cuadro \ref{tabla_descr_ed}. Se puede ver que la mayoría de las víctimas no supera los 21 años, con una media de 17 y una moda de 14. Las personas que llaman para reportar los casos, en cambio, son en su mayoría adultos, con una media de 36 años, y una moda de 40. Esto refuerza lo mencionado en la introducción de hallazgos de otros estudios de que las personas más jóvenes y sobre todo los adolescentes e infantes son los grupos más en riesgo de ser víctimas de violencia sexual. 
+
+
+\begin{table}[H]
     \centering
-    \caption{Outliers en variables de edad.}
-    \label{tabla_out}
+    \caption{Medidas descriptivas de las variables de edad.}
+    \label{tabla_descr_ed}
     \begin{tabular}{|l|l|l|}
     \hline
-    \textbf{Variable}                        & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
-    \multirow{2}{*}{llamante\_edad} & 999     & 192               \\ \cline{2-3} 
-                                    & 0       & 3                 \\ \hline
-    \multirow{4}{*}{victima\_edad}  & 999     & 98                \\ \cline{2-3} 
-                                    & 224     & 1                 \\ \cline{2-3} 
-                                    & 125     & 1                 \\ \cline{2-3} 
-                                    & 111     & 1                 \\ \hline
+    \textbf{Descriptor} & \textbf{Edad de quien llama} & \textbf{Edad de la víctima} \\ \hline
+    media               & 36.25                        & 17.17                       \\ \hline
+    moda                & 40                           & 14                          \\ \hline
+    desvío estándar     & 11.41                        & 11.91                       \\ \hline
+    min                 & 3                            & 0                           \\ \hline
+    25\%                & 29                           & 10                          \\ \hline
+    50\%                & 35                           & 14                          \\ \hline
+    75\%                & 42                           & 21                          \\ \hline
+    max                 & 99                           & 99                          \\ \hline
     \end{tabular}
     \end{table}
 
-
-A modo de análisis exploratorio, realicé histogramas univariados para ver la frecuencia de las categorías de las variables: \textit{victima\_genero},\textit{victima\_edad}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor},  y \textit{hecho\_lugar}. Además, construí la variable agresor conocido no conocido para explorar la dicotomía extraños-conocidos en relación a las víctimas y los agresores. La variable estación del año, fin de semana y momento del día para explorar frecuencia de los llamados. Exploré la variable provincia para ver la cantidad de llamados por región. 
+A continuación, exploré con histogramas univariados las variables \textit{victima\_genero}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor},  y \textit{hecho\_lugar}. Además, construí la variable \textit{agresor\_conocido\_desconocido} para explorar la dicotomía extraños-conocidos en relación con las víctimas y los agresores, y la variable \textit{genero\_agresor}. Construí también las variables estación del año, fin de semana y momento del día para explorar frecuencia de los llamados. Exploré la variable provincia para ver la cantidad de llamados. 
 
 histogramas y gráficos exploratorios de esas variables
 
@@ -175,21 +187,19 @@ Para ver interacciones entre la variable de interés \textit{victima\_convive\_a
 
 GRAFICOS P ESAS
 
+Las variables de vs y ofv toman los valores SI NO.
 
+En general en todas las variables de violencia hay muchos más NO que sí.
 
 \subsection*{Datos faltantes}\label{faltantes}
 
-datos faltantes en forma de NS/NC y en forma de datos vacíos. Dónde están y cuántos son. Cuántos en la variable de interés victima convive agresor. 
-Cuantos datos faltantes en edad de la víctima y edad del llamante
+datos faltantes en forma de NS/NC y en forma de datos vacíos. Dónde están y cuántos son. Cuántos en la variable de interés victima convive agresor. esto está en la notebook por qué faltan mis datos
+Cuantos datos faltantes en edad de la víctima y edad del llamante esto está en la notebook por qué faltan mis datos
 
 posible relación de datos faltantes de edad con quien llama tanto en edad de la victima como en edad de quien llama
 relación entre los faltante de edad y NSNC en convive
 
-relaci;on entre NSNC de convive y quien llama (instituciones)
-
-Las variables de vs y ofv toman los valores SI NO.
-
-En general en todas las variables de violencia hay muchos más NO que sí.
+relaci;on entre NSNC de convive y quien llama (instituciones) esto está en la notebook de por qué faltan mis datos y en las notas que tomé
 
 
 \section*{Metodología}\label{met}
@@ -231,6 +241,8 @@ cruzamiento de datos ovd líneas de asistencia, observatorio de género.
 acceso y análisis de datos extensivo a provincias, no solo benos aitres
 
 
+VER DE EN SVM RESULTANTE FINAL A LOS QUE LES PUSO S´I CU´AL ES LA EDAD DE V´ICTIMA Y A LOS QUE LES PUSO NO, CU´AL ES
+
 en \textit{La guerra contra las mujeres}, \citeyearpar{segato2016guerra}, Rita Segato habla de la violencia sexual como algo siempre dirigido hacia cuerpos femeninos y \textit{feminizados} (resaltado propio). Con esto último quiere decir cuerpos percibidos o construidos por los abusadores como femeninos con respecto a posiciones de poder: menores, débiles, racializados, pertenecientes a disidencias sexuales. Esto se condice con datos sobre la mayor incidencia de la violencia sexual contra identidades masculinas durante la niñez y la adolescencia, es decir, en períodos en que los cuerpos y los sujetos son más vulnerables, y por lo tanto, también percibidos como feminizados \citep*{contreras2016violencia,ufem_relevamiento,ferris2002world}.
 
 Si las denuncias de violencia sexual contra disidencias de género representan una minoría en los datos, ¿quiere decir esto que esas personas sufren menos violencia sexual?, ¿O quiere decir que, como minoría social, están subrepresentados en general y que tienen menos acceso a la justicia?
@@ -242,5 +254,21 @@ Si las denuncias de violencia sexual contra disidencias de género representan u
 
 \newpage
 \section*{Anexo}\label{anex}
+
+\begin{table}[H] 
+    \centering
+    \caption{Outliers en variables de edad.}
+    \label{tabla_out}
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \textbf{Variable}                        & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
+    \multirow{2}{*}{llamante\_edad} & 999     & 192               \\ \cline{2-3} 
+                                    & 0       & 3                 \\ \hline
+    \multirow{4}{*}{victima\_edad}  & 999     & 98                \\ \cline{2-3} 
+                                    & 224     & 1                 \\ \cline{2-3} 
+                                    & 125     & 1                 \\ \cline{2-3} 
+                                    & 111     & 1                 \\ \hline
+    \end{tabular}
+    \end{table}
 
 \end{document}
