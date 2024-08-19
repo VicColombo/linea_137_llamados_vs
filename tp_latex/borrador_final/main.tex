@@ -96,7 +96,7 @@ Como primer paso, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso
 \end{itemize}
 
 
-El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona denunciante, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
+El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona que llama para reportar el hecho, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
 
 \begin{table}[H]
     \centering
@@ -134,7 +134,7 @@ El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables
 \end{table}
 
 
-\subsection*{Limpieza de los datos}
+\subsection*{Limpieza y exploración de los datos}
 El siguiente paso fue limpiar los datos con errores de carga como ser de errores de tipeo, valores cargados con sinónimos o abreviaturas, o errores ortográficos:
 \begin{itemize}
     \item Unifiqué en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”, otro tanto hice con “Pareja de la vícitma” que presentaba variaciones similares.
@@ -146,7 +146,7 @@ El siguiente paso fue limpiar los datos con errores de carga como ser de errores
     \item Corregí en llamado\_provincia las instancias de “Santa Fé” a “Santa Fe”.
 \end{itemize}
  
-\subsection*{Exploración de los datos}
+
 Las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban \textit{outliers}, como se aprecia en el \textit{boxplot} de la figura \ref{box_edades_log}, en el que los datos están escalados logarítmicamente para mejor legibilidad del gráfico. Dada la naturaleza de ambas variables, evalué los \textit{outliers} utilizando el sentido común y conocimiento de dominio antes que fórmulas clásicas como las cotas superior e inferior basadas en el IQR. De esta manera, los valores demasiado altos para ser la edad de una persona o demasiado bajos para ser la edad de una persona que llama por teléfono, los consideré errores de carga o bien números aleatorios ingresados para no dejar el campo vacío, y por lo tanto eliminé dejando las celdas vacías como datos faltantes\footnote{En el \nameref{anex} se puede consultar el cuadro \nameref{tabla_out}, con los valores que tomaban los \textit{outliers} eliminados en cada variable de edad, y comprobar que la mayoría eran 999 en ambas variables, muy probablemente un valor por defecto ingresado para no dejar el campo vacío.}. En total, removí 195 valores en \textit{llamante\_edad}, y 101 valores en \textit{victima\_edad}. 
 
 \begin{figure}[H]
@@ -161,29 +161,43 @@ Las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban \text
 Una vez removidos estos valores, tomé las medidas descriptivas de las variables de edad que se observan en el cuadro \ref{tabla_descr_ed}. Se puede ver que la mayoría de las víctimas no supera los 21 años, con una media de 17 y una moda de 14. Las personas que llaman para reportar los casos, en cambio, son en su mayoría adultos, con una media de 36 años, y una moda de 40. Esto refuerza lo mencionado en la introducción de hallazgos de otros estudios de que las personas más jóvenes y sobre todo los adolescentes e infantes son los grupos más en riesgo de ser víctimas de violencia sexual. 
 
 
-\begin{table}[H]
-    \centering
+
+    \begin{table}[H]
+        \centering
     \caption{Medidas descriptivas de las variables de edad.}
     \label{tabla_descr_ed}
-    \begin{tabular}{|l|l|l|}
-    \hline
-    \textbf{Descriptor} & \textbf{Edad de quien llama} & \textbf{Edad de la víctima} \\ \hline
-    media               & 36.25                        & 17.17                       \\ \hline
-    moda                & 40                           & 14                          \\ \hline
-    desvío estándar     & 11.41                        & 11.91                       \\ \hline
-    min                 & 3                            & 0                           \\ \hline
-    25\%                & 29                           & 10                          \\ \hline
-    50\%                & 35                           & 14                          \\ \hline
-    75\%                & 42                           & 21                          \\ \hline
-    max                 & 99                           & 99                          \\ \hline
-    \end{tabular}
-    \end{table}
+        \begin{tabular}{lcc}
+        \hline
+        \textbf{Descriptor} & \textbf{Edad de quien llama} & \textbf{Edad de la víctima} \\ \hline
+        Media               & 36.25                        & 17.17                       \\
+        Moda                & 40                           & 14                          \\
+        Desvío Est.     & 11.41                        & 11.91                       \\
+        Min.                & 3                            & 0                           \\
+        25\%                & 29                           & 10                          \\
+        50\%                & 35                           & 14                          \\
+        75\%                & 42                           & 21                          \\
+        Max                 & 99                           & 99                          \\ \hline
+        \end{tabular}
+        \end{table}
 
-A continuación, exploré con histogramas univariados las variables \textit{victima\_genero}, \textit{victima\_convive\_agresor}, \textit{victima\_vinculo\_agresor},  y \textit{hecho\_lugar}. Además, construí la variable \textit{agresor\_conocido\_desconocido} para explorar la dicotomía extraños-conocidos en relación con las víctimas y los agresores, y la variable \textit{genero\_agresor}. Construí también las variables estación del año, fin de semana y momento del día para explorar frecuencia de los llamados. Exploré la variable provincia para ver la cantidad de llamados. 
 
-histogramas y gráficos exploratorios de esas variables
+Según la distribución de la variable \textit{llamado\_provincia}, el 37\% de los llamados se realizaron en CABA; el \%36 en el resto de la provincia de Buenos Aires; del 9\% no se cuentan con datos; y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una. \textit{hecho\_lugar}
 
-Para ver interacciones entre la variable de interés \textit{victima\_convive\_agresor} y variables podrían estar relacionadas o aportar información que determine si el valor de la primera es más probablemente SI o NO,  realicé gráficos que exploran la la relación entre \textit{victima\_convive\_agresor}, \textit{victima\_edad}, \textit{llamante\_edad}, \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia} (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
+Observé según la distribución de la variable \textit{victima\_nacionalidad}, que el 80\% de las víctimas son argentinas; del 15\% no se cuenta con datos sobre su nacionalidad; y el restante 5\% se divide entre las nacionalidades boliviana, paraguaya, peruana, brasileña, uruguaya, y chilena, y la categoría “otra”. Según la distribución de la variable \textit{victima\_genero}, \textit{victima\_discapidad}, \textit{victima\_vinculo\_agresor}, 
+
+ 
+Además, construí la variable \textit{agresor\_conocido\_desconocido} para explorar la dicotomía extraños-conocidos en relación con las víctimas y los agresores
+
+En cuanto a la variable de interés \textit{victima\_convive\_agresor}, 
+
+
+Construí también las variables estación del año, fin de semana y momento del día para explorar frecuencia de los llamados. Exploré la variable provincia para ver la cantidad de llamados. 
+
+
+
+Para ver interacciones entre la variable de interés \textit{victima\_convive\_agresor} y variables podrían estar relacionadas o aportar información que determine si el valor de la primera es más probablemente SI o NO,  realicé gráficos que exploran la relación entre \textit{victima\_convive\_agresor}, \textit{victima\_edad}, \textit{llamante\_edad}, \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia} (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
+
+
 
 GRAFICOS P ESAS
 
