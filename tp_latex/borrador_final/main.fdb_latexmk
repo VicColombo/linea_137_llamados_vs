@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1724092618.31917 "main.aux" "main.bbl" "main" 1724093042.75645 0
+["bibtex main"] 1724234314.70144 "main.aux" "main.bbl" "main" 1724234315.84373 0
   "./bibtex_reporte.bib" 1722804477.49261 3125 e5f6604ccda6a4d18170bc8eeeaa273a ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1724093042.51642 3243 631b22d8c65842b1df05b0ad92a62582 "pdflatex"
+  "main.aux" 1724234315.61891 3495 4146452ca5e09797ac6b829e62bede52 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1724093041.69933 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1724093042.75658 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1724093041.50274 23003 dd973729218d21b247d1d7e9081c7882 ""
+["pdflatex"] 1724234314.80473 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1724234315.84385 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1724234313.38187 24332 f5bcb215f66961ffed71ad891413880d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -182,10 +182,10 @@
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "images/latex_boxplot_edades_outliers.png" 1723882225.97829 19525 6f219b83bbcd445740b24ed770aa9eb2 ""
   "images/uba2.jpg" 1721825197.71324 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1724093042.51642 3243 631b22d8c65842b1df05b0ad92a62582 "pdflatex"
-  "main.bbl" 1724092618.39973 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
-  "main.out" 1724093042.2767 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1724093041.50274 23003 dd973729218d21b247d1d7e9081c7882 ""
+  "main.aux" 1724234315.61891 3495 4146452ca5e09797ac6b829e62bede52 "pdflatex"
+  "main.bbl" 1724234314.80197 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
+  "main.out" 1724234315.36895 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1724234313.38187 24332 f5bcb215f66961ffed71ad891413880d ""
   (generated)
   "main.aux"
   "main.log"
