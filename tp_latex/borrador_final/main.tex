@@ -181,21 +181,130 @@ Una vez removidos estos valores, tomé las medidas descriptivas de las variables
         \end{table}
 
 
-Según la distribución de la variable \textit{llamado\_provincia}, el 37\% de los llamados se realizaron en CABA; el \%36 en el resto de la provincia de Buenos Aires; del 9\% no se cuentan con datos (respuestas NS/NC); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una. En cuanto al lugar donde ocurrieron los casos, la distribución de la variable \textit{hecho\_lugar} indica que en aproximadamente el 30\% de los llamados no se cuenta con datos sobre el lugar de los hechos (respuestas NS/NC), pero en otro 25\% los hechos sucedieron en la vivienda de la víctima. El 13\% de los casos ocurrieron en la vivienda del agresor, y el 12\% en redes sociales. El 5\% pertenece a la categoría “otros”, y el restante 15\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios.
+Para explorar patrones en la distribución temporal de los llamados realicé el gráfico de tendencia de la figura \ref{trend} con los datos agregados mensualmente y una media móvil de 4 meses. Se puede ver claramente en este gráfico una tendencia creciente en la cantidad de llamados desde mediados de 2017, que podría estar asociada a campañas de concientización sobre el programa y la línea y también sobre la violencia doméstica en general. Hay picos de llamados que se repiten alrededor de finales de cada año, entre los meses de octubre y enero en 2016, 2017, 2018 y 2020 aunque no parecen ser consistentes en tamaño como para considerarlos una tendencia clara. Por otro lado, hay una gran suba entre finales de 2018 y comienzos de 2019 que puede estar asociada a factores externos como los que mencioné antes. Se observa, luego de una baja y período de estabilización en 2019, una suba marcada en 2020. Un factor externo que podría estar relacionado con este patrón, es la implementación de políticas de ASPO (Aislamiento Social Preventivo y Obligatorio) durante la epidemia de COVID-19 de 2020 que obligó a la población a permanecer en sus hogares y entornos más cercanos. Si tenemos en cuenta la mayor prevalencia de la violencia sexual en ámbitos cercanos y por parte de agresores conocidos a la víctima, podría explicarse la suba de cantidad de llamados durante esta época. Sin embargo, cabe aclarar, que todas las posibles asociaciones que planteo como interpretación de esta figura deben ser contrastadas con un análisis en profundidad de las series temporales del \textit{dataset}, que excede los objetivos de este trabajo.
 
-Ignorando por el momento los datos faltantes (NS/NC), destaco la elevada proporción de casos que suceden en la vivienda de la víctima, un dato que viene a acompañar lo ya dicho en la introducción sobre los hechos de violencia sexual ocurriendo con agresores cercanos y en entornos cercanos antes que involucrar personas y lugares desconocidos. Por otro lado, me llamó la atención la cantidad de casos sucedidos en redes sociales. Al cruzar esa categoría con los tipos de violencia sufrida y las edades de las víctimas agrupadas cualitativamente en Niñez (0 a 11 años), Adolescencia (12 a 18 años), Juventud (19 a 30 años), Adultez (31 a 65 años), y Vejez (mayores de 65), observé que  
+Además, construí las variables \textit{estación del año}, \textit{fin de semana}, y \textit{momento del día} para explorar la posibilidad de otros patrones en los llamados. Observé que una mayor proporción de llamados ocurren durante la semana (80\%) y por la tarde (38\%). No observé disparidad significativa en la distribución de llamados de acuerdo a las estaciones del año.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_trend_llamados.png}
+    \caption{Cantidad de llamados en el tiempo con media móvil de 4 meses.}
+    \label{trend}
+    \end{center}
+    \end{figure}
 
 
 
-Observé según la distribución de la variable \textit{victima\_nacionalidad}\todo{reduje víctima nacionalidad para SVM?}, que el 80\% de las víctimas son argentinas; del 15\% no se cuenta con datos sobre su nacionalidad; y el restante 5\% se divide entre las nacionalidades boliviana, paraguaya, peruana, brasileña, uruguaya, y chilena, y la categoría “otra”. Según la distribución de la variable \textit{victima\_genero}, \textit{victima\_discapidad}, \textit{victima\_vinculo\_agresor}, 
+Según la distribución de la variable \textit{llamado\_provincia}, el 37\% de los llamados se realizaron en CABA; el \%36 en el resto de la provincia de Buenos Aires; del 9\% no se cuentan con datos (respuestas NS/NC); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una (ver figura \ref{provincia}). En cuanto al lugar donde ocurrieron los casos, en la figura \ref{hecholugar} se puede ver la distribución de la variable \textit{hecho\_lugar}. Aproximadamente el 30\% de los llamados no se cuenta con datos sobre el lugar de los hechos (respuestas NS/NC), pero en otro 25\% los hechos sucedieron en la vivienda de la víctima. El 13\% de los casos ocurrieron en la vivienda del agresor, y el 12\% en redes sociales. El restante 20\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_llamados_por_provincia.png}
+    \caption{Llamados por provincia.}
+    \label{provincia}
+    \end{center}
+    \end{figure}
+
+
+ \begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_lugar_hechos.png}
+    \caption{Lugar de los hechos.}
+    \label{hecholugar}
+    \end{center}
+    \end{figure}
+
+Dejando de lado por el momento los datos faltantes (NS/NC) que los voy a tratar más abajo, destaco la elevada proporción de casos que suceden en la vivienda de la víctima, un dato que viene a acompañar lo ya dicho en la \nameref{intro} sobre la mayoría de los hechos de violencia sexual ocurriendo más bien en el entorno de la víctima antes que involucrar personas y lugares desconocidos. Por otro lado, llama la atención la cuarta categoría más respondida, los casos sucedidos en redes sociales. Para explorar este fenómeno, crucé en la figura \ref{redes}  esa categoría de \textit{hecho\_lugar} con los tipos de violencia sufrida y las edades de las víctimas agrupadas cualitativamente en Niñez (0 a 11 años), Adolescencia (12 a 18 años), Juventud (19 a 30 años), Adultez (31 a 65 años), y Vejez (mayores de 65). Observé que la mayor cantidad de casos corresponden al tipo de violencia \textit{grooming} en primer lugar, y en segundo lugar a la categoría \textit{ofv\_no\_sabe\_no\_contesta}. Además, aunque con conteos mucho más bajos, aparecen también otras formas de violencia esperables en el contexto de redes sociales como: \textit{ofv\_sentimiento\_amenaza}, \textit{vs\_explotacion\_sexual}, o \textit{ofv\_amenaza\_explicita}. En todos estos casos alrededor del 90\% de las víctimas son niñes o adolescentes. Si bien por la distribución de la variable \textit{victima\_edad} cabría esperar mayor cantidad de víctimas de estos grupos etarios, en el caso de los hechos sucedidos en redes sociales, este dato podría estar asociado con el mayor uso de redes sociales por parte de este sector de la población. 
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_redes_sociales_edad_formas_violencia.png}
+    \caption{Proporción de “SI” en hechos de violencia ocurridos en redes sociales, agrupado por edad.}
+    \label{redes}
+    \end{center}
+    \end{figure}
+
+
+Observé en la distribución de la variable \textit{victima\_nacionalidad}\todo{reduje víctima nacionalidad para SVM?} (ver figura \Ref{nacionalidad}), que el 80\% de las víctimas son argentinas; del 15\% no se cuenta con datos; y el restante 5\% se divide entre las nacionalidades boliviana, paraguaya, peruana, brasileña, uruguaya, y chilena, y la categoría “otra”. En la distribución de la variable \textit{victima\_genero} (ver figura \Ref{genero}) observé que el 77.6\% de las víctimas son mujeres, el 18.4\% hombres, del 3.7\% no se tienen datos, y el 0.14\% son personas tránsgenero. Según \textit{victima\_discapidad} (ver figura \Ref{discapacidad}), para el 53.7\% de las víctimas no se cuenta con datos, el 43.2\% no posee discapacidad, y el 2.9\% sí. En \textit{victima\_vinculo\_agresor} (ver figura \Ref{vinculoagresor}). En \textit{vinculo\_llamante\_victima} (ver figura \Ref{vinculollamante})
+
+
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth} % Adjust to make sure both fit side by side
+      \centering
+      \includegraphics[width=\linewidth]{images/latex_nacionalidad_victima.png}
+      \caption{Nacionalidad de las víctimas.}
+      \label{nacionalidad}
+    \end{minipage}%
+    %\hspace{0.02\textwidth} % Add some space between the figures
+    \begin{minipage}{0.5\textwidth} % Ensure the width is appropriate
+      \centering
+      \includegraphics[width=\linewidth]{images/latex_genero_victima.png}
+      \caption{Género de las víctimas.}
+      \label{genero}
+    \end{minipage}
+\end{figure}
+
+%\begin{figure}[H]
+ %   \begin{center}
+  %  \includegraphics[scale=.5]{images/latex_nacionalidad_victima.png}
+   % \caption{Nacionalidad de las víctimas.}
+    %\label{nacionalidad}
+    %\end{center}
+    %\end{figure}
+
+ %\begin{figure}[H]
+  %  \begin{center}
+  %  \includegraphics[scale=.5]{images/latex_genero_victima.png}
+   % \caption{Género de las víctimas.}
+    %\label{genero}
+    %\end{center}
+    %\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_victima_discapacidad.png}
+    \caption{Presencia de discapacidad en las víctimas.}
+    \label{discapacidad}
+    \end{center}
+    \end{figure}
+
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_vinculo_agr_victima.png}
+    \caption{Vínculos víctima-agresor.}
+    \label{vinculoagresor}
+    \end{center}
+    \end{figure}
+
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_vinculo_llamante.png}
+    \caption{Vínculos víctima-llamante.}
+    \label{vinculollamante}
+    \end{center}
+    \end{figure}
+    
 
  
-Además, construí la variable \textit{agresor\_conocido\_desconocido} para explorar la dicotomía extraños-conocidos en relación con las víctimas y los agresores
-
-En cuanto a la variable de interés \textit{victima\_convive\_agresor}, 
+Construí a partir de \textit{victima\_vinculo\_agresor}, la variable \textit{agresor\_conocido\_desconocido} para explorar la dicotomía extraños-conocidos en relación con las víctimas y los agresores. Esta nueva variable tiene las categorías \textit{Conocido familiar}, \textit{Conocido no familiar} (categoría ya presente en la variable original) \textit{Desconocido}, y \textit{NS/NC}. En la figura \Ref{conocidodesconocido} se puede apreciar su distribución que reafirma nuevamente la estadística sobre la frecuencia con que los hechos de violencia sexual son perpetrados por agresores conocidos/cercanos a la víctima. y reduje vínculo llamante víctima a 
 
 
-Construí también las variables estación del año, fin de semana y momento del día para explorar frecuencia de los llamados. Exploré la variable provincia para ver la cantidad de llamados. 
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_agresor_conocido_no.png}
+    \caption{Agresor conocido o no por la víctima.}
+    \label{conocidodesconocido}
+    \end{center}
+    \end{figure}
+
+
+En cuanto a la variable de interés \textit{victima\_convive\_agresor} 
+
+
 
 
 
@@ -265,6 +374,9 @@ en \textit{La guerra contra las mujeres}, \citeyearpar{segato2016guerra}, Rita S
 
 Si las denuncias de violencia sexual contra disidencias de género representan una minoría en los datos, ¿quiere decir esto que esas personas sufren menos violencia sexual?, ¿O quiere decir que, como minoría social, están subrepresentados en general y que tienen menos acceso a la justicia?
 
+
+
+Análisis de series temporales, porsibilidad de hacer forcasting
 \newpage
 
 
