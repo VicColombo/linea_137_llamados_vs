@@ -19,6 +19,8 @@
 
 \begin{document}
 
+\listoftodos
+
 \begin{titlepage}
 
     \begin{center}
@@ -64,6 +66,9 @@
 
 \begin{abstract}
 
+
+
+
 \end{abstract}
 \newpage
 \section*{Introducción}\label{intro}
@@ -75,7 +80,7 @@ La clasificación de las identidades de género de víctimas y perpetradores es 
 
 La  recopilación, sistematización, y análisis de datos sobre violencia sexual por parte de los Estados es crucial para planificar y llevar adelante políticas efectivas de prevención, asistencia, y erradicación de la violencia sexual. En Argentina, si bien no hay un sistema estatal único y centralizado de este tipo de información, existen entidades judiciales y programas estatales que, además de ofrecer auxilio, asistencia y/o acceso a la justicia, recaban datos sobre violencia sexual, y mantienen un registro público de ellos. Unos de esos programas es Las Víctimas contra las Violencias. 
 
-Desde el año 2016, en el marco del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia de la Nación, la línea 137 funciona las 24 horas del día para solicitar asistencia en casos de violencia sexual o familiar\footnote{Además, desde 2020 cuenta también con el canal de \textit{Whatsapp} (54911) 3133-1000.}. El programa cuenta con equipos de intervención de abogadas, psicólogas, y trabajadoras sociales. Al recibir una llamada solicitando asistencia se coordina el envío de equipos móviles para proveer a la víctima, en base a las necesidades del caso, de contención emocional, acompañamiento a un hospital y/o a radicar una denuncia, y/o a un lugar seguro donde pueda alojarse \citep*{linea_137}.\todo{rever cómo sigue el programa ahora}
+Desde el año 2016, en el marco del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia de la Nación, la línea 137 funciona las 24 horas del día para solicitar asistencia en casos de violencia sexual o familiar\footnote{Además, desde 2020 cuenta también con el canal de \textit{Whatsapp} (54911) 3133-1000.}. El programa cuenta con equipos de intervención de abogadas, psicólogas, y trabajadoras sociales. Al recibir una llamada solicitando asistencia se coordina el envío de equipos móviles para proveer a la víctima, en base a las necesidades del caso, de contención emocional, acompañamiento a un hospital y/o a radicar una denuncia, y/o a un lugar seguro donde pueda alojarse \citep*{linea_137}.\todo[inline]{rever cómo sigue el programa ahora}
 
 Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran publicados cuatro tipos de \textit{datasets} por año: llamados e intervenciones domiciliarias por situaciones de violencia familiar, y llamados e intervenciones domiciliarias por situaciones de violencia sexual.
 Los registros no están exentos de los problemas frecuentes antes mencionados en los datos sobre violencia sexual, ya que presentan información faltante de dos maneras: celdas vacías en el caso de las variables numéricas de edad, y respuestas NS/NC (no sabe-no contesta) en lugar de SI o NO en el resto de las variables categóricas. Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor de los datos que faltan está relacionado con el motivo mismo por el que faltan (MNAR).
@@ -195,18 +200,11 @@ Además, construí las variables \textit{estación del año}, \textit{fin de sem
 
 
 
-Según la distribución de la variable \textit{llamado\_provincia}, el 37\% de los llamados se realizaron en CABA; el \%36 en el resto de la provincia de Buenos Aires; del 9\% no se cuentan con datos (respuestas NS/NC); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una (ver figura \ref{provincia}). En cuanto al lugar donde ocurrieron los casos, en la figura \ref{hecholugar} se puede ver la distribución de la variable \textit{hecho\_lugar}. Aproximadamente el 30\% de los llamados no se cuenta con datos sobre el lugar de los hechos (respuestas NS/NC), pero en otro 25\% los hechos sucedieron en la vivienda de la víctima. El 13\% de los casos ocurrieron en la vivienda del agresor, y el 12\% en redes sociales. El restante 20\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios.
+Según la distribución de la variable \textit{llamado\_provincia}, la mayoría de los llamados provienen de la Ciudad Autónoma (37\%) y la Provincia de Buenos Aires (36\%). Del 9\% no se cuentan con datos (respuestas \textit{NS/NC}); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una.\footnote{Ver figura \ref{provincia} en el \nameref{anex}.} 
+
+En cuanto a la variable \textit{hecho\_lugar}, como ilustra el \textit{barplot} de la figura \Ref{hecholugar}, para aproximadamente el 30\% de los llamados no se cuenta con datos (respuestas \textit{NS/NC}); luego, el 25\% los hechos suceden en la vivienda de la víctima y el 13\% en la vivienda del agresor. La cuarta categoría más reportada, con el 12\%, es \textit{redes sociales}. El restante 20\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios. La elevada proporción de casos que suceden en la vivienda de la víctima, es un dato que acompaña lo ya dicho en la \nameref{intro} sobre la mayoría de los hechos de violencia sexual ocurriendo más bien en el entorno de la víctima antes que involucrar personas y lugares desconocidos. 
 
 \begin{figure}[H]
-    \begin{center}
-    \includegraphics[scale=.5]{images/latex_llamados_por_provincia.png}
-    \caption{Llamados por provincia.}
-    \label{provincia}
-    \end{center}
-    \end{figure}
-
-
- \begin{figure}[H]
     \begin{center}
     \includegraphics[scale=.5]{images/latex_lugar_hechos.png}
     \caption{Lugar de los hechos.}
@@ -214,7 +212,8 @@ Según la distribución de la variable \textit{llamado\_provincia}, el 37\% de l
     \end{center}
     \end{figure}
 
-Dejando de lado por el momento los datos faltantes (NS/NC) que los voy a tratar más abajo, destaco la elevada proporción de casos que suceden en la vivienda de la víctima, un dato que viene a acompañar lo ya dicho en la \nameref{intro} sobre la mayoría de los hechos de violencia sexual ocurriendo más bien en el entorno de la víctima antes que involucrar personas y lugares desconocidos. Por otro lado, llama la atención la cuarta categoría más respondida, los casos sucedidos en redes sociales. Para explorar este fenómeno, crucé en la figura \ref{redes}  esa categoría de \textit{hecho\_lugar} con los tipos de violencia sufrida y las edades de las víctimas agrupadas cualitativamente en Niñez (0 a 11 años), Adolescencia (12 a 18 años), Juventud (19 a 30 años), Adultez (31 a 65 años), y Vejez (mayores de 65). Observé que la mayor cantidad de casos corresponden al tipo de violencia \textit{grooming} en primer lugar, y en segundo lugar a la categoría \textit{ofv\_no\_sabe\_no\_contesta}. Además, aunque con conteos mucho más bajos, aparecen también otras formas de violencia esperables en el contexto de redes sociales como: \textit{ofv\_sentimiento\_amenaza}, \textit{vs\_explotacion\_sexual}, o \textit{ofv\_amenaza\_explicita}. En todos estos casos alrededor del 90\% de las víctimas son niñes o adolescentes. Si bien por la distribución de la variable \textit{victima\_edad} cabría esperar mayor cantidad de víctimas de estos grupos etarios, en el caso de los hechos sucedidos en redes sociales, este dato podría estar asociado con el mayor uso de redes sociales por parte de este sector de la población. 
+
+Por otro lado, llama la atención la cuarta categoría más presente en \textit{hecho\_lugar}, los casos sucedidos en redes sociales. Para explorar este fenómeno, crucé en la figura \ref{redes}  esa categoría de \textit{hecho\_lugar} con los tipos de violencia sufrida y las edades de las víctimas agrupadas cualitativamente en Niñez (0 a 11 años), Adolescencia (12 a 18 años), Juventud (19 a 30 años), Adultez (31 a 65 años), y Vejez (mayores de 65). Observé que la mayor cantidad de casos corresponden al tipo de violencia \textit{grooming} en primer lugar, y en segundo lugar a la categoría \textit{ofv\_no\_sabe\_no\_contesta}. Además, aunque con conteos mucho más bajos, aparecen también otras formas de violencia esperables en el contexto de redes sociales como: \textit{ofv\_sentimiento\_amenaza}, \textit{vs\_explotacion\_sexual}, o \textit{ofv\_amenaza\_explicita}. En todos estos casos alrededor del 90\% de las víctimas son niñes o adolescentes. Si bien por la distribución de la variable \textit{victima\_edad} cabría esperar mayor cantidad de víctimas de estos grupos etarios, en el caso de los hechos sucedidos en redes sociales, este dato podría estar asociado con el mayor uso de redes sociales por parte de este sector de la población. 
 
 \begin{figure}[H]
     \begin{center}
@@ -225,50 +224,25 @@ Dejando de lado por el momento los datos faltantes (NS/NC) que los voy a tratar 
     \end{figure}
 
 
-Observé en la distribución de la variable \textit{victima\_nacionalidad}\todo{reduje víctima nacionalidad para SVM?} (ver figura \Ref{nacionalidad}), que el 80\% de las víctimas son argentinas; del 15\% no se cuenta con datos; y el restante 5\% se divide entre las nacionalidades boliviana, paraguaya, peruana, brasileña, uruguaya, y chilena, y la categoría “otra”. En la distribución de la variable \textit{victima\_genero} (ver figura \Ref{genero}) observé que el 77.6\% de las víctimas son mujeres, el 18.4\% hombres, del 3.7\% no se tienen datos, y el 0.14\% son personas tránsgenero. Según \textit{victima\_discapidad} (ver figura \Ref{discapacidad}), para el 53.7\% de las víctimas no se cuenta con datos, el 43.2\% no posee discapacidad, y el 2.9\% sí. En \textit{victima\_vinculo\_agresor} (ver figura \Ref{vinculoagresor}). En \textit{vinculo\_llamante\_victima} (ver figura \Ref{vinculollamante})
+La nacionalidad de las víctimas, informada por \textit{victima\_nacionalidad}\todo[inline]{reduje víctima nacionalidad para SVM?}, se distribuye de la siguiente manera: el 80\% de las víctimas son argentinas; del 15\% no se cuenta con datos; y el restante 5\% se divide entre las nacionalidades boliviana, paraguaya, peruana, brasileña, uruguaya, chilena, y la categoría “otra”.\footnote{Ver figura \ref{nacionalidad} en el \nameref{anex}
+}
 
 
+Según la distribución de \textit{victima\_discapidad}, para el 53.7\% de las víctimas no se cuenta con datos, el 43.2\% no posee discapacidad, y el 2.9\% sí\footnote{Ver figura \ref{discapacidad} en el \nameref{anex}}. 
 
-\begin{figure}[h]
-    \centering
-    \begin{minipage}{0.5\textwidth} % Adjust to make sure both fit side by side
-      \centering
-      \includegraphics[width=\linewidth]{images/latex_nacionalidad_victima.png}
-      \caption{Nacionalidad de las víctimas.}
-      \label{nacionalidad}
-    \end{minipage}%
-    %\hspace{0.02\textwidth} % Add some space between the figures
-    \begin{minipage}{0.5\textwidth} % Ensure the width is appropriate
-      \centering
-      \includegraphics[width=\linewidth]{images/latex_genero_victima.png}
-      \caption{Género de las víctimas.}
-      \label{genero}
-    \end{minipage}
-\end{figure}
 
-%\begin{figure}[H]
- %   \begin{center}
-  %  \includegraphics[scale=.5]{images/latex_nacionalidad_victima.png}
-   % \caption{Nacionalidad de las víctimas.}
-    %\label{nacionalidad}
-    %\end{center}
-    %\end{figure}
-
- %\begin{figure}[H]
-  %  \begin{center}
-  %  \includegraphics[scale=.5]{images/latex_genero_victima.png}
-   % \caption{Género de las víctimas.}
-    %\label{genero}
-    %\end{center}
-    %\end{figure}
+En el \textit{barplot} de la figura \Ref{genero}, se ve reforzado el dato mencionado en la introducción sobre la distribución de género de las víctimas: el 77.6\% de las víctimas son mujeres, el 18.4\% hombres, del 3.7\% no se tienen datos, y el 0.14\% son personas tránsgenero. 
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/latex_victima_discapacidad.png}
-    \caption{Presencia de discapacidad en las víctimas.}
-    \label{discapacidad}
+    \includegraphics[scale=.5]{images/latex_genero_victima.png}
+    \caption{Género de las víctimas.}
+    \label{genero}
     \end{center}
     \end{figure}
+
+Los vínculos entre víctimas y agresores nuevamente reflejan la persistencia de los hechos de violencia sexual perpetuados por personas del entorno de las víctimas. En el gráfico de barras de la figura \Ref{vinculoagresor} para la variable \textit{victima\_vinculo\_agresor} se observa la distribución en las diferentes categorías vinculares. Pero además la tendencia se evidencia aún más al reagrupar las categorías de la variable en \textit{Conocido familiar}, \textit{Conocido no familiar} (categoría ya presente en la variable original) \textit{Desconocido}, y \textit{NS/NC}. Mientras que 15.4\% de los agresores son declarados como desconocidos; entre familiares (47.4\%) y no familiares (19.7\%), los agresores conocidos por la víctima suman un 67.1\%. El número podría incluso ser más elevado si consideramos que podría haber agresores conocidos también como parte del 17.2\% de los \textit{NS/NC}.
+
 
 
 \begin{figure}[H]
@@ -279,27 +253,19 @@ Observé en la distribución de la variable \textit{victima\_nacionalidad}\todo{
     \end{center}
     \end{figure}
 
-
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[scale=.5]{images/latex_vinculo_llamante.png}
-    \caption{Vínculos víctima-llamante.}
-    \label{vinculollamante}
-    \end{center}
-    \end{figure}
-    
-
- 
-Construí a partir de \textit{victima\_vinculo\_agresor}, la variable \textit{agresor\_conocido\_desconocido} para explorar la dicotomía extraños-conocidos en relación con las víctimas y los agresores. Esta nueva variable tiene las categorías \textit{Conocido familiar}, \textit{Conocido no familiar} (categoría ya presente en la variable original) \textit{Desconocido}, y \textit{NS/NC}. En la figura \Ref{conocidodesconocido} se puede apreciar su distribución que reafirma nuevamente la estadística sobre la frecuencia con que los hechos de violencia sexual son perpetrados por agresores conocidos/cercanos a la víctima. Mientras que 15.4\% de los agresores son declarados como desconocidos; entre familiares (47.4\%) y no familiares (19.7\%), los agresores conocidos por la víctima suman un 67.1\%. El número podría incluso ser más elevado si consideramos que podría haber agresores conocidos también como parte del 17.2\% de los \textit{NS/NC}.
+    \begin{figure}[H]
+        \begin{center}
+        \includegraphics[scale=.5]{images/latex_agresor_conocido_no.png}
+        \caption{Agresor conocido o no por la víctima.}
+        \label{conocidodesconocido}
+        \end{center}
+        \end{figure}
 
 
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[scale=.5]{images/latex_agresor_conocido_no.png}
-    \caption{Agresor conocido o no por la víctima.}
-    \label{conocidodesconocido}
-    \end{center}
-    \end{figure}
+
+
+
+ En \textit{vinculo\_llamante\_victima}\footnote{ Ver figura \ref{vinculollamante} en el \nameref{anex}} \todo[inline]{ver si está bien hablar de distribución cada vez que voy a mostrar un barplot} \todo[inline]{describir llamante victima} \todo[inline]{considerar mencionar en cada variable cuantos niveles tienen}
 
 
 En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontré en el análisis univariado que un 64.4\% no convive, frente al 14.3\% que sí lo hace. El restante 21.19\% que pertenece a respuestas \textit{NS/NC} es el que tengo intenciones de predecir como \textit{SI} o \textit{NO}(ver firgura \Ref{convivencia}).  
@@ -314,20 +280,35 @@ En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontr�
     \end{figure}
 
 
-Exploré también la relación posible entre \textit{victima\_convive\_agresor}, \textit{victima\_edad}, \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia} (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
 
-En la figura \Ref{convivencia_edad} se pueden ver \textit{boxplots} comparativos de \textit{victima\_edad} según cada categoría de \textit{victima\_convive\_agresor}. Se puede observar que a las tres categorías presentan medias y distribuciones similares, ubicando que las víctimas que conviven con su agresor son en promedio más jóvenes que las que no lo hacen
+En la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad} se pueden ver \textit{boxplots} comparativos y un detalle del análisis de cuartiles de \textit{victima\_edad} según cada categoría de \textit{victima\_convive\_agresor}. Las víctimas que conviven con el agresor son ligeramente más jóvenes que las que no lo hacen, y las víctimas de las que no se cuentan con datos sobre la convivencia parecen estar más cerca en edad de las que conviven. Sin embargo, las diferencias en edad entre las víctimas que conviven y las que no que se reflejan tanto en los \textit{boxplots} como en el cuadro no parecen significativas\footnote{Realizo en la sección \nameref{met} un análsis más detallado con respecto a la correlación estadística entre la edad de la víctima y la variable de convivencia, entre otras.}. 
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.6]{images/latex_boxplot_convive_edad.png}
+    \includegraphics[scale=.5]{images/latex_boxplot_convive_edad.png}
     \caption{Distribución de la edad de la víctima según su convivencia o no con el agresor.}
-    \label{convivencia_edad}
+    \label{boxplotsconvivenciaedad}
     \end{center}
     \end{figure}
 
 
 
+\begin{table}[H]
+    \begin{center}
+    \caption{Cuartiles de edad según categoría de \textit{victima\_convive\_agresor}.}
+    \label{cuartilesconviveedad}
+    \begin{tabular}{cccc}
+    \hline
+    \multicolumn{1}{r}{\textbf{}} & \textbf{Convive} & \textbf{No Convive} & \textbf{ NS/NC} \\ \hline
+    Q1                            & 7                    & 11                   & 9                       \\
+    Q3                            & 15                   & 24                   & 18                      \\
+    IQR                           & 11                   & 11                   & 11                     \\ \hline
+    \end{tabular}
+    \end{center}
+    \end{table}
+
+
+    Exploré también la relación posible entre \textit{victima\_convive\_agresor}, \textit{victima\_edad}, \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia} (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
 
 GRAFICOS P ESAS
 
@@ -405,19 +386,60 @@ Análisis de series temporales, porsibilidad de hacer forcasting
 \section*{Anexo}\label{anex}
 
 \begin{table}[H] 
-    \centering
-    \caption{Outliers en variables de edad.}
-    \label{tabla_out}
-    \begin{tabular}{|l|l|l|}
-    \hline
-    \textbf{Variable}                        & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
-    \multirow{2}{*}{llamante\_edad} & 999     & 192               \\ \cline{2-3} 
-                                    & 0       & 3                 \\ \hline
-    \multirow{4}{*}{victima\_edad}  & 999     & 98                \\ \cline{2-3} 
-                                    & 224     & 1                 \\ \cline{2-3} 
-                                    & 125     & 1                 \\ \cline{2-3} 
-                                    & 111     & 1                 \\ \hline
-    \end{tabular}
-    \end{table}
+\centering
+\caption{Outliers en variables de edad.}
+\label{tabla_out}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Variable}                        & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
+\multirow{2}{*}{llamante\_edad} & 999     & 192               \\ \cline{2-3} 
+                                & 0       & 3                 \\ \hline
+\multirow{4}{*}{victima\_edad}  & 999     & 98                \\ \cline{2-3} 
+                                & 224     & 1                 \\ \cline{2-3} 
+                                & 125     & 1                 \\ \cline{2-3} 
+                                & 111     & 1                 \\ \hline
+\end{tabular}
+\end{table}
 
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_llamados_por_provincia.png}
+\caption{Llamados por provincia.}
+\label{provincia}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+   \begin{center}
+  \includegraphics[scale=.5]{images/latex_nacionalidad_victima.png}
+ \caption{Nacionalidad de las víctimas.}
+    \label{nacionalidad}
+    \end{center}
+    \end{figure}
+
+ 
+    
+    \begin{figure}[H]
+        \begin{center}
+        \includegraphics[scale=.5]{images/latex_victima_discapacidad.png}
+        \caption{Presencia de discapacidad en las víctimas.}
+        \label{discapacidad}
+        \end{center}
+        \end{figure}
+
+
+        \begin{figure}[H]
+            \begin{center}
+            \includegraphics[scale=.5]{images/latex_vinculo_llamante.png}
+            \caption{Vínculos víctima-llamante.}
+            \label{vinculollamante}
+            \end{center}
+            \end{figure}
+
+
+
+      
 \end{document}
