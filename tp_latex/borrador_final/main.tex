@@ -290,7 +290,7 @@ Observé en la distribución de la variable \textit{victima\_nacionalidad}\todo{
     
 
  
-Construí a partir de \textit{victima\_vinculo\_agresor}, la variable \textit{agresor\_conocido\_desconocido} para explorar la dicotomía extraños-conocidos en relación con las víctimas y los agresores. Esta nueva variable tiene las categorías \textit{Conocido familiar}, \textit{Conocido no familiar} (categoría ya presente en la variable original) \textit{Desconocido}, y \textit{NS/NC}. En la figura \Ref{conocidodesconocido} se puede apreciar su distribución que reafirma nuevamente la estadística sobre la frecuencia con que los hechos de violencia sexual son perpetrados por agresores conocidos/cercanos a la víctima. y reduje vínculo llamante víctima a 
+Construí a partir de \textit{victima\_vinculo\_agresor}, la variable \textit{agresor\_conocido\_desconocido} para explorar la dicotomía extraños-conocidos en relación con las víctimas y los agresores. Esta nueva variable tiene las categorías \textit{Conocido familiar}, \textit{Conocido no familiar} (categoría ya presente en la variable original) \textit{Desconocido}, y \textit{NS/NC}. En la figura \Ref{conocidodesconocido} se puede apreciar su distribución que reafirma nuevamente la estadística sobre la frecuencia con que los hechos de violencia sexual son perpetrados por agresores conocidos/cercanos a la víctima. Mientras que 15.4\% de los agresores son declarados como desconocidos; entre familiares (47.4\%) y no familiares (19.7\%), los agresores conocidos por la víctima suman un 67.1\%. El número podría incluso ser más elevado si consideramos que podría haber agresores conocidos también como parte del 17.2\% de los \textit{NS/NC}.
 
 
 \begin{figure}[H]
@@ -302,13 +302,30 @@ Construí a partir de \textit{victima\_vinculo\_agresor}, la variable \textit{ag
     \end{figure}
 
 
-En cuanto a la variable de interés \textit{victima\_convive\_agresor} 
+En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontré en el análisis univariado que un 64.4\% no convive, frente al 14.3\% que sí lo hace. El restante 21.19\% que pertenece a respuestas \textit{NS/NC} es el que tengo intenciones de predecir como \textit{SI} o \textit{NO}(ver firgura \Ref{convivencia}).  
 
 
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_convive.png}
+    \caption{Convivencia víctima-agresor.}
+    \label{convivencia}
+    \end{center}
+    \end{figure}
 
 
+Exploré también la relación posible entre \textit{victima\_convive\_agresor}, \textit{victima\_edad}, \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia} (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
 
-Para ver interacciones entre la variable de interés \textit{victima\_convive\_agresor} y variables podrían estar relacionadas o aportar información que determine si el valor de la primera es más probablemente SI o NO,  realicé gráficos que exploran la relación entre \textit{victima\_convive\_agresor}, \textit{victima\_edad}, \textit{llamante\_edad}, \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia} (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
+En la figura \Ref{convivencia_edad} se pueden ver \textit{boxplots} comparativos de \textit{victima\_edad} según cada categoría de \textit{victima\_convive\_agresor}. Se puede observar que a las tres categorías presentan medias y distribuciones similares, ubicando que las víctimas que conviven con su agresor son en promedio más jóvenes que las que no lo hacen
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.6]{images/latex_boxplot_convive_edad.png}
+    \caption{Distribución de la edad de la víctima según su convivencia o no con el agresor.}
+    \label{convivencia_edad}
+    \end{center}
+    \end{figure}
+
 
 
 
@@ -327,6 +344,8 @@ posible relación de datos faltantes de edad con quien llama tanto en edad de la
 relación entre los faltante de edad y NSNC en convive
 
 relaci;on entre NSNC de convive y quien llama (instituciones) esto está en la notebook de por qué faltan mis datos y en las notas que tomé
+
+por qué faltan? la respuestas más senciulla es que simplemente algunos datos no se conocen, el llamante puede no saber realmente la edad de la víctima o si convive o no, etc. Otra causa puede ser la necesidad de oculktar ciertos datos por estigma o por protección de la víctima, de su entorno o incluso del agresor. la realidad como sucede con los datos faltabtes de este tipo, es que es imposible saber el motivo real por el que falten y puede que sea una combinación de todas esas razones.
 
 
 \section*{Metodología}\label{met}

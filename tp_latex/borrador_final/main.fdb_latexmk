@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1724495911.48488 "main.aux" "main.bbl" "main" 1724496441.32659 0
+["bibtex main"] 1724611399.84923 "main.aux" "main.bbl" "main" 1724611401.43811 0
   "./bibtex_reporte.bib" 1722804477.49261 3125 e5f6604ccda6a4d18170bc8eeeaa273a ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1724496441.08166 6021 a1ae62f669f20c062d5e93ff962498a1 "pdflatex"
+  "main.aux" 1724611401.20592 6602 5684d1b375d60e938d078985fb07dd5d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1724496439.73812 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1724496441.32671 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1724496439.51181 30989 cfe303a6d7a1a21bb0a092ffd903bed2 ""
+["pdflatex"] 1724611399.93759 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1724611401.43825 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1724611397.89711 32624 10c3ed9c135e55c12a17c639d7a8e93d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -181,21 +181,23 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1714906201 8221447 788a2b891939645b305e1f76a4adad8d ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "images/latex_agresor_conocido_no.png" 1724496232.55778 32432 ebe035b0024d7e39e16fee443e0f8fa1 ""
+  "images/latex_boxplot_convive_edad.png" 1724588524.97682 29208 8a762f809496e2a3bd8c0fac4251309d ""
   "images/latex_boxplot_edades_outliers.png" 1724321013.21881 19439 7101f2b2c1592efcfd55ad554b678813 ""
+  "images/latex_convive.png" 1724320617.29407 17531 81ede603304f92ed3f99c1ae4d7b1823 ""
   "images/latex_genero_victima.png" 1724321184.63888 22944 62b0af8c87d02769c848dec4ac2f0d9d ""
   "images/latex_llamados_por_provincia.png" 1724321102.88785 55543 762d9471f4c716b475d3a56c930d0f1d ""
   "images/latex_lugar_hechos.png" 1724323267.31566 59800 e2f17cccd91fa14817be8bc48d4e139b ""
   "images/latex_nacionalidad_victima.png" 1724323516.78268 28286 859be6f65666b19c574b39a8a73d4de3 ""
   "images/latex_redes_sociales_edad_formas_violencia.png" 1724271413.40208 123682 19e0294d44dbad596c35e80245daeff2 ""
-  "images/latex_trend_llamados.png" 1724489451.57559 105077 4f200218eb3e863ca86ffc740beb4f71 ""
+  "images/latex_trend_llamados.png" 1724588432.24774 104980 1818e006673c9bb159f875ea5d2dea57 ""
   "images/latex_victima_discapacidad.png" 1724323400.79524 17000 45c61710d0b544fb438c875c95507d92 ""
   "images/latex_vinculo_agr_victima.png" 1724323005.77846 51148 baddb4f597eaeb396efb1295315b8ddf ""
   "images/latex_vinculo_llamante.png" 1724323142.43087 46058 a39b6c519fb8d92b775bdc4100608086 ""
   "images/uba2.jpg" 1721825197.71324 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1724496441.08166 6021 a1ae62f669f20c062d5e93ff962498a1 "pdflatex"
-  "main.bbl" 1724495911.57358 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
-  "main.out" 1724496440.32726 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1724496439.51181 30989 cfe303a6d7a1a21bb0a092ffd903bed2 ""
+  "main.aux" 1724611401.20592 6602 5684d1b375d60e938d078985fb07dd5d "pdflatex"
+  "main.bbl" 1724611399.93516 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
+  "main.out" 1724611400.44615 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1724611397.89711 32624 10c3ed9c135e55c12a17c639d7a8e93d ""
   (generated)
   "main.aux"
   "main.log"
