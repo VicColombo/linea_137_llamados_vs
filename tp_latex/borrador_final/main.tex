@@ -83,9 +83,9 @@ La  recopilación, sistematización, y análisis de datos sobre violencia sexual
 Desde el año 2016, en el marco del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia de la Nación, la línea 137 funciona las 24 horas del día para solicitar asistencia en casos de violencia sexual o familiar\footnote{Además, desde 2020 cuenta también con el canal de \textit{Whatsapp} (54911) 3133-1000.}. El programa cuenta con equipos de intervención de abogadas, psicólogas, y trabajadoras sociales. Al recibir una llamada solicitando asistencia se coordina el envío de equipos móviles para proveer a la víctima, en base a las necesidades del caso, de contención emocional, acompañamiento a un hospital y/o a radicar una denuncia, y/o a un lugar seguro donde pueda alojarse \citep*{linea_137}.\todo[inline]{rever cómo sigue el programa ahora}
 
 Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran publicados cuatro tipos de \textit{datasets} por año: llamados e intervenciones domiciliarias por situaciones de violencia familiar, y llamados e intervenciones domiciliarias por situaciones de violencia sexual.
-Los registros no están exentos de los problemas frecuentes antes mencionados en los datos sobre violencia sexual, ya que presentan información faltante de dos maneras: celdas vacías en el caso de las variables numéricas de edad, y respuestas NS/NC (no sabe-no contesta) en lugar de SI o NO en el resto de las variables categóricas. Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor de los datos que faltan está relacionado con el motivo mismo por el que faltan (MNAR).
+Los registros no están exentos de los problemas frecuentes antes mencionados en los datos sobre violencia sexual, presentan información faltante de dos maneras: celdas vacías en el caso de las variables numéricas de edad, y respuestas NS/NC (no sabe-no contesta) en lugar de SI o NO en el resto de las variables categóricas. Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor de los datos que faltan está relacionado con el motivo mismo por el que faltan (MNAR).\todo[inline]{quizás esto va en datos?}
 
-En este trabajo analizo llamados para reportar violencia sexual a la línea 137 entre 2017 y 2021, e intento predecir valores faltantes de la variable “víctima convive con el agresor”. 
+En este trabajo analizo llamados para reportar violencia sexual a la línea 137 entre 2017 y 2021, e intento predecir valores faltantes de la variable “víctima convive con el agresor”. \todo[inline]{esto así declarado es una reverenda poronga}
 
 
 
@@ -101,7 +101,7 @@ Como primer paso, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso
 \end{itemize}
 
 
-El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, la persona que llama para reportar el hecho, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
+El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, el agresor, la persona que llama para reportar el hecho, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
 
 \begin{table}[H]
     \centering
@@ -139,7 +139,7 @@ El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables
 \end{table}
 
 
-\subsection*{Limpieza y exploración de los datos}
+\subsection*{Limpieza y exploración de los datos} \todo[inline]{no sé si me gusta este título}
 El siguiente paso fue limpiar los datos con errores de carga como ser de errores de tipeo, valores cargados con sinónimos o abreviaturas, o errores ortográficos:
 \begin{itemize}
     \item Unifiqué en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”, otro tanto hice con “Pareja de la vícitma” que presentaba variaciones similares.
@@ -197,6 +197,7 @@ Además, construí las variables \textit{estación del año}, \textit{fin de sem
     \label{trend}
     \end{center}
     \end{figure}
+
 
 
 
@@ -264,11 +265,12 @@ Los vínculos entre víctimas y agresores nuevamente reflejan la persistencia de
 
 
 
+\todo[inline]{caso judicializado}
+ En la variable \textit{vinculo\_llamante\_victima}, el 24.9\% de los llamados provienen de comisarías, el 17.2\% de un familiar de la víctima (otro familiar que no pertenezca a las categorías: \textit{Madre}, \textit{Padre}, \textit{Abuela/o}, o \textit{Hermana/o}), el 16\% de los llamantes son madres de las víctimas, y el 14.2\% lo constituyen las propias víctimas. El resto de las categorías son otros conocidos de las víctimas, padres, vecinos, abuelos, hermanos, otras instituciones, o \textit{NS/NC} con menos del 10\%; por último, los llamados provenientes de escuelas, defensorías y los mismos agresores suman menos del 1\%.  \footnote{Ver figura \ref{vinculollamante} en el \nameref{anex}} \todo[inline]{considerar mencionar en cada variable cuantos niveles tienen}
 
- En \textit{vinculo\_llamante\_victima}\footnote{ Ver figura \ref{vinculollamante} en el \nameref{anex}} \todo[inline]{ver si está bien hablar de distribución cada vez que voy a mostrar un barplot} \todo[inline]{describir llamante victima} \todo[inline]{considerar mencionar en cada variable cuantos niveles tienen}
 
 
-En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontré en el análisis univariado que un 64.4\% no convive, frente al 14.3\% que sí lo hace. El restante 21.19\% que pertenece a respuestas \textit{NS/NC} es el que tengo intenciones de predecir como \textit{SI} o \textit{NO}(ver firgura \Ref{convivencia}).  
+En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontré en el análisis univariado que un 64.4\% no convive, frente al 14.3\% que sí lo hace. Para el restante 21.19\% las respuestas son \textit{NS/NC}, y es la categoría que más adelante modelo como dato faltante para intentar predecir como \textit{SI} o \textit{NO}(ver firgura \Ref{convivencia}).  
 
 
 \begin{figure}[H]
