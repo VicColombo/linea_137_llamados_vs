@@ -40,7 +40,7 @@
     \end{large}
     
     \begin{large}
-    TÍTULO DEL TRABAJO\\
+    Trabajo integrador\\
     
     
     \end{large}
@@ -201,7 +201,9 @@ Además, construí las variables \textit{estación del año}, \textit{fin de sem
 
 
 
-Según la distribución de la variable \textit{llamado\_provincia}, la mayoría de los llamados provienen de la Ciudad Autónoma (37\%) y la Provincia de Buenos Aires (36\%). Del 9\% no se cuentan con datos (respuestas \textit{NS/NC}); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una.\footnote{Ver figura \ref{provincia} en el \nameref{anex}.} 
+Según la distribución de la variable \textit{llamado\_provincia}, la mayoría de los llamados provienen de la Ciudad Autónoma (37\%) y la Provincia de Buenos Aires (36\%). Del 9\% no se cuentan con datos (respuestas \textit{NS/NC}); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una.\footnote{Ver figura \ref{provincia} en el \nameref{anex}.}
+
+Según la distribución de la variable \textit{caso\_judicializado}, el 46.7\% de los llamados no está asociado a un caso ya judicializado, el 39.7\% sí, y en el restante 13.4\% no se cuenta con datos de este tipo.\footnote{Ver figura \ref{casojudicializado} en el \nameref{anex}.} 
 
 En cuanto a la variable \textit{hecho\_lugar}, como ilustra el \textit{barplot} de la figura \Ref{hecholugar}, para aproximadamente el 30\% de los llamados no se cuenta con datos (respuestas \textit{NS/NC}); luego, el 25\% los hechos suceden en la vivienda de la víctima y el 13\% en la vivienda del agresor. La cuarta categoría más reportada, con el 12\%, es \textit{redes sociales}. El restante 20\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios. La elevada proporción de casos que suceden en la vivienda de la víctima, es un dato que acompaña lo ya dicho en la \nameref{intro} sobre la mayoría de los hechos de violencia sexual ocurriendo más bien en el entorno de la víctima antes que involucrar personas y lugares desconocidos. 
 
@@ -282,6 +284,7 @@ En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontr�
     \end{figure}
 
 
+\subsection{Relaciones entre convive y otras}
 
 En la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad} se pueden ver \textit{boxplots} comparativos y un detalle del análisis de cuartiles de \textit{victima\_edad} según cada categoría de \textit{victima\_convive\_agresor}. Las víctimas que conviven con el agresor son ligeramente más jóvenes que las que no lo hacen, y las víctimas de las que no se cuentan con datos sobre la convivencia parecen estar más cerca en edad de las que conviven. Sin embargo, las diferencias en edad entre las víctimas que conviven y las que no que se reflejan tanto en los \textit{boxplots} como en el cuadro no parecen significativas\footnote{Realizo en la sección \nameref{met} un análsis más detallado con respecto a la correlación estadística entre la edad de la víctima y la variable de convivencia, entre otras.}. 
 
@@ -310,7 +313,7 @@ En la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad
     \end{table}
 
 
-    Exploré también la relación posible entre \textit{victima\_convive\_agresor}, \textit{victima\_edad}, \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia} (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
+Exploré visualmente también la relación entre \textit{victima\_convive\_agresor}, y \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia}, y \textit{caso\_judicializado} porque, quitando la variable edad, estas variables podían llegar a ser de las más relevantes para determinar si la víctima convive o no con el agresor. Sin embargo, la tendencia de mayoría de respuestas \textit{NO} y minoría de \textit{SI} que se observa en el gráfico \Ref{convivencia} se mantiene más o menos constante en relación con estas otras variables con alguna variabilidad. La única excepción es en la categoría \vecino El lector puede consultar en el \nameref{anex} las figuras \ref{vinculollamante}, \ref{vinculollamante}, y \ref{vinculollamante}.   (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
 
 GRAFICOS P ESAS
 
@@ -412,6 +415,13 @@ Análisis de series temporales, porsibilidad de hacer forcasting
 \end{center}
 \end{figure}
 
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_caso_judicializado.png}
+    \caption{Caso judicializado.}
+    \label{casojudicializado}
+    \end{center}
+    \end{figure}
 
 
 \begin{figure}[H]
@@ -431,6 +441,7 @@ Análisis de series temporales, porsibilidad de hacer forcasting
         \label{discapacidad}
         \end{center}
         \end{figure}
+    
 
 
         \begin{figure}[H]

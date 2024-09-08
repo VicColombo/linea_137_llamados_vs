@@ -262,10 +262,10 @@ INPUT ./main.out
 INPUT ./main.out
 INPUT main.out
 INPUT main.out
+OUTPUT main.pdf
 INPUT ./main.out
 INPUT ./main.out
 OUTPUT main.out
-OUTPUT main.pdf
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
@@ -355,6 +355,11 @@ INPUT ./images/latex_llamados_por_provincia.png
 INPUT ./images/latex_llamados_por_provincia.png
 INPUT ./images/latex_llamados_por_provincia.png
 INPUT ./images/latex_llamados_por_provincia.png
+INPUT ./images/latex_caso_judicializado.png
+INPUT ./images/latex_caso_judicializado.png
+INPUT ./images/latex_caso_judicializado.png
+INPUT ./images/latex_caso_judicializado.png
+INPUT ./images/latex_caso_judicializado.png
 INPUT ./images/latex_nacionalidad_victima.png
 INPUT ./images/latex_nacionalidad_victima.png
 INPUT ./images/latex_nacionalidad_victima.png
