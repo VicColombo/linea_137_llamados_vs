@@ -91,6 +91,7 @@ En este trabajo analizo llamados para reportar violencia sexual a la línea 137 
 
 \section*{Datos}\label{datos}
 
+\subsection{Obtención y preprocesamiento}
 Para este trabajo descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 \textit{datasets} en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
 
 Como primer paso, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas\footnote{La limpieza, normalización, y preprocesamiento del \textit{dataset} y la aplicación de los métodos exploratorios y predictivos fueron realizados en Python}:
@@ -139,29 +140,39 @@ El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables
 \end{table}
 
 
-\subsection*{Limpieza y exploración de los datos} \todo[inline]{no sé si me gusta este título}
+
 El siguiente paso fue limpiar los datos con errores de carga como ser de errores de tipeo, valores cargados con sinónimos o abreviaturas, o errores ortográficos:
 \begin{itemize}
-    \item Unifiqué en la variable \textit{victima\_vinculo\_agresor} el valor “Ex pareja de la víctima” que aparecía también como “Ex pareja”, “Ex-pareja de la víctima” y “Expareja de la víctima”, otro tanto hice con “Pareja de la vícitma” que presentaba variaciones similares.
-    \item Unifiqué para todas las variables pertinentes los valores SI, NO, y NS/NC dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, etc.
-    \item Sustituí todos los valores “Sin datos” por NS/NC por considerarlos equivalentes.
-    \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo “Madre” =/= “  Madre” 
-    \item Convertí en la variable llamante\_vinculo el valor “Vecino” a “Vecina/o” ya que  no necesariamente se refiere unívocamente a personas de género masculino.
-    \item Unifiqué en llamado\_provincia “Ciudad Autónoma de Buenos Aires” y “CABA” optando por “CABA”. 
-    \item Corregí en llamado\_provincia las instancias de “Santa Fé” a “Santa Fe”.
+    \item Unifiqué para todas las variables pertinentes los valores \textit{SI}, \textit{NO}, y \textit{NS/NC} dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, etc.
+    \item Unifiqué en la variable \textit{victima\_vinculo\_agresor} el valor \textit{Ex pareja de la víctima} que aparecía también como \textit{Ex pareja}, \textit{Ex-pareja de la víctima} y \textit{Expareja de la víctima}, otro tanto hice con \textit{Pareja de la víctima} que presentaba variaciones similares.
+    \item Unifiqué en \textit{hecho\_lugar} dos variaciones de una misma categoría: \textit{Otra institución}, y \textit{Otra Institución}, optando por la primera forma.
+    \item Sustituí todos los valores \textit{Sin datos} por \textit{NS/NC} por considerarlos equivalentes.
+    \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo \textit{Madre} =/= \textit{  Madre} 
+    \item Convertí en la variable \textit{llamante\_vinculo} el valor \textit{Vecino} a \textit{Vecina/o}, ya que  no necesariamente se refiere unívocamente a personas de género masculino.
+    \item Unifiqué en \textit{llamado\_provincia} “Ciudad Autónoma de Buenos Aires” y “CABA” optando por “CABA”. 
+    \item Corregí en \textit{llamado\_provincia }las instancias de “Santa Fé” a “Santa Fe”.
+
 \end{itemize}
  
 
-Las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban \textit{outliers}, como se aprecia en el \textit{boxplot} de la figura \ref{box_edades_log}, en el que los datos están escalados logarítmicamente para mejor legibilidad del gráfico. Dada la naturaleza de ambas variables, evalué los \textit{outliers} utilizando el sentido común y conocimiento de dominio antes que fórmulas clásicas como las cotas superior e inferior basadas en el IQR. De esta manera, los valores demasiado altos para ser la edad de una persona o demasiado bajos para ser la edad de una persona que llama por teléfono, los consideré errores de carga o bien números aleatorios ingresados para no dejar el campo vacío, y por lo tanto eliminé dejando las celdas vacías como datos faltantes\footnote{En el \nameref{anex} se puede consultar el cuadro \nameref{tabla_out}, con los valores que tomaban los \textit{outliers} eliminados en cada variable de edad, y comprobar que la mayoría eran 999 en ambas variables, muy probablemente un valor por defecto ingresado para no dejar el campo vacío.}. En total, removí 195 valores en \textit{llamante\_edad}, y 101 valores en \textit{victima\_edad}. 
+Las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban valores atípicos, no solo identificables por superar la barrera de \(3*IQR\), sino también por la naturaleza misma de las variables. Por lo tanto, removí todos los valores por encima de 110 para ambas variables, y todos los valores por debajo de 1 para \textit{llamante\_edad}. Los valores removidos y su cantidad para cada variable pueden verse en el cuadro \nameref{tabla_out}. Se puede comprobar allí que la mayoría eran 999 en ambas variables, muy probablemente un valor por defecto ingresado para no dejar el campo vacío. En total, removí 195 valores en \textit{llamante\_edad}, y 101 valores en \textit{victima\_edad}. 
 
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[scale=.5]{images/latex_boxplot_edades_outliers.png}
-    \caption{Distribución las variables de edad en escala logarítmica.}
-    \label{box_edades_log}
-    \end{center}
-    \end{figure}
 
+\begin{table}[H] 
+    \centering
+    \caption{Outliers en variables de edad.}
+    \label{tabla_out}
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Variable}                        & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
+    \multirow{2}{*}{llamante\_edad} & 999     & 192               \\ \cline{2-3} 
+                                    & 0       & 3                 \\ \hline
+    \multirow{4}{*}{victima\_edad}  & 999     & 98                \\ \cline{2-3} 
+                                    & 224     & 1                 \\ \cline{2-3} 
+                                    & 125     & 1                 \\ \cline{2-3} 
+                                    & 111     & 1                 \\ \hline
+    \end{tabular}
+    \end{table}
 
 Una vez removidos estos valores, tomé las medidas descriptivas de las variables de edad que se observan en el cuadro \ref{tabla_descr_ed}. Se puede ver que la mayoría de las víctimas no supera los 21 años, con una media de 17 y una moda de 14. Las personas que llaman para reportar los casos, en cambio, son en su mayoría adultos, con una media de 36 años, y una moda de 40. Esto refuerza lo mencionado en la introducción de hallazgos de otros estudios de que las personas más jóvenes y sobre todo los adolescentes e infantes son los grupos más en riesgo de ser víctimas de violencia sexual. 
 
@@ -171,7 +182,7 @@ Una vez removidos estos valores, tomé las medidas descriptivas de las variables
         \centering
     \caption{Medidas descriptivas de las variables de edad.}
     \label{tabla_descr_ed}
-        \begin{tabular}{lcc}
+        \begin{tabular}{lcc}    
         \hline
         \textbf{Descriptor} & \textbf{Edad de quien llama} & \textbf{Edad de la víctima} \\ \hline
         Media               & 36.25                        & 17.17                       \\
@@ -188,8 +199,6 @@ Una vez removidos estos valores, tomé las medidas descriptivas de las variables
 
 Para explorar patrones en la distribución temporal de los llamados realicé el gráfico de tendencia de la figura \ref{trend} con los datos agregados mensualmente y una media móvil de 4 meses. Se puede ver claramente en este gráfico una tendencia creciente en la cantidad de llamados desde mediados de 2017, que podría estar asociada a campañas de concientización sobre el programa y la línea y también sobre la violencia doméstica en general. Hay picos de llamados que se repiten alrededor de finales de cada año, entre los meses de octubre y enero en 2016, 2017, 2018 y 2020 aunque no parecen ser consistentes en tamaño como para considerarlos una tendencia clara. Por otro lado, hay una gran suba entre finales de 2018 y comienzos de 2019 que puede estar asociada a factores externos como los que mencioné antes. Se observa, luego de una baja y período de estabilización en 2019, una suba marcada en 2020. Un factor externo que podría estar relacionado con este patrón, es la implementación de políticas de ASPO (Aislamiento Social Preventivo y Obligatorio) durante la epidemia de COVID-19 de 2020 que obligó a la población a permanecer en sus hogares y entornos más cercanos. Si tenemos en cuenta la mayor prevalencia de la violencia sexual en ámbitos cercanos y por parte de agresores conocidos a la víctima, podría explicarse la suba de cantidad de llamados durante esta época. Sin embargo, cabe aclarar, que todas las posibles asociaciones que planteo como interpretación de esta figura deben ser contrastadas con un análisis en profundidad de las series temporales del \textit{dataset}, que excede los objetivos de este trabajo.
 
-Además, construí las variables \textit{estación del año}, \textit{fin de semana}, y \textit{momento del día} para explorar la posibilidad de otros patrones en los llamados. Observé que una mayor proporción de llamados ocurren durante la semana (80\%) y por la tarde (38\%). No observé disparidad significativa en la distribución de llamados de acuerdo a las estaciones del año.
-
 \begin{figure}[H]
     \begin{center}
     \includegraphics[scale=.5]{images/latex_trend_llamados.png}
@@ -198,7 +207,7 @@ Además, construí las variables \textit{estación del año}, \textit{fin de sem
     \end{center}
     \end{figure}
 
-
+Además, construí las variables \textit{estación del año}, \textit{fin de semana}, y \textit{momento del día} para explorar la posibilidad de otros patrones en los llamados. Observé que una mayor proporción de llamados ocurren durante la semana (80\%) y por la tarde (38\%). No observé disparidad significativa en la distribución de llamados de acuerdo a las estaciones del año.
 
 
 Según la distribución de la variable \textit{llamado\_provincia}, la mayoría de los llamados provienen de la Ciudad Autónoma (37\%) y la Provincia de Buenos Aires (36\%). Del 9\% no se cuentan con datos (respuestas \textit{NS/NC}); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una.\footnote{Ver figura \ref{provincia} en el \nameref{anex}.}
@@ -267,8 +276,7 @@ Los vínculos entre víctimas y agresores nuevamente reflejan la persistencia de
 
 
 
-\todo[inline]{caso judicializado}
- En la variable \textit{vinculo\_llamante\_victima}, el 24.9\% de los llamados provienen de comisarías, el 17.2\% de un familiar de la víctima (otro familiar que no pertenezca a las categorías: \textit{Madre}, \textit{Padre}, \textit{Abuela/o}, o \textit{Hermana/o}), el 16\% de los llamantes son madres de las víctimas, y el 14.2\% lo constituyen las propias víctimas. El resto de las categorías son otros conocidos de las víctimas, padres, vecinos, abuelos, hermanos, otras instituciones, o \textit{NS/NC} con menos del 10\%; por último, los llamados provenientes de escuelas, defensorías y los mismos agresores suman menos del 1\%.  \footnote{Ver figura \ref{vinculollamante} en el \nameref{anex}} \todo[inline]{considerar mencionar en cada variable cuantos niveles tienen}
+ En la variable \textit{vinculo\_llamante\_victima}, el 24.9\% de los llamados provienen de comisarías, el 17.2\% de un familiar de la víctima (otro familiar que no pertenezca a las categorías: \textit{Madre}, \textit{Padre}, \textit{Abuela/o}, o \textit{Hermana/o}), el 16\% de los llamantes son madres de las víctimas, y el 14.2\% lo constituyen las propias víctimas. El resto de las categorías son otros conocidos de las víctimas, padres, vecinos, abuelos, hermanos, otras instituciones, o \textit{NS/NC} todas con menos del 10\%. Por último, los llamados provenientes de escuelas, defensorías y los mismos agresores suman menos del 1\%.  \footnote{Ver figura \ref{vinculollamante} en el \nameref{anex}}
 
 
 
@@ -313,9 +321,9 @@ En la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad
     \end{table}
 
 
-Exploré visualmente también la relación entre \textit{victima\_convive\_agresor}, y \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia}, y \textit{caso\_judicializado} porque, quitando la variable edad, estas variables podían llegar a ser de las más relevantes para determinar si la víctima convive o no con el agresor. Sin embargo, la tendencia de mayoría de respuestas \textit{NO} y minoría de \textit{SI} que se observa en el gráfico \Ref{convivencia} se mantiene más o menos constante en relación con estas otras variables con alguna variabilidad. La única excepción es en la categoría \vecino El lector puede consultar en el \nameref{anex} las figuras \ref{vinculollamante}, \ref{vinculollamante}, y \ref{vinculollamante}.   (HACER UNO EDAD MENOR MOMENTO D´IA CONVIVE )
+Exploré visualmente también la relación entre \textit{victima\_convive\_agresor}, y \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia}, y \textit{caso\_judicializado} porque podían estar relacionadas con la situación convivencial de la víctima y el agresor. Observé que la tendencia que se observa en el gráfico \Ref{convivencia}: mayoría de respuestas \textit{NO} y minoría de \textit{SI}, con \textit{NS/NC} posicionado ordinalmente en el medio de ambas, se mantiene en general constante en relación con estas variables. Es decir, no parece haber categorías únicas que puedan ayudar a determinar si la víctima convive o no. La única excepción es en la categoría \textit{vecina/o} de \textit{llamante\_vinculo} donde la tendencia de respuestas positivas y negativas se invierte: 48.4\% \textit{SI}, y 21.7\% \textit{NO} (\textit{NC/NC} mantiene su posición en el medio de las dos categorías con 29.7\% ). Por otro lado, observé también que los valores de \textit{NS/NC} para \textit{victima\_convive\_agresor} son notablemente más altos cuando el llamado proviene de \textit{Otra institución} (que no sea una escuela, comisaría, u hospital). En el \nameref{anex}  se pueden consultar las figuras \ref{llamvincconvive}, \ref{hecholugconvive}, y \ref{momdiaconvive}, y \ref{casojudconvive} para contrastar con este análisis.
 
-GRAFICOS P ESAS
+
 
 Las variables de vs y ofv toman los valores SI NO.
 
@@ -390,21 +398,7 @@ Análisis de series temporales, porsibilidad de hacer forcasting
 \newpage
 \section*{Anexo}\label{anex}
 
-\begin{table}[H] 
-\centering
-\caption{Outliers en variables de edad.}
-\label{tabla_out}
-\begin{tabular}{|l|c|c|}
-\hline
-\textbf{Variable}                        & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
-\multirow{2}{*}{llamante\_edad} & 999     & 192               \\ \cline{2-3} 
-                                & 0       & 3                 \\ \hline
-\multirow{4}{*}{victima\_edad}  & 999     & 98                \\ \cline{2-3} 
-                                & 224     & 1                 \\ \cline{2-3} 
-                                & 125     & 1                 \\ \cline{2-3} 
-                                & 111     & 1                 \\ \hline
-\end{tabular}
-\end{table}
+
 
 
 \begin{figure}[H]
@@ -416,43 +410,73 @@ Análisis de series temporales, porsibilidad de hacer forcasting
 \end{figure}
 
 \begin{figure}[H]
-    \begin{center}
-    \includegraphics[scale=.5]{images/latex_caso_judicializado.png}
-    \caption{Caso judicializado.}
-    \label{casojudicializado}
-    \end{center}
-    \end{figure}
+\begin{center}
+\includegraphics[scale=.5]{images/latex_caso_judicializado.png}
+\caption{Caso judicializado.}
+\label{casojudicializado}
+\end{center}
+\end{figure}
 
 
 \begin{figure}[H]
-   \begin{center}
-  \includegraphics[scale=.5]{images/latex_nacionalidad_victima.png}
- \caption{Nacionalidad de las víctimas.}
-    \label{nacionalidad}
-    \end{center}
-    \end{figure}
-
- 
-    
-    \begin{figure}[H]
-        \begin{center}
-        \includegraphics[scale=.5]{images/latex_victima_discapacidad.png}
-        \caption{Presencia de discapacidad en las víctimas.}
-        \label{discapacidad}
-        \end{center}
-        \end{figure}
-    
-
-
-        \begin{figure}[H]
-            \begin{center}
-            \includegraphics[scale=.5]{images/latex_vinculo_llamante.png}
-            \caption{Vínculos víctima-llamante.}
-            \label{vinculollamante}
-            \end{center}
-            \end{figure}
+\begin{center}
+\includegraphics[scale=.5]{images/latex_nacionalidad_victima.png}
+\caption{Nacionalidad de las víctimas.}
+\label{nacionalidad}
+\end{center}
+\end{figure}
 
 
 
-      
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_victima_discapacidad.png}
+\caption{Presencia de discapacidad en las víctimas.}
+\label{discapacidad}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_vinculo_llamante.png}
+\caption{Vínculos víctima-llamante.}
+\label{vinculollamante}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_llamante_vin_convive.png}
+\caption{Convivencia con el agresor según vínculos víctima-llamante.}
+\label{llamvincconvive}
+\end{center}
+\end{figure}        
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_hecho_lugar_convive.png}
+\caption{Convivencia con el agresor según lugar de los hechos.}
+\label{hecholugconvive}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_momento_dia_convive.png}
+\caption{Convivencia con el agresor según momento del día del llamado.}
+\label{momdiaconvive}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_caso_jud_convive.png}
+\caption{Convivencia con el agresor según estado judicial del caso.}
+\label{casojudconvive}
+\end{center}
+\end{figure}
+
 \end{document}

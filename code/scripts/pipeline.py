@@ -104,7 +104,7 @@ llamados['llamante_edad'] = pd.to_numeric(llamados['llamante_edad'], errors='coe
 
 
 llamados.loc[:, 'llamante_genero'] = llamados['llamante_genero'].replace({' Masculino': 'Masculino', 'Trans': 'Transgénero'})
-llamados.loc[:, 'llamante_vinculo'] = llamados['llamante_vinculo'].replace({'Vecino': 'Vecina/o', ' Madre':'Madre'})
+llamados.loc[:, 'llamante_vinculo'] = llamados['llamante_vinculo'].replace({'Vecino': 'Vecina/o', ' Madre':'Madre', 'Otra Institución': 'Otra institución'})
 
 llamados.loc[:, 'victima_a_resguardo'] = llamados['victima_a_resguardo'].replace({'No': 'NO'})
 llamados.loc[:, 'victima_genero'] = llamados['victima_genero'].replace({'Trans': 'Transgénero'})
