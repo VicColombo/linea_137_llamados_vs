@@ -16,8 +16,13 @@
 \bibliographystyle{plainnat}
 \usepackage{todonotes}
 \linespread{1.5}
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
 
 \begin{document}
+
+
+
 
 \listoftodos
 
@@ -67,10 +72,11 @@
 \begin{abstract}
 
 
-
-
 \end{abstract}
 \newpage
+\tableofcontents
+\newpage
+
 \section*{Introducción}\label{intro}
 
 
@@ -91,16 +97,30 @@ En este trabajo analizo llamados para reportar violencia sexual a la línea 137 
 
 \section*{Datos}\label{datos}
 
-\subsection{Obtención y preprocesamiento}
+\subsection*{Obtención y limpieza}\label{limpieza}
 Para este trabajo descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 \textit{datasets} en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
 
-Como primer paso, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas\footnote{La limpieza, normalización, y preprocesamiento del \textit{dataset} y la aplicación de los métodos exploratorios y predictivos fueron realizados en Python}:
+Una vez descargados, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas\footnote{La limpieza, normalización, y preprocesamiento del \textit{dataset} y la aplicación de los métodos exploratorios y predictivos fueron realizados en Python}:
 
 \begin{itemize}
     \item Eliminé la variable \textit{caso\_id}, que solo existe a partir de 2020.
     \item Cambié el nombre de la variable \textit{llamado\_provincia\_indec\_id} en los \textit{datasets} de 2017, 2018, y 2019 a su equivalente en 2020 y 2021: \textit{llamado\_provincia\_id}.
 \end{itemize}
 
+El siguiente paso fue limpiar el \textit{dataset} unificado de inconsistencias y errores de carga varios: 
+\begin{itemize}
+    \item Unifiqué para todas las variables pertinentes los valores \textit{SI}, \textit{NO}, y \textit{NS/NC} dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, etc.
+    \item Unifiqué en la variable \textit{victima\_vinculo\_agresor} el valor \textit{Ex pareja de la víctima} que aparecía también como \textit{Ex pareja}, \textit{Ex-pareja de la víctima} y \textit{Expareja de la víctima}, otro tanto hice con \textit{Pareja de la víctima} que presentaba variaciones similares.
+    \item Unifiqué en \textit{hecho\_lugar} dos variaciones de una misma categoría: \textit{Otra institución}, y \textit{Otra Institución}, optando por la primera forma.
+    \item Sustituí todos los valores \textit{Sin datos} por \textit{NS/NC} por considerarlos equivalentes.
+    \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo \textit{Madre} =/= \textit{  Madre} 
+    \item Convertí en la variable \textit{llamante\_vinculo} el valor \textit{Vecino} a \textit{Vecina/o}, ya que  no necesariamente se refiere unívocamente a personas de género masculino.
+    \item Unifiqué en \textit{llamado\_provincia} “Ciudad Autónoma de Buenos Aires” y “CABA” optando por “CABA”. 
+    \item Corregí en \textit{llamado\_provincia }las instancias de “Santa Fé” a “Santa Fe”.
+
+\end{itemize}
+
+\subsection*{Exploración}\label{exploración}
 
 El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, el agresor, la persona que llama para reportar el hecho, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
 
@@ -139,21 +159,6 @@ El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables
     \end{tabular}
 \end{table}
 
-
-
-El siguiente paso fue limpiar los datos con errores de carga como ser de errores de tipeo, valores cargados con sinónimos o abreviaturas, o errores ortográficos:
-\begin{itemize}
-    \item Unifiqué para todas las variables pertinentes los valores \textit{SI}, \textit{NO}, y \textit{NS/NC} dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, etc.
-    \item Unifiqué en la variable \textit{victima\_vinculo\_agresor} el valor \textit{Ex pareja de la víctima} que aparecía también como \textit{Ex pareja}, \textit{Ex-pareja de la víctima} y \textit{Expareja de la víctima}, otro tanto hice con \textit{Pareja de la víctima} que presentaba variaciones similares.
-    \item Unifiqué en \textit{hecho\_lugar} dos variaciones de una misma categoría: \textit{Otra institución}, y \textit{Otra Institución}, optando por la primera forma.
-    \item Sustituí todos los valores \textit{Sin datos} por \textit{NS/NC} por considerarlos equivalentes.
-    \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo \textit{Madre} =/= \textit{  Madre} 
-    \item Convertí en la variable \textit{llamante\_vinculo} el valor \textit{Vecino} a \textit{Vecina/o}, ya que  no necesariamente se refiere unívocamente a personas de género masculino.
-    \item Unifiqué en \textit{llamado\_provincia} “Ciudad Autónoma de Buenos Aires” y “CABA” optando por “CABA”. 
-    \item Corregí en \textit{llamado\_provincia }las instancias de “Santa Fé” a “Santa Fe”.
-
-\end{itemize}
- 
 
 Las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban valores atípicos, no solo identificables por superar la barrera de \(3*IQR\), sino también por la naturaleza misma de las variables. Por lo tanto, removí todos los valores por encima de 110 para ambas variables, y todos los valores por debajo de 1 para \textit{llamante\_edad}. Los valores removidos y su cantidad para cada variable pueden verse en el cuadro \nameref{tabla_out}. Se puede comprobar allí que la mayoría eran 999 en ambas variables, muy probablemente un valor por defecto ingresado para no dejar el campo vacío. En total, removí 195 valores en \textit{llamante\_edad}, y 101 valores en \textit{victima\_edad}. 
 
@@ -292,7 +297,6 @@ En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontr�
     \end{figure}
 
 
-\subsection{Relaciones entre convive y otras}
 
 En la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad} se pueden ver \textit{boxplots} comparativos y un detalle del análisis de cuartiles de \textit{victima\_edad} según cada categoría de \textit{victima\_convive\_agresor}. Las víctimas que conviven con el agresor son ligeramente más jóvenes que las que no lo hacen, y las víctimas de las que no se cuentan con datos sobre la convivencia parecen estar más cerca en edad de las que conviven. Sin embargo, las diferencias en edad entre las víctimas que conviven y las que no que se reflejan tanto en los \textit{boxplots} como en el cuadro no parecen significativas\footnote{Realizo en la sección \nameref{met} un análsis más detallado con respecto a la correlación estadística entre la edad de la víctima y la variable de convivencia, entre otras.}. 
 
@@ -321,18 +325,44 @@ En la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad
     \end{table}
 
 
-Exploré visualmente también la relación entre \textit{victima\_convive\_agresor}, y \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia}, y \textit{caso\_judicializado} porque podían estar relacionadas con la situación convivencial de la víctima y el agresor. Observé que la tendencia que se observa en el gráfico \Ref{convivencia}: mayoría de respuestas \textit{NO} y minoría de \textit{SI}, con \textit{NS/NC} posicionado ordinalmente en el medio de ambas, se mantiene en general constante en relación con estas variables. Es decir, no parece haber categorías únicas que puedan ayudar a determinar si la víctima convive o no. La única excepción es en la categoría \textit{vecina/o} de \textit{llamante\_vinculo} donde la tendencia de respuestas positivas y negativas se invierte: 48.4\% \textit{SI}, y 21.7\% \textit{NO} (\textit{NC/NC} mantiene su posición en el medio de las dos categorías con 29.7\% ). Por otro lado, observé también que los valores de \textit{NS/NC} para \textit{victima\_convive\_agresor} son notablemente más altos cuando el llamado proviene de \textit{Otra institución} (que no sea una escuela, comisaría, u hospital). En el \nameref{anex}  se pueden consultar las figuras \ref{llamvincconvive}, \ref{hecholugconvive}, y \ref{momdiaconvive}, y \ref{casojudconvive} para contrastar con este análisis.
+Exploré visualmente también la relación entre \textit{victima\_convive\_agresor}, y \textit{llamante\_vinculo}, \textit{hecho\_lugar}, \textit{momento\_dia}, y \textit{caso\_judicializado} porque podían estar relacionadas con la situación convivencial de la víctima y el agresor. Observé que la tendencia que se observa en la figura \Ref{convivencia}: mayoría de respuestas \textit{NO} y minoría de \textit{SI}, con \textit{NS/NC} posicionado ordinalmente en el medio de ambas, se mantiene en general constante en relación con estas variables. La única excepción, cono puede verse en la figura \ref{llamvincconvive}, es en la categoría \textit{vecina/o} de \textit{llamante\_vinculo} donde la tendencia de respuestas positivas y negativas se invierte: 48.4\% \textit{SI}, y 21.7\% \textit{NO}. Sobre esta variable observé también que los valores de \textit{NS/NC} para \textit{victima\_convive\_agresor} son notablemente más altos cuando el llamado proviene de \textit{Otra institución} que no sea una escuela, comisaría, u hospital. \footnote{En el \nameref{anex}  se pueden consultar las figuras \ref{hecholugconvive}, y \ref{momdiaconvive}, y \ref{casojudconvive} correspondientes a la relación entre \textit{victima\_convive\_agresor} y \textit{hecho\_lugar}, \textit{momento\_dia}, y \textit{caso\_judicializado}.}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_llamante_vin_convive.png}
+\caption{Convivencia con el agresor según vínculos víctima-llamante.}
+\label{llamvincconvive}
+\end{center}
+\end{figure} 
 
 
+Las variables que describen la violencia sexual sufrida y otras formas de violencia reportadas solo toman en este conjunto de datos los valores \textit{SI} y \textit{NO}. Además, todas presentan en general más cantidad de respuestas negativas que positivas. A continuación, en las figuras \ref{vssino} y \ref{ofvsino} se puede apreciar la distribución de respuestas para violencia sexual y otras formas de violencia respectivamente. Es interesante notar que las categorías de “no sabe/no contesta” son la segunda con más respuestas en formas de violencia sexual y la primera con más respuestas en otras formas de violencia. Es decir, en gran cantidad de llamados se reporta una forma de violencia (sexual o no) sufrida, pero no se puede reportar qué forma. 
 
-Las variables de vs y ofv toman los valores SI NO.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_vs_sino.jpeg}
+\caption{Tipos de violencia sexual reportada en los llamados.}
+\label{vssino}
+\end{center}
+\end{figure} 
 
-En general en todas las variables de violencia hay muchos más NO que sí.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/latex_ofv_sino.jpeg}
+\caption{Tipos de violencia no sexual reportada en los llamados.}
+\label{ofvsino}
+\end{center}
+\end{figure} 
+
 
 \subsection*{Datos faltantes}\label{faltantes}
 
-datos faltantes en forma de NS/NC y en forma de datos vacíos. Dónde están y cuántos son. Cuántos en la variable de interés victima convive agresor. esto está en la notebook por qué faltan mis datos
-Cuantos datos faltantes en edad de la víctima y edad del llamante esto está en la notebook por qué faltan mis datos
+Los datos faltantes se presentan en este conjunto de datos como efectivamente faltantes, es decir, sin valores cargados, solo en las variables de edad. Donde en edad de la víctima representan el 9.82\%, y en la edad de quien llama el 44.82\%. 
+En la variable de interés \textit{victima\_convive\_agresor}, no hay celdas con valores ausentes. Como ya expresé más arriba, sin embargo, el objetivo de este trabajo es clasificar las respuestas \textit{NS/NC} como \textit{SI} o \textit{NO}. Por lo tanto, considero ese tipo de respuestas, que representan el 21.19\%, como datos faltantes que deberían ser completados con respuestas positivas o negativas.
+
+el ordenamiento original es NO > NS/NC > SI
+s/d edad victima: NS/NC > NO > SI NS/NC se incrementa en un 30% más o menos. Decrece mucho NO y un poco SI. Es decir, realmente no saben.
+
 
 posible relación de datos faltantes de edad con quien llama tanto en edad de la victima como en edad de quien llama
 relación entre los faltante de edad y NSNC en convive
@@ -446,14 +476,7 @@ Análisis de series temporales, porsibilidad de hacer forcasting
 \end{center}
 \end{figure}
 
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=.5]{images/latex_llamante_vin_convive.png}
-\caption{Convivencia con el agresor según vínculos víctima-llamante.}
-\label{llamvincconvive}
-\end{center}
-\end{figure}        
+       
 
 \begin{figure}[H]
 \begin{center}

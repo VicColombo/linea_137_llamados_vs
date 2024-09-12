@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  9 SEP 2024 20:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  12 SEP 2024 09:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -516,39 +516,119 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Cskip=\skip59
 )
 \c@@todonotes@numberoftodonotes=\count330
-)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/imakeidx/imakeidx.sty
+Package: imakeidx 2016/10/15 v1.3e Package for typesetting indices in a synchronous mode
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
+\c@tracingmulticols=\count331
+\mult@box=\box74
+\multicol@leftmargin=\dimen281
+\c@unbalance=\count332
+\c@collectmore=\count333
+\doublecol@number=\count334
+\multicoltolerance=\count335
+\multicolpretolerance=\count336
+\full@width=\dimen282
+\page@free=\dimen283
+\premulticols=\dimen284
+\postmulticols=\dimen285
+\multicolsep=\skip60
+\multicolbaselineskip=\skip61
+\partial@page=\box75
+\last@line=\box76
+\mc@boxedresult=\box77
+\maxbalancingoverflow=\dimen286
+\mult@rightbox=\box78
+\mult@grightbox=\box79
+\mult@firstbox=\box80
+\mult@gfirstbox=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\c@minrows=\count337
+\c@columnbadness=\count338
+\c@finalcolumnbadness=\count339
+\last@try=\dimen287
+\multicolovershoot=\dimen288
+\multicolundershoot=\dimen289
+\mult@nat@firstbox=\box118
+\colbreak@box=\box119
+\mc@col@check@num=\count340
+))
+\main@idxfile=\write4
+\openout4 = `main.idx'.
+
+
+Writing index file main.idx
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+(/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count331
-\l__pdf_internal_box=\box74
+\l__color_backend_stack_int=\count341
+\l__pdf_internal_box=\box120
 ) (./main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -584,20 +664,20 @@ LaTeX Font Info:    ... okay on input line 20.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \. on input line 20.
-LaTeX Info: Redefining \% on input line 20.
+LaTeX Info: Redefining \. on input line 22.
+LaTeX Info: Redefining \% on input line 22.
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count332
-\scratchdimen=\dimen281
-\scratchbox=\box75
-\nofMPsegments=\count333
-\nofMParguments=\count334
+\scratchcounter=\count342
+\scratchdimen=\dimen290
+\scratchbox=\box121
+\nofMPsegments=\count343
+\nofMParguments=\count344
 \everyMPshowfont=\toks39
-\MPscratchCnt=\count335
-\MPscratchDim=\dimen282
-\MPnumerator=\count336
-\makeMPintoPDFobject=\count337
+\MPscratchCnt=\count345
+\MPscratchDim=\dimen291
+\MPnumerator=\count346
+\makeMPintoPDFobject=\count347
 \everyMPtoPDFconversion=\toks40
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -609,96 +689,119 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 20.
+Package hyperref Info: Link coloring OFF on input line 22.
  (./main.out) (./main.out)
-\@outlinefile=\write4
-\openout4 = `main.out'.
+\@outlinefile=\write5
+\openout5 = `main.out'.
 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
 File: translations-basic-dictionary-spanish.trsl (spanish translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 20.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 22.
  (./main.tdo
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 1.
 )
-\tf@tdo=\write5
-\openout5 = `main.tdo'.
+\tf@tdo=\write6
+\openout6 = `main.tdo'.
 
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<images/uba2.jpg, id=31, 233.4321pt x 233.9139pt>
+<images/uba2.jpg, id=23, 233.4321pt x 233.9139pt>
 File: images/uba2.jpg Graphic file (type jpg)
 <use images/uba2.jpg>
-Package pdftex.def Info: images/uba2.jpg  used on input line 30.
+Package pdftex.def Info: images/uba2.jpg  used on input line 35.
 (pdftex.def)             Requested size: 70.03017pt x 70.1747pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.63     \end{titlepage}
+l.68     \end{titlepage}
                          [1 <./images/uba2.jpg>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.73 \newpage
-              [1]
+l.76 \newpage
+              [1] (./main.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@toc=\write7
+\openout7 = `main.toc'.
+
+ [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 79.
+(Font)              <8> on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 79.
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 83.
- [2] [3] [4] [5]
-<images/latex_trend_llamados.png, id=113, 847.7271pt x 467.5869pt>
+(Font)              <6> on input line 85.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 89.
+ [3] [4] [5] [6] [7]
+<images/latex_trend_llamados.png, id=117, 847.7271pt x 467.5869pt>
 File: images/latex_trend_llamados.png Graphic file (type png)
 <use images/latex_trend_llamados.png>
-Package pdftex.def Info: images/latex_trend_llamados.png  used on input line 204.
+Package pdftex.def Info: images/latex_trend_llamados.png  used on input line 209.
 (pdftex.def)             Requested size: 423.8625pt x 233.79288pt.
- [6]
-<images/latex_lugar_hechos.png, id=128, 729.927pt x 510.2262pt>
+<images/latex_lugar_hechos.png, id=127, 729.927pt x 510.2262pt>
 File: images/latex_lugar_hechos.png Graphic file (type png)
 <use images/latex_lugar_hechos.png>
-Package pdftex.def Info: images/latex_lugar_hechos.png  used on input line 221.
+Package pdftex.def Info: images/latex_lugar_hechos.png  used on input line 226.
 (pdftex.def)             Requested size: 364.9626pt x 255.11247pt.
- [7 <./images/latex_trend_llamados.png>]
-<images/latex_redes_sociales_edad_formas_violencia.png, id=141, 835.4412pt x 706.0779pt>
+ [8 <./images/latex_trend_llamados.png>]
+<images/latex_redes_sociales_edad_formas_violencia.png, id=140, 835.4412pt x 706.0779pt>
 File: images/latex_redes_sociales_edad_formas_violencia.png Graphic file (type png)
 <use images/latex_redes_sociales_edad_formas_violencia.png>
-Package pdftex.def Info: images/latex_redes_sociales_edad_formas_violencia.png  used on input line 232.
+Package pdftex.def Info: images/latex_redes_sociales_edad_formas_violencia.png  used on input line 237.
 (pdftex.def)             Requested size: 417.71957pt x 353.03807pt.
- [8 <./images/latex_lugar_hechos.png>]
-<images/latex_genero_victima.png, id=155, 723.4227pt x 379.4175pt>
+ [9 <./images/latex_lugar_hechos.png>]
+<images/latex_genero_victima.png, id=154, 723.4227pt x 379.4175pt>
 File: images/latex_genero_victima.png Graphic file (type png)
 <use images/latex_genero_victima.png>
-Package pdftex.def Info: images/latex_genero_victima.png  used on input line 250.
+Package pdftex.def Info: images/latex_genero_victima.png  used on input line 255.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
- [9 <./images/latex_redes_sociales_edad_formas_violencia.png>]
-<images/latex_vinculo_agr_victima.png, id=168, 736.4313pt x 495.0495pt>
+ [10 <./images/latex_redes_sociales_edad_formas_violencia.png>]
+<images/latex_vinculo_agr_victima.png, id=167, 736.4313pt x 495.0495pt>
 File: images/latex_vinculo_agr_victima.png Graphic file (type png)
 <use images/latex_vinculo_agr_victima.png>
-Package pdftex.def Info: images/latex_vinculo_agr_victima.png  used on input line 262.
+Package pdftex.def Info: images/latex_vinculo_agr_victima.png  used on input line 267.
 (pdftex.def)             Requested size: 368.21475pt x 247.52414pt.
-<images/latex_agresor_conocido_no.png, id=169, 723.4227pt x 450.2421pt>
+<images/latex_agresor_conocido_no.png, id=168, 723.4227pt x 450.2421pt>
 File: images/latex_agresor_conocido_no.png Graphic file (type png)
 <use images/latex_agresor_conocido_no.png>
-Package pdftex.def Info: images/latex_agresor_conocido_no.png  used on input line 270.
+Package pdftex.def Info: images/latex_agresor_conocido_no.png  used on input line 275.
 (pdftex.def)             Requested size: 361.71046pt x 225.12048pt.
- [10 <./images/latex_genero_victima.png> <./images/latex_vinculo_agr_victima.png>]
+ [11 <./images/latex_genero_victima.png> <./images/latex_vinculo_agr_victima.png>]
 <images/latex_convive.png, id=181, 723.4227pt x 379.4175pt>
 File: images/latex_convive.png Graphic file (type png)
 <use images/latex_convive.png>
-Package pdftex.def Info: images/latex_convive.png  used on input line 288.
+Package pdftex.def Info: images/latex_convive.png  used on input line 293.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
- [11 <./images/latex_agresor_conocido_no.png>]
-<images/latex_boxplot_convive_edad.png, id=196, 726.3135pt x 379.4175pt>
+ [12 <./images/latex_agresor_conocido_no.png>]
+<images/latex_boxplot_convive_edad.png, id=195, 726.3135pt x 379.4175pt>
 File: images/latex_boxplot_convive_edad.png Graphic file (type png)
 <use images/latex_boxplot_convive_edad.png>
-Package pdftex.def Info: images/latex_boxplot_convive_edad.png  used on input line 301.
+Package pdftex.def Info: images/latex_boxplot_convive_edad.png  used on input line 305.
 (pdftex.def)             Requested size: 363.15587pt x 189.70828pt.
- [12 <./images/latex_convive.png> <./images/latex_boxplot_convive_edad.png>] [13] [14{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [15] (./main.bbl
+ [13 <./images/latex_convive.png> <./images/latex_boxplot_convive_edad.png>]
+<images/latex_llamante_vin_convive.png, id=213, 859.2903pt x 426.393pt>
+File: images/latex_llamante_vin_convive.png Graphic file (type png)
+<use images/latex_llamante_vin_convive.png>
+Package pdftex.def Info: images/latex_llamante_vin_convive.png  used on input line 332.
+(pdftex.def)             Requested size: 429.64409pt x 213.19597pt.
+<images/latex_vs_sino.jpeg, id=216, 912.7701pt x 711.8595pt>
+File: images/latex_vs_sino.jpeg Graphic file (type jpg)
+<use images/latex_vs_sino.jpeg>
+Package pdftex.def Info: images/latex_vs_sino.jpeg  used on input line 343.
+(pdftex.def)             Requested size: 456.38393pt x 355.92888pt.
+ [14 <./images/latex_llamante_vin_convive.png>]
+<images/latex_ofv_sino.jpeg, id=229, 948.9051pt x 654.0435pt>
+File: images/latex_ofv_sino.jpeg Graphic file (type jpg)
+<use images/latex_ofv_sino.jpeg>
+Package pdftex.def Info: images/latex_ofv_sino.jpeg  used on input line 351.
+(pdftex.def)             Requested size: 474.4514pt x 327.02095pt.
+ [15 <./images/latex_vs_sino.jpeg>] [16 <./images/latex_ofv_sino.jpeg>] [17{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [18] (./main.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 23--26
 []\OT1/cmr/m/n/10 Ministerio de Jus-ti-cia de la Rep^^Subli-ca Ar-gen-ti-na.  Nue-va L^^S^^Pnea 137: am-plia-ci^^Son de ser-vi-cios de aten-
  []
@@ -716,56 +819,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--26
 LaTeX Font Info:    Trying to load font information for U+lasy on input line 44.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)) [16]
-<images/latex_llamados_por_provincia.png, id=253, 729.927pt x 469.755pt>
+)) [19]
+<images/latex_llamados_por_provincia.png, id=271, 729.927pt x 469.755pt>
 File: images/latex_llamados_por_provincia.png Graphic file (type png)
 <use images/latex_llamados_por_provincia.png>
-Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 406.
+Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 436.
 (pdftex.def)             Requested size: 364.9626pt x 234.87692pt.
-<images/latex_caso_judicializado.png, id=254, 723.4227pt x 380.1402pt>
+<images/latex_caso_judicializado.png, id=272, 723.4227pt x 380.1402pt>
 File: images/latex_caso_judicializado.png Graphic file (type png)
 <use images/latex_caso_judicializado.png>
-Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 414.
+Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 444.
 (pdftex.def)             Requested size: 361.71046pt x 190.06963pt.
-<images/latex_nacionalidad_victima.png, id=255, 723.4227pt x 379.4175pt>
+<images/latex_nacionalidad_victima.png, id=273, 723.4227pt x 379.4175pt>
 File: images/latex_nacionalidad_victima.png Graphic file (type png)
 <use images/latex_nacionalidad_victima.png>
-Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 423.
+Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 453.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
- [17 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
-<images/latex_victima_discapacidad.png, id=263, 723.4227pt x 379.4175pt>
+ [20 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
+<images/latex_victima_discapacidad.png, id=281, 723.4227pt x 379.4175pt>
 File: images/latex_victima_discapacidad.png Graphic file (type png)
 <use images/latex_victima_discapacidad.png>
-Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 433.
+Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 463.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
-<images/latex_vinculo_llamante.png, id=264, 729.927pt x 453.8556pt>
+<images/latex_vinculo_llamante.png, id=282, 729.927pt x 453.8556pt>
 File: images/latex_vinculo_llamante.png Graphic file (type png)
 <use images/latex_vinculo_llamante.png>
-Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 443.
+Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 473.
 (pdftex.def)             Requested size: 364.9626pt x 226.92725pt.
- [18 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>]
-<images/latex_llamante_vin_convive.png, id=271, 859.2903pt x 426.393pt>
-File: images/latex_llamante_vin_convive.png Graphic file (type png)
-<use images/latex_llamante_vin_convive.png>
-Package pdftex.def Info: images/latex_llamante_vin_convive.png  used on input line 452.
-(pdftex.def)             Requested size: 429.64409pt x 213.19597pt.
-<images/latex_hecho_lugar_convive.png, id=272, 856.3995pt x 426.393pt>
+ [21 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>]
+<images/latex_hecho_lugar_convive.png, id=289, 856.3995pt x 426.393pt>
 File: images/latex_hecho_lugar_convive.png Graphic file (type png)
 <use images/latex_hecho_lugar_convive.png>
-Package pdftex.def Info: images/latex_hecho_lugar_convive.png  used on input line 460.
+Package pdftex.def Info: images/latex_hecho_lugar_convive.png  used on input line 483.
 (pdftex.def)             Requested size: 428.1987pt x 213.19597pt.
- [19 <./images/latex_vinculo_llamante.png> <./images/latex_llamante_vin_convive.png>]
-<images/latex_momento_dia_convive.png, id=279, 859.2903pt x 426.393pt>
+<images/latex_momento_dia_convive.png, id=290, 859.2903pt x 426.393pt>
 File: images/latex_momento_dia_convive.png Graphic file (type png)
 <use images/latex_momento_dia_convive.png>
-Package pdftex.def Info: images/latex_momento_dia_convive.png  used on input line 468.
+Package pdftex.def Info: images/latex_momento_dia_convive.png  used on input line 491.
 (pdftex.def)             Requested size: 429.64409pt x 213.19597pt.
-<images/latex_caso_jud_convive.png, id=280, 859.2903pt x 426.393pt>
+ [22 <./images/latex_vinculo_llamante.png> <./images/latex_hecho_lugar_convive.png>]
+<images/latex_caso_jud_convive.png, id=297, 859.2903pt x 426.393pt>
 File: images/latex_caso_jud_convive.png Graphic file (type png)
 <use images/latex_caso_jud_convive.png>
-Package pdftex.def Info: images/latex_caso_jud_convive.png  used on input line 476.
+Package pdftex.def Info: images/latex_caso_jud_convive.png  used on input line 499.
 (pdftex.def)             Requested size: 429.64409pt x 213.19597pt.
- [20 <./images/latex_hecho_lugar_convive.png> <./images/latex_momento_dia_convive.png>] [21 <./images/latex_caso_jud_convive.png>] (./main.aux
+ [23 <./images/latex_momento_dia_convive.png> <./images/latex_caso_jud_convive.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -774,21 +872,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F65198EBE8B757A0718483BF2C39D29B;417.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27908 strings out of 474116
- 572223 string characters out of 5743683
- 1945187 words of memory out of 5000000
- 49794 multiletter control sequences out of 15000+600000
+ 28260 strings out of 474116
+ 578839 string characters out of 5743683
+ 1943187 words of memory out of 5000000
+ 50125 multiletter control sequences out of 15000+600000
  563324 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1924b,1112s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (23 pages, 1091456 bytes).
+Output written on main.pdf (25 pages, 1421379 bytes).
 PDF statistics:
- 376 PDF objects out of 1000 (max. 8388607)
- 283 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 388 PDF objects out of 1000 (max. 8388607)
+ 291 compressed objects within 3 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 
