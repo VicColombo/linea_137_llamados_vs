@@ -1,26 +1,27 @@
 # Fdb version 4
-["bibtex main"] 1726124811.8044 "main.aux" "main.bbl" "main" 1726125170.21456 0
+["bibtex main"] 1726328193.06308 "main.aux" "main.bbl" "main" 1726396051.18601 0
   "./bibtex_reporte.bib" 1722804477.49261 3125 e5f6604ccda6a4d18170bc8eeeaa273a ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1726125169.79534 8897 e23aebebc5ec96a241806e0c648896ed "pdflatex"
+  "main.aux" 1726396050.73691 8733 8eb87dd28078abd1e41fc41adea3df5d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1726124874.98218 "main.idx" "main.ind" "main" 1726125170.2144 0
-  "main.idx" 1726125167.90612 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1726322124.03184 "main.idx" "main.ind" "main" 1726396051.1858 0
+  "main.idx" 1726396049.17522 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1726125166.84958 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1726125170.21471 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1726125166.41705 37541 23d5b501ec87a6add005009290372bb3 ""
+["pdflatex"] 1726396048.25997 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1726396051.18617 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1726396047.94354 39649 9d0db32691168cfc3832e56db7289d72 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm" 1136768653 1328 5442e22a7072966dbaf88ca900acf3f0 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm" 1136768653 1532 9162035f4e7176612125649e348e2195 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
@@ -36,6 +37,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb" 1248133631 32298 c6d25bb16d1eac01ebdc6d7084126a1e ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1248133631 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -205,20 +207,19 @@
   "images/latex_momento_dia_convive.png" 1725619682.49721 30093 8376ea2cbd371ad24748422d2d24079e ""
   "images/latex_nacionalidad_victima.png" 1724323516.78268 28286 859be6f65666b19c574b39a8a73d4de3 ""
   "images/latex_ofv_sino.jpeg" 1726122681.25291 152510 db1773ac2208862687c22ff1a2c30fe9 ""
-  "images/latex_redes_sociales_edad_formas_violencia.png" 1724271413.40208 123682 19e0294d44dbad596c35e80245daeff2 ""
   "images/latex_trend_llamados.png" 1724588432.24774 104980 1818e006673c9bb159f875ea5d2dea57 ""
   "images/latex_victima_discapacidad.png" 1724323400.79524 17000 45c61710d0b544fb438c875c95507d92 ""
   "images/latex_vinculo_agr_victima.png" 1724323005.77846 51148 baddb4f597eaeb396efb1295315b8ddf ""
   "images/latex_vinculo_llamante.png" 1724323142.43087 46058 a39b6c519fb8d92b775bdc4100608086 ""
   "images/latex_vs_sino.jpeg" 1726122641.51748 174513 436d1900eef2f0f065f521fc47ed594b ""
   "images/uba2.jpg" 1721825197.71324 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1726125169.79534 8897 e23aebebc5ec96a241806e0c648896ed "pdflatex"
-  "main.bbl" 1726124811.96543 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
-  "main.ind" 1726124876.26284 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1726125167.94257 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tdo" 1726125169.80272 300 e041b3eb06593092f23034ad6433ee6f "pdflatex"
-  "main.tex" 1726125166.41705 37541 23d5b501ec87a6add005009290372bb3 ""
-  "main.toc" 1726125169.80288 30 1bb04962d39b6bda471ac6c46ce13f85 "pdflatex"
+  "main.aux" 1726396050.73691 8733 8eb87dd28078abd1e41fc41adea3df5d "pdflatex"
+  "main.bbl" 1726328193.15247 3019 d2984d145e730225f323a1fee726d9e4 "bibtex main"
+  "main.ind" 1726322124.12465 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1726396049.21749 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tdo" 1726396050.74107 364 94a7a4d75d80e5b1e350291a39acdda7 "pdflatex"
+  "main.tex" 1726396047.94354 39649 9d0db32691168cfc3832e56db7289d72 ""
+  "main.toc" 1726396050.74116 30 1bb04962d39b6bda471ac6c46ce13f85 "pdflatex"
   (generated)
   "main.aux"
   "main.idx"
