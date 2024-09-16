@@ -89,8 +89,7 @@ La  recopilación, sistematización, y análisis de datos sobre violencia sexual
 Desde el año 2016, en el marco del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia de la Nación, la línea 137 funciona las 24 horas del día para solicitar asistencia en casos de violencia sexual o familiar\footnote{Además, desde 2020 cuenta también con el canal de \textit{Whatsapp} (54911) 3133-1000.}. El programa cuenta con equipos de intervención de abogadas, psicólogas, y trabajadoras sociales. Al recibir una llamada solicitando asistencia se coordina el envío de equipos móviles para proveer a la víctima, en base a las necesidades del caso, de contención emocional, acompañamiento a un hospital y/o a radicar una denuncia, y/o a un lugar seguro donde pueda alojarse \citep*{linea_137}.\todo[inline]{rever cómo sigue el programa ahora}
 
 Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran publicados cuatro tipos de \textit{datasets} por año: llamados e intervenciones domiciliarias por situaciones de violencia familiar, y llamados e intervenciones domiciliarias por situaciones de violencia sexual.
-Los registros no están exentos de los problemas frecuentes antes mencionados en los datos sobre violencia sexual, presentan información faltante de dos maneras: celdas vacías en el caso de las variables numéricas de edad, y respuestas NS/NC (no sabe-no contesta) en lugar de SI o NO en el resto de las variables categóricas. Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor de los datos que faltan está relacionado con el motivo mismo por el que faltan (MNAR).\todo[inline]{quizás esto va en datos?}
-
+Los registros no están exentos de los problemas frecuentes antes mencionados en los datos sobre violencia sexual, presentan información faltante de dos maneras: celdas vacías en el caso de las variables numéricas de edad, y respuestas NS/NC (no sabe-no contesta) en lugar de SI o NO en el resto de las variables categóricas. Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor de los datos que faltan está relacionado con el motivo mismo por el que faltan (MNAR).
 En este trabajo analizo llamados para reportar violencia sexual a la línea 137 entre 2017 y 2021, e intento predecir valores faltantes de la variable “víctima convive con el agresor”. \todo[inline]{esto así declarado es una reverenda poronga}
 
 
@@ -238,7 +237,7 @@ Según la distribución de la variable \textit{llamado\_provincia}, la mayoría 
 
 Según la distribución de la variable \textit{caso\_judicializado}, el 46.7\% de los llamados no está asociado a un caso ya judicializado, el 39.7\% sí, y en el restante 13.4\% no se cuenta con datos de este tipo.\footnote{Ver figura \ref{casojudicializado} en el \nameref{anex}.} 
 
-En cuanto a la variable \textit{hecho\_lugar}, como ilustra el \textit{barplot} de la figura \Ref{hecholugar}, para aproximadamente el 30\% de los llamados no se cuenta con datos (respuestas \textit{NS/NC}); luego, el 25\% los hechos suceden en la vivienda de la víctima y el 13\% en la vivienda del agresor. La cuarta categoría más reportada, con el 12\%, es \textit{redes sociales}. El restante 20\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios. La elevada proporción de casos que suceden en la vivienda de la víctima, es un dato que acompaña lo ya dicho en la \nameref{intro} sobre la mayoría de los hechos de violencia sexual ocurriendo más bien en el entorno de la víctima antes que involucrar personas y lugares desconocidos. 
+En cuanto a la variable \textit{hecho\_lugar}, como ilustra el gráfico de barras de la figura \Ref{hecholugar}, para aproximadamente el 30\% de los llamados no se cuenta con datos (respuestas \textit{NS/NC}); luego, el 25\% los hechos suceden en la vivienda de la víctima y el 13\% en la vivienda del agresor. La cuarta categoría más reportada, con el 12\%, es \textit{redes sociales}. El restante 20\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios. La elevada proporción de casos que suceden en la vivienda de la víctima, es un dato que acompaña lo ya dicho en la \nameref{intro} sobre la mayoría de los hechos de violencia sexual ocurriendo más bien en el entorno de la víctima antes que involucrar personas y lugares desconocidos. 
 
 \begin{figure}[H]
     \begin{center}
@@ -250,6 +249,7 @@ En cuanto a la variable \textit{hecho\_lugar}, como ilustra el \textit{barplot} 
 
 
 Llama la atención la cuarta categoría más presente en \textit{hecho\_lugar}, los casos sucedidos en redes sociales. Dada la media de edad de las víctimas que reporté más arriba, se podría hipotetizar sobre la relación entre estas variables: la población joven pasa más tiempo en redes sociales y entonces es más propensa a sufrir violencia sexual en ese lugar; o las redes sociales son lugares donde proliferan más los actos de violencia sexual por alguna(s) característica(s) intrínseca(s) de las redes mismas. 
+
 %Para explorar este fenómeno, crucé en la figura \ref{redes}  esa categoría de \textit{hecho\_lugar} con los tipos de violencia sufrida y las edades de las víctimas agrupadas cualitativamente en Niñez (0 a 11 años), Adolescencia (12 a 18 años), Juventud (19 a 30 años), Adultez (31 a 65 años), y Vejez (mayores de 65). Observé que la mayor cantidad de casos corresponden al tipo de violencia \textit{grooming} en primer lugar, y en segundo lugar a la categoría \textit{ofv\_no\_sabe\_no\_contesta}. Además, aunque con conteos mucho más bajos, aparecen también otras formas de violencia esperables en el contexto de redes sociales como: \textit{ofv\_sentimiento\_amenaza}, \textit{vs\_explotacion\_sexual}, o \textit{ofv\_amenaza\_explicita}. En todos estos casos alrededor del 90\% de las víctimas son niñes o adolescentes. Si bien por la distribución de la variable \textit{victima\_edad} cabría esperar mayor cantidad de víctimas de estos grupos etarios, en el caso de los hechos sucedidos en redes sociales, este dato podría estar asociado con el mayor uso de redes sociales por parte de este sector de la población. 
 
 %\begin{figure}[H]
@@ -318,22 +318,33 @@ En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontr�
 
 \subsection*{Análisis multivariado de \textit{victima\_convive\_agresor}}\label{faltantes}
 
-%Los datos faltantes se presentan en este conjunto de datos como efectivamente faltantes, es decir, como celdas vacías, solo en las variables de edad. Donde en edad de %la víctima representan el 9.82\%, y en la edad de quien llama el 44.82\%. 
-%En el resto de las variables no hay celdas con valores ausentes, pero, como mostré más arriba, sí celdas con el valor \textit{NS/NC}. En la variable de interés \textit%{victima\_convive\_agresor} estas respuestas constituyen el 21.19\%. 
-Para un análisis multivariado seleccioné algunas variables que podían estar más relacionadas con \textit{victima\_convive\_agresor}: \textit{hecho\_lugar}, \textit{momento\_dia}, \textit{caso\_judicializado}, \textit{llamante\_vinculo}, y \textit{victima\_edad}. 
+
+
+Para un análisis multivariado seleccioné algunas variables que podían estar más relacionadas con \textit{victima\_convive\_agresor}: \textit{hecho\_lugar}, \textit{momento\_dia}, \textit{victima\_vinculo\_agresor}, \textit{llamante\_vinculo}, y \textit{victima\_edad}. 
 
 Primero, realicé gráficos de barras para explorar la relación entre \textit{victima\_convive\_agresor} y las variables categóricas.
-Observé que la distribución original de \textit{victima\_convive\_agresor} (mayoría de respuestas \textit{NO} y minoría de \textit{SI}, con \textit{NS/NC} posicionado ordinalmente en el medio), se mantiene para casi todas las categorías de estas variables con solo dos excepciones. En primer lugar, como se ve en la firgura \ref{hecholugconvive}, cuando los hechos suceden en la vivienda de la víctima, hay más casos en los que la víctima sí convive con el agresor y la distribución pasa a ser \textit{NO}, \textit{SI}, \textit{NS/NC}. Lo mismo sucede cuando los hechos ocurren en la vivienda del agresor, aunque en ese caso la proporción de \textit{SI} supera por muy poco la proporción de \textit{NS/NC}. \todo[inline]{agregar los porcentajes}En segundo lugar, en la figura \ref{llamvincconvive}, se puede ver que para la categoría \textit{vecina/o} de \textit{llamante\_vinculo}, la tendencia de respuestas positivas y negativas también se invierte: 48.4\% \textit{SI}, y 21.7\% \textit{NO}. Sobre esta variable se observa además que los valores de \textit{NS/NC} para \textit{victima\_convive\_agresor} son notablemente más altos cuando el llamado proviene de \textit{Otra institución} que no sea una escuela, comisaría, u hospital. \footnote{En el \nameref{anex}  se pueden consultar las figuras \ref{momdiaconvive}, y \ref{casojudconvive} correspondientes a la relación entre \textit{victima\_convive\_agresor} y \textit{momento\_dia}, y \textit{caso\_judicializado}.}
+Observé que la distribución original de \textit{victima\_convive\_agresor} (mayoría de respuestas \textit{NO} y minoría de \textit{SI}, con \textit{NS/NC} posicionado ordinalmente en el medio), se mantiene para casi todas las categorías de estas variables con las siguientes excepciones. En primer lugar, como se ve en la figura \ref{hecholugconvive}, cuando los hechos suceden en la vivienda de la víctima, hay más casos en los que la víctima sí convive con el agresor y la distribución pasa a ser \textit{NO}, \textit{SI}, \textit{NS/NC}. Lo mismo sucede cuando los hechos ocurren en la vivienda del agresor, aunque en ese caso la proporción de \textit{SI} supera por muy poco la proporción de \textit{NS/NC}. 
+
+En segundo lugar, en la figura \ref{agrvincconvive} se observa que para la mayor parte de los casos en los que el agresor es parte de la familia de la víctima (\textit{Abuelo}, \textit{Hermana}, \textit{Hermano}, \textit{Madrastra}, \textit{Madre}, \textit{Padrastro}, \textit{Pareja de la víctima}), los casos en que la víctima convive son más que los casos en los que no hay respuesta sobre la situación convivencial. Sin embargo, solo en las categorías \textit{Madre}, \textit{Padrastro}, y \textit{Pareja de la víctima} los casos en que las víctimas conviven con sus agresores superan a los casos en los que no lo hacen.
+
+Por último, en la figura \ref{llamvincconvive}, se puede ver que para la categoría \textit{vecina/o} de \textit{llamante\_vinculo}, la tendencia de respuestas positivas y negativas también se invierte. Sobre esta variable se observa además que los valores de \textit{NS/NC} para \textit{victima\_convive\_agresor} son notablemente más altos cuando el llamado proviene de \textit{Otra institución} que no sea una escuela, comisaría, u hospital. 
 
 
 \begin{figure}[H]
-    \begin{center}
-    \includegraphics[scale=.5]{images/latex_hecho_lugar_convive.png}
-    \caption{Convivencia con el agresor según lugar de los hechos.}
-    \label{hecholugconvive}
-    \end{center}
-    \end{figure}
+\begin{center}
+\includegraphics[scale=.5]{images/latex_hecho_lugar_convive.png}
+\caption{Convivencia con el agresor según lugar de los hechos.}
+\label{hecholugconvive}
+\end{center}
+\end{figure}
     
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.5]{images/convive_vinc_agresor.png}
+\caption{Convivencia con el agresor según vínculos víctima-agresor.}
+\label{agrvincconvive}
+\end{center}
+\end{figure} 
 
 \begin{figure}[H]
 \begin{center}
@@ -371,28 +382,26 @@ Luego realicé \textit{boxplots} comparativos y un detalle del análisis de cuar
     \end{table}
 
 
+Evalué también una posible relación entre la edad de la víctima, el vínculo con el agresor, y la situación de convivencia o no con este. En la figura \ref{edadconvagr} se observa la tendencia que ya se presentó en los \textit{boxplots} de \ref{boxplotsconvivenciaedad}: las medias de edades de las víctimas según sus situaciones convivenciales con el agresor son similares entre sí. Destaco, sin embargo, que para las categorías \textit{Pareja} y \textit{Ex-pareja de la víctima} la media de edad de las víctimas es ligeramente más alta en comparación a las otras categorías de vínculos; y que específicamente la media de edad de las víctimas que sí conviven con sus agresores es más alta que la de las que no conviven o aquellas para las que no se cuenta con datos sobre la convivencia. La media de edad también se dispara para la categoría vincular \textit{Madrastra} en los casos en que no se tienen datos sobre la situación convivencial. Por último, quiero señalar que las medias de edad más bajas ocurren con agresores \textit{Abuelo}, \textit{Abuela}, \textit{Madrastra}, y \textit{Padre}, donde ninguna media de edad supera los 10 años en las víctimas que sí conviven con sus agresores.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/convive_edad_agresor.png}
+    \caption{Edad de la víctima según su vínculo y convivencia o no con el agresor.}
+    \label{edadconvagr}
+    \end{center}
+    \end{figure}
 
 
+Por último, puse en relación \textit{victima\_convive\_agresor} con los valores faltantes en \textit{victima\_edad}, que representan el 9.82\%. Apliqué al conjunto de datos un filtro para incluir solamente las filas con casos vacíos de \textit{victima\_edad}, y generé el mismo gráfico de barras de la figura \Ref{convivencia} con esos datos. El resultado, que puede verse abajo en la figura \Ref{conviveedadfaltantevic}, muestra un aumento de los casos de respuesta \textit{NS/NC} para \textit{victima\_convive\_agresor}. En \textit{dataset} completo, \textit{NS/NC} representaba el 21.19\% en \textit{victima\_convive\_agresor}, cuando solo se observan los casos con datos faltantes de edad de la víctima, ese porcentaje sube a 57.49\%. Es decir, cuando no se tienen datos sobre la edad de la víctima, tampoco se los tiene en mayor medida sobre la situación convivencial entre la víctima y el agresor.
 
-Como expresé más arriba, el objetivo de este trabajo es clasificar el 21.19\% de \textit{NS/NC} en \textit{victima\_convive\_agresor} como \textit{SI} o \textit{NO}. Por lo tanto, considero esos valores como dato faltante frente a la ausencia de conocimiento o negativa a informar una respuesta positiva o negativa sobre la situación convivencial entre la víctima y el agresor.
-
-el ordenamiento original es NO > NS/NC > SI
-s/d edad victima: NS/NC > NO > SI NS/NC se incrementa en un 30% más o menos. Decrece mucho NO y un poco SI. Es decir, realmente no saben.
-
-
-posible relación de datos faltantes de edad con quien llama tanto en edad de la victima como en edad de quien llama
-relación entre los faltante de edad y NSNC en convive
-
-relaci;on entre NSNC de convive y quien llama (instituciones) esto está en la notebook de por qué faltan mis datos y en las notas que tomé
-
-por qué faltan? la respuestas más senciulla es que simplemente algunos datos no se conocen, el llamante puede no saber realmente la edad de la víctima o si convive o no, etc. Otra causa puede ser la necesidad de oculktar ciertos datos por estigma o por protección de la víctima, de su entorno o incluso del agresor. la realidad como sucede con los datos faltabtes de este tipo, es que es imposible saber el motivo real por el que falten y puede que sea una combinación de todas esas razones.
-
-En la mayoría de las variables, cuando filtramos el dataset para ver solo las filas con datos faltantes en la edad de la víctima, aumenta la cantidad de NS/NC en la variable observada. Es decir: si no dicen la edad de la víctima, es más probable que tampoco vayan a decir su vínculo con la víctima, el vínculo entre la víctima y el agresor, etc. Cuando filtramos por datos completos de edades (víctima y llamante), la cantidad de NS/NC baja. Esto podría indicar que los faltantes responden más probablemente a un mecanismo MAR.
-
-
-
-
-
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/latex_convive_sd_edad_vic.png}
+    \caption{Convivencia víctima-agresor en las filas de datos faltantes para \textit{victima\_edad}.}
+    \label{conviveedadfaltantevic}
+    \end{center}
+    \end{figure}
 
 \section*{Metodología}\label{met}
 
@@ -442,6 +451,8 @@ Si las denuncias de violencia sexual contra disidencias de género representan u
 
 
 Análisis de series temporales, porsibilidad de hacer forcasting
+
+Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a significativa la correlación, salvo en el caso de agresores parejas o ex parejas de las víctimas. Pero además hay vínculos con agresores más comuens que otros para esas víctimas que sí conviven y son jóvenes.
 \newpage
 
 
@@ -498,22 +509,6 @@ Análisis de series temporales, porsibilidad de hacer forcasting
 \end{center}
 \end{figure}
 
-       
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[scale=.5]{images/latex_momento_dia_convive.png}
-    \caption{Convivencia con el agresor según momento del día del llamado.}
-    \label{momdiaconvive}
-    \end{center}
-    \end{figure}
-    
-    \begin{figure}[H]
-    \begin{center}
-    \includegraphics[scale=.5]{images/latex_caso_jud_convive.png}
-    \caption{Convivencia con el agresor según estado judicial del caso.}
-    \label{casojudconvive}
-    \end{center}
-    \end{figure}
 
 
 \end{document}
