@@ -405,9 +405,68 @@ Por último, puse en relación \textit{victima\_convive\_agresor} con los valore
 
 \section*{Metodología}\label{met}
 
-El objetivo es imputar los NS/NC de convive como si o no. 
+El conjunto de datos tiene gran cantidad de variables, no todas informativas, y además algunas de esas variables tienen una cardinalidad alta (por ejemplo la variable \textit{victima\_vinculo\_agresor} tiene 15 niveles, la variable \textit{llamado\_provincia} tiene 25, etc.). Esto podría acarrear algunos problemas de interpretabilidad o incluso de performance del modelo predictivo. Por lo tanto, pre procesé los datos en tres pasos con el objetivo de reducir, por un lado, las dimensiones de los datos, y por otro, la cardinalidad de algunas variables. Como se verá a lo largo de esta sección, estos pasos resultan en dos tipos de \textit{datasets} distintos que luego utilizo para entrenar dos modelos de SVM y evaluar las diferencias entre los tipos de preprocesamiento.
 
-Intento ver si usando un método de ordenamiento para visualizar el dataset en dimensiones reducidas me da una
+Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables tienen en su mayoría respuestas \textit{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo:  
+\begin{itemize}
+\item \textit{vs\_explotación\_sexual}
+\item \textit{vs\_explotación\_sexual\_comercial}
+\item \textit{vs\_explotación\_sexual\_viajes\_turismo}
+\item \textit{vs\_sospecha\_trata\_personas\_fines\_sexuales}
+\end{itemize}
+
+Reduje entonces la cantidad de variables que describen los tipos de violencias sufridas agrupando algunas de ellas en cuatro nuevas variables por dominio. En la tabla a continuación resumo cada grupo de variables y la nueva variable que las reemplaza. 
+
+B. agrupar variables de violencia x dominio OK script pipeline \todo{describir}
+
+violencia sexual:
+
+se agrupan en una sola variable porque comparten dominio semántico (?) y jurídico:
+
+vs explotación sexual
+vs explotación sexual comercial
+vs explotación sexual viajes turismo
+vs sospecha trata personas fines sexuales
+https://www.argentina.gob.ar/justicia/derechofacil/leysimple/trata-de-personas
+https://www.argentina.gob.ar/trabajo/trata-de-personas
+
+Nueva variable: explotación sexual
+
+se agrupan en una nueva variable porque … violación?:
+
+vs violacion via vaginal
+vs violacion via anal
+vs violacion via oral
+
+Nueva variable: violación
+
+ofv:
+
+se agrupan en una sola variable por dominio:
+
+ofv intento ahogar
+ofv intento quemar 
+ofv intento matar
+ofv intento ahorcar
+
+Nueva variable: intento violencia potencialmente fatal
+
+
+Se agrupan en una nueva variable por dominio:
+
+ofv uso arma blanca
+ofv uso arma fuego
+
+Nueva variable: uso de arma
+
+
+C. quitar las variables poco informativas xq tienen baja tasa de rta.(menos de 191 SI, es decir 1 por ciento o menos de SI)
+Las borradas son: vs_amenazas_verbales_contenido_sexual, 'vs_existencia_facilitador_corrupcion_nnya', 'vs_eyaculacion_partes_cuerpo', 'ofv_amenaza_muerte', 'ofv_uso_sustancias_psicoactivas', 'ofv_intento_privacion_libertad', 'ofv_privacion_libertad', 'ofv_uso_animal_victimizar', 'ofv_uso_arma_group', 'ofv_intento_violencia_fisica_group'
+
+
+
+Vamos a reducirlo antes de aplicar un método predictivo. Dos maneras de reducirlo, NMDS y manual
+A través del análisis que llevé a cabo durante la epxloración de los datos Con el objetivo de visualizar el dataset en dimensiones reducidas me da una
 idea de agrupamientos con repsecto a las tres categorías de convive. Elijo NMDS porque me permite trabajar con
 variables de distinto tipo sin transformaciones.
  Luego, para intentar predecir los NSNC como si o no usé SVM. 
@@ -418,7 +477,7 @@ A modo de un segundo preprocesamiento para poder llevar a cabo estas tareas, dec
 Habiendp hecho los gráficos de más arriba para explorar posibles interacciones entre dos o tres variables, me pareció valioso explorar más dimensiones y plasmarlo en dos dimensiones. Para eso apliqué NMDS
 
 Reducción manual de dimensiones
-Algunas resultan muy poco informativas como vs explotacion sexual viajes turismo (0,02) y ofv intento matar (0,01) resultan muy poco informativas (ocurrencia de 0,02 y 0,01). 
+
 
 Despues medí correlación para ver si podía sacar más variables pero al final no saqué ninguna. Explicar cómo queda el dataset final
 
