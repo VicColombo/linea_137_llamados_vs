@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  17 SEP 2024 22:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  18 SEP 2024 10:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -605,8 +605,10 @@ Package csquotes Info: Redefining alias 'default' -> 'spanish'.
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count341
 \l__pdf_internal_box=\box120
+) (./main.aux
+LaTeX Info: Redefining \. on input line 12.
+LaTeX Info: Redefining \% on input line 12.
 )
-No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -627,6 +629,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -687,6 +690,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 22.
+ (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -721,190 +725,72 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.76 \newpage
-              [1]
-No file main.toc.
+              [1] (./main.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
-[2]
-
-Package natbib Warning: Citation `ferris2002world' on page 3 undefined on input line 83.
-
-
-Package natbib Warning: Citation `murphy2022unfounded' on page 3 undefined on input line 83.
-
-
-Package natbib Warning: Citation `ferris2002world' on page 3 undefined on input line 83.
-
-
-Package natbib Warning: Citation `contreras2016violencia' on page 3 undefined on input line 83.
-
-
-Package natbib Warning: Citation `garcia2005multi' on page 3 undefined on input line 83.
-
-
-Package natbib Warning: Citation `unicef2018analisis' on page 3 undefined on input line 83.
-
-
-Package natbib Warning: Citation `ferris2002world' on page 3 undefined on input line 83.
-
+ [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 85.
-
-Package natbib Warning: Citation `ufem_relevamiento' on page 3 undefined on input line 85.
-
-
-Package natbib Warning: Citation `ferris2002world' on page 3 undefined on input line 85.
-
-
-Package natbib Warning: Citation `linea_137' on page 3 undefined on input line 89.
-
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 89.
-[3]
-
-Package natbib Warning: Citation `rubin1976inference' on page 4 undefined on input line 92.
-
-[4]
-
-LaTeX Warning: Reference `tablavar' on page 5 undefined on input line 124.
-
-[5]
-
-LaTeX Warning: Reference `vssino' on page 6 undefined on input line 161.
-
-
-LaTeX Warning: Reference `ofvsino' on page 6 undefined on input line 161.
-
-<images/latex_vs_sino.jpeg, id=71, 912.7701pt x 711.8595pt>
+ [3] [4] [5]
+<images/latex_vs_sino.jpeg, id=102, 912.7701pt x 711.8595pt>
 File: images/latex_vs_sino.jpeg Graphic file (type jpg)
 <use images/latex_vs_sino.jpeg>
 Package pdftex.def Info: images/latex_vs_sino.jpeg  used on input line 165.
 (pdftex.def)             Requested size: 456.38393pt x 355.92888pt.
-[6]
-<images/latex_ofv_sino.jpeg, id=77, 948.9051pt x 654.0435pt>
+ [6]
+<images/latex_ofv_sino.jpeg, id=110, 948.9051pt x 654.0435pt>
 File: images/latex_ofv_sino.jpeg Graphic file (type jpg)
 <use images/latex_ofv_sino.jpeg>
 Package pdftex.def Info: images/latex_ofv_sino.jpeg  used on input line 173.
 (pdftex.def)             Requested size: 474.4514pt x 327.02095pt.
- [7 <./images/latex_vs_sino.jpeg>]
-
-LaTeX Warning: Reference `tabla_out' on page 8 undefined on input line 181.
-
-
-LaTeX Warning: Reference `tabla_descr_ed' on page 8 undefined on input line 200.
-
-[8 <./images/latex_ofv_sino.jpeg>]
-
-LaTeX Warning: Reference `trend' on page 9 undefined on input line 223.
-
-<images/latex_trend_llamados.png, id=91, 847.7271pt x 467.5869pt>
+ [7 <./images/latex_vs_sino.jpeg>] [8 <./images/latex_ofv_sino.jpeg>]
+<images/latex_trend_llamados.png, id=126, 847.7271pt x 467.5869pt>
 File: images/latex_trend_llamados.png Graphic file (type png)
 <use images/latex_trend_llamados.png>
 Package pdftex.def Info: images/latex_trend_llamados.png  used on input line 227.
 (pdftex.def)             Requested size: 423.8625pt x 233.79288pt.
-[9]
-
-LaTeX Warning: Reference `provincia' on page 10 undefined on input line 236.
-
-
-LaTeX Warning: Reference `anex' on page 10 undefined on input line 236.
-
-
-LaTeX Warning: Reference `casojudicializado' on page 10 undefined on input line 238.
-
-
-LaTeX Warning: Reference `anex' on page 10 undefined on input line 238.
-
-
-LaTeX Warning: Hyper reference `hecholugar' on page 10 undefined on input line 240.
-
-
-LaTeX Warning: Reference `hecholugar' on page 10 undefined on input line 240.
-
-
-LaTeX Warning: Reference `intro' on page 10 undefined on input line 240.
-
-<images/latex_lugar_hechos.png, id=100, 729.927pt x 510.2262pt>
+ [9]
+<images/latex_lugar_hechos.png, id=142, 729.927pt x 510.2262pt>
 File: images/latex_lugar_hechos.png Graphic file (type png)
 <use images/latex_lugar_hechos.png>
 Package pdftex.def Info: images/latex_lugar_hechos.png  used on input line 244.
 (pdftex.def)             Requested size: 364.9626pt x 255.11247pt.
-[10 <./images/latex_trend_llamados.png>]
-
-LaTeX Warning: Reference `nacionalidad' on page 11 undefined on input line 264.
-
-
-LaTeX Warning: Reference `anex' on page 11 undefined on input line 264.
-
-
-LaTeX Warning: Reference `discapacidad' on page 11 undefined on input line 267.
-
-
-LaTeX Warning: Reference `anex' on page 11 undefined on input line 267.
-
-
-LaTeX Warning: Hyper reference `genero' on page 11 undefined on input line 270.
-
-
-LaTeX Warning: Reference `genero' on page 11 undefined on input line 270.
-
-<images/latex_genero_victima.png, id=111, 723.4227pt x 379.4175pt>
+ [10 <./images/latex_trend_llamados.png>]
+<images/latex_genero_victima.png, id=162, 723.4227pt x 379.4175pt>
 File: images/latex_genero_victima.png Graphic file (type png)
 <use images/latex_genero_victima.png>
 Package pdftex.def Info: images/latex_genero_victima.png  used on input line 274.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
-[11 <./images/latex_lugar_hechos.png>]
-
-LaTeX Warning: Hyper reference `vinculoagresor' on page 12 undefined on input line 280.
-
-
-LaTeX Warning: Reference `vinculoagresor' on page 12 undefined on input line 280.
-
-<images/latex_vinculo_agr_victima.png, id=121, 736.4313pt x 495.0495pt>
+ [11 <./images/latex_lugar_hechos.png>]
+<images/latex_vinculo_agr_victima.png, id=175, 736.4313pt x 495.0495pt>
 File: images/latex_vinculo_agr_victima.png Graphic file (type png)
 <use images/latex_vinculo_agr_victima.png>
 Package pdftex.def Info: images/latex_vinculo_agr_victima.png  used on input line 286.
 (pdftex.def)             Requested size: 368.21475pt x 247.52414pt.
-<images/latex_agresor_conocido_no.png, id=122, 723.4227pt x 450.2421pt>
+<images/latex_agresor_conocido_no.png, id=176, 723.4227pt x 450.2421pt>
 File: images/latex_agresor_conocido_no.png Graphic file (type png)
 <use images/latex_agresor_conocido_no.png>
 Package pdftex.def Info: images/latex_agresor_conocido_no.png  used on input line 294.
 (pdftex.def)             Requested size: 361.71046pt x 225.12048pt.
-[12 <./images/latex_genero_victima.png> <./images/latex_vinculo_agr_victima.png>]
-
-LaTeX Warning: Reference `vinculollamante' on page 13 undefined on input line 303.
-
-
-LaTeX Warning: Reference `anex' on page 13 undefined on input line 303.
-
-
-LaTeX Warning: Hyper reference `convivencia' on page 13 undefined on input line 307.
-
-
-LaTeX Warning: Reference `convivencia' on page 13 undefined on input line 307.
-
-<images/latex_convive.png, id=132, 723.4227pt x 379.4175pt>
+ [12 <./images/latex_genero_victima.png> <./images/latex_vinculo_agr_victima.png>]
+<images/latex_convive.png, id=188, 723.4227pt x 379.4175pt>
 File: images/latex_convive.png Graphic file (type png)
 <use images/latex_convive.png>
 Package pdftex.def Info: images/latex_convive.png  used on input line 312.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
-[13 <./images/latex_agresor_conocido_no.png>]
+ [13 <./images/latex_agresor_conocido_no.png>]
 Overfull \hbox (28.0575pt too wide) in paragraph at lines 323--324
 []\OT1/cmr/m/n/10 Para un an^^Sali-sis mul-ti-va-ria-do se-lec-cion^^Se al-gu-nas va-ria-bles que pod^^S^^Pan es-tar m^^Sas re-la-cio-na-das con \OT1/cmr/m/it/10 vic-ti-ma[]convive[]agresor\OT1/cmr/m/n/10 :
  []
 
-
-LaTeX Warning: Reference `hecholugconvive' on page 14 undefined on input line 326.
-
-
-LaTeX Warning: Reference `agrvincconvive' on page 14 undefined on input line 328.
-
-
-LaTeX Warning: Reference `llamvincconvive' on page 14 undefined on input line 330.
-
-<images/latex_hecho_lugar_convive.png, id=140, 1075.3776pt x 570.933pt>
+<images/latex_hecho_lugar_convive.png, id=201, 1075.3776pt x 570.933pt>
 File: images/latex_hecho_lugar_convive.png Graphic file (type png)
 <use images/latex_hecho_lugar_convive.png>
 Package pdftex.def Info: images/latex_hecho_lugar_convive.png  used on input line 335.
@@ -915,7 +801,7 @@ Overfull \hbox (31.79749pt too wide) in paragraph at lines 335--336
  []
 
 [14 <./images/latex_convive.png>]
-<images/convive_vinc_agresor.png, id=149, 1076.823pt x 570.933pt>
+<images/convive_vinc_agresor.png, id=212, 1076.823pt x 570.933pt>
 File: images/convive_vinc_agresor.png Graphic file (type png)
 <use images/convive_vinc_agresor.png>
 Package pdftex.def Info: images/convive_vinc_agresor.png  used on input line 343.
@@ -925,7 +811,7 @@ Overfull \hbox (32.52019pt too wide) in paragraph at lines 343--344
  [] 
  []
 
-<images/latex_llamante_vin_convive.png, id=150, 1076.823pt x 570.933pt>
+<images/latex_llamante_vin_convive.png, id=213, 1076.823pt x 570.933pt>
 File: images/latex_llamante_vin_convive.png Graphic file (type png)
 <use images/latex_llamante_vin_convive.png>
 Package pdftex.def Info: images/latex_llamante_vin_convive.png  used on input line 351.
@@ -936,28 +822,13 @@ Overfull \hbox (32.52019pt too wide) in paragraph at lines 351--352
  []
 
 [15 <./images/latex_hecho_lugar_convive.png> <./images/convive_vinc_agresor.png>]
-
-LaTeX Warning: Reference `boxplotsconvivenciaedad' on page 16 undefined on input line 358.
-
-
-LaTeX Warning: Reference `cuartilesconviveedad' on page 16 undefined on input line 358.
-
-
-LaTeX Warning: Reference `met' on page 16 undefined on input line 358.
-
-<images/latex_boxplot_convive_edad.png, id=160, 726.3135pt x 379.4175pt>
+<images/latex_boxplot_convive_edad.png, id=224, 726.3135pt x 379.4175pt>
 File: images/latex_boxplot_convive_edad.png Graphic file (type png)
 <use images/latex_boxplot_convive_edad.png>
 Package pdftex.def Info: images/latex_boxplot_convive_edad.png  used on input line 362.
 (pdftex.def)             Requested size: 363.15587pt x 189.70828pt.
-[16 <./images/latex_llamante_vin_convive.png> <./images/latex_boxplot_convive_edad.png>]
-
-LaTeX Warning: Reference `edadconvagr' on page 17 undefined on input line 385.
-
-
-LaTeX Warning: Reference `boxplotsconvivenciaedad' on page 17 undefined on input line 385.
-
-<images/convive_edad_agresor.png, id=171, 1070.3187pt x 569.4876pt>
+ [16 <./images/latex_llamante_vin_convive.png> <./images/latex_boxplot_convive_edad.png>]
+<images/convive_edad_agresor.png, id=237, 1070.3187pt x 569.4876pt>
 File: images/convive_edad_agresor.png Graphic file (type png)
 <use images/convive_edad_agresor.png>
 Package pdftex.def Info: images/convive_edad_agresor.png  used on input line 389.
@@ -967,80 +838,22 @@ Overfull \hbox (29.26804pt too wide) in paragraph at lines 389--390
  [] 
  []
 
-
-LaTeX Warning: Hyper reference `convivencia' on page 17 undefined on input line 396.
-
-
-LaTeX Warning: Reference `convivencia' on page 17 undefined on input line 396.
-
-
-LaTeX Warning: Hyper reference `conviveedadfaltantevic' on page 17 undefined on input line 396.
-
-
-LaTeX Warning: Reference `conviveedadfaltantevic' on page 17 undefined on input line 396.
-
 [17 <./images/convive_edad_agresor.png>]
-<images/latex_convive_sd_edad_vic.png, id=180, 726.3135pt x 384.4764pt>
+<images/latex_convive_sd_edad_vic.png, id=247, 726.3135pt x 384.4764pt>
 File: images/latex_convive_sd_edad_vic.png Graphic file (type png)
 <use images/latex_convive_sd_edad_vic.png>
 Package pdftex.def Info: images/latex_convive_sd_edad_vic.png  used on input line 400.
 (pdftex.def)             Requested size: 363.15587pt x 192.23772pt.
-
-
-LaTeX Warning: Hyper reference `vssino' on page 18 undefined on input line 410.
-
-
-LaTeX Warning: Reference `vssino' on page 18 undefined on input line 410.
-
-
-LaTeX Warning: Hyper reference `ofvsino' on page 18 undefined on input line 410.
-
-
-LaTeX Warning: Reference `ofvsino' on page 18 undefined on input line 410.
-
-
-LaTeX Warning: Reference `datos' on page 18 undefined on input line 410.
-
-[18 <./images/latex_convive_sd_edad_vic.png>]
-Overfull \hbox (119.63907pt too wide) in paragraph at lines 426--432
-\OT1/cmr/m/n/10 nas fi-nes se-xua-les https://www.argentina.gob.ar/justicia/derechofacil/leysimple/trata-de-personas https://www.argentina.gob.ar/trabajo/trata-
+ [18 <./images/latex_convive_sd_edad_vic.png>]
+Overfull \hbox (58.58342pt too wide) in paragraph at lines 427--429
+[]\OT1/cmr/m/n/10 https://www.argentina.gob.ar/justicia/derechofacil/leysimple/trata-de-personas https://www.argentina.gob.ar/trabajo/trata-
  []
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:464: Missing $ inserted.
-<inserted text> 
-                $
-l.464 Las borradas son: vs_
-                           amenazas_verbales_contenido_sexual, 'vs_existenci...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex:465: Missing $ inserted.
-<inserted text> 
-                $
-l.465 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 431.
 
-
-Overfull \hbox (904.519pt too wide) in paragraph at lines 463--465
-\OT1/cmr/m/n/10 de SI) Las bo-rra-das son: vs$[]\OML/cmm/m/it/10 menazas[]erbales[]ontenido[]exual;[] vs[]xistencia[]acilitador[]orrupcion[]nya[];[] vs[]yaculacion[]artes[]uerpo[];[] ofv[]menaza[]uerte[];[] ofv[]so[]ustancias[]sicoactivas[];[] ofv[]ntento[]rivacion[]ibertad[];[] ofv[]rivacion[]ibertad[];[] ofv[]so[]nimal[]ictimizar[];[] ofv[]so[]rma[]roup[];[] ofv[]ntento[]iolencia[]isica[]roup[]$ 
- []
-
-[19{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-
-Package natbib Warning: Citation `segato2016guerra' on page 20 undefined on input line 506.
-
-
-Package natbib Warning: Citation `contreras2016violencia' on page 20 undefined on input line 506.
-
-
-Package natbib Warning: Citation `ufem_relevamiento' on page 20 undefined on input line 506.
-
-
-Package natbib Warning: Citation `ferris2002world' on page 20 undefined on input line 506.
-
-[20] (./main.bbl
+[19{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [20] (./main.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 23--26
 []\OT1/cmr/m/n/10 Ministerio de Jus-ti-cia de la Rep^^Subli-ca Ar-gen-ti-na.  Nue-va L^^S^^Pnea 137: am-plia-ci^^Son de ser-vi-cios de aten-
  []
@@ -1059,78 +872,56 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 44.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )) [21]
-<images/latex_llamados_por_provincia.png, id=221, 729.927pt x 469.755pt>
+<images/latex_llamados_por_provincia.png, id=290, 729.927pt x 469.755pt>
 File: images/latex_llamados_por_provincia.png Graphic file (type png)
 <use images/latex_llamados_por_provincia.png>
-Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 528.
+Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 516.
 (pdftex.def)             Requested size: 364.9626pt x 234.87692pt.
-<images/latex_caso_judicializado.png, id=222, 723.4227pt x 380.1402pt>
+<images/latex_caso_judicializado.png, id=291, 723.4227pt x 380.1402pt>
 File: images/latex_caso_judicializado.png Graphic file (type png)
 <use images/latex_caso_judicializado.png>
-Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 536.
+Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 524.
 (pdftex.def)             Requested size: 361.71046pt x 190.06963pt.
-<images/latex_nacionalidad_victima.png, id=223, 723.4227pt x 379.4175pt>
+<images/latex_nacionalidad_victima.png, id=292, 723.4227pt x 379.4175pt>
 File: images/latex_nacionalidad_victima.png Graphic file (type png)
 <use images/latex_nacionalidad_victima.png>
-Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 545.
+Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 533.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
  [22 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
-<images/latex_victima_discapacidad.png, id=233, 723.4227pt x 379.4175pt>
+<images/latex_victima_discapacidad.png, id=299, 723.4227pt x 379.4175pt>
 File: images/latex_victima_discapacidad.png Graphic file (type png)
 <use images/latex_victima_discapacidad.png>
-Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 555.
+Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 543.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
-<images/latex_vinculo_llamante.png, id=234, 729.927pt x 453.8556pt>
+<images/latex_vinculo_llamante.png, id=300, 729.927pt x 453.8556pt>
 File: images/latex_vinculo_llamante.png Graphic file (type png)
 <use images/latex_vinculo_llamante.png>
-Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 565.
+Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 553.
 (pdftex.def)             Requested size: 364.9626pt x 226.92725pt.
- [23 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>]
-
-Package natbib Warning: There were undefined citations.
-
-[24 <./images/latex_vinculo_llamante.png>] (./main.aux
+ [23 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>] [24 <./images/latex_vinculo_llamante.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
-
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 28296 strings out of 474116
- 579494 string characters out of 5743683
- 1941187 words of memory out of 5000000
- 50167 multiletter control sequences out of 15000+600000
- 563992 words of font info for 56 fonts, out of 8000000 for 9000
+ 28305 strings out of 474116
+ 579610 string characters out of 5743683
+ 1942187 words of memory out of 5000000
+ 50168 multiletter control sequences out of 15000+600000
+ 563683 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,15n,101p,1927b,1112s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (26 pages, 1463027 bytes).
+ 99i,15n,101p,1924b,1112s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (26 pages, 1435273 bytes).
 PDF statistics:
- 350 PDF objects out of 1000 (max. 8388607)
- 244 compressed objects within 3 object streams
- 83 named destinations out of 1000 (max. 500000)
+ 400 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 84 named destinations out of 1000 (max. 500000)
  113 words of extra memory for PDF output out of 10000 (max. 10000000)
 
