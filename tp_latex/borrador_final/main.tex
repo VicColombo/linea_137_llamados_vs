@@ -405,53 +405,74 @@ Por último, puse en relación \textit{victima\_convive\_agresor} con los valore
 
 \section*{Metodología}\label{met}
 
-El conjunto de datos tiene gran cantidad de variables, no todas informativas, y además algunas de esas variables tienen una cardinalidad alta (por ejemplo la variable \textit{victima\_vinculo\_agresor} tiene 15 niveles, la variable \textit{llamado\_provincia} tiene 25, etc.). Esto podría acarrear algunos problemas de interpretabilidad o incluso de performance del modelo predictivo. Por lo tanto, pre procesé los datos en tres pasos con el objetivo de reducir, por un lado, las dimensiones de los datos, y por otro, la cardinalidad de algunas variables. Como se verá a lo largo de esta sección, estos pasos resultan en dos tipos de \textit{datasets} distintos que luego utilizo para entrenar dos modelos de SVM y evaluar las diferencias entre los tipos de preprocesamiento.
-
-Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables tienen en su mayoría respuestas \textit{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo:  
-\begin{itemize}
-\item \textit{vs\_explotación\_sexual}
-\item \textit{vs\_explotación\_sexual\_comercial}
-\item \textit{vs\_explotación\_sexual\_viajes\_turismo}
-\item \textit{vs\_sospecha\_trata\_personas\_fines\_sexuales}
-\end{itemize}
-
-Reduje entonces la cantidad de variables que describen los tipos de violencias sufridas agrupando algunas de ellas en cuatro nuevas variables por dominio. En la tabla a continuación resumo cada grupo de variables y la nueva variable que las reemplaza. 
-
-B. agrupar variables de violencia x dominio OK script pipeline \todo{describir}
-
-violencia sexual:
-
-se agrupan en una sola variable porque comparten dominio semántico (?) y jurídico:
 
 
-https://www.argentina.gob.ar/justicia/derechofacil/leysimple/trata-de-personas
-https://www.argentina.gob.ar/trabajo/trata-de-personas
 
 
-\begin{table}[]
-    \begin{tabular}{|l|c|}
+El conjunto de datos tiene gran cantidad de variables, no todas informativas, y además algunas de esas variables tienen una cardinalidad alta (por ejemplo la variable \textit{victima\_vinculo\_agresor} tiene 15 niveles, la variable \textit{llamado\_provincia} tiene 25, etc.). Esto podría acarrear algunos problemas de interpretabilidad o incluso de performance del modelo predictivo. Por lo tanto, pre procesé los datos con el objetivo de reducir, por un lado, las dimensiones en general de los datos, es decir, obetener menos variables; y por otro, la cardinalidad de algunas variables. Como se verá a lo largo de esta sección, los preprocesamientos que apliqué resultan en dos tipos de \textit{datasets} distintos que luego utilizo para entrenar modelos de SVM y evaluar las diferencias entre los tipos de preprocesamiento.
+
+
+\subsection{Reducción de los datos con NMDS}
+Acá pongo todo lo de NMDS pero nada de la reducción manual de eliminar poco informativas y agrupar por dominio. Hago nmds solo así
+
+
+
+El siguiente paso para reducir la dimensionalidad de los datos fue aplicar un algoritmo de escalamiento multidimensional no métrico (en adelante “NMDS” por sus siglas en inglés: \textit{non-metric multidimensioal scaling}). Este método se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos. Lo elegí porque, al ser un método flexible con respecto al cálculo de la matriz de distancias, me permitió calcular entre mis datos la distancia de Gower y así trabajar con variables de distinto tipo. La desventaja de esta metodología es que la matriz de Gower no puede calcularse con datos vacíos, por lo tanto las variables de edad, las únicas con celdas vacías, resultaron un problema. La solución fue crear dos tipos de \textit{datasets}: uno en que la edad está categorizada y los datos faltantes clasificados como \textit{NS/NC}; y uno en que descarto la variable \textit{llamante\_edad} y trabajo únicamente con los casos completos de la variable \textit{victima\_edad}. Esta decisión que general el segundo conjunto de datos está guiada por el supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, por el hecho de que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\% y dejar afuera estos casos reduciría demasiado el conjunto de datos. 
+
+Además de utilizar la técnica de NMDS para reducir la dimensionalidad del dataset y entrenar luego un modelo de SVM con el dataset reducido, aproveché las bondades de la técnica para graficar el ordenamiento del dataset reducido distinguiendo por color las respuestas SI, NO, y NS/NC de víctima\_convive\_agresor, con el objetivo de observar agrupamiento en los datos en torno a estas tres categorías. 
+
+Tanto el entrenamiento de modelos como los gráficos de ordenamiento de los datos utilizaron las distintas versiones del dataset reducido que mecioné: datos completos con la variable edad cagegorizada, y una versión con la variable llamante edad eliminada y solo los casos completos de edad de la víctima. 
+
+\subsection{Reducción manual de los datos}
+
+Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables tienen en su mayoría respuestas \textit{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
+
+Reduje entonces la cantidad de variables que describen los tipos de violencias sufridas, en primer lugar, agrupando algunas de ellas en cuatro nuevas variables por dominio. En el cuadro \Ref{tablaagrup} a continuación resumo cada grupo de variables y la nueva variable que las reemplaza. 
+
+
+\begin{table}[H]
+    \centering
+    \caption{Agrupación de variables de violencia por dominio.}
+    \label{tablaagrup}
+    \begin{tabular}{|c|l|}
     \hline
-    \multicolumn{1}{|c|}{\textbf{Variable original}}        & \multicolumn{1}{l|}{\textbf{Nueva variable agrupadora}}  \\ \hline
-    \textit{vs\_explotación\_sexual}                        & \multirow{4}{*}{\textit{vs\_explotación\_sexual}}        \\ \cline{1-1}
-    \textit{vs\_explotación\_sexual\_comercial}             &                                                          \\ \cline{1-1}
-    \textit{vs\_explotación\_sexual\_viajes\_turismo}       &                                                          \\ \cline{1-1}
-    \textit{vs\_sospecha\_trata\_personas\_fines\_sexuales} &                                                          \\ \hline
-    \textit{vs\_violancion\_via\_vaginal}                   & \multirow{3}{*}{\textit{vs\_violancion}}                 \\ \cline{1-1}
-    \textit{vs\_violancion\_via\_anal}                      &                                                          \\ \cline{1-1}
-    \textit{vs\_violancion\_via\_oral}                      &                                                          \\ \hline
-    \textit{ofv\_intento\_ahogar}                           & \multirow{4}{*}{\textit{ofv\_intento\_violencia\_fatal}} \\ \cline{1-1}
-    \textit{ofv\_intento\_quemar}                           &                                                          \\ \cline{1-1}
-    \textit{ofv\_intento\_matar}                            &                                                          \\ \cline{1-1}
-    \textit{ofv\_intento\_ahorcar}                          &                                                          \\ \hline
-    \textit{ofv\_uso\_arma\_blanca}                         & \multirow{2}{*}{\textit{ofv\_uso\_arma}}                 \\ \cline{1-1}
-    \textit{ofv\_uso\_arma\_fuego}                          &                                                          \\ \hline
+    \multicolumn{1}{|l|}{\textbf{Nueva variable agrupadora}} & \multicolumn{1}{c|}{\textbf{Variables agrupadas}} \\ \hline
+    \multirow{4}{*}{vs\_explotación\_sexual}                 & vs\_explotación\_sexual                           \\ \cline{2-2} 
+                                                             & vs\_explotación\_sexual\_comercial                \\ \cline{2-2} 
+                                                             & vs\_explotación\_sexual\_viajes\_turismo          \\ \cline{2-2} 
+                                                             & vs\_sospecha\_trata\_personas\_fines\_sexuales    \\ \hline
+    \multirow{3}{*}{vs\_violacion}                          & vs\_violancion\_via\_vaginal                      \\ \cline{2-2} 
+                                                             & vs\_violancion\_via\_anal                         \\ \cline{2-2} 
+                                                             & vs\_violancion\_via\_oral                         \\ \hline
+    \multirow{4}{*}{ofv\_intento\_violencia\_fatal}          & ofv\_intento\_ahogar                              \\ \cline{2-2} 
+                                                             & ofv\_intento\_quemar                              \\ \cline{2-2} 
+                                                             & ofv\_intento\_matar                               \\ \cline{2-2} 
+                                                             & ofv\_intento\_ahorcar                             \\ \hline
+    \multirow{2}{*}{ofv\_uso\_arma}                          & ofv\_uso\_arma\_blanca                            \\ \cline{2-2} 
+                                                             & ofv\_uso\_arma\_fuego                             \\ \hline
     \end{tabular}
     \end{table}
 
-%C. quitar las variables poco informativas xq tienen baja tasa de rta.(menos de 191 SI, es decir 1 por ciento o menos de SI)
-%Las borradas son: vs_amenazas_verbales_contenido_sexual, 'vs_existencia_facilitador_corrupcion_nnya', 'vs_eyaculacion_partes_cuerpo', 'ofv_amenaza_muerte', 'ofv_uso_sustancias_psicoactivas', 'ofv_intento_privacion_libertad', 'ofv_privacion_libertad', 'ofv_uso_animal_victimizar', 'ofv_uso_arma_group', 'ofv_intento_violencia_fisica_group'
+
+En segundo lugar, eliminé las variables cuya tasa de respuesta \textit{SI} representaba menos del 1\% de los casos. 
+
+Las variables eliminadas fueron:
+
+\begin{itemize}
+    \item \textit{vs\_amenazas\_verbales\_contenido\_sexual} 
+    \item \textit{vs\_existencia\_facilitador\_corrupcion\_nnya}
+    \item \textit{vs\_eyaculacion\_partes\_cuerpo}
+    \item \textit{ofv\_amenaza\_muerte}
+    \item \textit{ofv\_uso\_sustancias\_psicoactivas} 
+    \item \textit{ofv\_intento\_privacion\_libertad}
+    \item \textit{ofv\_privacion\_libertad}
+    \item \textit{ofv\_uso\_animal\_victimizar} 
+\end{itemize}
 
 
+rEDUCCI´ON DE LA CARDINALIDAD DE LAS VARIABLES 
+
+\subsection{Modelos SVM}
 
 Vamos a reducirlo antes de aplicar un método predictivo. Dos maneras de reducirlo, NMDS y manual
 A través del análisis que llevé a cabo durante la epxloración de los datos Con el objetivo de visualizar el dataset en dimensiones reducidas me da una

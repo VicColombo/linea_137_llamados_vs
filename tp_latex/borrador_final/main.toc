@@ -1,1 +1,4 @@
 \babel@toc {spanish}{}\relax 
+\contentsline {subsection}{\numberline {0.1}Reducción de los datos con NMDS}{18}{subsection.0.1}%
+\contentsline {subsection}{\numberline {0.2}Reducción manual de los datos}{19}{subsection.0.2}%
+\contentsline {subsection}{\numberline {0.3}Modelos SVM}{20}{subsection.0.3}%
