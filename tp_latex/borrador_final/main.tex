@@ -18,7 +18,7 @@
 \linespread{1.5}
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
-
+%\usepackage{amsmath}
 \begin{document}
 
 
@@ -77,7 +77,9 @@
 \tableofcontents
 \newpage
 
-\section*{Introducción}\label{intro}
+\section{Introducción}\label{intro}
+
+\subsection{Antecedentes}
 
 
 La violencia sexual comprende una multiplicidad de conductas o intentos de conductas, que van desde actos hasta comentarios sexuales, dirigidos contra la sexualidad de otra persona de manera coercitiva. El trabajo con datos sobre violencia sexual presenta complicaciones porque los datos suelen ser escasos o presentar gran cantidad de faltantes \citetext{\citealp[p.~150]{ferris2002world}}. Uno de los motivos es que las víctimas o su entorno a menudo se rehúsan a denunciar o participar en encuestas sobre este tipo de agresiones, o proveen información incompleta. Esto puede deberse a la vergüenza y el estigma social frecuentemente asociado no solo con la violencia sexual sino con la sexualidad en general, pero también a la falta de acceso a la justicia, al temor a las represalias por parte de los agresores, o el temor a que la denuncia no sea creída \citep*{murphy2022unfounded}. Otros posibles motivos para la escasez y/o mala calidad de los datos pueden ser la falta de vías adecuadas para recabar esta información, o la negligencia o desconocimiento de procedimientos adecuados por parte de oficiales de policía encargados de recibir denuncias. A pesar de las dificultades en la recolección de datos, diversos estudios a nivel mundial logran identificar patrones frecuentes en la violencia sexual. Para este trabajo, resultan relevantes dos de ellos: la mayoría de las víctimas son mujeres, mientras que los perpetradores suelen ser hombres \citetext{\citealp[p.~149]{ferris2002world}; \citealp[p.~15]{contreras2016violencia}}; y en la mayoría de los casos, los agresores son personas conocidas por las víctimas, como parejas, exparejas u otros conocidos \citetext{\citealp[p.~9]{garcia2005multi},\citealp[p.~22]{unicef2018analisis}, \citealp[p.~151]{ferris2002world}}.
@@ -88,16 +90,34 @@ La  recopilación, sistematización, y análisis de datos sobre violencia sexual
 
 Desde el año 2016, en el marco del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia de la Nación, la línea 137 funciona las 24 horas del día para solicitar asistencia en casos de violencia sexual o familiar\footnote{Además, desde 2020 cuenta también con el canal de \textit{Whatsapp} (54911) 3133-1000.}. El programa cuenta con equipos de intervención de abogadas, psicólogas, y trabajadoras sociales. Al recibir una llamada solicitando asistencia se coordina el envío de equipos móviles para proveer a la víctima, en base a las necesidades del caso, de contención emocional, acompañamiento a un hospital y/o a radicar una denuncia, y/o a un lugar seguro donde pueda alojarse \citep*{linea_137}.\todo[inline]{rever cómo sigue el programa ahora}
 
-Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran publicados cuatro tipos de \textit{datasets} por año: llamados e intervenciones domiciliarias por situaciones de violencia familiar, y llamados e intervenciones domiciliarias por situaciones de violencia sexual.
-Los registros no están exentos de los problemas frecuentes antes mencionados en los datos sobre violencia sexual, presentan información faltante de dos maneras: celdas vacías en el caso de las variables numéricas de edad, y respuestas NS/NC (no sabe-no contesta) en lugar de SI o NO en el resto de las variables categóricas. Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor de los datos que faltan está relacionado con el motivo mismo por el que faltan (MNAR).
-En este trabajo analizo llamados para reportar violencia sexual a la línea 137 entre 2017 y 2021, e intento predecir valores faltantes de la variable “víctima convive con el agresor”. \todo[inline]{esto así declarado es una reverenda poronga}
+Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran publicados cuatro tipos de \textit{datasets}: 
+
+\begin{itemize}
+    \item Llamados por situaciones de violencia familiar
+    \item Llamados por situaciones de violencia sexual
+    \item Intervenciones domiciliarias por situaciones de violencia familiar
+    \item Intervenciones domiciliarias por situaciones de violencia sexual
+\end{itemize}
+
+En este trabajo analizo llamados a la línea 137 para reportar violencia sexual entre 2017 y 2021. Los registros  presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta en lugar de sí o no en algunas variables categóricas. De particular interés para este trabajo es la variable \textit{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \textit{SI}, \textit{NO}, y \textit{NS/NC}.
+
+\subsection{Objetivos}
+
+Mis objetivos para este trabajo son:
+
+\begin{itemize}
+    \item Analizar los datos para determinar si existen patrones y asociaciones que permitan caracterizar a la población de víctimas que convive con su agresor y la que no lo hace.
+    \item Entrenar un modelo predictivo que trate como datos faltantes las respuestas \textit{NS/NC} en la variable \textit{victima\_convive\_agresor} y los clasifique como \textit{SI} o \textit{NO}. 
+    \item En particular, entrenar un modelo de Máquinas de Soporte Vectorial.\footnote{En adelante, \textit{SVM} por sus siglas en inglés: \textit{Support Vector Machine}.}  
+    \item Contrastar dos tipos de preprocesamientos de los datos para entrenar el modelo: el primero utilizando el método de ordenamiento y reducción de dimensionalidad de Escalamiento multidimensional no-métrico.\footnote{En adelante, \textit{NMDS} por sus siglas en inglés \textit{Non-metric multidimensional scaling}; el segundo, reduciendo dimensiones de los datos de manera manual,a través de la eliminación, agrupación y transformación de las variables.}
+
+\end{itemize}
 
 
+\section{Datos}\label{datos}
 
-\section*{Datos}\label{datos}
-
-\subsection*{Obtención y limpieza}\label{limpieza}
-Para este trabajo descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 \textit{datasets} en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
+\subsection{Obtención y limpieza}\label{limpieza}
+Descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 \textit{datasets} en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
 
 Una vez descargados, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas\footnote{La limpieza, normalización, y preprocesamiento del \textit{dataset} y la aplicación de los métodos exploratorios y predictivos fueron realizados en Python}:
 
@@ -119,7 +139,7 @@ El siguiente paso fue limpiar el \textit{dataset} unificado de inconsistencias y
 
 \end{itemize}
 
-\subsection*{Exploración}\label{exploración}
+\subsection{Exploración}\label{exploración}
 
 El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, el agresor, la persona que llama para reportar el hecho, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
 
@@ -316,11 +336,11 @@ En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontr�
     \end{figure}
 
 
-\subsection*{Análisis multivariado de \textit{victima\_convive\_agresor}}\label{faltantes}
+\subsubsection{Análisis multivariado de \textit{victima\_convive\_agresor}}\label{faltantes}
 
 
-
-Para un análisis multivariado seleccioné algunas variables que podían estar más relacionadas con \textit{victima\_convive\_agresor}: \textit{hecho\_lugar}, \textit{momento\_dia}, \textit{victima\_vinculo\_agresor}, \textit{llamante\_vinculo}, y \textit{victima\_edad}. 
+Para un análisis multivariado seleccioné algunas variables que podían estar más relacionadas con \textit{victima\_convive\_agresor}: 
+\textit{hecho\_lugar}, \textit{momento\_dia}, \textit{victima\_vinculo\_agresor}, \textit{llamante\_vinculo}, y \textit{victima\_edad}. 
 
 Primero, realicé gráficos de barras para explorar la relación entre \textit{victima\_convive\_agresor} y las variables categóricas.
 Observé que la distribución original de \textit{victima\_convive\_agresor} (mayoría de respuestas \textit{NO} y minoría de \textit{SI}, con \textit{NS/NC} posicionado ordinalmente en el medio), se mantiene para casi todas las categorías de estas variables con las siguientes excepciones. En primer lugar, como se ve en la figura \ref{hecholugconvive}, cuando los hechos suceden en la vivienda de la víctima, hay más casos en los que la víctima sí convive con el agresor y la distribución pasa a ser \textit{NO}, \textit{SI}, \textit{NS/NC}. Lo mismo sucede cuando los hechos ocurren en la vivienda del agresor, aunque en ese caso la proporción de \textit{SI} supera por muy poco la proporción de \textit{NS/NC}. 
@@ -386,7 +406,7 @@ Evalué también una posible relación entre la edad de la víctima, el vínculo
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/convive_edad_agresor.png}
+    \includegraphics[scale=.4]{images/convive_edad_agresor.png}
     \caption{Edad de la víctima según su vínculo y convivencia o no con el agresor.}
     \label{edadconvagr}
     \end{center}
@@ -403,27 +423,39 @@ Por último, puse en relación \textit{victima\_convive\_agresor} con los valore
     \end{center}
     \end{figure}
 
-\section*{Metodología}\label{met}
 
 
 
+Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor faltante está relacionado con el motivo mismo por el que falta (MNAR).\todo[inline]{acá o en resultados}    
 
 
-El conjunto de datos tiene gran cantidad de variables, no todas informativas, y además algunas de esas variables tienen una cardinalidad alta (por ejemplo la variable \textit{victima\_vinculo\_agresor} tiene 15 niveles, la variable \textit{llamado\_provincia} tiene 25, etc.). Esto podría acarrear algunos problemas de interpretabilidad o incluso de performance del modelo predictivo. Por lo tanto, pre procesé los datos con el objetivo de reducir, por un lado, las dimensiones en general de los datos, es decir, obetener menos variables; y por otro, la cardinalidad de algunas variables. Como se verá a lo largo de esta sección, los preprocesamientos que apliqué resultan en dos tipos de \textit{datasets} distintos que luego utilizo para entrenar modelos de SVM y evaluar las diferencias entre los tipos de preprocesamiento.
+\section{Metodología}\label{met}
+
+La gran cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable de interés, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Para reducir las dimensiones del \textit{dataset} aplico un preprocesamiento con NMDS, y un preprocesamiento manual de eliminación y agrupamiento de variables. La aplicación de NMDS me permite además generar visualizaciones en dos dimensiones del total del conjunto. La reducción manual de las variables presenta sus propios desafíos e implicó también una reducción de la cardinalidad de algunas para mitigar problemas de \textit{encoding}. Finalmente entreno modelos predictivos de SVM con \textit{datasets} generados con los dos tipos de preprocesamientos y con otras variaciones necesarias para solventar los datos numéricos faltantes en las variables de edad.
 
 
 \subsection{Reducción de los datos con NMDS}
-Acá pongo todo lo de NMDS pero nada de la reducción manual de eliminar poco informativas y agrupar por dominio. Hago nmds solo así
+
+ La aplicación de NMDS para reducir la dimensionalidad de los datos me permite mitigar el posible problema de procesamiento, a la vez que generar visualizaciones en dos dimensiones distinguiendo los niveles de \textit{victima\_convive\_agresor} para buscar agrupamientos entre ellos que delimiten a cada clase.
+
+
+El Escalamiento Multidimensional\footnote{MDS por sus siglas en inglés: \textit{non-metric multidimensioal scaling}.} se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos, a través de representar los datos en espacios de bajas dimensiones priorizando que las distancias en en el nuevo espacio sean fidedignas a las distancias en el espacio original de altas dimensiones. 
 
 
 
-El siguiente paso para reducir la dimensionalidad de los datos fue aplicar un algoritmo de escalamiento multidimensional no métrico (en adelante “NMDS” por sus siglas en inglés: \textit{non-metric multidimensioal scaling}). Este método se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos. Lo elegí porque, al ser un método flexible con respecto al cálculo de la matriz de distancias, me permitió calcular entre mis datos la distancia de Gower y así trabajar con variables de distinto tipo. La desventaja de esta metodología es que la matriz de Gower no puede calcularse con datos vacíos, por lo tanto las variables de edad, las únicas con celdas vacías, resultaron un problema. La solución fue crear dos tipos de \textit{datasets}: uno en que la edad está categorizada y los datos faltantes clasificados como \textit{NS/NC}; y uno en que descarto la variable \textit{llamante\_edad} y trabajo únicamente con los casos completos de la variable \textit{victima\_edad}. Esta decisión que general el segundo conjunto de datos está guiada por el supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, por el hecho de que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\% y dejar afuera estos casos reduciría demasiado el conjunto de datos. 
+Al ser un método flexible con respecto a la matriz de distancias que utiliza, me permitió calcular para mis datos la distancia de Gower, una medida de similitud que puede calcularse entre datos de distinto tipo
+
+
+
+La desventaja de esta metodología es que la matriz de Gower no puede calcularse con datos vacíos, por lo tanto las variables de edad, las únicas con celdas vacías, resultaron un problema. La solución fue crear dos tipos de \textit{datasets}: uno en que la edad está categorizada y los datos faltantes clasificados como \textit{NS/NC}; y uno en que descarto la variable \textit{llamante\_edad} y trabajo únicamente con los casos completos de la variable \textit{victima\_edad}. Esta decisión que general el segundo conjunto de datos está guiada por el supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, por el hecho de que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\% y dejar afuera estos casos reduciría demasiado el conjunto de datos. 
 
 Además de utilizar la técnica de NMDS para reducir la dimensionalidad del dataset y entrenar luego un modelo de SVM con el dataset reducido, aproveché las bondades de la técnica para graficar el ordenamiento del dataset reducido distinguiendo por color las respuestas SI, NO, y NS/NC de víctima\_convive\_agresor, con el objetivo de observar agrupamiento en los datos en torno a estas tres categorías. 
 
 Tanto el entrenamiento de modelos como los gráficos de ordenamiento de los datos utilizaron las distintas versiones del dataset reducido que mecioné: datos completos con la variable edad cagegorizada, y una versión con la variable llamante edad eliminada y solo los casos completos de edad de la víctima. 
 
 \subsection{Reducción manual de los datos}
+
+ %problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. citealp (procedimiento necesario para el entrenamiento del modelo SVM). 
 
 Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables tienen en su mayoría respuestas \textit{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
 
@@ -498,19 +530,19 @@ cada uno probando los siguientes hiperparámentros
 VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES 
 
 
-\section*{Resultados}\label{resultados}
+\section{Resultados}\label{resultados}
 NMDS vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés.
 
 VER DE RE ARMAR NMDS y que separe solo SI de NO y luego un tercero que haga SI NO NSNC
 
 Todos dieron bien y luego el mejor modelo lo apliqué a 
 
-\section*{Discusión y conclusiones}\label{conc}
+\section{Discusión y conclusiones}\label{conc}
 cruzamiento de datos ovd líneas de asistencia, observatorio de género.
 acceso y análisis de datos extensivo a provincias, no solo benos aitres
 
 
-VER DE EN SVM RESULTANTE FINAL A LOS QUE LES PUSO S´I CU´AL ES LA EDAD DE V´ICTIMA Y A LOS QUE LES PUSO NO, CU´AL ES
+%VER DE EN SVM RESULTANTE FINAL A LOS QUE LES PUSO S´I CU´AL ES LA EDAD DE V´ICTIMA Y A LOS QUE LES PUSO NO, CU´AL ES
 
 en \textit{La guerra contra las mujeres}, \citeyearpar{segato2016guerra}, Rita Segato habla de la violencia sexual como algo siempre dirigido hacia cuerpos femeninos y \textit{feminizados} (resaltado propio). Con esto último quiere decir cuerpos percibidos o construidos por los abusadores como femeninos con respecto a posiciones de poder: menores, débiles, racializados, pertenecientes a disidencias sexuales. Esto se condice con datos sobre la mayor incidencia de la violencia sexual contra identidades masculinas durante la niñez y la adolescencia, es decir, en períodos en que los cuerpos y los sujetos son más vulnerables, y por lo tanto, también percibidos como feminizados \citep*{contreras2016violencia,ufem_relevamiento,ferris2002world}.
 
@@ -527,7 +559,7 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 \bibliography{bibtex_reporte.bib}
 
 \newpage
-\section*{Anexo}\label{anex}
+\section{Anexo}\label{anex}
 
 
 
