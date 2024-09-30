@@ -109,7 +109,7 @@ Mis objetivos para este trabajo son:
     \item Analizar los datos para determinar si existen patrones y asociaciones que permitan caracterizar a la población de víctimas que convive con su agresor y la que no lo hace.
     \item Entrenar un modelo predictivo que trate como datos faltantes las respuestas \textit{NS/NC} en la variable \textit{victima\_convive\_agresor} y los clasifique como \textit{SI} o \textit{NO}. 
     \item En particular, entrenar un modelo de Máquinas de Soporte Vectorial.\footnote{En adelante, \textit{SVM} por sus siglas en inglés: \textit{Support Vector Machine}.}  
-    \item Contrastar dos tipos de preprocesamientos de los datos para entrenar el modelo: el primero utilizando el método de ordenamiento y reducción de dimensionalidad de Escalamiento multidimensional no-métrico.\footnote{En adelante, \textit{NMDS} por sus siglas en inglés \textit{Non-metric multidimensional scaling}; el segundo, reduciendo dimensiones de los datos de manera manual,a través de la eliminación, agrupación y transformación de las variables.}
+    \item Contrastar dos tipos de preprocesamientos de los datos para entrenar el modelo: el primero utilizando el método de ordenamiento y reducción de dimensionalidad de Escalamiento Multidimensional No-Métrico.\footnote{En adelante, \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}; el segundo, reduciendo dimensiones de los datos de manera manual,a través de la eliminación, agrupación y transformación de las variables.}
 
 \end{itemize}
 
@@ -436,26 +436,51 @@ La gran cantidad de variables que presenta el conjunto de datos acarrea limitaci
 
 \subsection{Reducción de los datos con NMDS}
 
- La aplicación de NMDS para reducir la dimensionalidad de los datos me permite mitigar el posible problema de procesamiento, a la vez que generar visualizaciones en dos dimensiones distinguiendo los niveles de \textit{victima\_convive\_agresor} para buscar agrupamientos entre ellos que delimiten a cada clase.
-
-
-El Escalamiento Multidimensional\footnote{MDS por sus siglas en inglés: \textit{non-metric multidimensioal scaling}.} se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos, a través de representar los datos en espacios de bajas dimensiones priorizando que las distancias en en el nuevo espacio sean fidedignas a las distancias en el espacio original de altas dimensiones. 
-
-
+ El NMDS se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos a través de representarlos en espacios de bajas dimensiones, priorizando que las distancias en el nuevo espacio sean fidedignas a las distancias en el espacio original de altas dimensiones \citetext{\citealp{kruskal1964nonmetric}}. 
+ La aplicación de este método me permite mitigar el posible problema de procesamiento (al reducir las dimensiones de los datos), a la vez que generar visualizaciones en dos dimensiones distinguiendo los niveles de \textit{victima\_convive\_agresor} para buscar agrupamientos entre ellos que delimiten a cada clase.
 
 Al ser un método flexible con respecto a la matriz de distancias que utiliza, me permitió calcular para mis datos la distancia de Gower, una medida de similitud que puede calcularse entre datos de distinto tipo
 
 
 
+ Para el caso particular de NMDS
+
+%“Let S be the similarity matrix, and X the coordinates of the n input points. Disparities dij are transformation of the similarities chosen in %some optimal ways. The objective, called the stress, is then defined by 
+
+%\[\sqrt{\frac{\sum_{i<j} \left( d_{ij} - \hat{d}_{ij} \right)^2}{\sum_{i<j} d_{ij}^2}}\]
+    
+
+
+
+
+
+
+
+
+%\todo[inline]{poner fórmula Gower}. 
+
+%A trivial solution to this problem is to set all the points on the origin. In order to avoid that, the disparities 
+ %are normalized. Note that since we only care about relative ordering, our objective should be invariant to simple translation and scaling, however the stress used in metric MDS is sensitive to scaling. To address this, non-metric MDS may use a normalized stress, known as Stress-1 defined as
+
+ De la función para MDS de sklearn me resultaron relevantes los parámetros\footnote{se utiliza una para escalamiento métrico (MDS) y se ajustan los parámetros necesarios para convertirla en escalamiento no-métrico. } 
+ 
+ \begin{itemize}
+    \item \textit{n\_dimensions}: dimensiones para variar la cantidad de dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos
+    \item \textit{metric}: \textit{False} para el escalamiento no-métrico 
+    \item \textit{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \item \textit{precomputed} que me permite pasarle directamente al método \textit{fit\_transform} la matriz de distancias de Gower.
+    \item \textit{normalized\_stress} tRUE para la versión no métrica
+ \end{itemize}
+
 La desventaja de esta metodología es que la matriz de Gower no puede calcularse con datos vacíos, por lo tanto las variables de edad, las únicas con celdas vacías, resultaron un problema. La solución fue crear dos tipos de \textit{datasets}: uno en que la edad está categorizada y los datos faltantes clasificados como \textit{NS/NC}; y uno en que descarto la variable \textit{llamante\_edad} y trabajo únicamente con los casos completos de la variable \textit{victima\_edad}. Esta decisión que general el segundo conjunto de datos está guiada por el supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, por el hecho de que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\% y dejar afuera estos casos reduciría demasiado el conjunto de datos. 
 
-Además de utilizar la técnica de NMDS para reducir la dimensionalidad del dataset y entrenar luego un modelo de SVM con el dataset reducido, aproveché las bondades de la técnica para graficar el ordenamiento del dataset reducido distinguiendo por color las respuestas SI, NO, y NS/NC de víctima\_convive\_agresor, con el objetivo de observar agrupamiento en los datos en torno a estas tres categorías. 
+Apliqué entonces NMDS sobre dos versiones del conjunto total de datos: A: edad categorizada, B: eliminación de llamante edad y solo datos completos de victima edad. Varié el parámetro n\_dimensions en disitntas iteraciones para evaluar el stress 
 
-Tanto el entrenamiento de modelos como los gráficos de ordenamiento de los datos utilizaron las distintas versiones del dataset reducido que mecioné: datos completos con la variable edad cagegorizada, y una versión con la variable llamante edad eliminada y solo los casos completos de edad de la víctima. 
+Tanto el entrenamiento de modelos como los gráficos de ordenamiento de los datos utilizaron las distintas versiones del dataset reducido que mencioné: datos completos con la variable edad categorizada, y una versión con la variable llamante edad eliminada y solo los casos completos de edad de la víctima. 
 
 \subsection{Reducción manual de los datos}
 
- %problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. citealp (procedimiento necesario para el entrenamiento del modelo SVM). 
+ %problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. %\citetext{\citealp[p.~3]{udilua2023encoding}}% 
+
 
 Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables tienen en su mayoría respuestas \textit{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
 

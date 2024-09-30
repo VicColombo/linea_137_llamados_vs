@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,11 @@ Lorraine~E Ferris.
 Claudia Garc{\'\i}a-Moreno, Henrica~AFM Jansen, Mary Ellsberg, Lori Heise, Charlotte Watts, et~al.
 \newblock \emph{WHO multi-country study on women’s health and domestic violence against women}.
 \newblock World Health Organization, 2005.
+
+\bibitem[Kruskal(1964)]{kruskal1964nonmetric}
+Joseph~B Kruskal.
+\newblock Nonmetric multidimensional scaling: a numerical method.
+\newblock \emph{Psychometrika}, 29\penalty0 (2):\penalty0 115--129, 1964.
 
 \bibitem[{Ministerio de Justicia de la República Argentina}(2022)]{linea_137}
 {Ministerio de Justicia de la República Argentina}.
