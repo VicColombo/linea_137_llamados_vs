@@ -436,8 +436,6 @@ La extensa cantidad de variables que presenta el conjunto de datos acarrea limit
 
 \subsection{Reducción de los datos con NMDS}
 
-\todo[inline]{terminar de describir NMDS y gower}
-
 NMDS se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos representándolos en espacios de menor dimensión. En particular, este método prioriza preservar en el nuevo espacio de dimensiones reducidas el ordenamiento relativo de las distancias (o diferencias) que existen entre los puntos en el espacio original. 
 El algoritmo toma una matriz de distancias entre los puntos originales y calcula sus coordenadas en un espacio reducido a n-dimensiones (siendo en general \(n=2\) o \(n=3\) para facilitar la visualización), obteniendo la matriz de coordenadas \(X\). En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica para obtener una \textit{matriz de disparidades}, con las disparidades \(\hat{d}_{ij}\). En \(\hat{d}_{ij}\) no se preservan las magnitudes de las distancias originales, pero sí se preserva el rango de ordenamiento de esas magnitudes. A continuación, se calcula el valor del \textit{stress}: 
 
@@ -446,21 +444,26 @@ El algoritmo toma una matriz de distancias entre los puntos originales y calcula
 El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el \textit{stress}, es decir, minimizar la diferencia entre las distancias y las disparidades.\footnote{Para una explicación en profundidad de NMDS, ver \cite{kruskal1964nonmetric}.} 
 
 
-Al ser NMDS un método flexible con respecto a la matriz de distancias inicial que utiliza, me permitió calcular para mis datos la distancia de Gower, una medida de similitud que puede calcularse entre datos de distinto tipo.\todo[inline]{poner fórmula de la distancia de Gower}. 
+Al ser NMDS un método flexible con respecto a la matriz de distancias inicial que utiliza, me permitió calcular para mis datos la distancia de Gower, una medida de similitud que puede calcularse para datos de distinto tipo. La distancia toma valores entre 0 y 1, indicando 0 ninguna distancia entre los objetos y 1 la máxima distancia. Se calcula de la siguiente manera:
 
 
-%A trivial solution to this problem is to set all the points on the origin. In order to avoid that, the disparities 
- %are normalized. Note that since we only care about relative ordering, our objective should be invariant to simple translation and scaling, however the stress used in metric MDS is sensitive to scaling. To address this, non-metric MDS may use a normalized stress, known as Stress-1 defined as
+Donde:
+\begin{itemize}
+    \item 
+\end{itemize}
 
 
+\todo[inline]{fórmula y explicación de la distancia de Gower} 
 
-La desventaja de esta metodología es que la matriz de Gower no puede calcularse con datos vacíos, por lo tanto las variables de edad, las únicas con celdas vacías, resultaron un problema. La solución fue crear dos tipos de \textit{datasets}: uno en que la edad está categorizada y los datos faltantes clasificados como \textit{NS/NC}; y uno en que descarto la variable \textit{llamante\_edad} y trabajo únicamente con los casos completos de la variable \textit{victima\_edad}. Esta decisión que general el segundo conjunto de datos está guiada por el supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, por el hecho de que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\% y dejar afuera estos casos reduciría demasiado el conjunto de datos. 
+La desventaja de esta metodología es que la matriz de Gower no puede calcularse entre datos vacíos, por lo tanto fue necesario un tratamiento especial para las variables de edad, las únicas con celdas vacías. Creé dos tipos de \textit{datasets}: 
+\begin{itemize}
+    \item \textit{dataset} A: las variables de edad están categorizadas, y los datos faltantes clasificados como \textit{NS/NC}.
+    \item  \textit{dataset} B: la variable \textit{llamante\_edad} es descartada, y también se descartan las filas con datos vacíos en la variable \textit{victima\_edad}.
+\end{itemize}
 
-Apliqué entonces NMDS sobre dos versiones del conjunto total de datos: A: edad categorizada, B: eliminación de llamante edad y solo datos completos de victima edad. Varié el parámetro n\_dimensions en disitntas iteraciones para evaluar el stress 
+La decisión que genera el segundo conjunto de datos está guiada por un lado por el supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, por el hecho de que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\% y dejar afuera estos casos reduciría demasiado el conjunto de datos. 
 
-Tanto el entrenamiento de modelos como los gráficos de ordenamiento de los datos utilizaron las distintas versiones del dataset reducido que mencioné: datos completos con la variable edad categorizada, y una versión con la variable llamante edad eliminada y solo los casos completos de edad de la víctima. 
-
-De la función para MDS de sklearn\footnote{se utiliza una para escalamiento métrico (MDS) y se ajustan los parámetros necesarios para convertirla en escalamiento no-métrico.} me resultaron relevantes los parámetros
+En el cálculo de NMDS realizado con el método mds de la librería Sklearn\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} resultaron relevantes los parámetros:
  
 \begin{itemize}
    \item \texttt{n\_dimensions}: dimensiones para variar la cantidad de dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos
@@ -469,9 +472,12 @@ De la función para MDS de sklearn\footnote{se utiliza una para escalamiento mé
    \item \texttt{normalized\_stress}: \texttt{True} para la versión no métrica
 \end{itemize}
 
+Apliqué entonces NMDS sobre los \textit{datasets} A y B y obtuve como resultado distintas visualizaciones en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor}, y también obtuve como resultado dos datasets para pasarle a SVM. 
+
+
 \subsection{Reducción manual de los datos}\label{reduccionmanual}
 
- %problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. %\citetext{\citealp[p.~3]{udilua2023encoding}}% 
+
 
 
 Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables tienen en su mayoría respuestas \textit{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
@@ -519,18 +525,25 @@ Las variables eliminadas fueron:
 \end{itemize}
 
 
+En tercer lugar,problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. %\citetext{\citealp[p.~3]{udilua2023encoding}}% 
 \todo[inline]{explicar reducción de la cardinalidad de las variables}
-\todo[inline]{explicar medidas de correlación que tomé entre las variables}
 
-Despues medí correlación para ver si podía sacar más variables pero al final no saqué ninguna. Explicar cómo queda el dataset final
+En cuarto lugar  medí correlación para ver si podía sacar más variables pero al final no saqué ninguna. Explicar cómo queda el dataset final \todo[inline]{explicar medidas de correlación que tomé entre las variables}
+
+
 
 \subsection{Modelos SVM}
 
+SVM con dos vatiantes de datasets con NMDS
+SVM con dataset reducido a mano con variantes que responden a los faltantes de edad también. cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes.
 
-Apliqué encoders para hacer SVM e hice SVM con la librería tal y con una búsqueda de hiperparámetros. Además experimenté con diferentes versiones del dataset cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes. Teniendo en cuenta estas variaciones en el tratamiento de la variable edad, los experimentos que realicé con SVM fueron: 
+Separé los datos en train y test y separé los datos faltantes de convive (NSNS) para que sean el conjunto final de datos no vistos.  
+Apliqué encoders para hacer SVM e hice SVM con la librería tal y con una búsqueda de hiperparámetros.  Teniendo en cuenta estas variaciones los experimentos que realicé con SVM fueron: 
 tal tal tal
 
 cada uno probando los siguientes hiperparámentros
+
+El mejor modelo de cada experimento lo aplioqué al conkjunto final de datos no vistos. Ante la imposiblidad de contrastar los resultados de los modelos aplicados a este testeo final, a modo de evauación de la perfomance comparé la proporción de SI y NO en la variable objetivo en el dataset original con la proporción resultante de la predicción de cada mejor modelo de cada experimento en el dataset de testeo final ciego.
 
 VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES 
 
@@ -539,9 +552,9 @@ VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES
 
 NMDS vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés.
 
-VER DE RE ARMAR NMDS y que separe solo SI de NO y luego un tercero que haga SI NO NSNC
+Entrenamiento y testeo SVM
 
-Todos dieron bien y luego el mejor modelo lo apliqué a 
+Todos dieron bien y luego el mejor modelo lo apliqué a  los
 
 \section{Conclusiones}\label{conc}
 cruzamiento de datos ovd líneas de asistencia, observatorio de género.
