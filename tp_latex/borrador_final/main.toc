@@ -10,6 +10,6 @@
 \contentsline {subsection}{\numberline {3.1}Reducción de los datos con NMDS}{19}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Reducción manual de los datos}{20}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Modelos SVM}{21}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Resultados}{22}{section.4}%
-\contentsline {section}{\numberline {5}Discusión y conclusiones}{22}{section.5}%
+\contentsline {section}{\numberline {4}Resultados y Discusión}{22}{section.4}%
+\contentsline {section}{\numberline {5}Conclusiones}{22}{section.5}%
 \contentsline {section}{\numberline {6}Anexo}{24}{section.6}%
