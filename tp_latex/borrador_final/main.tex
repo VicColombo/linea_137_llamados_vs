@@ -18,7 +18,7 @@
 \linespread{1.5}
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
-%\usepackage{amsmath}
+\usepackage{amsmath}
 \begin{document}
 
 
@@ -436,26 +436,17 @@ La extensa cantidad de variables que presenta el conjunto de datos acarrea limit
 
 \subsection{Reducción de los datos con NMDS}
 
-\todo[inline]{terimnar de describir NMDS y gower}
+\todo[inline]{terminar de describir NMDS y gower}
 
- El NMDS se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos a través de representarlos en espacios de menor dimensión. En particular, este método prioriza preservar en el nuevo espacio de dimensiones reducidas el ordenamiento relativo de las distancias (o diferencias) entre esos puntos en el espacio original. Para realizar el nuevo ordenamiento en dimensiones reducidas,  el algoritmo de NMDS toma una matriz de distancias entre los puntos\todo[inline]{poner expresión matemática de la matriz de distancias y dij} y aplica una transformación monotónica que le permite obtener otra matriz llamada \textit{matriz de disparidades}. En la matriz de disparidades\todo[inline]{poner expresión matemática de la matriz de disparidades}, se preserva el orden relativo de las distancias originales. \todo[inline]{explicar Stress y poner fórmula} \footnote{Para una explicación más detallada del método NMDS, ver \cite{kruskal1964nonmetric}.}. 
+NMDS se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos representándolos en espacios de menor dimensión. En particular, este método prioriza preservar en el nuevo espacio de dimensiones reducidas el ordenamiento relativo de las distancias (o diferencias) que existen entre los puntos en el espacio original. 
+El algoritmo toma una matriz de distancias entre los puntos originales y calcula sus coordenadas en un espacio reducido a n-dimensiones (siendo en general \(n=2\) o \(n=3\) para facilitar la visualización), obteniendo la matriz de coordenadas \(X\). En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica para obtener una \textit{matriz de disparidades}, con las disparidades \(\hat{d}_{ij}\). En \(\hat{d}_{ij}\) no se preservan las magnitudes de las distancias originales, pero sí se preserva el rango de ordenamiento de esas magnitudes. A continuación, se calcula el valor del \textit{stress}: 
 
+\[\textit{Stress} = \sqrt{\frac{\sum_{i<j} \left( d_{ij} - \hat{d}_{ij} \right)^2}{\sum_{i<j} d_{ij}^2}}\]
 
-Al ser un método flexible con respecto a la matriz de distancias que utiliza, me permitió calcular para mis datos la distancia de Gower, una medida de similitud que puede calcularse entre datos de distinto tipo
-%\todo[inline]{poner fórmula de la distancia de Gower}. 
-
-%“Let S be the similarity matrix, and X the coordinates of the n input points. Disparities dij are transformation of the similarities chosen in %some optimal ways. The objective, called the stress, is then defined by 
-
-%\[\sqrt{\frac{\sum_{i<j} \left( d_{ij} - \hat{d}_{ij} \right)^2}{\sum_{i<j} d_{ij}^2}}\]
-    
+El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el \textit{stress}, es decir, minimizar la diferencia entre las distancias y las disparidades.\footnote{Para una explicación en profundidad de NMDS, ver \cite{kruskal1964nonmetric}.} 
 
 
-
-
-
-
-
-
+Al ser NMDS un método flexible con respecto a la matriz de distancias inicial que utiliza, me permitió calcular para mis datos la distancia de Gower, una medida de similitud que puede calcularse entre datos de distinto tipo.\todo[inline]{poner fórmula de la distancia de Gower}. 
 
 
 %A trivial solution to this problem is to set all the points on the origin. In order to avoid that, the disparities 
@@ -472,10 +463,10 @@ Tanto el entrenamiento de modelos como los gráficos de ordenamiento de los dato
 De la función para MDS de sklearn\footnote{se utiliza una para escalamiento métrico (MDS) y se ajustan los parámetros necesarios para convertirla en escalamiento no-métrico.} me resultaron relevantes los parámetros
  
 \begin{itemize}
-   \item \textit{n\_dimensions}: dimensiones para variar la cantidad de dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos
-   \item \textit{metric}: \textit{False} para el escalamiento no-métrico 
-   \item \textit{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \item \textit{precomputed} que me permite pasarle directamente al método \textit{fit\_transform} la matriz de distancias de Gower.
-   \item \textit{normalized\_stress} tRUE para la versión no métrica
+   \item \texttt{n\_dimensions}: dimensiones para variar la cantidad de dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos
+   \item \texttt{metric}: \texttt{False} para el escalamiento no-métrico 
+   \item \texttt{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \texttt{precomputed} que me permite pasarle directamente al método \texttt{fit\_transform} la matriz de distancias de Gower.
+   \item \texttt{normalized\_stress}: \texttt{True} para la versión no métrica
 \end{itemize}
 
 \subsection{Reducción manual de los datos}\label{reduccionmanual}
@@ -544,7 +535,7 @@ cada uno probando los siguientes hiperparámentros
 VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES 
 
 
-\section{Resultados y Discusión}\label{resultados}
+\section{Resultados y discusión}\label{resultados}
 
 NMDS vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés.
 
