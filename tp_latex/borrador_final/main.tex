@@ -113,7 +113,7 @@ Mis objetivos para este trabajo son:
 
 \end{itemize}
 
-
+\todo[inline]{en algún lado listar código y librerías}
 \section{Datos}\label{datos}
 
 \subsection{Obtención y limpieza}\label{limpieza}
@@ -426,24 +426,23 @@ Por último, puse en relación \textit{victima\_convive\_agresor} con los valore
 
 
 
-Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor faltante está relacionado con el motivo mismo por el que falta (MNAR).\todo[inline]{acá o en resultados}    
+Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor faltante está relacionado con el motivo mismo por el que falta (MNAR).\todo[inline]{tipo de datos faltantes que son podría ir en datos o en resultados también quizás}    
 
 
 \section{Metodología}\label{met}
 
-La gran cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable de interés, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Para reducir las dimensiones del \textit{dataset} aplico un preprocesamiento con NMDS, y un preprocesamiento manual de eliminación y agrupamiento de variables. La aplicación de NMDS me permite además generar visualizaciones en dos dimensiones del total del conjunto. La reducción manual de las variables presenta sus propios desafíos e implicó también una reducción de la cardinalidad de algunas para mitigar problemas de \textit{encoding}. Finalmente entreno modelos predictivos de SVM con \textit{datasets} generados con los dos tipos de preprocesamientos y con otras variaciones necesarias para solventar los datos numéricos faltantes en las variables de edad.
+La extensa cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable objetivo, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Experimenté con dos métodos para reducir las dimensiones de los datos. Primero apliqué el método de ordenamiento NMDS. Esto me permitió también obtener visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \textit{victima\_conive\_agresor}. En segundo lugar, realicé una reducción manual eliminando, agrupando, y transformando variables. Finalmente, para el entrenamiento de modelos de SVM que predigan los datos faltantes de la variable objetivo como \textit{SI} o \textit{NO}, utilicé distintos conjuntos de datos que varían según los dos tipos de reducciones aplicadas y distintos tipos de preprocesamientos para solventar los datos faltantes en las variables de edad.
 
 
 \subsection{Reducción de los datos con NMDS}
 
- El NMDS se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos a través de representarlos en espacios de bajas dimensiones, priorizando que las distancias en el nuevo espacio sean fidedignas a las distancias en el espacio original de altas dimensiones \citetext{\citealp{kruskal1964nonmetric}}. 
- La aplicación de este método me permite mitigar el posible problema de procesamiento (al reducir las dimensiones de los datos), a la vez que generar visualizaciones en dos dimensiones distinguiendo los niveles de \textit{victima\_convive\_agresor} para buscar agrupamientos entre ellos que delimiten a cada clase.
+\todo[inline]{terimnar de describir NMDS y gower}
+
+ El NMDS se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos a través de representarlos en espacios de menor dimensión. En particular, este método prioriza preservar en el nuevo espacio de dimensiones reducidas el ordenamiento relativo de las distancias (o diferencias) entre esos puntos en el espacio original. Para realizar el nuevo ordenamiento en dimensiones reducidas,  el algoritmo de NMDS toma una matriz de distancias entre los puntos\todo[inline]{poner expresión matemática de la matriz de distancias y dij} y aplica una transformación monotónica que le permite obtener otra matriz llamada \textit{matriz de disparidades}. En la matriz de disparidades\todo[inline]{poner expresión matemática de la matriz de disparidades}, se preserva el orden relativo de las distancias originales. \todo[inline]{explicar Stress y poner fórmula} \footnote{Para una explicación más detallada del método NMDS, ver \cite{kruskal1964nonmetric}.}. 
+
 
 Al ser un método flexible con respecto a la matriz de distancias que utiliza, me permitió calcular para mis datos la distancia de Gower, una medida de similitud que puede calcularse entre datos de distinto tipo
-
-
-
- Para el caso particular de NMDS
+%\todo[inline]{poner fórmula de la distancia de Gower}. 
 
 %“Let S be the similarity matrix, and X the coordinates of the n input points. Disparities dij are transformation of the similarities chosen in %some optimal ways. The objective, called the stress, is then defined by 
 
@@ -457,19 +456,12 @@ Al ser un método flexible con respecto a la matriz de distancias que utiliza, m
 
 
 
-%\todo[inline]{poner fórmula Gower}. 
+
 
 %A trivial solution to this problem is to set all the points on the origin. In order to avoid that, the disparities 
  %are normalized. Note that since we only care about relative ordering, our objective should be invariant to simple translation and scaling, however the stress used in metric MDS is sensitive to scaling. To address this, non-metric MDS may use a normalized stress, known as Stress-1 defined as
 
- De la función para MDS de sklearn me resultaron relevantes los parámetros\footnote{se utiliza una para escalamiento métrico (MDS) y se ajustan los parámetros necesarios para convertirla en escalamiento no-métrico. } 
- 
- \begin{itemize}
-    \item \textit{n\_dimensions}: dimensiones para variar la cantidad de dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos
-    \item \textit{metric}: \textit{False} para el escalamiento no-métrico 
-    \item \textit{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \item \textit{precomputed} que me permite pasarle directamente al método \textit{fit\_transform} la matriz de distancias de Gower.
-    \item \textit{normalized\_stress} tRUE para la versión no métrica
- \end{itemize}
+
 
 La desventaja de esta metodología es que la matriz de Gower no puede calcularse con datos vacíos, por lo tanto las variables de edad, las únicas con celdas vacías, resultaron un problema. La solución fue crear dos tipos de \textit{datasets}: uno en que la edad está categorizada y los datos faltantes clasificados como \textit{NS/NC}; y uno en que descarto la variable \textit{llamante\_edad} y trabajo únicamente con los casos completos de la variable \textit{victima\_edad}. Esta decisión que general el segundo conjunto de datos está guiada por el supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, por el hecho de que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\% y dejar afuera estos casos reduciría demasiado el conjunto de datos. 
 
@@ -477,7 +469,16 @@ Apliqué entonces NMDS sobre dos versiones del conjunto total de datos: A: edad 
 
 Tanto el entrenamiento de modelos como los gráficos de ordenamiento de los datos utilizaron las distintas versiones del dataset reducido que mencioné: datos completos con la variable edad categorizada, y una versión con la variable llamante edad eliminada y solo los casos completos de edad de la víctima. 
 
-\subsection{Reducción manual de los datos}
+De la función para MDS de sklearn\footnote{se utiliza una para escalamiento métrico (MDS) y se ajustan los parámetros necesarios para convertirla en escalamiento no-métrico.} me resultaron relevantes los parámetros
+ 
+\begin{itemize}
+   \item \textit{n\_dimensions}: dimensiones para variar la cantidad de dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos
+   \item \textit{metric}: \textit{False} para el escalamiento no-métrico 
+   \item \textit{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \item \textit{precomputed} que me permite pasarle directamente al método \textit{fit\_transform} la matriz de distancias de Gower.
+   \item \textit{normalized\_stress} tRUE para la versión no métrica
+\end{itemize}
+
+\subsection{Reducción manual de los datos}\label{reduccionmanual}
 
  %problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. %\citetext{\citealp[p.~3]{udilua2023encoding}}% 
 
@@ -527,27 +528,15 @@ Las variables eliminadas fueron:
 \end{itemize}
 
 
-rEDUCCI´ON DE LA CARDINALIDAD DE LAS VARIABLES 
-
-\subsection{Modelos SVM}
-
-Vamos a reducirlo antes de aplicar un método predictivo. Dos maneras de reducirlo, NMDS y manual
-A través del análisis que llevé a cabo durante la epxloración de los datos Con el objetivo de visualizar el dataset en dimensiones reducidas me da una
-idea de agrupamientos con repsecto a las tres categorías de convive. Elijo NMDS porque me permite trabajar con
-variables de distinto tipo sin transformaciones.
- Luego, para intentar predecir los NSNC como si o no usé SVM. 
-
-A modo de un segundo preprocesamiento para poder llevar a cabo estas tareas, decidí reducir las dimensiones del dataset a mano primero agrupando variables y reduciendo la cantidad de categorías en algunas otras variables. lA REDUCCI´OND E CARDINALIDAD DE algunas variables es especialemnte útil para la aplicación de SVM ya que esta conlleva encodear las features y para uno de los encoders elegidos, one-hot, la alta cardinalidad de features puede resultar problemática.
-
-
-Habiendp hecho los gráficos de más arriba para explorar posibles interacciones entre dos o tres variables, me pareció valioso explorar más dimensiones y plasmarlo en dos dimensiones. Para eso apliqué NMDS
-
-Reducción manual de dimensiones
-
+\todo[inline]{explicar reducción de la cardinalidad de las variables}
+\todo[inline]{explicar medidas de correlación que tomé entre las variables}
 
 Despues medí correlación para ver si podía sacar más variables pero al final no saqué ninguna. Explicar cómo queda el dataset final
 
-Después apliqué encoders para hacer SVM e hice SVM con la librería tal y con una búsqueda de hiperparámetros. Además experimenté con diferentes versiones del dataset cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes. Teniendo en cuenta estas variaciones en el tratamiento de la variable edad, los experimentos que realicé con SVM fueron: 
+\subsection{Modelos SVM}
+
+
+Apliqué encoders para hacer SVM e hice SVM con la librería tal y con una búsqueda de hiperparámetros. Además experimenté con diferentes versiones del dataset cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes. Teniendo en cuenta estas variaciones en el tratamiento de la variable edad, los experimentos que realicé con SVM fueron: 
 tal tal tal
 
 cada uno probando los siguientes hiperparámentros
@@ -555,14 +544,15 @@ cada uno probando los siguientes hiperparámentros
 VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES 
 
 
-\section{Resultados}\label{resultados}
+\section{Resultados y Discusión}\label{resultados}
+
 NMDS vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés.
 
 VER DE RE ARMAR NMDS y que separe solo SI de NO y luego un tercero que haga SI NO NSNC
 
 Todos dieron bien y luego el mejor modelo lo apliqué a 
 
-\section{Discusión y conclusiones}\label{conc}
+\section{Conclusiones}\label{conc}
 cruzamiento de datos ovd líneas de asistencia, observatorio de género.
 acceso y análisis de datos extensivo a provincias, no solo benos aitres
 

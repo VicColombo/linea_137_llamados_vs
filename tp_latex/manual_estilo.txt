@@ -1,0 +1,5 @@
+1. Capitalización de títulos: primera letra mayúscula y el resto minúsucula
+2. Citas: sigo APA. Citas en el texto se prefieren a citas al final o notas al pie. 
+Notas al pie cuando la cita viene con comentario que amerita ser nota. Siempre que sea posible, indicar página(s) de la cita.
+3. Cursiva: préstamos del inglés y nombres de variables. Podría ser nombres de variables en formato código tmb.
+4. Tratamiento de siglas: todas las siglas capitalizadas siempre (chequear) y la primera mención desglosada.

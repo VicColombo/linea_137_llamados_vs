@@ -12,4 +12,4 @@
 \contentsline {subsection}{\numberline {3.3}Modelos SVM}{21}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Resultados}{22}{section.4}%
 \contentsline {section}{\numberline {5}Discusión y conclusiones}{22}{section.5}%
-\contentsline {section}{\numberline {6}Anexo}{25}{section.6}%
+\contentsline {section}{\numberline {6}Anexo}{24}{section.6}%
