@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  6 OCT 2024 16:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  10 OCT 2024 19:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -917,28 +917,28 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 <images/latex_llamados_por_provincia.png, id=384, 729.927pt x 469.755pt>
 File: images/latex_llamados_por_provincia.png Graphic file (type png)
 <use images/latex_llamados_por_provincia.png>
-Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 588.
+Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 589.
 (pdftex.def)             Requested size: 364.9626pt x 234.87692pt.
 <images/latex_caso_judicializado.png, id=385, 723.4227pt x 380.1402pt>
 File: images/latex_caso_judicializado.png Graphic file (type png)
 <use images/latex_caso_judicializado.png>
-Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 596.
+Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 597.
 (pdftex.def)             Requested size: 361.71046pt x 190.06963pt.
 <images/latex_nacionalidad_victima.png, id=386, 723.4227pt x 379.4175pt>
 File: images/latex_nacionalidad_victima.png Graphic file (type png)
 <use images/latex_nacionalidad_victima.png>
-Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 605.
+Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 606.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
  [25 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
 <images/latex_victima_discapacidad.png, id=393, 723.4227pt x 379.4175pt>
 File: images/latex_victima_discapacidad.png Graphic file (type png)
 <use images/latex_victima_discapacidad.png>
-Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 615.
+Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 616.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
 <images/latex_vinculo_llamante.png, id=394, 729.927pt x 453.8556pt>
 File: images/latex_vinculo_llamante.png Graphic file (type png)
 <use images/latex_vinculo_llamante.png>
-Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 625.
+Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 626.
 (pdftex.def)             Requested size: 364.9626pt x 226.92725pt.
  [26 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>] [27 <./images/latex_vinculo_llamante.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 12.
@@ -960,7 +960,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1924b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on main.pdf (29 pages, 1468712 bytes).
+Output written on main.pdf (29 pages, 1469309 bytes).
 PDF statistics:
  501 PDF objects out of 1000 (max. 8388607)
  395 compressed objects within 4 object streams

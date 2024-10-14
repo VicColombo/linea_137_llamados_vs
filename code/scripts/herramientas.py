@@ -80,6 +80,8 @@ def seteo_agrupador(dataframe,columnas_agrupar, nueva_col_agrup):
 
 
 ####################################################################
+
+# 4 Graficar puntos con NMDS según SI/NO/NSNC 
 palette_sino ={"SI": "#1E88E5", "NO": "#FFC107", "NS/NC": "#D81B60"}
 
 def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
@@ -104,7 +106,7 @@ def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
 
 ############################################################################
 
-# funciones para construcción de variables
+# 5 funciones para construcción de variables
 
 # reducción llamado provincia
     
@@ -144,11 +146,9 @@ def fam_nofam (x):
     else:
         return 'N/A'
 
-    
 
-# genero agresor
 
-# género dell agresor
+# género del agresor
 lista_hombre = [ 'Abuelo', 'Hermano', 'Padrastro', 'Padre', 'Tío' ]
 lista_mujer = [ 'Abuela','Hermana','Madrastra', 'Madre']
 lista_no_especificado = ['Ex pareja de la víctima','Pareja de la víctima', 
@@ -241,3 +241,4 @@ def categoria_edad (x):
         return 'Vejez mayor'
     else:
         return 'NS/NC'
+    

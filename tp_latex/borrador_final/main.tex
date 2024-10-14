@@ -474,6 +474,7 @@ En el cálculo de NMDS realizado con el método mds de la librería Sklearn\foot
 
 Apliqué entonces NMDS sobre los \textit{datasets} A y B y obtuve como resultado distintas visualizaciones en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor}, y también obtuve como resultado dos datasets para pasarle a SVM. 
 
+para SVM el proceso fue: separar x de y, correr NMDS sobre el total de X, separar el test final ciego, hacer una separación train y test estratificada del dataset restante, entrenar con grid search para buscar mejores parámetros buscando entre (poner el grid search) y el mejor modelo aplicarlo al test final ciego.
 
 \subsection{Reducción manual de los datos}\label{reduccionmanual}
 
