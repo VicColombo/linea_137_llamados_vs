@@ -455,24 +455,25 @@ Donde:
 
 \todo[inline]{fórmula y explicación de la distancia de Gower} 
 
-La desventaja de esta metodología es que la matriz de Gower no puede calcularse entre datos vacíos, por lo tanto fue necesario un tratamiento especial para las variables de edad, las únicas con celdas vacías. Creé dos tipos de \textit{datasets}: 
+La librería gower \todo[inline]{citar libreria}, que utilicé para obtener la matriz de distancias, no admite datos vacíos. Esto representó un problema para lidiar con las variables de edad en el conjunto de datos, las únicas con celdas vacías. Las posibles soluciones incluían categorizar los datos de edad para entonces asignar un valor \texttt{NSNC} a las celdas vacías, o eliminar las variables de edad. Para comparar ambas soluciones y compararlas según los valores de \textit{stress} y la performance de los modelos de SVM resultantes, creé dos \textit{datasets} sobre los que luego calculé la matriz de distancias de Gower: 
 \begin{itemize}
     \item \textit{dataset} A: las variables de edad están categorizadas, y los datos faltantes clasificados como \textit{NS/NC}.
     \item  \textit{dataset} B: la variable \textit{llamante\_edad} es descartada, y también se descartan las filas con datos vacíos en la variable \textit{victima\_edad}.
 \end{itemize}
 
-La decisión que genera el segundo conjunto de datos está guiada por un lado por el supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, por el hecho de que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\% y dejar afuera estos casos reduciría demasiado el conjunto de datos. 
+La decisión que genera el \textit{dataset} B responde por un lado al supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, a que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\%, y dejar afuera estos últimos casos reduciría demasiado el conjunto de datos. 
 
-En el cálculo de NMDS realizado con el método mds de la librería Sklearn\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} resultaron relevantes los parámetros:
+
+Para realizar el ordenamiento con NMDS utilicé el método \textit{mds} de la librería Sklearn.\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} Los parámetros relevantes para este método fueron:
  
 \begin{itemize}
-   \item \texttt{n\_dimensions}: dimensiones para variar la cantidad de dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos
-   \item \texttt{metric}: \texttt{False} para el escalamiento no-métrico 
+   \item \texttt{n\_dimensions}: las dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos. Realicé pruebas con 2-7 y 20. 
+   \item \texttt{metric}: \texttt{False} para aplicar escalamiento no-métrico. 
    \item \texttt{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \texttt{precomputed} que me permite pasarle directamente al método \texttt{fit\_transform} la matriz de distancias de Gower.
-   \item \texttt{normalized\_stress}: \texttt{True} para la versión no métrica
+   \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica, con la fórmula presentada más arriba.
 \end{itemize}
 
-Apliqué entonces NMDS sobre los \textit{datasets} A y B y obtuve como resultado distintas visualizaciones en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor}, y también obtuve como resultado dos datasets para pasarle a SVM. 
+Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \[\texttt{n\_components} = 2\] generé dos visualizaciones (una para cada conjunto de datos A y B) en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías.
 
 para SVM el proceso fue: separar x de y, correr NMDS sobre el total de X, separar el test final ciego, hacer una separación train y test estratificada del dataset restante, entrenar con grid search para buscar mejores parámetros buscando entre (poner el grid search) y el mejor modelo aplicarlo al test final ciego.
 
@@ -534,6 +535,8 @@ En cuarto lugar  medí correlación para ver si podía sacar más variables pero
 
 
 \subsection{Modelos SVM}
+
+\todo[inline]{importantísimo ver si accuracy tiene sentido calcular u otra métrica}
 
 SVM con dos vatiantes de datasets con NMDS
 SVM con dataset reducido a mano con variantes que responden a los faltantes de edad también. cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes.
