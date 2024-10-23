@@ -11,5 +11,7 @@
 \contentsline {subsection}{\numberline {3.2}Reducción manual de los datos}{21}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Modelos SVM}{22}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Resultados y discusión}{22}{section.4}%
-\contentsline {section}{\numberline {5}Conclusiones}{22}{section.5}%
+\contentsline {subsubsection}{\numberline {4.0.1}Graficar ordenamiento con NMDS}{22}{subsubsection.4.0.1}%
+\contentsline {subsubsection}{\numberline {4.0.2}Modelos predictivos de SVM}{22}{subsubsection.4.0.2}%
+\contentsline {section}{\numberline {5}Conclusiones}{23}{section.5}%
 \contentsline {section}{\numberline {6}Anexo}{25}{section.6}%

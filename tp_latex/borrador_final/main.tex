@@ -339,8 +339,8 @@ En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontr�
 \subsubsection{Análisis multivariado de \textit{victima\_convive\_agresor}}\label{faltantes}
 
 
-Para un análisis multivariado seleccioné algunas variables que podían estar más relacionadas con \textit{victima\_convive\_agresor}: 
-\textit{hecho\_lugar}, \textit{momento\_dia}, \textit{victima\_vinculo\_agresor}, \textit{llamante\_vinculo}, y \textit{victima\_edad}. 
+Para un análisis multivariado seleccioné algunas variables que podían estar más relacionadas con \texttt{victima\_convive\_agresor}: 
+\texttt{hecho\_lugar}, \texttt{momento\_dia}, \texttt{victima\_vinculo\_agresor}, \texttt{llamante\_vinculo}, y \texttt{victima\_edad}. 
 
 Primero, realicé gráficos de barras para explorar la relación entre \textit{victima\_convive\_agresor} y las variables categóricas.
 Observé que la distribución original de \textit{victima\_convive\_agresor} (mayoría de respuestas \textit{NO} y minoría de \textit{SI}, con \textit{NS/NC} posicionado ordinalmente en el medio), se mantiene para casi todas las categorías de estas variables con las siguientes excepciones. En primer lugar, como se ve en la figura \ref{hecholugconvive}, cuando los hechos suceden en la vivienda de la víctima, hay más casos en los que la víctima sí convive con el agresor y la distribución pasa a ser \textit{NO}, \textit{SI}, \textit{NS/NC}. Lo mismo sucede cuando los hechos ocurren en la vivienda del agresor, aunque en ese caso la proporción de \textit{SI} supera por muy poco la proporción de \textit{NS/NC}. 
@@ -464,23 +464,20 @@ La librería gower \todo[inline]{citar libreria}, que utilicé para obtener la m
 La decisión que genera el \textit{dataset} B responde por un lado al supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, a que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\%, y dejar afuera estos últimos casos reduciría demasiado el conjunto de datos. 
 
 
-Para realizar el ordenamiento con NMDS utilicé el método \textit{mds} de la librería Sklearn.\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} Los parámetros relevantes para este método fueron:
+Para realizar el ordenamiento con NMDS utilicé el método \texttt{mds} de la librería Sklearn.\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} Los parámetros relevantes para este método fueron:
  
 \begin{itemize}
-   \item \texttt{n\_dimensions}: las dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos. Realicé pruebas con 2-7 y 20. 
+   \item \texttt{n\_dimensions}: las dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos. Realicé pruebas con valores de 2 a 7, y 20. \todo[inline]{quizás esto de 20 no lo menciono}
    \item \texttt{metric}: \texttt{False} para aplicar escalamiento no-métrico. 
    \item \texttt{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \texttt{precomputed} que me permite pasarle directamente al método \texttt{fit\_transform} la matriz de distancias de Gower.
    \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica, con la fórmula presentada más arriba.
 \end{itemize}
 
-Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \[\texttt{n\_components} = 2\] generé dos visualizaciones (una para cada conjunto de datos A y B) en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías.
+Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \(\texttt{n\_components} = 2\) generé dos visualizaciones (una para cada conjunto de datos A y B) \todo[inline]{correr script y generar visualizaciones}en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías. Luego entrené, para cada \textit{datasets} A y B, y para cada ordenamiento de datos según los distintos valores de \texttt{n\_components} un modelo de SVM (ver más abajo la subsección \nameref{svm}).
 
-para SVM el proceso fue: separar x de y, correr NMDS sobre el total de X, separar el test final ciego, hacer una separación train y test estratificada del dataset restante, entrenar con grid search para buscar mejores parámetros buscando entre (poner el grid search) y el mejor modelo aplicarlo al test final ciego.
+
 
 \subsection{Reducción manual de los datos}\label{reduccionmanual}
-
-
-
 
 Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables tienen en su mayoría respuestas \textit{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
 
@@ -534,9 +531,11 @@ En cuarto lugar  medí correlación para ver si podía sacar más variables pero
 
 
 
-\subsection{Modelos SVM}
+\subsection{Modelos SVM}\label{svm}
 
 \todo[inline]{importantísimo ver si accuracy tiene sentido calcular u otra métrica}
+
+para SVM el proceso fue: separar x de y, correr NMDS sobre el total de X, separar el test final ciego, hacer una separación train y test estratificada del dataset restante, entrenar con grid search para buscar mejores parámetros buscando entre (poner el grid search) y el mejor modelo aplicarlo al test final ciego.
 
 SVM con dos vatiantes de datasets con NMDS
 SVM con dataset reducido a mano con variantes que responden a los faltantes de edad también. cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes.
@@ -554,11 +553,20 @@ VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES
 
 \section{Resultados y discusión}\label{resultados}
 
-NMDS vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés.
+\subsubsection{Graficar ordenamiento con NMDS}
 
-Entrenamiento y testeo SVM
+NMDS graficar vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés. El valor del stress para dos dimensiones es malo.
 
-Todos dieron bien y luego el mejor modelo lo apliqué a  los
+
+
+\subsubsection{Modelos predictivos de SVM}
+
+modelos entrenados con datos reducidos A y B. El gridsearch encontró los siguientes mejores parámetros, con los mismos valores para todas las versiones de n componenets. Es decir, la cantidad de dimensiones a la que se reducen los datos, y por lo tanto el valor stress de NMDS no afecta el entrenamiento del modelo positiva ni negativamente. Durante la etapa de entrenamiento y búsqueda de mejores parámentros, el modelo resultante consistentemente es únicamente bueno rediciendo respuestas NO, es decir,buen accuracy, del 80, pero el peor recall de la vida, peor precision de la vida, y peor F1 de la vida.
+
+Al aplicar estos “mejores modelos“ al set de testeo final ciego, es decir, al set de datos que no tienen etiqueta SI o NO en convive porque son los datos faltante, el modelo predice mayoría de NO.
+
+
+Los modelos entrenados con el dataset reducido a mano dieron mejor. Igual no se puede saber porque es un test a ciegas al fin y al cabo, solo pude aplicarlos al test final y comparar la proporción de NO y SI que predijo con la proporción de NO y SI en el dataset original. Es parecida.
 
 \section{Conclusiones}\label{conc}
 cruzamiento de datos ovd líneas de asistencia, observatorio de género.
