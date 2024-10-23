@@ -2,12 +2,13 @@
 import os
 import pandas as pd
 import gower
-from sklearn.svm import SVC
-from herramientas import mapData, categoria_edad
+from herramientas import mapData
+
+
 
 
 # directorios
-dataset_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(''))), 'datasets')
+#dataset_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(''))), 'datasets')
 image_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(''))), 'images')
 
 # imágenes a guardar
@@ -18,7 +19,7 @@ image_dataset_b = 'nmds_b.png'
 
 # dataset a (edades categorizadas)
 
-dataset_a= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_dataset_a.xlsx'))
+dataset_a= pd.read_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_dataset_a.xlsx')
 
 # Mapeo de SI/NO/NSNC de "victima_convive_agresor" labels to 'y_convive'
 y_convive = []
@@ -46,7 +47,7 @@ del gower_data_a
 
 # dataset b (sin llamante_edad y con casos completos de victima_edad)
 
-dataset_b= pd.read_excel(os.path.join(dataset_dir, 'xlsx/llamados_dataset_b.xlsx'))
+dataset_b= pd.read_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_dataset_b.xlsx')
 
 # Mapeo de SI/NO/NSNC de "victima_convive_agresor" labels to 'y_convive'
 y_convive = []
