@@ -1,20 +1,20 @@
 # Fdb version 4
-["bibtex main"] 1729637488.29733 "main.aux" "main.bbl" "main" 1729637499.43768 0
+["bibtex main"] 1730931990.73542 "main.aux" "main.bbl" "main" 1730932006.17653 0
   "./bibtex_reporte.bib" 1727658244.10418 3598 6a15ab84c0a9096fe33859e22db73b5d ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1729637497.81815 12766 9f3256b25477d50dbcfade4a0af9f32b "pdflatex"
+  "main.aux" 1730932005.75995 12675 1baea9be644a2fb7bafcd7678c94fe1c "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1729375040.80054 "main.idx" "main.ind" "main" 1729637499.43717 0
-  "main.idx" 1729637492.63524 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1730931983.82221 "main.idx" "main.ind" "main" 1730932006.17637 0
+  "main.idx" 1730932003.8961 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1729637488.93107 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1729637499.438 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1729637468.53546 52170 112e55d9bdf884c661a69b9024a1c639 ""
+["pdflatex"] 1730932002.98421 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1730932006.17669 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1730932002.75274 54176 3806d8121b0fafc87c23e5d81eeffbca ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -214,20 +214,20 @@
   "images/latex_llamante_vin_convive.png" 1726411042.20873 51847 5e6ec5659c7a1d56863196a48bd0b9d8 ""
   "images/latex_lugar_hechos.png" 1724323267.31566 59800 e2f17cccd91fa14817be8bc48d4e139b ""
   "images/latex_nacionalidad_victima.png" 1724323516.78268 28286 859be6f65666b19c574b39a8a73d4de3 ""
-  "images/latex_ofv_sino.jpeg" 1726122681.25291 152510 db1773ac2208862687c22ff1a2c30fe9 ""
+  "images/latex_ofv_sino.jpeg" 1726122095.10152 135274 d87ec115984fa07c44907cc224c3e4df ""
   "images/latex_trend_llamados.png" 1724588432.24774 104980 1818e006673c9bb159f875ea5d2dea57 ""
   "images/latex_victima_discapacidad.png" 1724323400.79524 17000 45c61710d0b544fb438c875c95507d92 ""
   "images/latex_vinculo_agr_victima.png" 1724323005.77846 51148 baddb4f597eaeb396efb1295315b8ddf ""
   "images/latex_vinculo_llamante.png" 1724323142.43087 46058 a39b6c519fb8d92b775bdc4100608086 ""
-  "images/latex_vs_sino.jpeg" 1726122641.51748 174513 436d1900eef2f0f065f521fc47ed594b ""
+  "images/latex_vs_sino.jpeg" 1726121964.53084 174589 436a12369df2bc524c8a98675f4d0755 ""
   "images/uba2.jpg" 1721825197.71324 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1729637497.81815 12766 9f3256b25477d50dbcfade4a0af9f32b "pdflatex"
-  "main.bbl" 1729637488.91916 3225 0d059c488d1913792e2634c041050469 "bibtex main"
-  "main.ind" 1729375040.97056 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1729637497.82612 2434 fb2c3fb09e479ba882ddb13fa1290363 "pdflatex"
-  "main.tdo" 1729637497.8272 967 cb166d66f8d9e3bef1975c66af4119a2 "pdflatex"
-  "main.tex" 1729637468.53546 52170 112e55d9bdf884c661a69b9024a1c639 ""
-  "main.toc" 1729637497.82735 1380 3bbe375349d42270979aa9ace5545efe "pdflatex"
+  "main.aux" 1730932005.75995 12675 1baea9be644a2fb7bafcd7678c94fe1c "pdflatex"
+  "main.bbl" 1730931990.88712 3446 1927114471818cdca9d5b745d936283b "bibtex main"
+  "main.ind" 1730931984.02004 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1730932005.76339 2434 fb2c3fb09e479ba882ddb13fa1290363 "pdflatex"
+  "main.tdo" 1730932005.76373 871 266df0ef70e2d2d0912811ba71eac0f5 "pdflatex"
+  "main.tex" 1730932002.75274 54176 3806d8121b0fafc87c23e5d81eeffbca ""
+  "main.toc" 1730932005.76377 1380 277249d73b8ee85fbea09784f6b78d8d "pdflatex"
   (generated)
   "main.aux"
   "main.idx"

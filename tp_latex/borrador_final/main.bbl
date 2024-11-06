@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -43,6 +43,11 @@ Donald~B Rubin.
 Rita~Laura Segato.
 \newblock \emph{La guerra contra las mujeres}.
 \newblock Traficantes de sue{\~n}os, 2016.
+
+\bibitem[Udil{\u{a}}(2023)]{udilua2023encoding}
+Andrei Udil{\u{a}}.
+\newblock Encoding methods for categorical data: A comparative analysis for linear models, decision trees, and support vector machines.
+\newblock 2023.
 
 \bibitem[Unicef et~al.(2018)]{unicef2018analisis}
 Unicef et~al.

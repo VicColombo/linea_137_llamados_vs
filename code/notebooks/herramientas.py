@@ -223,22 +223,38 @@ def tipo_hecho_lugar (x):
     elif x == 'Vivienda del Agresor':
         return x
     elif x == 'Redes Sociales':
-          return x
+        return x
     else:
         return 'N/A'
 
 
-def categoria_edad (x):
-    if (x >= 0) and (x <= 11) :
-        return 'Niñez'
-    elif (x >= 12) and (x <=18):
-        return 'Adolescencia'
-    elif (x >= 19) and (x <=30):
-        return 'Juventud'
-    elif (x>=31) and (x<=65) :
-        return 'Vejez'
-    elif x>=66:
-        return 'Vejez mayor'
-    else:
-        return 'NS/NC'
+# arma momento del día mañana, mediodía, tarde, noche, madrugada según la hora
+
+def momento_dia(x):
+    if x in [6,7,8,9,10,11]:
+        return "mañana"
+    elif x in [12,13]:
+        return "mediodía"
+    elif x in [14,15,16,17,18,19]:
+        return "tarde"
+    elif x in [20,21,22,23,0]:
+        return "noche"
+    elif x in [1,2,3,4,5]:
+        return "madrugada"
+
+
+# reduce nacionalidad víctima
+
+lista_otra_nacionalidad = ['Otra','Boliviana','Paraguaya','Chilena','Brasileña', 'Uruguaya','Peruana']
+
+def nacionalidad_red(x):
+   if x in lista_otra_nacionalidad:
+        return x
+   elif x == 'NS/NC':
+        return x
+   elif x == 'Argentina':
+        return x
+   else:
+        return 'N/A'
+
     
