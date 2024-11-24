@@ -1,10 +1,11 @@
 \contentsline {todo}{rever cómo sigue el programa ahora}{4}{section*.4}%
-\contentsline {todo}{en algún lado listar código y librerías}{4}{section*.5}%
-\contentsline {todo}{reduje víctima nacionalidad para SVM?}{11}{section*.13}%
-\contentsline {todo}{tipo de datos faltantes que son podría ir en datos o en resultados también quizás}{19}{section*.25}%
-\contentsline {todo}{fórmula y explicación de la distancia de Gower}{20}{section*.26}%
-\contentsline {todo}{citar libreria}{20}{section*.27}%
-\contentsline {todo}{quizás esto de 20 no lo menciono}{20}{section*.28}%
-\contentsline {todo}{correr script y generar visualizaciones}{20}{section*.29}%
-\contentsline {todo}{explicar medidas de correlación que tomé entre las variables}{22}{section*.31}%
-\contentsline {todo}{importantísimo ver si accuracy tiene sentido calcular u otra métrica}{23}{section*.32}%
+\contentsline {todo}{separar con subtítulos objetivos gnerales de particulares}{4}{section*.5}%
+\contentsline {todo}{donde menciono el paper que usa NMDS para SVM?}{4}{section*.6}%
+\contentsline {todo}{en algún lado listar código y librerías}{4}{section*.7}%
+\contentsline {todo}{pasar todas las varables y valores de texit a texttt}{4}{section*.8}%
+\contentsline {todo}{tipo de datos faltantes que son podría ir en datos o en resultados también quizás}{19}{section*.27}%
+\contentsline {todo}{fórmula y explicación de la distancia de Gower}{20}{section*.28}%
+\contentsline {todo}{citar libreria}{20}{section*.29}%
+\contentsline {todo}{quizás esto de 20 no lo menciono}{20}{section*.30}%
+\contentsline {todo}{explicar medidas de correlación que tomé entre las variables}{22}{section*.32}%
+\contentsline {todo}{importantísimo ver si accuracy tiene sentido calcular u otra métrica}{23}{section*.33}%

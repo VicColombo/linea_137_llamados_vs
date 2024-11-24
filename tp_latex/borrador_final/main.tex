@@ -19,6 +19,8 @@
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
 \usepackage{amsmath}
+\usepackage{multicol}
+
 \begin{document}
 
 
@@ -82,7 +84,7 @@
 \subsection{Antecedentes}
 
 
-La violencia sexual comprende una multiplicidad de conductas o intentos de conductas, que van desde actos hasta comentarios sexuales, dirigidos contra la sexualidad de otra persona de manera coercitiva. El trabajo con datos sobre violencia sexual presenta complicaciones porque los datos suelen ser escasos o presentar gran cantidad de faltantes \citetext{\citealp[p.~150]{ferris2002world}}. Uno de los motivos es que las víctimas o su entorno a menudo se rehúsan a denunciar o participar en encuestas sobre este tipo de agresiones, o proveen información incompleta. Esto puede deberse a la vergüenza y el estigma social frecuentemente asociado no solo con la violencia sexual sino con la sexualidad en general, pero también a la falta de acceso a la justicia, al temor a las represalias por parte de los agresores, o el temor a que la denuncia no sea creída \citep*{murphy2022unfounded}. Otros posibles motivos para la escasez y/o mala calidad de los datos pueden ser la falta de vías adecuadas para recabar esta información, o la negligencia o desconocimiento de procedimientos adecuados por parte de oficiales de policía encargados de recibir denuncias. A pesar de las dificultades en la recolección de datos, diversos estudios a nivel mundial logran identificar patrones frecuentes en la violencia sexual. Para este trabajo, resultan relevantes dos de ellos: la mayoría de las víctimas son mujeres, mientras que los perpetradores suelen ser hombres \citetext{\citealp[p.~149]{ferris2002world}; \citealp[p.~15]{contreras2016violencia}}; y en la mayoría de los casos, los agresores son personas conocidas por las víctimas, como parejas, exparejas u otros conocidos \citetext{\citealp[p.~9]{garcia2005multi},\citealp[p.~22]{unicef2018analisis}, \citealp[p.~151]{ferris2002world}}.
+La violencia sexual comprende una multiplicidad de conductas o intentos de conductas, que van desde actos hasta comentarios sexuales, dirigidos contra la sexualidad de otra persona de manera coercitiva. El trabajo con datos sobre violencia sexual presenta complicaciones porque los datos suelen ser escasos o presentar gran cantidad de faltantes \citetext{\citealp[p.~150]{ferris2002world}}. Uno de los motivos es que las víctimas o su entorno a menudo se rehúsan a denunciar o participar en encuestas sobre este tipo de agresiones, o proveen información incompleta. Esto puede deberse a la vergüenza y el estigma social frecuentemente asociado no solo con la violencia sexual sino con la sexualidad en general, pero también a la falta de acceso a la justicia, al temor a las represalias por parte de los agresores, o el temor a que la denuncia no sea creída \citetext{\citealp{murphy2022unfounded}}. Otros posibles motivos para la escasez y/o mala calidad de los datos pueden ser la falta de vías adecuadas para recabar esta información, o la negligencia o desconocimiento de procedimientos adecuados por parte de oficiales de policía encargados de recibir denuncias. A pesar de las dificultades en la recolección de datos, diversos estudios a nivel mundial logran identificar patrones frecuentes en la violencia sexual. Para este trabajo, resultan relevantes dos de ellos: la mayoría de las víctimas son mujeres, mientras que los perpetradores suelen ser hombres \citetext{\citealp[p.~149]{ferris2002world}; \citealp[p.~15]{contreras2016violencia}}; y en la mayoría de los casos, los agresores son personas conocidas por las víctimas, como parejas, exparejas u otros conocidos \citetext{\citealp[p.~9]{garcia2005multi},\citealp[p.~22]{unicef2018analisis}, \citealp[p.~151]{ferris2002world}}.
  
 La clasificación de las identidades de género de víctimas y perpetradores es compleja. Por un lado, muchos estudios clasifican a las personas únicamente como hombres o mujeres, omitiendo las identidades de género disidentes.\footnote{Entre los estudios e informes consultados para este trabajo, solamente el \textit{Relevamiento de fuentes secundarias de datos sobre violencia sexual} de la \citet{ufem_relevamiento} menciona identidades de género cuando especifica que la violencia sexual “afecta particularmente a las mujeres cis y personas LGBTI+” (p.7).}. Por otro lado, aunque se reportan pocos casos de violencia sexual contra hombres cisgénero, es probable que estén subrepresentados debido a los prejuicios y estigmas sociales sobre la masculinidad que dificultan las denuncias y el acceso a la justicia para estas víctimas \citep*[p.~149]{ferris2002world}. Analizar esas complejidades excede a este trabajo de especialización. En mi análisis las categorías de género de víctimas, victimarios y llamantes se limitan a las registradas en el \textit{dataset}: hombre, mujer, y transgénero, sin especificar si es un hombre o una mujer transgénero. Reconozco esto como una limitación no solo de mi trabajo sino también de los datos disponibles.  
 
@@ -103,17 +105,18 @@ En este trabajo analizo llamados a la línea 137 para reportar violencia sexual 
 
 \subsection{Objetivos}
 
-Mis objetivos para este trabajo son:
+Mis objetivos para este trabajo son:\todo[inline]{separar con subtítulos objetivos gnerales de particulares}
 
 \begin{itemize}
     \item Analizar los datos para determinar si existen patrones y asociaciones que permitan caracterizar a la población de víctimas que convive con su agresor y la que no lo hace.
     \item Entrenar un modelo predictivo que trate como datos faltantes las respuestas \textit{NS/NC} en la variable \textit{victima\_convive\_agresor} y los clasifique como \textit{SI} o \textit{NO}. 
     \item En particular, entrenar un modelo de Máquinas de Soporte Vectorial.\footnote{En adelante, \textit{SVM} por sus siglas en inglés: \textit{Support Vector Machine}.}  
-    \item Contrastar dos tipos de preprocesamientos de los datos para entrenar el modelo: el primero utilizando el método de ordenamiento y reducción de dimensionalidad de Escalamiento Multidimensional No-Métrico.\footnote{En adelante, \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}; el segundo, reduciendo dimensiones de los datos de manera manual,a través de la eliminación, agrupación y transformación de las variables.}
+    \item Contrastar dos tipos de preprocesamientos de los datos para entrenar el modelo: el primero utilizando el método de ordenamiento y reducción de dimensionalidad de Escalamiento Multidimensional No-Métrico.\footnote{En adelante, \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}; el segundo, reduciendo dimensiones de los datos de manera manual,a través de la eliminación, agrupación y transformación de las variables.} \todo[inline]{donde menciono el paper que usa NMDS para SVM?}
 
 \end{itemize}
 
 \todo[inline]{en algún lado listar código y librerías}
+\todo[inline]{pasar todas las varables y valores de texit a texttt}
 \section{Datos}\label{datos}
 
 \subsection{Obtención y limpieza}\label{limpieza}
@@ -282,7 +285,7 @@ Llama la atención la cuarta categoría más presente en \textit{hecho\_lugar}, 
 
 
 La nacionalidad de las víctimas, informada por \textit{victima\_nacionalidad}, se distribuye de la siguiente manera: el 80\% de las víctimas son argentinas; del 15\% no se cuenta con datos; y el restante 5\% se divide entre las nacionalidades boliviana, paraguaya, peruana, brasileña, uruguaya, chilena, y la categoría “otra”.\footnote{Ver figura \ref{nacionalidad} en el \nameref{anex}}
-\todo[inline]{reduje víctima nacionalidad para SVM?}
+
 
 Según la distribución de \textit{victima\_discapidad}, para el 53.7\% de las víctimas no se cuenta con datos, el 43.2\% no posee discapacidad, y el 2.9\% sí\footnote{Ver figura \ref{discapacidad} en el \nameref{anex}}. 
 
@@ -431,20 +434,21 @@ Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet
 
 \section{Metodología}\label{met}
 
-La extensa cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable objetivo, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Experimenté con dos métodos para reducir las dimensiones de los datos. Primero apliqué el método de ordenamiento NMDS. Esto me permitió también obtener visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \textit{victima\_conive\_agresor}. En segundo lugar, realicé una reducción manual eliminando, agrupando, y transformando variables. Finalmente, para el entrenamiento de modelos de SVM que predigan los datos faltantes de la variable objetivo como \textit{SI} o \textit{NO}, utilicé distintos conjuntos de datos que varían según los dos tipos de reducciones aplicadas y distintos tipos de preprocesamientos para solventar los datos faltantes en las variables de edad.
+La extensa cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable objetivo, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Experimenté con dos métodos para reducir las dimensiones de los datos. Primero apliqué el método de NMDS para obtener un nuevo ordenamiento de los datos en un espacio de menor dimensión. Este paso cumple la doble función de obtener un \textit{dataset} reducido para entrenar un modelo de SVM, y, por otro lado, generar visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \textit{victima\_conive\_agresor}. En segundo lugar, realicé una reducción manual eliminando, agrupando, y transformando variables. Finalmente, para el entrenamiento de modelos de SVM que predigan los datos faltantes de la variable objetivo como \textit{SI} o \textit{NO}, utilicé distintos conjuntos de datos que varían según los dos tipos de reducciones aplicadas y distintos tipos de preprocesamientos para solventar los datos faltantes en las variables de edad.
 
 
 \subsection{Reducción de los datos con NMDS}
 
-NMDS se utiliza a menudo como método de ordenamiento para mostrar similitudes y diferencias entre los datos representándolos en espacios de menor dimensión. En particular, este método prioriza preservar en el nuevo espacio de dimensiones reducidas el ordenamiento relativo de las distancias (o diferencias) que existen entre los puntos en el espacio original. 
-El algoritmo toma una matriz de distancias entre los puntos originales y calcula sus coordenadas en un espacio reducido a n-dimensiones (siendo en general \(n=2\) o \(n=3\) para facilitar la visualización), obteniendo la matriz de coordenadas \(X\). En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica para obtener una \textit{matriz de disparidades}, con las disparidades \(\hat{d}_{ij}\). En \(\hat{d}_{ij}\) no se preservan las magnitudes de las distancias originales, pero sí se preserva el rango de ordenamiento de esas magnitudes. A continuación, se calcula el valor del \textit{stress}: 
+El algoritmo de NMDS es un caso particular del algoritmo MDS (por sus siglas en inglés \textit{Multidimensional Scaling}), un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos representándolos en espacios de menor dimensión. En comparación con otros métodos de ordenamiento y reducción, el Escalamiento Multidimensional prioriza preservar en el nuevo espacio de dimensiones reducidas el ordenamiento relativo de las distancias (o diferencias) que existen entre los puntos en el espacio original \citetext{\citealp[p. 218]{aid}}.
+El algoritmo toma una matriz de distancias entre los puntos originales y calcula sus coordenadas en un espacio reducido a n-dimensiones (siendo en general \(n=2\) o \(n=3\) para facilitar la visualización), obteniendo la matriz de coordenadas \(X\), %En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica% 
+que es a su vez transformada en una matriz con las disparidades \(\hat{d}_{ij}\). En \(\hat{d}_{ij}\) no se preservan las magnitudes de las distancias originales, pero sí se preserva el rango de ordenamiento de esas magnitudes\citetext{\citealp[p. 219,220]{aid}}. A continuación, se calcula el valor del \textit{stress}, cuya fórmula para el caso particular de NMDS\footnote{ Ver \cite{kruskal1964nonmetric}, página 115.} es: 
 
 \[\textit{Stress} = \sqrt{\frac{\sum_{i<j} \left( d_{ij} - \hat{d}_{ij} \right)^2}{\sum_{i<j} d_{ij}^2}}\]
 
-El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el \textit{stress}, es decir, minimizar la diferencia entre las distancias y las disparidades.\footnote{Para una explicación en profundidad de NMDS, ver \cite{kruskal1964nonmetric}.} 
+El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el \textit{stress}, es decir, minimizar la diferencia entre las distancias y las disparidades \citetext{\citealp[p. 117-123]{kruskal1964nonmetric}}. 
 
 
-Al ser NMDS un método flexible con respecto a la matriz de distancias inicial que utiliza, me permitió calcular para mis datos la distancia de Gower, una medida de similitud que puede calcularse para datos de distinto tipo. La distancia toma valores entre 0 y 1, indicando 0 ninguna distancia entre los objetos y 1 la máxima distancia. Se calcula de la siguiente manera:
+La elección del algoritmo de NMDS para este trabajo está motivada por la flexibilidad del método con respecto a la matriz inicial de distancias que admite. Dada la variabilidad en el conjunto de datos, elegí calcular entre ellos la distancia de Gower, una medida de distancia no métrica que puede tomarse entre variables de distinto tipo. Para cada fila de datos se calcula primero la similitud entre los datos por cada variable, aplicando distintos cálculos según el tipo de variable. Luego se hace una agregación de esos cálculos de similitud por tipo de variable para la medida de distancia final entre filas. Para variables categóricas, la similitud entre dos puntos x1 y x2 en la variable categórica j se computa como 1 si los valores son idénticos y 0 si no lo son. Para variables numéricas se toma el valor absoluto de la diferencia entre los \textit{datapoints} y se lo divide por el rango de la variable, resultando en un valor entre 0 y 1. \footnote{Trabajos posteriores al trabajo original de Gower (1971) proponen un tratamiento especial para las variables numéricas ordinales que es largamente aceptado y aplicado en la comunidad (CITA). Sin embargo la librería gower de sikit learn trata a las varaibles ordinales como variables numéricas normales, aplicando la fórmula explicada en este párrafo. Por lo tanto, no entro en detalles aquí sobre el cáluclo para variables ordinales.} La matriz de distancias resultante
 
 
 Donde:
@@ -473,7 +477,7 @@ Para realizar el ordenamiento con NMDS utilicé el método \texttt{mds} de la li
    \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica, con la fórmula presentada más arriba.
 \end{itemize}
 
-Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \(\texttt{n\_components} = 2\) generé dos visualizaciones (una para cada conjunto de datos A y B) \todo[inline]{correr script y generar visualizaciones} en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías. Luego entrené, para cada \textit{datasets} A y B, y para cada ordenamiento de datos según los distintos valores de \texttt{n\_components} un modelo de SVM (ver más abajo la subsección \nameref{svm}).
+Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \(\texttt{n\_components} = 2\) generé dos visualizaciones (una para cada conjunto de datos A y B) en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías. Luego entrené, para cada \textit{datasets} A y B, y para cada ordenamiento de datos según los distintos valores de \texttt{n\_components} un modelo de SVM (ver más abajo la subsección \nameref{svm}).
 
 
 
@@ -481,13 +485,8 @@ Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de
 
 Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
 
-Reduje entonces la cantidad de variables que describen los tipos de violencias sufridas de dos maneras. 
-
-
-En primer lugar, eliminé las variables cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos. 
-
-Las variables eliminadas fueron:
-
+Reduje entonces la cantidad de variables que describen los tipos de violencias sufridas de dos maneras. En primer lugar, eliminé las variables cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos. Las variables eliminadas fueron:
+\begin{multicols}{2}
 \begin{itemize}
     \item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
     \item \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}
@@ -504,6 +503,7 @@ Las variables eliminadas fueron:
     \item \texttt{ofv\_intento\_ahogar}
     \item \texttt{ofv\_intento\_matar}
 \end{itemize}
+\end{multicols}
 
 En segundo lugar, agrupé algunas de ellas en cuatro nuevas variables por dominio. En el cuadro \Ref{tablaagrup} a continuación resumo cada grupo de variables y la nueva variable que las reemplaza. 
 
@@ -577,6 +577,7 @@ VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES
 \subsubsection{Graficar ordenamiento con NMDS}
 
 NMDS graficar vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés. El valor del stress para dos dimensiones es malo.
+
 
 
 
