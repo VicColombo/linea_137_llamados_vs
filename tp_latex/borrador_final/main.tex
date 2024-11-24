@@ -198,7 +198,7 @@ Las variables que describen la violencia sexual sufrida y otras formas de violen
 
 
 
-Las variables \textit{victima\_edad} y \textit{llamante\_edad} presentaban valores atípicos positivos, no solo identificables por superar la barrera de \(3*IQR\), sino también y principalmente por ser valores incongruentes con la edad de una persona. Por lo tanto, removí todos los valores por encima de 110 para ambas variables, y todos los valores por debajo de 1 para \textit{llamante\_edad} (si existen víctimas que presentan edad 0, considero que se trata de menores que aún no alcanzan el año). Los valores removidos y su cantidad para cada variable pueden verse en el cuadro 2, \nameref{tabla_out}. Se puede comprobar allí que la mayoría eran 999 en ambas variables, muy probablemente un valor por defecto ingresado para no dejar el campo vacío. En total, removí 195 valores en \textit{llamante\_edad}, y 101 valores en \textit{victima\_edad}. 
+Las variables \texttt{victima\_edad} y \texttt{llamante\_edad} presentaban valores atípicos positivos, no solo identificables por superar la barrera de \(3*IQR\), sino también y principalmente por ser valores incongruentes con la edad de una persona. Por lo tanto, removí todos los valores por encima de 110 para ambas variables, y todos los valores por debajo de 1 para \texttt{llamante\_edad} (si existen víctimas que presentan edad 0, considero que se trata de menores que aún no alcanzan el año). Los valores removidos y su cantidad para cada variable pueden verse en el cuadro 2, \nameref{tabla_out}. Se puede comprobar allí que la mayoría eran 999 en ambas variables, muy probablemente un valor por defecto ingresado para no dejar el campo vacío. En total, removí 195 valores en \texttt{llamante\_edad}, y 101 valores en \texttt{victima\_edad}. 
 
 
 \begin{table}[H] 
@@ -473,7 +473,7 @@ Para realizar el ordenamiento con NMDS utilicé el método \texttt{mds} de la li
    \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica, con la fórmula presentada más arriba.
 \end{itemize}
 
-Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \(\texttt{n\_components} = 2\) generé dos visualizaciones (una para cada conjunto de datos A y B) \todo[inline]{correr script y generar visualizaciones}en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías. Luego entrené, para cada \textit{datasets} A y B, y para cada ordenamiento de datos según los distintos valores de \texttt{n\_components} un modelo de SVM (ver más abajo la subsección \nameref{svm}).
+Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \(\texttt{n\_components} = 2\) generé dos visualizaciones (una para cada conjunto de datos A y B) \todo[inline]{correr script y generar visualizaciones} en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías. Luego entrené, para cada \textit{datasets} A y B, y para cada ordenamiento de datos según los distintos valores de \texttt{n\_components} un modelo de SVM (ver más abajo la subsección \nameref{svm}).
 
 
 

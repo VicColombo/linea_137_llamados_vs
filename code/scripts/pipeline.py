@@ -5,9 +5,7 @@ import numpy as np
 import os
 
 
-
-
-from herramientas import seteo_agrupador,tipo_vinculo_llamante,conocido_no_conocido,genero_agresor,fam_nofam,tipo_hecho_lugar,provincias_red
+from herramientas import seteo_agrupador,tipo_vinculo_llamante,conocido_no_conocido,tipo_hecho_lugar,provincias_red, momento_dia, nacionalidad_red
 from variables import orden_columnas
 
 ######################################################
@@ -88,21 +86,6 @@ llamados['llamante_edad'] = pd.to_numeric(llamados['llamante_edad'], errors='coe
 
 # Normalizaciones de errores en carga de datos
 
-'''
-- en todo el dataset: Ns/Nc = NS/NC
-- llamante_edad Sin dato pasar a N/A
-- victima_genero N/A -> NS/NC
-- llamante género: Masculino = Masculino Trans = Transgénero
-- llamante vinculo Vecino = Vecina/o ' Madre' = 'Madre'
-- caso judicializado 'NS/NS' = 'NS/NC' 'Sin datos' = 'NS/NC'
-- victima_a_resguardo No = NO
-- victima_genero Trans = Transgénero
-- victima_vinculo_agresor 'Pareja de la vícitma' = 'Pareja de la víctima' 'Pareja ' = 'Pareja de la víctima' Ex pareja = Ex pareja de la víctima
-- hecho_lugar Otro(Especificar en observaciones) = Otro
-- llamado_provincia: 'Ciudad Autónoma de Buenos Aires' = 'CABA'
-- llamado_provincia: 'Santa Fé' = 'Santa Fe' '''
-
-
 llamados.loc[:, 'llamante_genero'] = llamados['llamante_genero'].replace({' Masculino': 'Masculino', 'Trans': 'Transgénero'})
 llamados.loc[:, 'llamante_vinculo'] = llamados['llamante_vinculo'].replace({'Vecino': 'Vecina/o', ' Madre':'Madre', 'Otra Institución': 'Otra institución'})
 
@@ -118,8 +101,6 @@ llamados.loc[:, 'victima_genero'] = llamados['victima_genero'].fillna('NS/NC')
 
 # Outliers de edad considerados error de carga
 
-
-
 llamados.loc[llamados['llamante_edad'] >= 100, 'llamante_edad'] = None
 llamados.loc[llamados['llamante_edad'] < 3, 'llamante_edad'] = None
 
@@ -133,27 +114,39 @@ print('se guardó llamados v2')
 #######################################################################################
 
 
-# 
+#V3--> reducción y construcción de variables
 
-#V3--> construcción de variables
+# reduce vinculo agresor
 
-
-llamados['genero_agresor'] = \
-    llamados.victima_vinculo_agresor.apply(genero_agresor)
-
-
-llamados['agresor_conocido_no_conocido'] = \
+llamados['agresor_conocido_no_conocido_red'] = \
     llamados.victima_vinculo_agresor.apply(conocido_no_conocido)
 
-llamados['tipo_vinculo_llamante'] = \
+# reduce vinculo llamante
+llamados['vinculo_llamante_red'] = \
     llamados.llamante_vinculo.apply(tipo_vinculo_llamante)
 
-# hecho lugar
+# reduce hecho lugar
 
 
 llamados['hecho_lugar_red'] = \
     llamados.hecho_lugar.apply(tipo_hecho_lugar)
 
+
+# reduce variable provincia
+
+llamados['llamado_provincia_red'] = \
+    llamados.llamado_provincia.apply(provincias_red)
+
+# reduce victima nacionalidad
+
+llamados['victima_nacionalidad_red'] = \
+    llamados.victima_nacionalidad.apply(nacionalidad_red)
+
+llamados.drop('llamado_provincia', axis=1, inplace=True)
+llamados.drop('hecho_lugar', axis=1, inplace=True)
+llamados.drop('llamante_vinculo', axis=1, inplace=True) 
+llamados.drop('victima_vinculo_agresor', axis=1, inplace=True) 
+llamados.drop('victima_nacionalidad', axis=1, inplace=True) 
 
 # arma fin de semana
 
@@ -161,20 +154,7 @@ llamados['fin_de_semana'] = np.where(llamados['llamado_fecha_hora'].dt.day_of_we
 
 # arma momento del día mañana, mediodía, tarde, noche, madrugada c la hora
 
-def day_part(hour):
-    if hour in [6,7,8,9,10,11]:
-        return "mañana"
-    elif hour in [12,13]:
-        return "mediodía"
-    elif hour in [14,15,16,17,18,19]:
-        return "tarde"
-    elif hour in [20,21,22,23,0]:
-        return "noche"
-    elif hour in [1,2,3,4,5]:
-        return "madrugada"
-
-
-llamados['momento_dia'] = (llamados['llamado_fecha_hora'].dt.hour).apply(day_part)
+llamados['momento_dia'] = (llamados['llamado_fecha_hora'].dt.hour).apply(momento_dia)
 
 
 # arma estación del año
@@ -193,23 +173,6 @@ for index, date in llamados["llamado_fecha_hora"].items():
         llamados.at[index, "estacion_del_año"] = "Invierno"
     else:
         llamados.at[index, "estacion_del_año"] = "Primavera"
-
-# arma variable llamados por región del país
-
-llamados['llamado_provincia_red'] = \
-    llamados.llamado_provincia.apply(provincias_red)
-
-llamados.drop('llamado_provincia', axis=1, inplace=True)
-llamados.drop('hecho_lugar', axis=1, inplace=True)
-llamados.drop('llamante_vinculo', axis=1, inplace=True) 
-llamados.drop('victima_vinculo_agresor', axis=1, inplace=True) 
-
-
-llamados.to_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx', index=False)
-print('se guardó llamados v3')
-####################################################################
-
-# V4 --> agrupar variables
 
 ### agrupar variables cualitativamente (por tipo de violencia)
 
@@ -256,11 +219,6 @@ seteo_agrupador(llamados,columnas_agrupar_5, nueva_col_agrup_5)
 llamados.drop(columnas_agrupar_1 + columnas_agrupar_2+columnas_agrupar_3+columnas_agrupar_4+columnas_agrupar_5,
   axis=1, inplace=True)
 
-llamados.to_excel("/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v4.xlsx", index=False)
-
-print('se guardó llamados_v4 como xlsx')
-
-####################################################################
 
 # V5 --> elimino variables con poca información
 
@@ -285,8 +243,8 @@ for i in ofv:
 print('Se eliminaron las columnas poco informativas: ', borradas)
 
 
-llamados.to_excel("/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v5.xlsx", index=False)
-print('se guardó llamados_v5 como xlsx')
+llamados.to_excel("/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx", index=False)
+print('se guardó llamados_v3 como xlsx')
 
 ###################################################################
 

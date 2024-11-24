@@ -7,8 +7,9 @@ import os
 
 ###########################################################################3
 
+# Agrupador de variables
 
-# 1 contar los si y los no, devolver "si" en el caso de que haya algún "si" en la selección
+# Contar los si y los no, devolver "si" en el caso de que haya algún "si" en la selección
 
 def hay_si(x):
     for s in x:
@@ -17,7 +18,7 @@ def hay_si(x):
     return 'NO'
 
 
-# 2 pedir los nombre de columnas a agrupar, chequear que existan en el df y si no volver a pedir.
+# Pedir los nombre de columnas a agrupar, chequear que existan en el df y si no volver a pedir.
 # Devolver la lista de columnas a agrupar
 
 def pedir_columnas(dataframe):
@@ -55,10 +56,7 @@ def pedir_columnas(dataframe):
         return pedir_columnas(dataframe)
 
 
-
-
-
-# 3 armar el agrupador pidiendo los nombres de columnas a agrupar, el nombre de la nueva col que las agrupa
+# Armar el agrupador pidiendo los nombres de columnas a agrupar, el nombre de la nueva col que las agrupa
 # y devolviendo el df con la nueva columnas con los valores correctos
 
 def seteo_agrupador(dataframe,columnas_agrupar, nueva_col_agrup):
@@ -77,94 +75,23 @@ def seteo_agrupador(dataframe,columnas_agrupar, nueva_col_agrup):
     
     return(dataframe)
 
-
-
-####################################################################
-
-# 4 Graficar puntos con NMDS según SI/NO/NSNC 
-palette_sino ={"SI": "#1E88E5", "NO": "#FFC107", "NS/NC": "#D81B60"}
-
-def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
-    mds = MDS(metric=metric, dissimilarity='precomputed', random_state=0, normalized_stress=True) 
-    # Get the embeddings
-    pts = mds.fit_transform(dist_matrix)
-    # Plot the embedding, colored according to the class of the points
-    ax = plt.subplots(figsize=(15,10))
- 
-    # USAR AX PARA AGREGAR EL TEXTO LUEGO
-    # pts[:, 0] pts in column 1 (first dimension),y=pts[:, 1] pts in column 2 (second dimension) 
-
-    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=(palette_sino)) #hue_order=['NO', 'SI','NS/NC'])
-
-    plt.title(title)
-    plt.text(1.0121, 0.85, ('Stress: ' + str(round(mds.stress_,2))), fontsize=13, bbox = {'facecolor': 'white', 'alpha': 1.0, 'pad': 5},transform = ax.transAxes)
-    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
-    plt.savefig(os.path.join(image_path, image_name))
-    #plt.show()
-
-
-
 ############################################################################
 
-# 5 funciones para construcción de variables
+# Funciones para construcción y reducción de variables
 
-# reducción llamado provincia
-    
-lista_norte=['Jujuy', 'Salta', 'Tucumán', 'Catamarca', 'La Rioja', 'Santiago del Estero','Formosa', 'Chaco', 'Corrientes', 'Misiones']
-lista_centro = ['San Luis', 'San Juan', 'Mendoza','Córdoba', 'Entre Ríos','La Pampa', 'Santa Fe']
-lista_patagonia=['Chubut', 'Neuquén', 'Río Negro', 'Santa Cruz', 'Tierra del Fuego']
+# arma momento del día mañana, mediodía, tarde, noche, madrugada según la hora
 
-def provincias_red(x):
-    if x == 'NS/NC':
-        return x
-    elif x == 'CABA':
-        return x
-    elif x=='Buenos Aires':
-        return x
-    elif x in lista_norte:
-        return 'Región Norte'
-    elif x in lista_centro:
-        return 'Región Central'
-    elif x in lista_patagonia:
-        return 'Región Patagónica'
-    else:
-        return 'N/A'
-
-# agresor conocido fam, conocido no fam
-
-lista_familiar = ['Pareja de la víctima', 'Ex pareja de la víctima', 'Abuela', 'Abuelo', 'Hermana', 'Hermano', 'Madrastra', 'Madre', 'Otro pariente', 'Padrastro', 'Padre', 'Tío' ]
-lista_no_familiar = ['Desconocido', 'Conocido no familiar (Amigo, vecino, entre otros)']
-
-
-def fam_nofam (x):
-    if x in lista_familiar:
-        return 'Familiar'
-    elif x in lista_no_familiar:
-        return 'Conocido No Familiar'
-    elif x == 'NS/NC':
-        return x
-    else:
-        return 'N/A'
-
-
-
-# género del agresor
-lista_hombre = [ 'Abuelo', 'Hermano', 'Padrastro', 'Padre', 'Tío' ]
-lista_mujer = [ 'Abuela','Hermana','Madrastra', 'Madre']
-lista_no_especificado = ['Ex pareja de la víctima','Pareja de la víctima', 
-                                   'Otro pariente','Conocido no familiar (Amigo, vecino, entre otros)', 'Desconocido']
-
-def genero_agresor (x):
-    if x in lista_mujer:
-        return 'Femenino'
-    elif x in lista_hombre:
-        return 'Masculino'
-    elif x in lista_no_especificado:
-        return 'No especificado'
-    elif x == 'NS/NC':
-        return x
-    else:
-        return 'N/A'
+def momento_dia(x):
+    if x in [6,7,8,9,10,11]:
+        return "mañana"
+    elif x in [12,13]:
+        return "mediodía"
+    elif x in [14,15,16,17,18,19]:
+        return "tarde"
+    elif x in [20,21,22,23,0]:
+        return "noche"
+    elif x in [1,2,3,4,5]:
+        return "madrugada"
 
 
 #  conoce victima agresor
@@ -206,6 +133,8 @@ def tipo_vinculo_llamante (x):
     else:
         return 'N/A'
 
+
+
 # reducción hecho lugar
 lista_otro = ['Residencia turística','Otro','Obra en construcción', 'Taxi','Albergue transitorio','Automóvil','Comercio','Ámbito educativo','Vivienda de un familiar' ]
 lista_espacio_publico = ['Subterráneo/Tren/Colectivo','Plaza','Descampado','Calle']
@@ -228,33 +157,62 @@ def tipo_hecho_lugar (x):
         return 'N/A'
 
 
-# arma momento del día mañana, mediodía, tarde, noche, madrugada según la hora
-
-def momento_dia(x):
-    if x in [6,7,8,9,10,11]:
-        return "mañana"
-    elif x in [12,13]:
-        return "mediodía"
-    elif x in [14,15,16,17,18,19]:
-        return "tarde"
-    elif x in [20,21,22,23,0]:
-        return "noche"
-    elif x in [1,2,3,4,5]:
-        return "madrugada"
-
-
 # reduce nacionalidad víctima
 
 lista_otra_nacionalidad = ['Otra','Boliviana','Paraguaya','Chilena','Brasileña', 'Uruguaya','Peruana']
 
 def nacionalidad_red(x):
    if x in lista_otra_nacionalidad:
-        return x
+        return 'Otra'
    elif x == 'NS/NC':
         return x
    elif x == 'Argentina':
         return x
    else:
         return 'N/A'
+   
 
+# reducción llamado provincia
     
+lista_norte=['Jujuy', 'Salta', 'Tucumán', 'Catamarca', 'La Rioja', 'Santiago del Estero','Formosa', 'Chaco', 'Corrientes', 'Misiones']
+lista_centro = ['San Luis', 'San Juan', 'Mendoza','Córdoba', 'Entre Ríos','La Pampa', 'Santa Fe']
+lista_patagonia=['Chubut', 'Neuquén', 'Río Negro', 'Santa Cruz', 'Tierra del Fuego']
+
+def provincias_red(x):
+    if x == 'NS/NC':
+        return x
+    elif x == 'CABA':
+        return x
+    elif x=='Buenos Aires':
+        return x
+    elif x in lista_norte:
+        return 'Región Norte'
+    elif x in lista_centro:
+        return 'Región Central'
+    elif x in lista_patagonia:
+        return 'Región Patagónica'
+    else:
+        return 'N/A'
+
+####################################################################
+
+# Grafica puntos con NMDS según SI/NO/NSNC 
+palette_sino ={"SI": "#1E88E5", "NO": "#FFC107", "NS/NC": "#D81B60"}
+
+def mapData(dist_matrix, X, y, metric, title, image_path,image_name):
+    mds = MDS(metric=metric, dissimilarity='precomputed', random_state=0, normalized_stress=True) 
+    # Get the embeddings
+    pts = mds.fit_transform(dist_matrix)
+    # Plot the embedding, colored according to the class of the points
+    ax = plt.subplots(figsize=(15,10))
+ 
+    # USAR AX PARA AGREGAR EL TEXTO LUEGO
+    # pts[:, 0] pts in column 1 (first dimension),y=pts[:, 1] pts in column 2 (second dimension) 
+
+    ax = sns.scatterplot(x=pts[:, 0], y=pts[:, 1], hue=y, palette=(palette_sino)) #hue_order=['NO', 'SI','NS/NC'])
+
+    plt.title(title)
+    plt.text(1.0121, 0.85, ('Stress: ' + str(round(mds.stress_,2))), fontsize=13, bbox = {'facecolor': 'white', 'alpha': 1.0, 'pad': 5},transform = ax.transAxes)
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    plt.savefig(os.path.join(image_path, image_name))
+    #plt.show()

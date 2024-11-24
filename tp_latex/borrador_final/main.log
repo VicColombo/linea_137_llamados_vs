@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  6 NOV 2024 23:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  24 NOV 2024 13:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -807,36 +807,36 @@ File: images/latex_ofv_sino.jpeg Graphic file (type jpg)
 Package pdftex.def Info: images/latex_ofv_sino.jpeg  used on input line 193.
 (pdftex.def)             Requested size: 474.4514pt x 327.02095pt.
  [7 <./images/latex_vs_sino.jpeg>] [8 <./images/latex_ofv_sino.jpeg>]
-<images/latex_trend_llamados.png, id=217, 847.7271pt x 467.5869pt>
+<images/latex_trend_llamados.png, id=218, 847.7271pt x 467.5869pt>
 File: images/latex_trend_llamados.png Graphic file (type png)
 <use images/latex_trend_llamados.png>
 Package pdftex.def Info: images/latex_trend_llamados.png  used on input line 247.
 (pdftex.def)             Requested size: 423.8625pt x 233.79288pt.
  [9]
-<images/latex_lugar_hechos.png, id=233, 729.927pt x 510.2262pt>
+<images/latex_lugar_hechos.png, id=234, 729.927pt x 510.2262pt>
 File: images/latex_lugar_hechos.png Graphic file (type png)
 <use images/latex_lugar_hechos.png>
 Package pdftex.def Info: images/latex_lugar_hechos.png  used on input line 264.
 (pdftex.def)             Requested size: 364.9626pt x 255.11247pt.
  [10 <./images/latex_trend_llamados.png>]
-<images/latex_genero_victima.png, id=251, 723.4227pt x 379.4175pt>
+<images/latex_genero_victima.png, id=252, 723.4227pt x 379.4175pt>
 File: images/latex_genero_victima.png Graphic file (type png)
 <use images/latex_genero_victima.png>
 Package pdftex.def Info: images/latex_genero_victima.png  used on input line 294.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
  [11 <./images/latex_lugar_hechos.png>]
-<images/latex_vinculo_agr_victima.png, id=264, 736.4313pt x 495.0495pt>
+<images/latex_vinculo_agr_victima.png, id=265, 736.4313pt x 495.0495pt>
 File: images/latex_vinculo_agr_victima.png Graphic file (type png)
 <use images/latex_vinculo_agr_victima.png>
 Package pdftex.def Info: images/latex_vinculo_agr_victima.png  used on input line 306.
 (pdftex.def)             Requested size: 368.21475pt x 247.52414pt.
-<images/latex_agresor_conocido_no.png, id=265, 723.4227pt x 450.2421pt>
+<images/latex_agresor_conocido_no.png, id=266, 723.4227pt x 450.2421pt>
 File: images/latex_agresor_conocido_no.png Graphic file (type png)
 <use images/latex_agresor_conocido_no.png>
 Package pdftex.def Info: images/latex_agresor_conocido_no.png  used on input line 314.
 (pdftex.def)             Requested size: 361.71046pt x 225.12048pt.
  [12 <./images/latex_genero_victima.png> <./images/latex_vinculo_agr_victima.png>]
-<images/latex_convive.png, id=277, 723.4227pt x 379.4175pt>
+<images/latex_convive.png, id=278, 723.4227pt x 379.4175pt>
 File: images/latex_convive.png Graphic file (type png)
 <use images/latex_convive.png>
 Package pdftex.def Info: images/latex_convive.png  used on input line 332.
@@ -846,7 +846,7 @@ Overfull \hbox (42.36415pt too wide) in paragraph at lines 342--344
 []\OT1/cmr/m/n/10 Para un an^^Sali-sis mul-ti-va-ria-do se-lec-cion^^Se al-gu-nas va-ria-bles que pod^^S^^Pan es-tar m^^Sas re-la-cio-na-das con \OT1/cmtt/m/n/10 victima[]convive[]agresor\OT1/cmr/m/n/10 :
  []
 
-<images/latex_hecho_lugar_convive.png, id=290, 1075.3776pt x 570.933pt>
+<images/latex_hecho_lugar_convive.png, id=291, 1075.3776pt x 570.933pt>
 File: images/latex_hecho_lugar_convive.png Graphic file (type png)
 <use images/latex_hecho_lugar_convive.png>
 Package pdftex.def Info: images/latex_hecho_lugar_convive.png  used on input line 355.
@@ -965,7 +965,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1924b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on main.pdf (30 pages, 1457770 bytes).
+Output written on main.pdf (30 pages, 1457793 bytes).
 PDF statistics:
  527 PDF objects out of 1000 (max. 8388607)
  419 compressed objects within 5 object streams
