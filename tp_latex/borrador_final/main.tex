@@ -479,9 +479,33 @@ Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de
 
 \subsection{Reducción manual de los datos}\label{reduccionmanual}
 
-Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables tienen en su mayoría respuestas \textit{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
+Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
 
-Reduje entonces la cantidad de variables que describen los tipos de violencias sufridas, en primer lugar, agrupando algunas de ellas en cuatro nuevas variables por dominio. En el cuadro \Ref{tablaagrup} a continuación resumo cada grupo de variables y la nueva variable que las reemplaza. 
+Reduje entonces la cantidad de variables que describen los tipos de violencias sufridas de dos maneras. 
+
+
+En primer lugar, eliminé las variables cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos. 
+
+Las variables eliminadas fueron:
+
+\begin{itemize}
+    \item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
+    \item \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}
+    \item \texttt{vs\_eyaculacion\_partes\_cuerpo}
+    \item \texttt{ofv\_amenaza\_muerte}
+    \item \texttt{ofv\_uso\_sustancias\_psicoactivas} 
+    \item \texttt{ofv\_intento\_privacion\_libertad}
+    \item \texttt{ofv\_privacion\_libertad}
+    \item \texttt{ofv\_uso\_animal\_victimizar}
+    \item \texttt{ofv\_uso\_arma\_fuego}
+    \item \texttt{ofv\_uso\_arma\_blanca}
+    \item \texttt{ofv\_intento\_ahorcar}
+    \item \texttt{ofv\_intento\_quemar}
+    \item \texttt{ofv\_intento\_ahogar}
+    \item \texttt{ofv\_intento\_matar}
+\end{itemize}
+
+En segundo lugar, agrupé algunas de ellas en cuatro nuevas variables por dominio. En el cuadro \Ref{tablaagrup} a continuación resumo cada grupo de variables y la nueva variable que las reemplaza. 
 
 
 \begin{table}[H]
@@ -498,30 +522,10 @@ Reduje entonces la cantidad de variables que describen los tipos de violencias s
     \multirow{3}{*}{vs\_violacion}                          & vs\_violancion\_via\_vaginal                      \\ \cline{2-2} 
                                                              & vs\_violancion\_via\_anal                         \\ \cline{2-2} 
                                                              & vs\_violancion\_via\_oral                         \\ \hline
-    \multirow{4}{*}{ofv\_intento\_violencia\_fatal}          & ofv\_intento\_ahogar                              \\ \cline{2-2} 
-                                                             & ofv\_intento\_quemar                              \\ \cline{2-2} 
-                                                             & ofv\_intento\_matar                               \\ \cline{2-2} 
-                                                             & ofv\_intento\_ahorcar                             \\ \hline
-    \multirow{2}{*}{ofv\_uso\_arma}                          & ofv\_uso\_arma\_blanca                            \\ \cline{2-2} 
-                                                             & ofv\_uso\_arma\_fuego                             \\ \hline
+    \multirow{2}{*}{vs\_tentativa\_violacion}                & vs\_tentativa\_violacion                     \\ \cline{2-2} 
+                                                             & vs\_intento\_violacion\_tercera\_persona           \\ \hline
     \end{tabular}
     \end{table}
-
-
-En segundo lugar, eliminé las variables cuya tasa de respuesta \textit{SI} representaba menos del 1\% de los casos. 
-
-Las variables eliminadas fueron:
-
-\begin{itemize}
-    \item \textit{vs\_amenazas\_verbales\_contenido\_sexual} 
-    \item \textit{vs\_existencia\_facilitador\_corrupcion\_nnya}
-    \item \textit{vs\_eyaculacion\_partes\_cuerpo}
-    \item \textit{ofv\_amenaza\_muerte}
-    \item \textit{ofv\_uso\_sustancias\_psicoactivas} 
-    \item \textit{ofv\_intento\_privacion\_libertad}
-    \item \textit{ofv\_privacion\_libertad}
-    \item \textit{ofv\_uso\_animal\_victimizar} 
-\end{itemize}
 
 
 En tercer lugar,problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
@@ -543,11 +547,6 @@ Después quedaron las categoirías originales: vivienda de la víctima(25pct), v
 
 - agresor vínculo: me quedé con la agrupación mostrada en la figura tal de la sección citar sección  de conocido no conocido  distinguiendo si el conocido es familiar o no, porque las categorías que ya existen en la variable vínculo cn el agresor me lo permiten y porque la cantidad de casos en que el agresor es conocido pero no familiar es mucho más alta que la cantidad de casos de cada fmailiar. OK
 
-
-
-
-
-Armé las variables momento del día, fin de semana y estación del año porque me pareció que podían resultar.s
 
 
 En cuarto lugar  medí correlación para ver si podía sacar más variables pero al final no saqué ninguna. Explicar cómo queda el dataset final \todo[inline]{explicar medidas de correlación que tomé entre las variables}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  24 NOV 2024 13:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  24 NOV 2024 13:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -898,7 +898,7 @@ Package pdftex.def Info: images/latex_convive_sd_edad_vic.png  used on input lin
  [18 <./images/convive_edad_agresor.png> <./images/latex_convive_sd_edad_vic.png>] [19] [20] [21] [22]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 578.
+(hyperref)                than one, level fixed on input line 577.
 
 [23] [24] (./main.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 28--31
@@ -922,28 +922,28 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 <images/latex_llamados_por_provincia.png, id=409, 729.927pt x 469.755pt>
 File: images/latex_llamados_por_provincia.png Graphic file (type png)
 <use images/latex_llamados_por_provincia.png>
-Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 622.
+Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 621.
 (pdftex.def)             Requested size: 364.9626pt x 234.87692pt.
 <images/latex_caso_judicializado.png, id=410, 723.4227pt x 380.1402pt>
 File: images/latex_caso_judicializado.png Graphic file (type png)
 <use images/latex_caso_judicializado.png>
-Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 630.
+Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 629.
 (pdftex.def)             Requested size: 361.71046pt x 190.06963pt.
 <images/latex_nacionalidad_victima.png, id=411, 723.4227pt x 379.4175pt>
 File: images/latex_nacionalidad_victima.png Graphic file (type png)
 <use images/latex_nacionalidad_victima.png>
-Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 639.
+Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 638.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
  [26 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
 <images/latex_victima_discapacidad.png, id=418, 723.4227pt x 379.4175pt>
 File: images/latex_victima_discapacidad.png Graphic file (type png)
 <use images/latex_victima_discapacidad.png>
-Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 649.
+Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 648.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
 <images/latex_vinculo_llamante.png, id=419, 729.927pt x 453.8556pt>
 File: images/latex_vinculo_llamante.png Graphic file (type png)
 <use images/latex_vinculo_llamante.png>
-Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 659.
+Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 658.
 (pdftex.def)             Requested size: 364.9626pt x 226.92725pt.
  [27 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>] [28 <./images/latex_vinculo_llamante.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 12.
@@ -965,7 +965,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1924b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on main.pdf (30 pages, 1457793 bytes).
+Output written on main.pdf (30 pages, 1457862 bytes).
 PDF statistics:
  527 PDF objects out of 1000 (max. 8388607)
  419 compressed objects within 5 object streams
