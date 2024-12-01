@@ -4,45 +4,45 @@ The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: bibtex_reporte.bib
 Warning--empty journal in udilua2023encoding
-You've used 12 entries,
+You've used 14 entries,
             2773 wiz_defined-function locations,
-            663 strings with 7369 characters,
-and the built_in function-call counts, 4732 in all, are:
-= -- 393
-> -- 263
-< -- 8
-+ -- 93
-- -- 81
-* -- 346
-:= -- 748
-add.period$ -- 34
-call.type$ -- 12
-change.case$ -- 58
-chr.to.int$ -- 12
-cite$ -- 25
-duplicate$ -- 223
-empty$ -- 421
-format.name$ -- 94
-if$ -- 977
+            678 strings with 7635 characters,
+and the built_in function-call counts, 5605 in all, are:
+= -- 481
+> -- 283
+< -- 11
++ -- 101
+- -- 87
+* -- 401
+:= -- 872
+add.period$ -- 40
+call.type$ -- 14
+change.case$ -- 66
+chr.to.int$ -- 14
+cite$ -- 29
+duplicate$ -- 272
+empty$ -- 506
+format.name$ -- 102
+if$ -- 1170
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 11
-newline$ -- 66
-num.names$ -- 48
-pop$ -- 147
+missing$ -- 13
+newline$ -- 76
+num.names$ -- 56
+pop$ -- 163
 preamble$ -- 1
-purify$ -- 49
+purify$ -- 55
 quote$ -- 0
-skip$ -- 172
+skip$ -- 210
 stack$ -- 0
-substring$ -- 126
-swap$ -- 11
-text.length$ -- 0
+substring$ -- 187
+swap$ -- 22
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 117
+type$ -- 139
 warning$ -- 1
-while$ -- 43
+while$ -- 54
 width$ -- 0
-write$ -- 150
+write$ -- 176
 (There was 1 warning)

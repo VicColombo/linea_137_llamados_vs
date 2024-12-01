@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{14}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -24,6 +24,11 @@ Claudia Garc{\'\i}a-Moreno, Henrica~AFM Jansen, Mary Ellsberg, Lori Heise, Charl
 \newblock \emph{WHO multi-country study on women’s health and domestic violence against women}.
 \newblock World Health Organization, 2005.
 
+\bibitem[Gower(1971)]{gower1971general}
+John~C Gower.
+\newblock A general coefficient of similarity and some of its properties.
+\newblock \emph{Biometrics}, pages 857--871, 1971.
+
 \bibitem[Kruskal(1964)]{kruskal1964nonmetric}
 Joseph~B Kruskal.
 \newblock Nonmetric multidimensional scaling: a numerical method.
@@ -38,6 +43,11 @@ Joseph~B Kruskal.
 Jodie Murphy-Oikonen, Karen McQueen, Ainsley Miller, Lori Chambers, and Alexa Hiebert.
 \newblock Unfounded sexual assault: Women’s experiences of not being believed by the police.
 \newblock \emph{Journal of interpersonal violence}, 37\penalty0 (11-12):\penalty0 NP8916--NP8940, 2022.
+
+\bibitem[Podani(1999)]{podani1999extending}
+J{\'a}nos Podani.
+\newblock Extending gower's general coefficient of similarity to ordinal characters.
+\newblock \emph{Taxon}, 48\penalty0 (2):\penalty0 331--340, 1999.
 
 \bibitem[Rubin(1976)]{rubin1976inference}
 Donald~B Rubin.

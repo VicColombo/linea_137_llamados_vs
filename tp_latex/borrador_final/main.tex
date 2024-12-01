@@ -450,19 +450,17 @@ El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimiz
 
 La elección del algoritmo de NMDS para este trabajo está motivada por la flexibilidad del método con respecto a la matriz de distancias inicial que admite. Dada la variabilidad en el conjunto de datos, elegí calcular entre ellos la distancia de Gower, una medida de distancia no métrica que puede tomarse entre variables de distinto tipo.\todo[inline]{quizás esta motivación va al comienzo del trabajo} 
 
-Para variables categóricas, la similitud entre dos puntos x1 y x2 en la variable categórica j se computa como 0 si los valores son idénticos (no hay distancia) y 1 si no lo son (máxima distancia). 
-Para variables numéricas se toma el valor absoluto de la diferencia entre los \textit{datapoints} x1 y x2 en la variáble numérica j, y se lo divide por el rango de j, resultando en un valor entre 0 y 1.\footnote{Trabajos posteriores al trabajo original de Gower (1971) proponen un tratamiento especial para las variables numéricas ordinales que es largamente aceptado y aplicado en la comunidad (CITA). Sin embargo la librería gower de sikit learn trata a las varaibles ordinales como variables numéricas normales, aplicando la fórmula explicada en este párrafo. Por lo tanto, no entro en detalles aquí sobre el cáluclo para variables ordinales.} 
+Para variables categóricas, la similitud entre dos puntos \(i\) y \(j\) se computa como 0 si los valores son idénticos (no hay distancia, máxima similitud) y 1 si no lo son (no hay similutud, máxima distancia). 
+Para variables numéricas se divide el valor absoluto de la diferencia entre dos puntos \(i\) y \(j\) por el rango de la variable, resultando en un valor entre 0 y 1:   
 
-Luego, para cada fila de datos se calcula primero la similitud entre los datos por cada variable, aplicando distintos cálculos según el tipo de variable. Luego se hace una agregación de esos cálculos de similitud por tipo de variable para la medida de distancia final entre filas. La matriz de distancias resultante
+\[s_{ijk} = 1-\frac{|x_{i} - x_{j}|}{R_{k}}\]
+Este mismo cálculo se aplica en variables ordinales.\footnote{Si bien \cite{podani1999extending} propone un tratamiento especial para las variables ordinales largamente utilizado hoy en día, la librería gower de sikit learn que utilizo en este trabajo trata a las variables ordinales como variables numéricas como en el trabajo original de Gower. (ver \url{https://sourceforge.net/projects/gower-distance-4python/files/}).} 
 
+Luego, se calcula la matriz de similitud final con:
 
-Donde:
-\begin{itemize}
-    \item 
-\end{itemize}
+\[S(i,j) = \frac{\sum_{k=1}^{p}  s_{ijk}}{\sum_{k=1}^{p} \delta_{ijk}}\]
 
-
-\todo[inline]{fórmula y explicación de la distancia de Gower} 
+Donde \(s_{ijk}\) es la similitud (o distancia) entre dos individuos o filas \(i\), \(j\) en la variable \(k\). Y \(\delta_{ijk}\) es la cantidad total de variables o la cantidad total de variables en las que puede realizarse la comparación \citetext{\citealp[p. 859-860]{gower1971general}}. \(S(i,j)\) es una matriz cuadrada con diagonal cero, que representa las distancias entre cada par de filas del conjunto de datos.
 
 La librería gower \todo[inline]{citar libreria}, que utilicé para obtener la matriz de distancias, no admite datos vacíos. Esto representó un problema para lidiar con las variables de edad en el conjunto de datos, las únicas con celdas vacías. Las posibles soluciones incluían categorizar los datos de edad para entonces asignar un valor \texttt{NSNC} a las celdas vacías, o eliminar las variables de edad. Para comparar ambas soluciones y compararlas según los valores de \textit{stress} y la performance de los modelos de SVM resultantes, creé dos \textit{datasets} sobre los que luego calculé la matriz de distancias de Gower: 
 \begin{itemize}
