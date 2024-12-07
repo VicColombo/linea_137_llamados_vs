@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {2}Datos}{5}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Obtención y limpieza}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Exploración}{5}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Análisis multivariado de \textit {victima\_convive\_agresor}}{14}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1}Análisis multivariado de \texttt {victima\_convive\_agresor}}{14}{subsubsection.2.2.1}%
 \contentsline {section}{\numberline {3}Metodología}{19}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Reducción de los datos con NMDS}{19}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Reducción manual de los datos}{21}{subsection.3.2}%

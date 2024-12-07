@@ -101,7 +101,7 @@ Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 
     \item Intervenciones domiciliarias por situaciones de violencia sexual
 \end{itemize}
 
-En este trabajo analizo llamados a la línea 137 para reportar violencia sexual entre 2017 y 2021. Los registros  presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta en lugar de sí o no en algunas variables categóricas. De particular interés para este trabajo es la variable \textit{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \textit{SI}, \textit{NO}, y \textit{NS/NC}.
+En este trabajo analizo llamados a la línea 137 para reportar violencia sexual entre 2017 y 2021. Los registros  presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta en lugar de sí o no en algunas variables categóricas. De particular interés para este trabajo es la variable \texttt{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC}.
 
 \subsection{Objetivos}
 
@@ -109,42 +109,44 @@ Mis objetivos para este trabajo son:\todo[inline]{separar con subtítulos objeti
 
 \begin{itemize}
     \item Analizar los datos para determinar si existen patrones y asociaciones que permitan caracterizar a la población de víctimas que convive con su agresor y la que no lo hace.
-    \item Entrenar un modelo predictivo que trate como datos faltantes las respuestas \textit{NS/NC} en la variable \textit{victima\_convive\_agresor} y los clasifique como \textit{SI} o \textit{NO}. 
+    \item Entrenar un modelo predictivo que trate como datos faltantes las respuestas \texttt{NS/NC} en la variable 
+    
+    \texttt{victima\_convive\_agresor} y los clasifique como \texttt{SI} o \texttt{NO}. 
     \item En particular, entrenar un modelo de Máquinas de Soporte Vectorial.\footnote{En adelante, \textit{SVM} por sus siglas en inglés: \textit{Support Vector Machine}.}  
     \item Contrastar dos tipos de preprocesamientos de los datos para entrenar el modelo: el primero utilizando el método de ordenamiento y reducción de dimensionalidad de Escalamiento Multidimensional No-Métrico.\footnote{En adelante, \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}; el segundo, reduciendo dimensiones de los datos de manera manual,a través de la eliminación, agrupación y transformación de las variables.} \todo[inline]{donde menciono el paper que usa NMDS para SVM?}
 
 \end{itemize}
 
 \todo[inline]{en algún lado listar código y librerías}
-\todo[inline]{pasar todas las varables y valores de texit a texttt}
+\todo[inline]{pasar todas las variables y valores de texit a texttt}
 \section{Datos}\label{datos}
 
 \subsection{Obtención y limpieza}\label{limpieza}
-Descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 \textit{datasets} en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
+Descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 conjuntos de datos en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
 
-Una vez descargados, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas\footnote{La limpieza, normalización, y preprocesamiento del \textit{dataset} y la aplicación de los métodos exploratorios y predictivos fueron realizados en Python}:
+Una vez descargados, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas\footnote{La limpieza, normalización, y preprocesamiento de los datos y la aplicación de los métodos exploratorios y predictivos fueron realizados en Python}:
 
 \begin{itemize}
-    \item Eliminé la variable \textit{caso\_id}, que solo existe a partir de 2020.
-    \item Cambié el nombre de la variable \textit{llamado\_provincia\_indec\_id} en los \textit{datasets} de 2017, 2018, y 2019 a su equivalente en 2020 y 2021: \textit{llamado\_provincia\_id}.
+    \item Eliminé la variable \texttt{caso\_id}, que solo existe a partir de 2020.
+    \item Cambié el nombre de la variable \texttt{llamado\_provincia\_indec\_id} en los \textit{datasets} de 2017, 2018, y 2019 a su equivalente en 2020 y 2021: \texttt{llamado\_provincia\_id}.
 \end{itemize}
 
-El siguiente paso fue limpiar el \textit{dataset} unificado de inconsistencias y errores de carga varios: 
+El siguiente paso fue limpiar el conjunto de datos unificado de inconsistencias y errores de carga varios: 
 \begin{itemize}
-    \item Unifiqué para todas las variables pertinentes los valores \textit{SI}, \textit{NO}, y \textit{NS/NC} dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, etc.
-    \item Unifiqué en la variable \textit{victima\_vinculo\_agresor} el valor \textit{Ex pareja de la víctima} que aparecía también como \textit{Ex pareja}, \textit{Ex-pareja de la víctima} y \textit{Expareja de la víctima}, otro tanto hice con \textit{Pareja de la víctima} que presentaba variaciones similares.
-    \item Unifiqué en \textit{hecho\_lugar} dos variaciones de una misma categoría: \textit{Otra institución}, y \textit{Otra Institución}, optando por la primera forma.
-    \item Sustituí todos los valores \textit{Sin datos} por \textit{NS/NC} por considerarlos equivalentes.
-    \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo \textit{Madre} =/= \textit{  Madre} 
-    \item Convertí en la variable \textit{llamante\_vinculo} el valor \textit{Vecino} a \textit{Vecina/o}, ya que  no necesariamente se refiere unívocamente a personas de género masculino.
-    \item Unifiqué en \textit{llamado\_provincia} “Ciudad Autónoma de Buenos Aires” y “CABA” optando por “CABA”. 
+    \item Unifiqué para todas las variables pertinentes los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} dejándolos en mayúscula, ya que aparecían en distintos formatos: minúscula, mayúscula inicial, etc.
+    \item Unifiqué en la variable \texttt{victima\_vinculo\_agresor} el valor \texttt{Ex pareja de la víctima} que aparecía también como \texttt{Ex pareja}, \texttt{Ex-pareja de la víctima} y \texttt{Expareja de la víctima}, otro tanto hice con \texttt{Pareja de la víctima} que presentaba variaciones similares.
+    \item Unifiqué en \texttt{hecho\_lugar} dos variaciones de una misma categoría: \texttt{Otra institución}, y \texttt{Otra Institución}, optando por la primera forma.
+    \item Sustituí todos los valores \texttt{Sin datos} por \texttt{NS/NC} por considerarlos equivalentes.
+    \item Quité espacios de comienzo y final de \textit{strings} para solucionar problemas del tipo \texttt{Madre} =/= \texttt{  Madre} 
+    \item Convertí en la variable \texttt{llamante\_vinculo} el valor \texttt{Vecino} a \texttt{Vecina/o}, ya que no necesariamente se refiere unívocamente a personas de género masculino.
+    \item Unifiqué en \texttt{llamado\_provincia} “Ciudad Autónoma de Buenos Aires” y “CABA” optando por “CABA”. 
     \item Corregí en \textit{llamado\_provincia }las instancias de “Santa Fé” a “Santa Fe”.
 
 \end{itemize}
 
 \subsection{Exploración}\label{exploración}
 
-El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, el agresor, la persona que llama para reportar el hecho, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
+El conjunto de datos unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, el agresor, la persona que llama para reportar el hecho, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
 
 \begin{table}[H]
     \centering
@@ -181,7 +183,7 @@ El \textit{dataset} final unificado consta de 19143 observaciones y 54 variables
     \end{tabular}
 \end{table}
 
-Las variables que describen la violencia sexual sufrida y otras formas de violencia reportadas pueden tomar los valores \textit{SI} o \textit{NO}, siendo este último el valor más común, como se aprecia más abajo en las figuras \ref{vssino} y \ref{ofvsino} que muestran la distribución de respuestas para violencia sexual y otras formas de violencia respectivamente. Es interesante notar el volumen de respuestas positivas de las categorías \textit{vs\_no\_sabe\_no\_contesta} y \textit{ofv\_no\_sabe\_no\_contesta}. Es decir, en gran cantidad de llamados se reporta una forma de violencia (sexual o no) sufrida, pero no se puede reportar qué forma. A lo largo de esta sección se observa esta prevalencia de respuestas de tipo \textit{NS/NC} en casi todas las variables.
+Las variables que describen la violencia sexual sufrida y otras formas de violencia reportadas pueden tomar los valores \texttt{SI} o \texttt{NO}, siendo este último el valor más común, como se aprecia más abajo en las figuras \ref{vssino} y \ref{ofvsino} que muestran la distribución de respuestas para violencia sexual y otras formas de violencia respectivamente. Es interesante notar el volumen de respuestas positivas de las categorías \texttt{vs\_no\_sabe\_no\_contesta} y \texttt{ofv\_no\_sabe\_no\_contesta}. Es decir, en gran cantidad de llamados se reporta una forma de violencia (sexual o no) sufrida, pero no se puede reportar qué forma. A lo largo de esta sección se observa esta prevalencia de respuestas de tipo \texttt{NS/NC} en casi todas las variables.
 
 \begin{figure}[H]
 \begin{center}
@@ -204,21 +206,23 @@ Las variables que describen la violencia sexual sufrida y otras formas de violen
 Las variables \texttt{victima\_edad} y \texttt{llamante\_edad} presentaban valores atípicos positivos, no solo identificables por superar la barrera de \(3*IQR\), sino también y principalmente por ser valores incongruentes con la edad de una persona. Por lo tanto, removí todos los valores por encima de 110 para ambas variables, y todos los valores por debajo de 1 para \texttt{llamante\_edad} (si existen víctimas que presentan edad 0, considero que se trata de menores que aún no alcanzan el año). Los valores removidos y su cantidad para cada variable pueden verse en el cuadro 2, \nameref{tabla_out}. Se puede comprobar allí que la mayoría eran 999 en ambas variables, muy probablemente un valor por defecto ingresado para no dejar el campo vacío. En total, removí 195 valores en \texttt{llamante\_edad}, y 101 valores en \texttt{victima\_edad}. 
 
 
-\begin{table}[H] 
+
+\begin{table}[H]
     \centering
     \caption{Outliers en variables de edad.}
     \label{tabla_out}
-    \begin{tabular}{|l|c|c|}
+    \begin{tabular}{lcc}
     \hline
-    \textbf{Variable}                        & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
-    \multirow{2}{*}{llamante\_edad} & 999     & 192               \\ \cline{2-3} 
-                                    & 0       & 3                 \\ \hline
-    \multirow{4}{*}{victima\_edad}  & 999     & 98                \\ \cline{2-3} 
-                                    & 224     & 1                 \\ \cline{2-3} 
-                                    & 125     & 1                 \\ \cline{2-3} 
-                                    & 111     & 1                 \\ \hline
+    \multicolumn{1}{c}{\textbf{Variable}} & \textbf{Outlier} & \textbf{Cantidad de filas} \\ \hline
+    \multirow{2}{*}{llamante\_edad}       & 999              & 192                        \\
+                                          & 0                & 3                          \\ \hline
+    \multirow{4}{*}{victima\_edad}        & 999              & 98                         \\
+                                          & 224              & 1                          \\
+                                          & 125              & 1                          \\
+                                          & 111              & 1                          \\ \hline
     \end{tabular}
     \end{table}
+
 
 Una vez removidos estos valores, tomé las medidas descriptivas de las variables de edad que se observan en el cuadro \ref{tabla_descr_ed}. Se puede ver que la mayoría de las víctimas no supera los 21 años, con una media de 17 y una moda de 14. Las personas que llaman para reportar los casos, en cambio, son en su mayoría adultos, con una media de 36 años, y una moda de 40. Esto refuerza lo mencionado en la introducción de hallazgos de otros estudios de que las personas más jóvenes y sobre todo los adolescentes e infantes son los grupos más en riesgo de ser víctimas de violencia sexual. 
 
@@ -253,14 +257,14 @@ Para explorar patrones en la distribución temporal de los llamados realicé el 
     \end{center}
     \end{figure}
 
-Además, construí las variables \textit{estación del año}, \textit{fin de semana}, y \textit{momento del día} para explorar la posibilidad de otros patrones en los llamados. Observé que una mayor proporción de llamados ocurren durante la semana (80\%) y por la tarde (38\%). No observé disparidad significativa en la distribución de llamados de acuerdo a las estaciones del año.
+Además, construí las variables \texttt{estación del año}, \texttt{fin de semana}, y \texttt{momento del día} para explorar la posibilidad de otros patrones en los llamados. Observé que una mayor proporción de llamados ocurren durante la semana (80\%) y por la tarde (38\%). No observé disparidad significativa en la distribución de llamados de acuerdo a las estaciones del año.
 
 
-Según la distribución de la variable \textit{llamado\_provincia}, la mayoría de los llamados provienen de la Ciudad Autónoma (37\%) y la Provincia de Buenos Aires (36\%). Del 9\% no se cuentan con datos (respuestas \textit{NS/NC}); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una.\footnote{Ver figura \ref{provincia} en el \nameref{anex}.}
+Según la distribución de la variable \texttt{llamado\_provincia}, la mayoría de los llamados provienen de la Ciudad Autónoma (37\%) y la Provincia de Buenos Aires (36\%). Del 9\% no se cuentan con datos (respuestas \texttt{NS/NC}); y el restante 18\% se reparte entre las restantes provincias del país, siendo de ese grupo Córdoba y Santa Fé las que más llamados tienen, con un 3\% cada una.\footnote{Ver figura \ref{provincia} en el \nameref{anex}.}
 
-Según la distribución de la variable \textit{caso\_judicializado}, el 46.7\% de los llamados no está asociado a un caso ya judicializado, el 39.7\% sí, y en el restante 13.4\% no se cuenta con datos de este tipo.\footnote{Ver figura \ref{casojudicializado} en el \nameref{anex}.} 
+Según la distribución de la variable \texttt{caso\_judicializado}, el 46.7\% de los llamados no está asociado a un caso ya judicializado, el 39.7\% sí, y en el restante 13.4\% no se cuenta con datos de este tipo.\footnote{Ver figura \ref{casojudicializado} en el \nameref{anex}.} 
 
-En cuanto a la variable \textit{hecho\_lugar}, como ilustra el gráfico de barras de la figura \Ref{hecholugar}, para aproximadamente el 30\% de los llamados no se cuenta con datos (respuestas \textit{NS/NC}); luego, el 25\% los hechos suceden en la vivienda de la víctima y el 13\% en la vivienda del agresor. La cuarta categoría más reportada, con el 12\%, es \textit{redes sociales}. El restante 20\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios. La elevada proporción de casos que suceden en la vivienda de la víctima, es un dato que acompaña lo ya dicho en la \nameref{intro} sobre la mayoría de los hechos de violencia sexual ocurriendo más bien en el entorno de la víctima antes que involucrar personas y lugares desconocidos. 
+En cuanto a la variable \texttt{hecho\_lugar}, como ilustra el gráfico de barras de la figura \Ref{hecholugar}, para aproximadamente el 30\% de los llamados no se cuenta con datos (respuestas \texttt{NS/NC}); luego, el 25\% los hechos suceden en la vivienda de la víctima y el 13\% en la vivienda del agresor. La cuarta categoría más reportada, con el 12\%, es \textit{redes sociales}. El restante 20\% se divide entre categorías de espacios públicos (plazas, descampados, etc.), transporte, y ámbito educativo, entre otros sitios. La elevada proporción de casos que suceden en la vivienda de la víctima, es un dato que acompaña lo ya dicho en la \nameref{intro} sobre la mayoría de los hechos de violencia sexual ocurriendo más bien en el entorno de la víctima antes que involucrar personas y lugares desconocidos. 
 
 \begin{figure}[H]
     \begin{center}
@@ -271,9 +275,9 @@ En cuanto a la variable \textit{hecho\_lugar}, como ilustra el gráfico de barra
     \end{figure}
 
 
-Llama la atención la cuarta categoría más presente en \textit{hecho\_lugar}, los casos sucedidos en redes sociales. Dada la media de edad de las víctimas que reporté más arriba, se podría hipotetizar sobre la relación entre estas variables: la población joven pasa más tiempo en redes sociales y entonces es más propensa a sufrir violencia sexual en ese lugar; o las redes sociales son lugares donde proliferan más los actos de violencia sexual por alguna(s) característica(s) intrínseca(s) de las redes mismas. 
+Llama la atención la cuarta categoría más presente en \texttt{hecho\_lugar}, los casos sucedidos en redes sociales. Dada la media de edad de las víctimas que reporté más arriba, se podría hipotetizar sobre la relación entre estas variables: la población joven pasa más tiempo en redes sociales y entonces es más propensa a sufrir violencia sexual en ese lugar; o las redes sociales son lugares donde proliferan más los actos de violencia sexual por alguna(s) característica(s) intrínseca(s) de las redes mismas. 
 
-%Para explorar este fenómeno, crucé en la figura \ref{redes}  esa categoría de \textit{hecho\_lugar} con los tipos de violencia sufrida y las edades de las víctimas agrupadas cualitativamente en Niñez (0 a 11 años), Adolescencia (12 a 18 años), Juventud (19 a 30 años), Adultez (31 a 65 años), y Vejez (mayores de 65). Observé que la mayor cantidad de casos corresponden al tipo de violencia \textit{grooming} en primer lugar, y en segundo lugar a la categoría \textit{ofv\_no\_sabe\_no\_contesta}. Además, aunque con conteos mucho más bajos, aparecen también otras formas de violencia esperables en el contexto de redes sociales como: \textit{ofv\_sentimiento\_amenaza}, \textit{vs\_explotacion\_sexual}, o \textit{ofv\_amenaza\_explicita}. En todos estos casos alrededor del 90\% de las víctimas son niñes o adolescentes. Si bien por la distribución de la variable \textit{victima\_edad} cabría esperar mayor cantidad de víctimas de estos grupos etarios, en el caso de los hechos sucedidos en redes sociales, este dato podría estar asociado con el mayor uso de redes sociales por parte de este sector de la población. 
+%Para explorar este fenómeno, crucé en la figura \ref{redes}  esa categoría de \texttt{hecho\_lugar} con los tipos de violencia sufrida y las edades de las víctimas agrupadas cualitativamente en Niñez (0 a 11 años), Adolescencia (12 a 18 años), Juventud (19 a 30 años), Adultez (31 a 65 años), y Vejez (mayores de 65). Observé que la mayor cantidad de casos corresponden al tipo de violencia \textit{grooming} en primer lugar, y en segundo lugar a la categoría \textit{ofv\_no\_sabe\_no\_contesta}. Además, aunque con conteos mucho más bajos, aparecen también otras formas de violencia esperables en el contexto de redes sociales como: \textit{ofv\_sentimiento\_amenaza}, \textit{vs\_explotacion\_sexual}, o \textit{ofv\_amenaza\_explicita}. En todos estos casos alrededor del 90\% de las víctimas son niñes o adolescentes. Si bien por la distribución de la variable \texttt{victima\_edad} cabría esperar mayor cantidad de víctimas de estos grupos etarios, en el caso de los hechos sucedidos en redes sociales, este dato podría estar asociado con el mayor uso de redes sociales por parte de este sector de la población. 
 
 %\begin{figure}[H]
 %    \begin{center}
@@ -284,10 +288,10 @@ Llama la atención la cuarta categoría más presente en \textit{hecho\_lugar}, 
 %    \end{figure}
 
 
-La nacionalidad de las víctimas, informada por \textit{victima\_nacionalidad}, se distribuye de la siguiente manera: el 80\% de las víctimas son argentinas; del 15\% no se cuenta con datos; y el restante 5\% se divide entre las nacionalidades boliviana, paraguaya, peruana, brasileña, uruguaya, chilena, y la categoría “otra”.\footnote{Ver figura \ref{nacionalidad} en el \nameref{anex}}
+La nacionalidad de las víctimas, informada por \texttt{victima\_nacionalidad}, se distribuye de la siguiente manera: el 80\% de las víctimas son argentinas; del 15\% no se cuenta con datos; y el restante 5\% se divide entre las nacionalidades boliviana, paraguaya, peruana, brasileña, uruguaya, chilena, y la categoría “otra”.\footnote{Ver figura \ref{nacionalidad} en el \nameref{anex}}
 
 
-Según la distribución de \textit{victima\_discapidad}, para el 53.7\% de las víctimas no se cuenta con datos, el 43.2\% no posee discapacidad, y el 2.9\% sí\footnote{Ver figura \ref{discapacidad} en el \nameref{anex}}. 
+Según la distribución de \texttt{victima\_discapidad}, para el 53.7\% de las víctimas no se cuenta con datos, el 43.2\% no posee discapacidad, y el 2.9\% sí\footnote{Ver figura \ref{discapacidad} en el \nameref{anex}}. 
 
 
 En cuanto al género de las víctimas, en el gráfico de barras de la figura \Ref{genero}, se ve reforzado lo establecido en la Introducción sobre la distribución de género en las víctimas: el 77.6\% de las víctimas son mujeres, el 18.4\% hombres, del 3.7\% no se tienen datos, y el 0.14\% son personas transgénero. 
@@ -300,7 +304,7 @@ En cuanto al género de las víctimas, en el gráfico de barras de la figura \Re
     \end{center}
     \end{figure}
 
-Los vínculos entre víctimas y agresores nuevamente reflejan la persistencia de los hechos de violencia sexual perpetuados por personas del entorno de las víctimas. En el gráfico de barras de la figura \Ref{vinculoagresor} para la variable \textit{victima\_vinculo\_agresor} se observa la distribución en las diferentes categorías vinculares. Pero además la tendencia se evidencia aún más al reagrupar las categorías de la variable en \textit{Conocido familiar}, \textit{Conocido no familiar} (categoría ya presente en la variable original) \textit{Desconocido}, y \textit{NS/NC}. Mientras que 15.4\% de los agresores son declarados como desconocidos; entre familiares (47.4\%) y no familiares (19.7\%), los agresores conocidos por la víctima suman un 67.1\%. El número podría incluso ser más elevado si consideramos que podría haber agresores conocidos también como parte del 17.2\% de los \textit{NS/NC}.
+Los vínculos entre víctimas y agresores nuevamente reflejan la persistencia de los hechos de violencia sexual perpetuados por personas del entorno de las víctimas. En el gráfico de barras de la figura \Ref{vinculoagresor} para la variable \texttt{victima\_vinculo\_agresor} se observa la distribución en las diferentes categorías vinculares. Pero además la tendencia se evidencia aún más al reagrupar las categorías de la variable en \texttt{Conocido familiar}, \texttt{Conocido no familiar} (categoría ya presente en la variable original) \texttt{Desconocido}, y \texttt{NS/NC}. Mientras que 15.4\% de los agresores son declarados como desconocidos; entre familiares (47.4\%) y no familiares (19.7\%), los agresores conocidos por la víctima suman un 67.1\%. El número podría incluso ser más elevado si consideramos que podría haber agresores conocidos también como parte del 17.2\% de los \texttt{NS/NC}.
 
 
 
@@ -323,11 +327,11 @@ Los vínculos entre víctimas y agresores nuevamente reflejan la persistencia de
 
 
 
- En la variable \textit{vinculo\_llamante\_victima}, el 24.9\% de los llamados provienen de comisarías, el 17.2\% de un familiar de la víctima (otro familiar que no pertenezca a las categorías: \textit{Madre}, \textit{Padre}, \textit{Abuela/o}, o \textit{Hermana/o}), el 16\% de los llamantes son madres de las víctimas, y el 14.2\% lo constituyen las propias víctimas. El resto de las categorías son otros conocidos de las víctimas, padres, vecinos, abuelos, hermanos, otras instituciones, o \textit{NS/NC} todas con menos del 10\%. Por último, los llamados provenientes de escuelas, defensorías y los mismos agresores suman menos del 1\%.\footnote{Ver figura \ref{vinculollamante} en el \nameref{anex}}
+ En la variable \texttt{vinculo\_llamante\_victima}, el 24.9\% de los llamados provienen de comisarías, el 17.2\% de un familiar de la víctima (otro familiar que no pertenezca a las categorías: \texttt{Madre}, \texttt{Padre}, \texttt{Abuela/o}, o \texttt{Hermana/o}), el 16\% de los llamantes son madres de las víctimas, y el 14.2\% lo constituyen las propias víctimas. El resto de las categorías son otros conocidos de las víctimas, padres, vecinos, abuelos, hermanos, otras instituciones, o \texttt{NS/NC} todas con menos del 10\%. Por último, los llamados provenientes de escuelas, defensorías y los mismos agresores suman menos del 1\%.\footnote{Ver figura \ref{vinculollamante} en el \nameref{anex}}
 
 
 
-En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontré en el análisis univariado que puede verse en el gráfico de barras de la figura \Ref{convivencia}, que quiénes sí conviven con su agresor son minoría, 14.3\%; mientras que el 64.4\% no convive con su agresor. El restante 21.19\% las respuestas son \textit{NS/NC}, la categoría que más adelante intento predecir como \textit{SI} o \textit{NO}.  
+En cuanto a la variable de interés \texttt{victima\_convive\_agresor}, encontré en el análisis univariado que puede verse en el gráfico de barras de la figura \Ref{convivencia}, que quiénes sí conviven con su agresor son minoría, 14.3\%; mientras que el 64.4\% no convive con su agresor. El restante 21.19\% las respuestas son \texttt{NS/NC}, la categoría que más adelante intento predecir como \texttt{SI} o \texttt{NO}.  
 
 
 \begin{figure}[H]
@@ -339,18 +343,18 @@ En cuanto a la variable de interés \textit{victima\_convive\_agresor}, encontr�
     \end{figure}
 
 
-\subsubsection{Análisis multivariado de \textit{victima\_convive\_agresor}}\label{faltantes}
+\subsubsection{Análisis multivariado de \texttt{victima\_convive\_agresor}}\label{faltantes}
 
 
-Para un análisis multivariado seleccioné algunas variables que podían estar más relacionadas con \texttt{victima\_convive\_agresor}: 
-\texttt{hecho\_lugar}, \texttt{momento\_dia}, \texttt{victima\_vinculo\_agresor}, \texttt{llamante\_vinculo}, y \texttt{victima\_edad}. 
+Para un análisis multivariado seleccioné algunas variables que podían estar más relacionadas con 
+\texttt{victima\_convive\_agresor}: \texttt{hecho\_lugar}, \texttt{momento\_dia}, \texttt{victima\_vinculo\_agresor}, \texttt{llamante\_vinculo}, y \texttt{victima\_edad}. 
 
-Primero, realicé gráficos de barras para explorar la relación entre \textit{victima\_convive\_agresor} y las variables categóricas.
-Observé que la distribución original de \textit{victima\_convive\_agresor} (mayoría de respuestas \textit{NO} y minoría de \textit{SI}, con \textit{NS/NC} posicionado ordinalmente en el medio), se mantiene para casi todas las categorías de estas variables con las siguientes excepciones. En primer lugar, como se ve en la figura \ref{hecholugconvive}, cuando los hechos suceden en la vivienda de la víctima, hay más casos en los que la víctima sí convive con el agresor y la distribución pasa a ser \textit{NO}, \textit{SI}, \textit{NS/NC}. Lo mismo sucede cuando los hechos ocurren en la vivienda del agresor, aunque en ese caso la proporción de \textit{SI} supera por muy poco la proporción de \textit{NS/NC}. 
+Primero, realicé gráficos de barras para explorar la relación entre \texttt{victima\_convive\_agresor} y las variables categóricas.
+Observé que la distribución original de \texttt{victima\_convive\_agresor} (mayoría de respuestas \texttt{NO} y minoría de \texttt{SI}, con \texttt{NS/NC} posicionado ordinalmente en el medio), se mantiene para casi todas las categorías de estas variables con las siguientes excepciones. En primer lugar, como se ve en la figura \ref{hecholugconvive}, cuando los hechos suceden en la vivienda de la víctima, hay más casos en los que la víctima sí convive con el agresor y la distribución pasa a ser \texttt{NO}, \texttt{SI}, \texttt{NS/NC}. Lo mismo sucede cuando los hechos ocurren en la vivienda del agresor, aunque en ese caso la proporción de \texttt{SI} supera por muy poco la proporción de \texttt{NS/NC}. 
 
-En segundo lugar, en la figura \ref{agrvincconvive} se observa que para la mayor parte de los casos en los que el agresor es parte de la familia de la víctima (\textit{Abuelo}, \textit{Hermana}, \textit{Hermano}, \textit{Madrastra}, \textit{Madre}, \textit{Padrastro}, \textit{Pareja de la víctima}), los casos en que la víctima convive son más que los casos en los que no hay respuesta sobre la situación convivencial. Sin embargo, solo en las categorías \textit{Madre}, \textit{Padrastro}, y \textit{Pareja de la víctima} los casos en que las víctimas conviven con sus agresores superan a los casos en los que no lo hacen.
+En segundo lugar, en la figura \ref{agrvincconvive} se observa que para la mayor parte de los casos en los que el agresor es parte de la familia de la víctima (\texttt{Abuelo}, \texttt{Hermana}, \texttt{Hermano}, \texttt{Madrastra}, \texttt{Madre}, \texttt{Padrastro}, \texttt{Pareja de la víctima}), los casos en que la víctima convive son más que los casos en los que no hay respuesta sobre la situación convivencial. Sin embargo, solo en las categorías \texttt{Madre}, \texttt{Padrastro}, y \texttt{Pareja de la víctima} los casos en que las víctimas conviven con sus agresores superan a los casos en los que no lo hacen.
 
-Por último, en la figura \ref{llamvincconvive}, se puede ver que para la categoría \textit{vecina/o} de \textit{llamante\_vinculo}, la tendencia de respuestas positivas y negativas también se invierte. Sobre esta variable se observa además que los valores de \textit{NS/NC} para \textit{victima\_convive\_agresor} son notablemente más altos cuando el llamado proviene de \textit{Otra institución} que no sea una escuela, comisaría, u hospital. 
+Por último, en la figura \ref{llamvincconvive}, se puede ver que para la categoría \texttt{vecina/o} de \texttt{llamante\_vinculo}, la tendencia de respuestas positivas y negativas también se invierte. Sobre esta variable se observa además que los valores de \texttt{NS/NC} para \texttt{victima\_convive\_agresor} son notablemente más altos cuando el llamado proviene de \texttt{Otra institución} que no sea una escuela, comisaría, u hospital. 
 
 
 \begin{figure}[H]
@@ -378,7 +382,7 @@ Por último, en la figura \ref{llamvincconvive}, se puede ver que para la catego
 \end{figure} 
 
 
-Luego realicé \textit{boxplots} comparativos y un detalle del análisis de cuartiles de \textit{victima\_edad} según cada categoría de \textit{victima\_convive\_agresor}. Como se ve en la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad}, las víctimas que conviven con el agresor son ligeramente más jóvenes que las que no lo hacen; y las víctimas de las que no se cuenta con datos sobre la convivencia parecen estar más cerca en edad de las que conviven. Sin embargo, estas diferencias en edad no parecen significativas\footnote{Realizo en la sección \nameref{met} un análsis más detallado con respecto a la correlación estadística entre la edad de la víctima y la variable de convivencia, entre otras.}. 
+Luego realicé \textit{boxplots} comparativos y un detalle del análisis de cuartiles de \texttt{victima\_edad} según cada categoría de \texttt{victima\_convive\_agresor}. Como se ve en la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad}, las víctimas que conviven con el agresor son ligeramente más jóvenes que las que no lo hacen; y las víctimas de las que no se cuenta con datos sobre la convivencia parecen estar más cerca en edad de las que conviven. Sin embargo, estas diferencias en edad no parecen significativas\footnote{Realizo en la sección \nameref{met} un análisis más detallado con respecto a la correlación estadística entre la edad de la víctima y la variable de convivencia, entre otras.}. 
 
 \begin{figure}[H]
     \begin{center}
@@ -391,7 +395,7 @@ Luego realicé \textit{boxplots} comparativos y un detalle del análisis de cuar
 
 \begin{table}[H]
     \begin{center}
-    \caption{Cuartiles de edad según categoría de \textit{victima\_convive\_agresor}.}
+    \caption{Cuartiles de edad según categoría de \texttt{victima\_convive\_agresor}.}
     \label{cuartilesconviveedad}
     \begin{tabular}{cccc}
     \hline
@@ -416,12 +420,12 @@ Evalué también una posible relación entre la edad de la víctima, el vínculo
     \end{figure}
 
 
-Por último, puse en relación \textit{victima\_convive\_agresor} con los valores faltantes en \textit{victima\_edad}, que representan el 9.82\%. Apliqué al conjunto de datos un filtro para incluir solamente las filas con casos vacíos de \textit{victima\_edad}, y generé el mismo gráfico de barras de la figura \Ref{convivencia} con esos datos. El resultado, que puede verse abajo en la figura \Ref{conviveedadfaltantevic}, muestra un aumento de los casos de respuesta \textit{NS/NC} para \textit{victima\_convive\_agresor}. En \textit{dataset} completo, \textit{NS/NC} representaba el 21.19\% en \textit{victima\_convive\_agresor}, cuando solo se observan los casos con datos faltantes de edad de la víctima, ese porcentaje sube a 57.49\%. Es decir, cuando no se tienen datos sobre la edad de la víctima, tampoco se los tiene en mayor medida sobre la situación convivencial entre la víctima y el agresor.
+Por último, puse en relación \texttt{victima\_convive\_agresor} con los valores faltantes en \texttt{victima\_edad}, que representan el 9.82\%. Apliqué al conjunto de datos un filtro para incluir solamente las filas con casos vacíos de \texttt{victima\_edad}, y generé el mismo gráfico de barras de la figura \Ref{convivencia} con esos datos. El resultado, que puede verse abajo en la figura \Ref{conviveedadfaltantevic}, muestra un aumento de los casos de respuesta \texttt{NS/NC} para \texttt{victima\_convive\_agresor}. En \textit{dataset} completo, \texttt{NS/NC} representaba el 21.19\% en \texttt{victima\_convive\_agresor}, cuando solo se observan los casos con datos faltantes de edad de la víctima, ese porcentaje sube a 57.49\%. Es decir, cuando no se tienen datos sobre la edad de la víctima, tampoco se los tiene en mayor medida sobre la situación convivencial entre la víctima y el agresor.
 
 \begin{figure}[H]
     \begin{center}
     \includegraphics[scale=.5]{images/latex_convive_sd_edad_vic.png}
-    \caption{Convivencia víctima-agresor en las filas de datos faltantes para \textit{victima\_edad}.}
+    \caption{Convivencia víctima-agresor en las filas de datos faltantes para \texttt{victima\_edad}.}
     \label{conviveedadfaltantevic}
     \end{center}
     \end{figure}
@@ -434,10 +438,12 @@ Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet
 
 \section{Metodología}\label{met}
 
-La extensa cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable objetivo, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Experimenté con dos métodos para reducir las dimensiones de los datos. Primero apliqué el método de NMDS para obtener un nuevo ordenamiento de los datos en un espacio de menor dimensión. Este paso cumple la doble función de obtener un \textit{dataset} reducido para entrenar un modelo de SVM, y, por otro lado, generar visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \textit{victima\_conive\_agresor}. En segundo lugar, realicé una reducción manual eliminando, agrupando, y transformando variables. Finalmente, para el entrenamiento de modelos de SVM que predigan los datos faltantes de la variable objetivo como \textit{SI} o \textit{NO}, utilicé distintos conjuntos de datos que varían según los dos tipos de reducciones aplicadas y distintos tipos de preprocesamientos para solventar los datos faltantes en las variables de edad.
+La extensa cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable objetivo, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Experimenté con dos metodologías para reducir las dimensiones de los datos. Primero apliqué el método de NMDS para obtener un nuevo ordenamiento de los datos en un espacio de menor dimensión. Este paso cumple la doble función de obtener un \textit{dataset} reducido para entrenar un modelo de SVM, y, por otro lado, generar visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \textit{victima\_conive\_agresor}. En segundo lugar, realicé una reducción “manual” de los datos, eliminando, agrupando, y transformando variables de manera más controlada, respondiendo a una exploración a conciencia de los datos. Finalmente, para el entrenamiento de modelos de SVM que predigan los datos faltantes de la variable objetivo como \texttt{SI} o \texttt{NO}, utilicé distintos conjuntos de datos que varían según los dos tipos de reducciones aplicadas y distintos tipos de preprocesamientos para solventar los datos faltantes en las variables de edad.
 
 
 \subsection{Reducción de los datos con NMDS}
+
+\subsubsection*{NMDS}
 
 El algoritmo de NMDS es un caso particular del algoritmo MDS (por sus siglas en inglés \textit{Multidimensional Scaling}), un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos representándolos en espacios de menor dimensión. En comparación con otros métodos de ordenamiento y reducción, el Escalamiento Multidimensional prioriza preservar en el nuevo espacio de dimensiones reducidas el ordenamiento relativo de las distancias (o diferencias) que existen entre los puntos en el espacio original \citetext{\citealp[p. 218]{aid}}.
 El algoritmo toma una matriz de distancias entre los puntos originales y calcula sus coordenadas en un espacio reducido a n-dimensiones (siendo en general \(n=2\) o \(n=3\) para facilitar la visualización), obteniendo la matriz de coordenadas \(X\), %En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica% 
@@ -448,7 +454,18 @@ que es a su vez transformada en una matriz con las disparidades \(\hat{d}_{ij}\)
 El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el \textit{stress}, es decir, minimizar la diferencia entre las distancias y las disparidades \citetext{\citealp[p. 117-123]{kruskal1964nonmetric}}. 
 
 
-La elección del algoritmo de NMDS para este trabajo está motivada por la flexibilidad del método con respecto a la matriz de distancias inicial que admite. Dada la variabilidad en el conjunto de datos, elegí calcular entre ellos la distancia de Gower, una medida de distancia no métrica que puede tomarse entre variables de distinto tipo.\todo[inline]{quizás esta motivación va al comienzo del trabajo} 
+Para realizar el ordenamiento con NMDS utilicé el método \texttt{mds} de la librería Sklearn.\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} Los parámetros relevantes para este método fueron:
+ 
+\begin{itemize}
+   \item \texttt{n\_dimensions}: las dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos. Realicé pruebas con valores de 2 a 7, y 20 (para probar un valor extremo).
+   \item \texttt{metric}: \texttt{False} para aplicar escalamiento no-métrico. 
+   \item \texttt{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \texttt{precomputed} que me permite pasarle directamente al método \texttt{fit\_transform} la matriz de distancias de Gower.
+   \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica, con la fórmula presentada más arriba.
+\end{itemize}
+
+\subsubsection*{Distancia de Gower}
+
+La elección del algoritmo de NMDS para este trabajo está motivada por la flexibilidad del método con respecto a la matriz de distancias inicial que admite. Dada la variabilidad en el conjunto de datos, elegí calcular entre ellos la distancia de Gower, una medida de similitud no métrica que puede tomarse entre variables de distinto tipo.
 
 Para variables categóricas, la similitud entre dos puntos \(i\) y \(j\) se computa como 0 si los valores son idénticos (no hay distancia, máxima similitud) y 1 si no lo son (no hay similutud, máxima distancia). 
 Para variables numéricas se divide el valor absoluto de la diferencia entre dos puntos \(i\) y \(j\) por el rango de la variable, resultando en un valor entre 0 y 1:   
@@ -462,33 +479,24 @@ Luego, se calcula la matriz de similitud final con:
 
 Donde \(s_{ijk}\) es la similitud (o distancia) entre dos individuos o filas \(i\), \(j\) en la variable \(k\). Y \(\delta_{ijk}\) es la cantidad total de variables o la cantidad total de variables en las que puede realizarse la comparación \citetext{\citealp[p. 859-860]{gower1971general}}. \(S(i,j)\) es una matriz cuadrada con diagonal cero, que representa las distancias entre cada par de filas del conjunto de datos.
 
-La librería gower \todo[inline]{citar libreria}, que utilicé para obtener la matriz de distancias, no admite datos vacíos. Esto representó un problema para lidiar con las variables de edad en el conjunto de datos, las únicas con celdas vacías. Las posibles soluciones incluían categorizar los datos de edad para entonces asignar un valor \texttt{NSNC} a las celdas vacías, o eliminar las variables de edad. Para comparar ambas soluciones y compararlas según los valores de \textit{stress} y la performance de los modelos de SVM resultantes, creé dos \textit{datasets} sobre los que luego calculé la matriz de distancias de Gower: 
+La librería que utilicé para el cálculo de la distancia de Gower\todo[inline]{citar} no admite datos vacíos, lo que generaba un impedimento para incluir las variables de edad (las únicas con datos vacíos) en el análisis sin mediar algún tipo de transformación o filtrado. Una posible solución, que llamé solución \texttt{A}, es transformar las variables de edad de numéricas a categóricas y llenar los faltantes con \texttt{NS/NC}. Otra solución, que llamé solución \texttt{B}, es eliminar los casos vacíos en las variables de edad. Ambas tienen la desventaja de la pérdida de información, ya sea por la agrupación de rangos de edad bajo categorías unificadoras o por la literal eliminación de casos. Creé dos \textit{datasets} siguiendo en cada uno una estrategia distinta:
 \begin{itemize}
-    \item \textit{dataset} A: las variables de edad están categorizadas, y los datos faltantes clasificados como \textit{NS/NC}.
-    \item  \textit{dataset} B: la variable \textit{llamante\_edad} es descartada, y también se descartan las filas con datos vacíos en la variable \textit{victima\_edad}.
+    \item \textit{dataset} A: las variables de edad están categorizadas, y los datos faltantes clasificados como \texttt{NS/NC}.
+    \item  \textit{dataset} B: la variable \textit{llamante\_edad} es descartada, y también se descartan las filas con datos vacíos en la variable \texttt{victima\_edad}.
 \end{itemize}
 
 La decisión que genera el \textit{dataset} B responde por un lado al supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, a que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\%, y dejar afuera estos últimos casos reduciría demasiado el conjunto de datos. 
 
+Una vez creados los conjuntos de datos A y B, calculé para cada uno la matriz de similitudes de Gower para luego aplicar NMDS y construir el modelo de SVM.\@ En \nameref{resultados} comparo y evalúo ambas soluciones según los valores de \textit{stress} para NMDS y según la performance de los modelos de SVM.
 
-Para realizar el ordenamiento con NMDS utilicé el método \texttt{mds} de la librería Sklearn.\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} Los parámetros relevantes para este método fueron:
- 
-\begin{itemize}
-   \item \texttt{n\_dimensions}: las dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos. Realicé pruebas con valores de 2 a 7, y 20. \todo[inline]{quizás esto de 20 no lo menciono}
-   \item \texttt{metric}: \texttt{False} para aplicar escalamiento no-métrico. 
-   \item \texttt{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \texttt{precomputed} que me permite pasarle directamente al método \texttt{fit\_transform} la matriz de distancias de Gower.
-   \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica, con la fórmula presentada más arriba.
-\end{itemize}
-
-Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \(\texttt{n\_components} = 2\) generé dos visualizaciones (una para cada conjunto de datos A y B) en las que mapeé con distintos colores los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías. Luego entrené, para cada \textit{datasets} A y B, y para cada ordenamiento de datos según los distintos valores de \texttt{n\_components} un modelo de SVM (ver más abajo la subsección \nameref{svm}).
-
+Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \(\texttt{n\_components} = 2\) generé dos visualizaciones (una para cada conjunto de datos A y B) en las que mapeé los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías. Luego entrené, para cada \textit{dataset} A y B, y para cada ordenamiento de datos según los distintos valores de \texttt{n\_components} un modelo de SVM (ver más abajo la subsección \nameref{svm}).
 
 
 \subsection{Reducción manual de los datos}\label{reduccionmanual}
 
-Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \textit{ofv\_uso\_arma\_blanca}, y \textit{ofv\_uso\_arma\_fuego}.
+Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \texttt{vs\_explotación\_sexual}, \texttt{vs\_explotación\_sexual\_comercial}, y \texttt{vs\_explotación\_sexual\_viajes\_turismo}. Teniendo en cuenta esto, reduje la cantidad de variables que describen los tipos de violencias sufridas de dos maneras. 
 
-Reduje entonces la cantidad de variables que describen los tipos de violencias sufridas de dos maneras. En primer lugar, eliminé las variables cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos. Las variables eliminadas fueron:
+En primer lugar, eliminé las variables cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos. Las variables eliminadas fueron:
 \begin{multicols}{2}
 \begin{itemize}
     \item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
@@ -508,7 +516,7 @@ Reduje entonces la cantidad de variables que describen los tipos de violencias s
 \end{itemize}
 \end{multicols}
 
-En segundo lugar, agrupé algunas de ellas en cuatro nuevas variables por dominio. En el cuadro \Ref{tablaagrup} a continuación resumo cada grupo de variables y la nueva variable que las reemplaza. 
+En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por dominio, como se puede ver en el cuadro \Ref{tablaagrup} a continuación. 
 
 
 \begin{table}[H]
@@ -531,7 +539,12 @@ En segundo lugar, agrupé algunas de ellas en cuatro nuevas variables por domini
     \end{table}
 
 
-En tercer lugar,problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
+A continuación, para descartar que se pudiera reducir aún más el número de variables en el conjunto de datos, tomé distintas medidas de correlación entre la variable \textit{target} \texttt{victima\_convive\_agresor} y el resto de las variables.
+
+
+correlación para ver si podía sacar más variables pero al final no saqué ninguna.
+
+    En tercer lugar,problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
 
 
 - provincia: con porcentaje que aparece cada provincia o con agrupación por zona del país. OK
@@ -552,7 +565,7 @@ Después quedaron las categoirías originales: vivienda de la víctima(25pct), v
 
 
 
-En cuarto lugar  medí correlación para ver si podía sacar más variables pero al final no saqué ninguna. Explicar cómo queda el dataset final \todo[inline]{explicar medidas de correlación que tomé entre las variables}
+Explicar cómo queda el dataset final \todo[inline]{explicar medidas de correlación que tomé entre las variables}
 
 
 
