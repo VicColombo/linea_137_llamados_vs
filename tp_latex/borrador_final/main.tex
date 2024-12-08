@@ -570,15 +570,30 @@ En el cuadro \Ref{biserial} se pueden apreciar los resultados de la correlación
     \end{table}
 
 
-El cálculo del coeficiente $\Phi$ de correlación entre la variable objetivo y las variables binarias (todas las indicadoras del tipo de violencia, \texttt{fin\_de\_semana}, \texttt{victima\_a\_resguardo}, y \texttt{caso\_judicializado}) resultó en valores positivos para todas las asociaciones, lo que indicaría asociación positiva. Sin embargo, es necesario aclarar que todos los valores resultaron bajos, siendo el más alto 0.41 para victima\_a\_resguardo, 0.16 para vs\_grooming, y 0.11 para vs\_no\_sa\_no\_contesta. En los tres casos el p-valor es de 0. Puede verse la tabla completa de resultados en el anexo.
+El cálculo del coeficiente $\Phi$ de correlación entre la variable objetivo y las variables binarias (todas las indicadoras del tipo de violencia, \texttt{fin\_de\_semana}, \texttt{victima\_a\_resguardo}, y \texttt{caso\_judicializado}) resultó en valores positivos para todas las asociaciones. Sin embargo, para algunas variables el p-valor resultante era muy elevado, por lo tanto decidí eliminarlas por considerar que la correlación insinuada por el estadítico no es estadísticamente significativa:
 
-- correlacion entre binaria y binaria: phi coefficient -> violencia (todas), fin de semana,  resguardo, judicializados
+\begin{itemize}
+    \item \texttt{ofv\_otra\_forma\_violencia} 
+    \item \texttt{ofv\_amenaza\_explicita}
+    \item \texttt{vs\_obligacion\_sacarse\_fotos\_pornograficas}
+    \item \texttt{vs\_intento\_tocamiento}
+    \item \texttt{vs\_violacion\_group}
+    \item \texttt{vs\_tentativa\_group}
+    \item \texttt{fin\_de\_semana}
+\end{itemize}
 
-The phi coefficient is a measure of the degree of association between two binary variables. This measure is similar to the correlation coefficient in its interpretation.
+Para el resto de las varaibles los valores del estadístico son positivos aunque bajos y los p-valores aportan significacncia estadística.
 
-Two binary variables are considered positively associated if most of the data falls along the diagonal cells (i.e., a and d are larger than b and c). In contrast, two binary variables are considered negatively associated if most of the data falls off the diagonal.
+lo que indicaría asociación positiva. Sin embargo, es necesario aclarar que todos los valores resultaron bajos, siendo el más alto 0.41 para victima\_a\_resguardo, 0.16 para vs\_grooming, y 0.11 para vs\_no\_sa\_no\_contesta. En los tres casos el p-valor es de 0. Puede verse la tabla completa de resultados en el anexo.
+SACAR     ofv\_otra\_forma\_violencia         0.002097  0.796705
+SACAR      ofv\_amenaza\_explicita         0.014023  0.085017
+SACAR vs\_obligacion\_sacarse\_fotos\_pornograficas         0.015149  0.062793
+SACAR vs\_intento\_tocamiento         0.003637  0.655076
+SACAR  vs\_violacion\_group         0.002538  0.755210
+SACAR  vs\_tentativa\_group         0.006390  0.432564
+SACAR fin\_de\_semana         0.010664  0.190263
 
-Se midió la correlación entre la variable victima\_convive\_agresor SIN NS/NC y las variables binarias: fin\_de\_semana,vs\_explotacion\_sexual\_group,vs\_violacion\_group,vs\_tentativa\_group, vs\_tocamiento\_sexual,vs\_intento\_tocamiento, vs\_grooming, vs\_exhibicionismo,vs\_obligacion\_sacarse\_fotos\_pornograficas, vs\_acoso\_sexual,vs\_iniciacion\_sexual\_forzada\_inducida, vs\_otra\_forma\_violencia\_sexual,vs\_no\_sabe\_no\_contesta, ofv\_sentimiento\_amenaza,ofv\_amenaza\_explicita,ofv\_violencia\_fisica,ofv\_enganio\_seduccion,ofv\_grooming,ofv\_otra\_forma\_violencia,ofv\_no\_sabe\_no\_contesta,victima\_a\_resguardo. 
+
 
 
 
