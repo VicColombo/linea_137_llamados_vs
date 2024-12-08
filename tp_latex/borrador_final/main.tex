@@ -485,7 +485,7 @@ La librería que utilicé para el cálculo de la distancia de Gower\todo[inline]
     \item  \textit{dataset} B: la variable \texttt{llamante\_edad} es descartada, y también se descartan las filas con datos vacíos en la variable \texttt{victima\_edad}.
 \end{itemize}
 
-La decisión que genera el \textit{dataset} B responde por un lado al supuesto de que la edad de quien llama es menos relevante para la variable \textit{target} que la edad de la víctima; y por otro lado, a que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\%, y dejar afuera estos últimos casos reduciría demasiado el conjunto de datos. 
+La decisión que genera el \textit{dataset} B responde por un lado al supuesto de que la edad de quien llama es menos relevante para la variable objetivo que la edad de la víctima; y por otro lado, a que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\%, y dejar afuera estos últimos casos reduciría demasiado el conjunto de datos. 
 
 Una vez creados los conjuntos de datos A y B, calculé para cada uno la matriz de similitudes de Gower para luego aplicar NMDS y construir el modelo de SVM.\@ En \nameref{resultados} comparo y evalúo ambas soluciones según los valores de \textit{stress} para NMDS y según la performance de los modelos de SVM.
 
@@ -539,12 +539,11 @@ En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por 
     \end{table}
 
 
-A continuación, para descartar que se pudiera reducir aún más el número de variables en el conjunto de datos, tomé distintas medidas de correlación entre la variable \textit{target} \texttt{victima\_convive\_agresor} y el resto de las variables.
-
+A continuación, medí la  correlación entre la variable objetivo \texttt{victima\_convive\_agresor} y el resto de las variables con el objetivo de inspeccionar la fuerza y dirección de las posibles correlaciones y confirmar la posibilidad de eliminar variables nada correlacionadas con encontrar correlaciones débiles y quizás reducir más el conjunto de datos.
 
 correlación para ver si podía sacar más variables pero al final no saqué ninguna.
 
-    En tercer lugar,problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
+Por último, problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
 
 
 - provincia: con porcentaje que aparece cada provincia o con agrupación por zona del país. OK
