@@ -539,7 +539,54 @@ En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por 
     \end{table}
 
 
-A continuación, medí la  correlación entre \texttt{victima\_convive\_agresor} y el resto de las variables con el objetivo de inspeccionar la fuerza y dirección de las posibles correlaciones y considerar la posibilidad de eliminar variables nada correlacionadas.
+A continuación, medí la  correlación entre los valores \texttt{SI} y \texttt{NO} de \texttt{victima\_convive\_agresor} y el resto de las variables con el objetivo de inspeccionar la fuerza y dirección de las posibles correlaciones y considerar la posibilidad de eliminar variables no correlacionadas.  Utilicé tres medidas de correlación distintas apropiadas para los distintos grupos de variables del \textit{dataset}.
+
+Calculé la correlación biserial puntual entre \texttt{victima\_convive\_agresor} cuyos valores \texttt{SI} y \texttt{NO} mapeé a 1 y 0 respectivamente, y las variables numéricas \texttt{llamado\_fecha\_hora} (convertida a \textit{timestamp}), \texttt{llamante\_edad}, y \texttt{victima\_edad}.
+
+
+Primero testeé la normalidad de las variables de edad con el test de shapiro wilkinson y con un histograma. Ninguna de las dos es normal, lo que hace perder fuerza a los resultados de la correlación point biserial. Sin embargo, la voy a hacer.
+
+Los resultados de point biserial son: (tabla)
+Llamante edad - convive:
+correlation: 0.0377
+p-value: 0.0004
+
+
+Victima edad - convive:
+correlation: -0.2005
+p-value:  0.0000
+
+Fecha hora - convive:
+correlation: -0.0863
+p-value:  0.0000
+
+Para llamante edad el test indica una correlación positiva muy débil, es decir, a mayor edad del llamante, más probabilidad de que la víctima conviva con el agresor. El p-valor muy por debajo del estándar de 0.05 indicaría que la correlación observada, si bien débil, podría ser estadísticamente significativa. 
+
+Para victima edad el test indica una correlación negativa débil, es decir, a mayor edad de la víctima, menos probabilidad de que esta conviva con el agresor. El p-valor de 0.0000 indicaría también en este caso que la correlación observada podría ser estadísticamente significativa. 
+
+Para fecha hora el test indica una correlación negativa débil, a mayor fecha, menos probabilidad de que esta conviva con el agresor. El p-valor de 0.0000 indicaría también en este caso que la correlación observada podría ser estadísticamente significativa. 
+
+%%% sacar fecha hora de la medición de correlación
+
+Nuevamente es necesario recordar que la confiabilidad en los resultados de estos tests se ve afectada por la falta de normalidad de las variables.
+
+
+- correlacion entre binaria y binaria: phi coefficient -> violencia (todas), fin de semana,  resguardo
+
+The phi coefficient is a measure of the degree of association between two binary variables. This measure is similar to the correlation coefficient in its interpretation.
+
+Two binary variables are considered positively associated if most of the data falls along the diagonal cells (i.e., a and d are larger than b and c). In contrast, two binary variables are considered negatively associated if most of the data falls off the diagonal.
+
+Se midió la correlación entre la variable victima\_convive\_agresor SIN NS/NC y las variables binarias: fin\_de\_semana,vs\_explotacion\_sexual\_group,vs\_violacion\_group,vs\_tentativa\_group, vs\_tocamiento\_sexual,vs\_intento\_tocamiento, vs\_grooming, vs\_exhibicionismo,vs\_obligacion\_sacarse\_fotos\_pornograficas, vs\_acoso\_sexual,vs\_iniciacion\_sexual\_forzada\_inducida, vs\_otra\_forma\_violencia\_sexual,vs\_no\_sabe\_no\_contesta, ofv\_sentimiento\_amenaza,ofv\_amenaza\_explicita,ofv\_violencia\_fisica,ofv\_enganio\_seduccion,ofv\_grooming,ofv\_otra\_forma\_violencia,ofv\_no\_sabe\_no\_contesta,victima\_a\_resguardo. 
+
+Los valores de phi sobre la correlación entre cada una de estas variables binarias y la variable target victima\_convive\_agresor todos positivos pero todos muy bajos, siendo el más alto 0.41 para victima\_a\_resguardo, 0.16 para vs\_grooming, y 0.11 para vs\_no\_sa\_no\_contesta. En los tres casos el p-valor es de 0. Puede verse la tabla completa de resultados en el anexo.
+
+- correlacion entre categorica y categorica: chi2 -> provincia, ll genero, ll vinculo, caso judic, lugar, v genero, v nacionalidad, vic vinculo agr, vic discapacidad contra convive
+SIN NS/NC en convive
+
+En la tabla resultante se ven los valores para X2 para cada variable en relación a la variable target "convive", y el p-valor asociado. Todas las variables tienen una asociación estadísticamente significativa con la variable de convivencia.
+
+
 
 
 Por último, problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
