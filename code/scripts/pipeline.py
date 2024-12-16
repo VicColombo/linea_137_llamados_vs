@@ -111,42 +111,15 @@ llamados.loc[llamados['victima_edad'] < 0, 'victima_edad'] = None
 
 llamados.to_excel('/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v2.xlsx', index=False)
 print('se guardó llamados v2')
+
+columnas_V2 = list(llamados.columns)
+
+
 #######################################################################################
 
 
 #V3--> reducción y construcción de variables
 
-# reduce vinculo agresor
-
-llamados['agresor_conocido_no_conocido_red'] = \
-    llamados.victima_vinculo_agresor.apply(conocido_no_conocido)
-
-# reduce vinculo llamante
-llamados['vinculo_llamante_red'] = \
-    llamados.llamante_vinculo.apply(tipo_vinculo_llamante)
-
-# reduce hecho lugar
-
-
-llamados['hecho_lugar_red'] = \
-    llamados.hecho_lugar.apply(tipo_hecho_lugar)
-
-
-# reduce variable provincia
-
-llamados['llamado_provincia_red'] = \
-    llamados.llamado_provincia.apply(provincias_red)
-
-# reduce victima nacionalidad
-
-llamados['victima_nacionalidad_red'] = \
-    llamados.victima_nacionalidad.apply(nacionalidad_red)
-
-llamados.drop('llamado_provincia', axis=1, inplace=True)
-llamados.drop('hecho_lugar', axis=1, inplace=True)
-llamados.drop('llamante_vinculo', axis=1, inplace=True) 
-llamados.drop('victima_vinculo_agresor', axis=1, inplace=True) 
-llamados.drop('victima_nacionalidad', axis=1, inplace=True) 
 
 # arma fin de semana
 
@@ -174,7 +147,8 @@ for index, date in llamados["llamado_fecha_hora"].items():
     else:
         llamados.at[index, "estacion_del_año"] = "Primavera"
 
-### agrupar variables cualitativamente (por tipo de violencia)
+
+# agrupar variables cualitativamente (por tipo de violencia)
 
 '''print('ahora corre el agrupador de variables para lograr: \n\n 1) vs_explotacion_sexual_group: vs_explotacion_sexual, vs_explotacion_sexual_comercial, vs_explotacion_sexual_viajes_turismo,vs_sospecha_trata_personas_fines_sexuales\n\n',
 	'2) vs_violacion_group: vs_violacion_via_vaginal, vs_violacion_via_anal, vs_violacion_via_oral\n\n',
@@ -219,8 +193,7 @@ seteo_agrupador(llamados,columnas_agrupar_5, nueva_col_agrup_5)
 llamados.drop(columnas_agrupar_1 + columnas_agrupar_2+columnas_agrupar_3+columnas_agrupar_4+columnas_agrupar_5,
   axis=1, inplace=True)
 
-
-# V5 --> elimino variables con poca información
+# elimino variables con poca información
 
 columnas_pocos_si = []
 for i in llamados:
@@ -241,6 +214,57 @@ for i in ofv:
         llamados.drop(i, axis=1, inplace=True)   
 
 print('Se eliminaron las columnas poco informativas: ', borradas)
+
+
+# reduce vinculo agresor
+
+llamados['agresor_conocido_no_conocido_red'] = \
+    llamados.victima_vinculo_agresor.apply(conocido_no_conocido)
+
+# reduce vinculo llamante
+llamados['vinculo_llamante_red'] = \
+    llamados.llamante_vinculo.apply(tipo_vinculo_llamante)
+
+# reduce hecho lugar
+
+
+llamados['hecho_lugar_red'] = \
+    llamados.hecho_lugar.apply(tipo_hecho_lugar)
+
+
+# reduce variable provincia
+
+llamados['llamado_provincia_red'] = \
+    llamados.llamado_provincia.apply(provincias_red)
+
+# reduce victima nacionalidad
+
+llamados['victima_nacionalidad_red'] = \
+    llamados.victima_nacionalidad.apply(nacionalidad_red)
+
+llamados.drop('llamado_provincia', axis=1, inplace=True)
+llamados.drop('hecho_lugar', axis=1, inplace=True)
+llamados.drop('llamante_vinculo', axis=1, inplace=True) 
+llamados.drop('victima_vinculo_agresor', axis=1, inplace=True) 
+llamados.drop('victima_nacionalidad', axis=1, inplace=True) 
+
+
+# Listar difernecias finales entre V2 y V3
+
+columnas_v3 = list(llamados.columns)
+
+
+columns_in_V3_not_in_V2 = [col for col in columnas_v3 if col not in columnas_V2]
+
+columns_in_V2_not_in_V3 = [col for col in columnas_V2 if col not in columnas_v3]
+
+
+print("Columnas eliminadas del dataset original: ", columns_in_V2_not_in_V3)
+print("Columnas nuevas (no estaban en el dataset original): ", columns_in_V3_not_in_V2)
+
+
+print('Columnas en el dataset final: ',llamados.columns)
+
 
 
 llamados.to_excel("/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/datasets/xlsx/llamados_v3.xlsx", index=False)

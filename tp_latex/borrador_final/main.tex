@@ -498,27 +498,13 @@ Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de
 
 Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \texttt{vs\_explotación\_sexual}, \texttt{vs\_explotación\_sexual\_comercial}, y \texttt{vs\_explotación\_sexual\_viajes\_turismo}. Teniendo en cuenta esto, reduje la cantidad de variables que describen los tipos de violencias sufridas de dos maneras. 
 
-En primer lugar, eliminé las variables cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos. Las variables eliminadas fueron:
-\begin{multicols}{2}
-\begin{itemize}
-    \item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
-    \item \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}
-    \item \texttt{vs\_eyaculacion\_partes\_cuerpo}
-    \item \texttt{ofv\_amenaza\_muerte}
-    \item \texttt{ofv\_uso\_sustancias\_psicoactivas} 
-    \item \texttt{ofv\_intento\_privacion\_libertad}
-    \item \texttt{ofv\_privacion\_libertad}
-    \item \texttt{ofv\_uso\_animal\_victimizar}
-    \item \texttt{ofv\_uso\_arma\_fuego}
-    \item \texttt{ofv\_uso\_arma\_blanca}
-    \item \texttt{ofv\_intento\_ahorcar}
-    \item \texttt{ofv\_intento\_quemar}
-    \item \texttt{ofv\_intento\_ahogar}
-    \item \texttt{ofv\_intento\_matar}
-\end{itemize}
-\end{multicols}
 
-En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por dominio, como se puede ver en el cuadro \Ref{tablaagrup} a continuación. 
+
+
+
+
+
+Primero, agrupé algunas de las restantes en tres nuevas variables por dominio, como se puede ver en el cuadro \Ref{tablaagrup} a continuación. 
 
 
 \begin{table}[H]
@@ -541,66 +527,23 @@ En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por 
     \end{table}
 
 
-A continuación, medí la  correlación entre los valores \texttt{SI} y \texttt{NO} de \texttt{victima\_convive\_agresor} y el resto de las variables con el objetivo de inspeccionar la fuerza y dirección de las posibles correlaciones y considerar la posibilidad de eliminar variables no correlacionadas.  Utilicé tres medidas de correlación distintas apropiadas para los distintos grupos de variables del \textit{dataset}: 
-
+Después, eliminé las variables cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos. Las variables eliminadas fueron:
+\begin{multicols}{2}
 \begin{itemize}
-    \item Correlación puntual biserial para medir la correlación entre \texttt{victima\_convive\_agresor} (transformada a binaria) y las variables numéricas.
-    \item Coeficiente $\Phi$ para medir la correlación entre \texttt{victima\_convive\_agresor} (transformada a binaria) y las variables binarias.
-    \item Coeficiente \(X^2\) para medir la correlación entre \texttt{victima\_convive\_agresor} y las variables categóricas.
+    \item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
+    \item \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}
+    \item \texttt{vs\_eyaculacion\_partes\_cuerpo}
+    \item \texttt{ofv\_intento\_ahorcar}
+    \item \texttt{ofv\_intento\_quemar}
+    \item \texttt{ofv\_intento\_ahogar}
+    \item \texttt{ofv\_amenaza\_muerte}
+    \item \texttt{ofv\_uso\_sustancias\_psicoactivas} 
+    \item \texttt{ofv\_intento\_privacion\_libertad}
+    \item \texttt{ofv\_privacion\_libertad}
+    \item \texttt{ofv\_uso\_animal\_victimizar}
+    \item \texttt{ofv\_intento\_matar}
 \end{itemize}
-
-En el cuadro \Ref{biserial} se pueden apreciar los resultados de la correlación puntual biserial entre los valores \texttt{SI} y \texttt{NO} de \texttt{victima\_convive\_agresor} y las variables de edad. Para \texttt{llamante\_edad} el test se encuentra una correlación positiva muy débil, es decir, a mayor edad quien llama, más probabilidad de que la víctima conviva con el agresor. El p-valor muy por debajo del estándar de 0.05 indicaría que la correlación observada, si bien débil, podría ser estadísticamente significativa. Para \texttt{victima\_edad} se encuentra una correlación negativa débil, es decir, a mayor edad de la víctima, menos probabilidad de que esta conviva con el agresor. El p-valor de 0.0000 indicaría también en este caso que la correlación observada podría ser estadísticamente significativa. Sin embargo, la confiabilidad de los resultados del test de correlación se ve afectada negativamente por la falta de normalidad de ambas variables de edad, comprobada con la aplicación del test Shapiro-Wilkinson, cuyos resultados fueron:  
-
-\begin{itemize}
-    \item Edad de la víctima: estadístico de S-W= 0.886, p= 0.000. Se rechaza H0.
-    \item Edad del llamante: estadístico de S-W= 0.974, p= 0.000. Se rechaza H0.
-\end{itemize}
-
-\begin{table}[H]
-    \begin{center}
-    \caption{Correlación puntual biserial \texttt{victima\_convive\_agresor} - variables numéricas.}
-    \label{biserial}
-    \begin{tabular}{ccc}
-    \hline
-    \multicolumn{1}{r}{\textbf{}} & \texttt{llamante\_edad} & \texttt{victima\_edad} \\ \hline
-    Correlación                            & 0.0377                    &  -0.2005                       \\
-    P-valor                           & 0.0004                   & 0.0000                         \\ \hline
-    \end{tabular}
-    \end{center}
-    \end{table}
-
-
-El cálculo del coeficiente $\Phi$ de correlación entre la variable objetivo y las variables binarias (todas las indicadoras del tipo de violencia, \texttt{fin\_de\_semana}, \texttt{victima\_a\_resguardo}, y \texttt{caso\_judicializado}) resultó en valores positivos para todas las asociaciones. Sin embargo, para algunas variables el p-valor resultante era muy elevado, por lo tanto decidí eliminarlas por considerar que la correlación insinuada por el estadítico no es estadísticamente significativa:
-
-\begin{itemize}
-    \item \texttt{ofv\_otra\_forma\_violencia} 
-    \item \texttt{ofv\_amenaza\_explicita}
-    \item \texttt{vs\_obligacion\_sacarse\_fotos\_pornograficas}
-    \item \texttt{vs\_intento\_tocamiento}
-    \item \texttt{vs\_violacion\_group}
-    \item \texttt{vs\_tentativa\_group}
-    \item \texttt{fin\_de\_semana}
-\end{itemize}
-
-Para el resto de las varaibles los valores del estadístico son positivos aunque bajos y los p-valores aportan significacncia estadística.
-
-lo que indicaría asociación positiva. Sin embargo, es necesario aclarar que todos los valores resultaron bajos, siendo el más alto 0.41 para victima\_a\_resguardo, 0.16 para vs\_grooming, y 0.11 para vs\_no\_sa\_no\_contesta. En los tres casos el p-valor es de 0. Puede verse la tabla completa de resultados en el anexo.
-SACAR     ofv\_otra\_forma\_violencia         0.002097  0.796705
-SACAR      ofv\_amenaza\_explicita         0.014023  0.085017
-SACAR vs\_obligacion\_sacarse\_fotos\_pornograficas         0.015149  0.062793
-SACAR vs\_intento\_tocamiento         0.003637  0.655076
-SACAR  vs\_violacion\_group         0.002538  0.755210
-SACAR  vs\_tentativa\_group         0.006390  0.432564
-SACAR fin\_de\_semana         0.010664  0.190263
-
-
-
-
-
-- correlacion entre categorica y categorica: chi2 -> provincia, ll genero, ll vinculo, caso judic, lugar, v genero, v nacionalidad, vic vinculo agr, vic discapacidad contra convive
-SIN NS/NC en convive
-
-En la tabla resultante se ven los valores para X2 para cada variable en relación a la variable target "convive", y el p-valor asociado. Todas las variables tienen una asociación estadísticamente significativa con la variable de convivencia.
+\end{multicols}
 
 
 
@@ -626,7 +569,31 @@ Después quedaron las categoirías originales: vivienda de la víctima(25pct), v
 
 
 
-Explicar cómo queda el dataset final \todo[inline]{explicar medidas de correlación que tomé entre las variables}
+Explicar cómo queda el dataset final
+
+Columnas eliminadas del dataset original:  ['llamado\_provincia', 'llamante\_vinculo', 'hecho\_lugar', 'victima\_nacionalidad', 'victima\_vinculo\_agresor', 'vs\_violacion\_via\_vaginal', 'vs\_violacion\_via\_anal', 'vs\_violacion\_via\_oral', 'vs\_tentativa\_violacion', 'vs\_Intento\_violación\_tercera\_persona', 'vs\_amenazas\_verbales\_contenido\_sexual', 'vs\_explotacion\_sexual', 'vs\_explotacion\_sexual\_comercial', 'vs\_explotacion\_sexual\_viajes\_turismo', 'vs\_sospecha\_trata\_personas\_fines\_sexuales', 'vs\_existencia\_facilitador\_corrupcion\_nnya', 'vs\_eyaculacion\_partes\_cuerpo', 'ofv\_intento\_ahorcar', 'ofv\_intento\_quemar', 'ofv\_intento\_ahogar', 'ofv\_amenaza\_muerte', 'ofv\_uso\_sustancias\_psicoactivas', 'ofv\_intento\_privacion\_libertad', 'ofv\_privacion\_libertad', 'ofv\_uso\_arma\_blanca', 'ofv\_uso\_arma\_fuego', 'ofv\_intento\_matar', 'ofv\_uso\_animal\_victimizar']
+
+
+Columnas nuevas (no estaban en el dataset original):  ['fin\_de\_semana', 'momento\_dia', 'estacion\_del\_año', 'vs\_explotacion\_sexual\_group', 'vs\_violacion\_group', 'vs\_tentativa\_group', 'agresor\_conocido\_no\_conocido\_red', 'vinculo\_llamante\_red', 'hecho\_lugar\_red', 'llamado\_provincia\_red', 'victima\_nacionalidad\_red']
+
+
+Columnas en el dataset final:  Index(['llamado\_fecha\_hora', 'llamante\_edad', 'llamante\_genero',
+       'caso\_judicializado', 'victima\_a\_resguardo', 'victima\_edad',
+       'victima\_genero', 'victima\_discapacidad', 'victima\_convive\_agresor',
+       'vs\_tocamiento\_sexual', 'vs\_intento\_tocamiento', 'vs\_grooming',
+       'vs\_exhibicionismo', 'vs\_obligacion\_sacarse\_fotos\_pornograficas',
+       'vs\_acoso\_sexual', 'vs\_iniciacion\_sexual\_forzada\_inducida',
+       'vs\_otra\_forma\_violencia\_sexual', 'vs\_no\_sabe\_no\_contesta',
+       'ofv\_sentimiento\_amenaza', 'ofv\_amenaza\_explicita',
+       'ofv\_violencia\_fisica', 'ofv\_enganio\_seduccion', 'ofv\_grooming',
+       'ofv\_otra\_forma\_violencia', 'ofv\_no\_sabe\_no\_contesta', 'fin\_de\_semana',
+       'momento\_dia', 'estacion\_del\_año', 'vs\_explotacion\_sexual\_group',
+       'vs\_violacion\_group', 'vs\_tentativa\_group',
+       'agresor\_conocido\_no\_conocido\_red', 'vinculo\_llamante\_red',
+       'hecho\_lugar\_red', 'llamado\_provincia\_red', 'victima\_nacionalidad\_red'],
+      dtype='object')
+
+
 
 
 

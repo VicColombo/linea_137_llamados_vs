@@ -152,7 +152,7 @@ El hecho de que vos puedas justificar desde el dominio, después te facilita la 
 \todo{esto va en datos o en metodología???}
 
 Manual:
-A. reducir la cardinalidad de hecho lugar, provincia, llamante vínculo y victima_vinculo_agresor vínculo. 
+reducir la cardinalidad de hecho lugar, provincia, llamante vínculo y victima\_vinculo\_agresor vínculo. 
 
 Si bien al principio la idea era que la primera prueba de svm fuera con el dataset completo, normalizado pero con poca o ninguna intervención en la construcción de variables; llegados a este punto, la cardinalidad de alta de estasvaraibles lleva a tomar la decisón de reducrilas sin antes correr el experimento con svm porque ya está probado en la literatura que alta cardinalidad con encoders tipo one hot es mala y el target o ordinal encoder que funcionan bien para alta cardinalidad no me convencve para etsas vaiables porque no hay ordinalidad que preserar y porque el target implica tener otros cuidados para no incurrir en data leackage
 
@@ -215,46 +215,85 @@ ofv uso arma fuego
 Nueva variable: uso de arma
 
 
-C. quitar las variables poco informativas xq tienen baja tasa de rta.(menos de 191 SI, es decir 1 por ciento o menos de SI)
-Las borradas son: ['vs_amenazas_verbales_contenido_sexual', 'vs_existencia_facilitador_corrupcion_nnya', 'vs_eyaculacion_partes_cuerpo', 'ofv_amenaza_muerte', 'ofv_uso_sustancias_psicoactivas', 'ofv_intento_privacion_libertad', 'ofv_privacion_libertad', 'ofv_uso_animal_victimizar', 'ofv_uso_arma_group', 'ofv_intento_violencia_fisica_group']
-
-Entonces el dataset reducido tiene: 
-- reducción de llamante_vinculo, victima_vinculo_agresor, hecho_lugar, y llamado_provincia. Eliminación de las originales no reducidas.
-- nuevas variables: violacion, uso de arma, explotacion sexual, intento violencia potencialmente fatal que agrupan cada una otras variables. Eliminación de las que fueron agrupadas.
-
 
 
 Correlación:
-- correlacion entre numerica y binaria: point biserial -> edad v, edad ll, fecha_hora contra victima convive si/no, SIN NS/NC
 
-Primero testeé la normalidad de las variables de edad con el test de shapiro wilkinson y con un histograma. Ninguna de las dos es normal, lo que hace perder fuerza a los resultados de la correlación point biserial. Sin embargo, la voy a hacer.
+A continuación, medí la correlación entre \texttt{victima\_convive\_agresor} (solo para los casos de \texttt{SI} y \texttt{NO}) y el resto de las variables con el objetivo de inspeccionar la fuerza y dirección de las posibles relaciones. Utilicé tres medidas de correlación distintas apropiadas para los distintos grupos de variables del \textit{dataset}: 52
 
-Los resultados de point biserial son: (tabla)
-Llamante edad - convive:
-correlation: 0.0377
-p-value: 0.0004
+\begin{itemize}
+    \item Correlación puntual biserial para medir la correlación entre \texttt{victima\_convive\_agresor} (transformada a binaria) y las variables numéricas.
+    \item Coeficiente fi para medir la correlación entre \texttt{victima\_convive\_agresor} (transformada a binaria) y las variables binarias.
+    \item Coeficiente chi cuadrado para medir la correlación entre \texttt{victima\_convive\_agresor} y las variables categóricas.
+\end{itemize}
+
+En el cuadro se pueden apreciar los resultados de la correlación puntual biserial entre los valores \texttt{SI} y \texttt{NO} de \texttt{victima\_convive\_agresor} y las variables de edad. Para \texttt{llamante\_edad} el test se encuentra una correlación positiva muy débil, es decir, a mayor edad quien llama, más probabilidad de que la víctima conviva con el agresor. El p-valor muy por debajo del estándar de 0.05 indicaría que la correlación observada, si bien débil, podría ser estadísticamente significativa. Para \texttt{victima\_edad} se encuentra una correlación negativa débil, es decir, a mayor edad de la víctima, menos probabilidad de que esta conviva con el agresor. El p-valor de 0.0000 indicaría también en este caso que la correlación observada podría ser estadísticamente significativa. Sin embargo, la confiabilidad de los resultados del test de correlación se ve afectada negativamente por la falta de normalidad de ambas variables de edad, comprobada con la aplicación del test Shapiro-Wilkinson, cuyos resultados fueron:  
+
+\begin{itemize}
+    \item Edad de la víctima: estadístico de S-W= 0.886, p= 0.000. Se rechaza H0.
+    \item Edad del llamante: estadístico de S-W= 0.974, p= 0.000. Se rechaza H0.
+\end{itemize}
+
+\begin{table}[H]
+    \begin{center}
+    \caption{Correlación puntual biserial \texttt{victima\_convive\_agresor} - variables numéricas.}
+    \label{biserial}
+    \begin{tabular}{ccc}
+    \hline
+    \multicolumn{1}{r}{\textbf{}} & \texttt{llamante\_edad} & \texttt{victima\_edad} \\ \hline
+    Correlación                            & 0.0377                    &  -0.2005                       \\
+    P-valor                           & 0.0004                   & 0.0000                         \\ \hline
+    \end{tabular}
+    \end{center}
+    \end{table}
 
 
-Victima edad - convive:
-correlation: -0.2005
-p-value:  0.0000
-
-Para llamante edad el test indica una correlación positiva muy débil, es decir, a mayor edad del llamante, más probabilidad de que la víctima conviva con el agresor. El p-valor muy por debajo del estándar de 0.05 indicaría que la correlación observada, si bien débil, podría ser estadísticamente significativa. 
-
-Para victima edad el test indica una correlación negativa débil, es decir, a mayor edad de la víctima, menos probabilidad de que esta conviva con el agresor. El p-valor de 0.0000 indicaría también en este caso que la correlación observada podría ser estadísticamente significativa. 
-
-Nuevamente es necesario recordar que la confiabilidad en los resultados de estos tests se ve afectada por la falta de normalidad de las variables.
+El cálculo del coeficiente $\Phi$ de correlación entre la variable objetivo y las variables binarias (todas las indicadoras del tipo de violencia, \texttt{fin\_de\_semana}, \texttt{victima\_a\_resguardo}, y \texttt{caso\_judicializado}) resultó en valores positivos para todas las asociaciones. Sin embargo, para algunas variables el p-valor resultante era muy elevado, por lo tanto decidí eliminarlas por considerar que la correlación insinuada por el estadítico no es estadísticamente significativa:
 
 
-- correlacion entre binaria y binaria: phi coefficient -> violencia (todas), fin de semana,  resguardo
+\begin{table}[H]
+    \begin{center}
+    \caption{Cuartiles de edad según categoría de \texttt{victima\_convive\_agresor}.}
+    \label{cuartilesconviveedad}
+    \begin{tabular}{cccc}
+    \hline
+    \multicolumn{1}{r}{\textbf{}} & \textbf{Convive} & \textbf{No Convive} & \textbf{ NS/NC} \\ \hline
+    Q1                            & 7                    & 11                   & 9                       \\
+    Media                         & 12                   & 15                   & 13                      \\
+    Q3                            & 15                   & 24                   & 18                      \\
+    IQR                           & 8                   & 13                   & 9                     \\ \hline
+    \end{tabular}
+    \end{center}
+    \end{table}
 
-The phi coefficient is a measure of the degree of association between two binary variables. This measure is similar to the correlation coefficient in its interpretation.
 
-Two binary variables are considered positively associated if most of the data falls along the diagonal cells (i.e., a and d are larger than b and c). In contrast, two binary variables are considered negatively associated if most of the data falls off the diagonal.
 
-Se midió la correlación entre la variable victima_convive_agresor SIN NS/NC y las variables binarias: fin_de_semana,vs_explotacion_sexual_group,vs_violacion_group,vs_tentativa_group, vs_tocamiento_sexual,vs_intento_tocamiento, vs_grooming, vs_exhibicionismo,vs_obligacion_sacarse_fotos_pornograficas, vs_acoso_sexual,vs_iniciacion_sexual_forzada_inducida, vs_otra_forma_violencia_sexual,vs_no_sabe_no_contesta, ofv_sentimiento_amenaza,ofv_amenaza_explicita,ofv_violencia_fisica,ofv_enganio_seduccion,ofv_grooming,ofv_otra_forma_violencia,ofv_no_sabe_no_contesta,victima_a_resguardo. 
 
-Los valores de phi sobre la correlación entre cada una de estas variables binarias y la variable target victima_convive_agresor todos positivos pero todos muy bajos, siendo el más alto 0.41 para victima_a_resguardo, 0.16 para vs_grooming, y 0.11 para vs_no_sa_no_contesta. En los tres casos el p-valor es de 0. Puede verse la tabla completa de resultados en el anexo.
+
+\begin{itemize}
+    \item \texttt{ofv\_otra\_forma\_violencia} 
+    \item \texttt{ofv\_amenaza\_explicita}
+    \item \texttt{vs\_obligacion\_sacarse\_fotos\_pornograficas}
+    \item \texttt{vs\_intento\_tocamiento}
+    \item \texttt{vs\_violacion\_group}
+    \item \texttt{vs\_tentativa\_group}
+    \item \texttt{fin\_de\_semana}
+\end{itemize}
+
+Para el resto de las varaibles los valores del estadístico son positivos aunque bajos y los p-valores aportan significacncia estadística.
+
+lo que indicaría asociación positiva. Sin embargo, es necesario aclarar que todos los valores resultaron bajos, siendo el más alto 0.41 para victima\_a\_resguardo, 0.16 para vs\_grooming, y 0.11 para vs\_no\_sa\_no\_contesta. En los tres casos el p-valor es de 0. Puede verse la tabla completa de resultados en el anexo.
+SACAR     ofv\_otra\_forma\_violencia         0.002097  0.796705
+SACAR      ofv\_amenaza\_explicita         0.014023  0.085017
+SACAR vs\_obligacion\_sacarse\_fotos\_pornograficas         0.015149  0.062793
+SACAR vs\_intento\_tocamiento         0.003637  0.655076
+SACAR  vs\_violacion\_group         0.002538  0.755210
+SACAR  vs\_tentativa\_group         0.006390  0.432564
+SACAR fin\_de\_semana         0.010664  0.190263
+
+
+
+
 
 - correlacion entre categorica y categorica: chi2 -> provincia, ll genero, ll vinculo, caso judic, lugar, v genero, v nacionalidad, vic vinculo agr, vic discapacidad contra convive
 SIN NS/NC en convive
