@@ -1,20 +1,20 @@
 # Fdb version 4
-["bibtex main"] 1734290072.15026 "main.aux" "main.bbl" "main" 1734290074.18354 0
-  "./bibtex_reporte.bib" 1733083981.29545 4284 64015257ce159393f24cc4ecfb1c5509 ""
+["bibtex main"] 1734651740.14878 "main.aux" "main.bbl" "main" 1734651742.69576 0
+  "./bibtex_reporte.bib" 1734650193.32218 4695 db855e9c665d57cc1bf4b77b24ede30e ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1734290073.93557 12645 525bc40412e07cca77f87ced9ed86475 "pdflatex"
+  "main.aux" 1734651742.41094 12962 724e9e84354587d40aeece5ed7eab04d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1734287610.94254 "main.idx" "main.ind" "main" 1734290074.18345 0
-  "main.idx" 1734290072.81285 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1734287610.94254 "main.idx" "main.ind" "main" 1734651742.69554 0
+  "main.idx" 1734651741.17314 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1734290072.25294 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1734290074.18363 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1734290069.53295 58571 0eba0b4748e4bcfab9ba0450005f971d ""
+["pdflatex"] 1734651740.30414 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" "main.pdf" "main" 1734651742.69593 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex" 1734651737.66032 59078 1f29f3e4ac8879e61ed8790a26645cb7 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -220,13 +220,13 @@
   "images/latex_vinculo_llamante.png" 1724323142.43087 46058 a39b6c519fb8d92b775bdc4100608086 ""
   "images/latex_vs_sino.jpeg" 1726121964.53084 174589 436a12369df2bc524c8a98675f4d0755 ""
   "images/uba2.jpg" 1721825197.71324 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1734290073.93557 12645 525bc40412e07cca77f87ced9ed86475 "pdflatex"
-  "main.bbl" 1734290072.24998 4069 ed28af4469645cd1267e4cd5377fe150 "bibtex main"
+  "main.aux" 1734651742.41094 12962 724e9e84354587d40aeece5ed7eab04d "pdflatex"
+  "main.bbl" 1734651740.29801 4471 fc82259c940f18f767143c5746835cce "bibtex main"
   "main.ind" 1734287611.02774 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1734290073.93744 2434 fb2c3fb09e479ba882ddb13fa1290363 "pdflatex"
-  "main.tdo" 1734290073.93764 711 428f7850f9b1730e6e06daa258f5ac09 "pdflatex"
-  "main.tex" 1734290069.53295 58571 0eba0b4748e4bcfab9ba0450005f971d ""
-  "main.toc" 1734290073.93768 1380 b80109cf70ac09ba0a5d1b930943413d "pdflatex"
+  "main.out" 1734651742.41308 2434 fb2c3fb09e479ba882ddb13fa1290363 "pdflatex"
+  "main.tdo" 1734651742.41338 810 adb6c11a937d247b0228850ffb615a3a "pdflatex"
+  "main.tex" 1734651737.66032 59078 1f29f3e4ac8879e61ed8790a26645cb7 ""
+  "main.toc" 1734651742.41342 1380 7ef9c29f349b2357723afe75090abd80 "pdflatex"
   (generated)
   "main.aux"
   "main.idx"

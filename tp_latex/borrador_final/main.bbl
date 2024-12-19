@@ -1,9 +1,14 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Cai et~al.(2019)Cai, Lesnik, Wade, Heidrich, Wang, and Liu]{cai2019incorporating}
+Wenfang Cai, Keaton~Larson Lesnik, Matthew~J Wade, Elizabeth~S Heidrich, Yunhai Wang, and Hong Liu.
+\newblock Incorporating microbial community data with machine learning techniques to predict feed substrates in microbial fuel cells.
+\newblock \emph{Biosensors and Bioelectronics}, 133:\penalty0 64--71, 2019.
 
 \bibitem[Chan et~al.(2019)Chan, Badano, and Rey]{aid}
 Débora Chan, Cristina~Inés Badano, and Andrea~Alejandra Rey.

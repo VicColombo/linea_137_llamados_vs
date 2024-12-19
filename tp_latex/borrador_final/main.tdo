@@ -3,6 +3,7 @@
 \contentsline {todo}{donde menciono el paper que usa NMDS para SVM?}{4}{section*.6}%
 \contentsline {todo}{en algún lado listar código y librerías}{4}{section*.7}%
 \contentsline {todo}{pasar todas las variables y valores de texit a texttt}{4}{section*.8}%
-\contentsline {todo}{tipo de datos faltantes que son podría ir en datos o en resultados también quizás}{19}{section*.27}%
-\contentsline {todo}{citar}{20}{section*.30}%
-\contentsline {todo}{importantísimo ver si accuracy tiene sentido calcular u otra métrica}{23}{section*.32}%
+\contentsline {todo}{agregar acá el análisis de correlaciones hecho para edad}{16}{section*.23}%
+\contentsline {todo}{tipo de datos faltantes que son podría ir en datos o en resultados también quizás}{18}{section*.28}%
+\contentsline {todo}{citar}{20}{section*.31}%
+\contentsline {todo}{importantísimo ver si accuracy tiene sentido calcular u otra métrica}{23}{section*.33}%

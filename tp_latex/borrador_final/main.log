@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  15 DEC 2024 20:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  20 DEC 2024 00:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -770,7 +770,7 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<images/uba2.jpg, id=95, 233.4321pt x 233.9139pt>
+<images/uba2.jpg, id=97, 233.4321pt x 233.9139pt>
 File: images/uba2.jpg Graphic file (type jpg)
 <use images/uba2.jpg>
 Package pdftex.def Info: images/uba2.jpg  used on input line 39.
@@ -795,48 +795,48 @@ LaTeX Info: Redefining \% on input line 1.
  [2]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 95.
  [3] [4] [5]
-<images/latex_vs_sino.jpeg, id=191, 912.7701pt x 711.8595pt>
+<images/latex_vs_sino.jpeg, id=193, 912.7701pt x 711.8595pt>
 File: images/latex_vs_sino.jpeg Graphic file (type jpg)
 <use images/latex_vs_sino.jpeg>
 Package pdftex.def Info: images/latex_vs_sino.jpeg  used on input line 192.
 (pdftex.def)             Requested size: 456.38393pt x 355.92888pt.
  [6]
-<images/latex_ofv_sino.jpeg, id=198, 948.9051pt x 654.0435pt>
+<images/latex_ofv_sino.jpeg, id=200, 948.9051pt x 654.0435pt>
 File: images/latex_ofv_sino.jpeg Graphic file (type jpg)
 <use images/latex_ofv_sino.jpeg>
 Package pdftex.def Info: images/latex_ofv_sino.jpeg  used on input line 200.
 (pdftex.def)             Requested size: 474.4514pt x 327.02095pt.
  [7 <./images/latex_vs_sino.jpeg>] [8 <./images/latex_ofv_sino.jpeg>]
-<images/latex_trend_llamados.png, id=214, 847.7271pt x 467.5869pt>
+<images/latex_trend_llamados.png, id=216, 847.7271pt x 467.5869pt>
 File: images/latex_trend_llamados.png Graphic file (type png)
 <use images/latex_trend_llamados.png>
 Package pdftex.def Info: images/latex_trend_llamados.png  used on input line 256.
 (pdftex.def)             Requested size: 423.8625pt x 233.79288pt.
  [9]
-<images/latex_lugar_hechos.png, id=230, 729.927pt x 510.2262pt>
+<images/latex_lugar_hechos.png, id=232, 729.927pt x 510.2262pt>
 File: images/latex_lugar_hechos.png Graphic file (type png)
 <use images/latex_lugar_hechos.png>
 Package pdftex.def Info: images/latex_lugar_hechos.png  used on input line 273.
 (pdftex.def)             Requested size: 364.9626pt x 255.11247pt.
  [10 <./images/latex_trend_llamados.png>]
-<images/latex_genero_victima.png, id=248, 723.4227pt x 379.4175pt>
+<images/latex_genero_victima.png, id=250, 723.4227pt x 379.4175pt>
 File: images/latex_genero_victima.png Graphic file (type png)
 <use images/latex_genero_victima.png>
 Package pdftex.def Info: images/latex_genero_victima.png  used on input line 303.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
  [11 <./images/latex_lugar_hechos.png>]
-<images/latex_vinculo_agr_victima.png, id=261, 736.4313pt x 495.0495pt>
+<images/latex_vinculo_agr_victima.png, id=263, 736.4313pt x 495.0495pt>
 File: images/latex_vinculo_agr_victima.png Graphic file (type png)
 <use images/latex_vinculo_agr_victima.png>
 Package pdftex.def Info: images/latex_vinculo_agr_victima.png  used on input line 315.
 (pdftex.def)             Requested size: 368.21475pt x 247.52414pt.
-<images/latex_agresor_conocido_no.png, id=262, 723.4227pt x 450.2421pt>
+<images/latex_agresor_conocido_no.png, id=264, 723.4227pt x 450.2421pt>
 File: images/latex_agresor_conocido_no.png Graphic file (type png)
 <use images/latex_agresor_conocido_no.png>
 Package pdftex.def Info: images/latex_agresor_conocido_no.png  used on input line 323.
 (pdftex.def)             Requested size: 361.71046pt x 225.12048pt.
  [12 <./images/latex_genero_victima.png> <./images/latex_vinculo_agr_victima.png>]
-<images/latex_convive.png, id=274, 723.4227pt x 379.4175pt>
+<images/latex_convive.png, id=276, 723.4227pt x 379.4175pt>
 File: images/latex_convive.png Graphic file (type png)
 <use images/latex_convive.png>
 Package pdftex.def Info: images/latex_convive.png  used on input line 341.
@@ -849,7 +849,7 @@ Overfull \hbox (42.36415pt too wide) in paragraph at lines 351--353
 []\OT1/cmr/m/n/10 Para un an^^Sali-sis mul-ti-va-ria-do se-lec-cion^^Se al-gu-nas va-ria-bles que pod^^S^^Pan es-tar m^^Sas re-la-cio-na-das con \OT1/cmtt/m/n/10 victima[]convive[]agresor\OT1/cmr/m/n/10 :
  []
 
-<images/latex_hecho_lugar_convive.png, id=287, 1075.3776pt x 570.933pt>
+<images/latex_hecho_lugar_convive.png, id=289, 1075.3776pt x 570.933pt>
 File: images/latex_hecho_lugar_convive.png Graphic file (type png)
 <use images/latex_hecho_lugar_convive.png>
 Package pdftex.def Info: images/latex_hecho_lugar_convive.png  used on input line 364.
@@ -860,7 +860,7 @@ Overfull \hbox (31.79749pt too wide) in paragraph at lines 364--365
  []
 
 [14 <./images/latex_convive.png>]
-<images/convive_vinc_agresor.png, id=296, 1076.823pt x 570.933pt>
+<images/convive_vinc_agresor.png, id=298, 1076.823pt x 570.933pt>
 File: images/convive_vinc_agresor.png Graphic file (type png)
 <use images/convive_vinc_agresor.png>
 Package pdftex.def Info: images/convive_vinc_agresor.png  used on input line 372.
@@ -870,7 +870,7 @@ Overfull \hbox (32.52019pt too wide) in paragraph at lines 372--373
  [] 
  []
 
-<images/latex_llamante_vin_convive.png, id=297, 1076.823pt x 570.933pt>
+<images/latex_llamante_vin_convive.png, id=299, 1076.823pt x 570.933pt>
 File: images/latex_llamante_vin_convive.png Graphic file (type png)
 <use images/latex_llamante_vin_convive.png>
 Package pdftex.def Info: images/latex_llamante_vin_convive.png  used on input line 380.
@@ -886,144 +886,139 @@ File: images/latex_boxplot_convive_edad.png Graphic file (type png)
 <use images/latex_boxplot_convive_edad.png>
 Package pdftex.def Info: images/latex_boxplot_convive_edad.png  used on input line 391.
 (pdftex.def)             Requested size: 363.15587pt x 189.70828pt.
- [16 <./images/latex_llamante_vin_convive.png>]
+ [16 <./images/latex_llamante_vin_convive.png> <./images/latex_boxplot_convive_edad.png>]
 <images/convive_edad_agresor.png, id=320, 1070.3187pt x 569.4876pt>
 File: images/convive_edad_agresor.png Graphic file (type png)
 <use images/convive_edad_agresor.png>
 Package pdftex.def Info: images/convive_edad_agresor.png  used on input line 418.
 (pdftex.def)             Requested size: 428.11989pt x 227.791pt.
- [17 <./images/latex_boxplot_convive_edad.png>]
-<images/latex_convive_sd_edad_vic.png, id=330, 726.3135pt x 384.4764pt>
+ [17 <./images/convive_edad_agresor.png>]
+<images/latex_convive_sd_edad_vic.png, id=331, 726.3135pt x 384.4764pt>
 File: images/latex_convive_sd_edad_vic.png Graphic file (type png)
 <use images/latex_convive_sd_edad_vic.png>
 Package pdftex.def Info: images/latex_convive_sd_edad_vic.png  used on input line 429.
 (pdftex.def)             Requested size: 363.15587pt x 192.23772pt.
- [18 <./images/convive_edad_agresor.png> <./images/latex_convive_sd_edad_vic.png>] [19] [20]
-Overfull \hbox (4.06589pt too wide) in paragraph at lines 499--500
-\OT1/cmr/m/n/10 par-ten do-mi-nio sem^^Santi-co y jur^^S^^Pdi-co, co-mo por ejem-plo \OT1/cmtt/m/n/10 vs[]explotaci^^Son[]sexual\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 vs[]explotaci^^Son[]sexual[]comercial\OT1/cmr/m/n/10 ,
- []
-
-[21] [22]
-Overfull \hbox (24.87898pt too wide) in paragraph at lines 574--575
+ [18 <./images/latex_convive_sd_edad_vic.png>] [19] [20] [21]
+Overfull \hbox (24.87898pt too wide) in paragraph at lines 570--571
 []\OT1/cmr/m/n/10 Columnas eli-mi-na-das del da-ta-set ori-gi-nal: ['lla-ma-do[]provincia', 'lla-man-te[]vinculo', 'he-cho[]lugar', 'vic-ti-ma[]nacionalidad',
  []
 
 
-Overfull \hbox (21.8325pt too wide) in paragraph at lines 574--575
+Overfull \hbox (21.8325pt too wide) in paragraph at lines 570--571
 \OT1/cmr/m/n/10 'vic-ti-ma[]vinculo[]agresor', 'vs[]violacion[]via[]vaginal', 'vs[]violacion[]via[]anal', 'vs[]violacion[]via[]oral', 'vs[]tentativa[]violacion',
  []
 
 
-Overfull \hbox (91.88683pt too wide) in paragraph at lines 574--575
+Overfull \hbox (91.88683pt too wide) in paragraph at lines 570--571
 \OT1/cmr/m/n/10 'vs[]Intento[]violaci^^Son[]tercera[]persona', 'vs[]amenazas[]verbales[]contenido[]sexual', 'vs[]explotacion[]sexual', 'vs[]explotacion[]sexual[]comercial',
  []
 
 
-Overfull \hbox (39.35783pt too wide) in paragraph at lines 574--575
+Overfull \hbox (39.35783pt too wide) in paragraph at lines 570--571
 \OT1/cmr/m/n/10 'vs[]explotacion[]sexual[]viajes[]turismo', 'vs[]sospecha[]trata[]personas[]fines[]sexuales', 'vs[]existencia[]facilitador[]corrupcion[]nnya',
  []
 
 
-Overfull \hbox (7.3545pt too wide) in paragraph at lines 574--575
+Overfull \hbox (7.3545pt too wide) in paragraph at lines 570--571
 \OT1/cmr/m/n/10 'vs[]eyaculacion[]partes[]cuerpo', 'ofv[]intento[]ahorcar', 'ofv[]intento[]quemar', 'ofv[]intento[]ahogar', 'ofv[]amenaza[]muerte',
  []
 
 
-Overfull \hbox (75.12701pt too wide) in paragraph at lines 574--575
+Overfull \hbox (75.12701pt too wide) in paragraph at lines 570--571
 \OT1/cmr/m/n/10 'ofv[]uso[]sustancias[]psicoactivas', 'ofv[]intento[]privacion[]libertad', 'ofv[]privacion[]libertad', 'ofv[]uso[]arma[]blanca', 'ofv[]uso[]arma[]fuego',
  []
 
 
-Overfull \hbox (88.4179pt too wide) in paragraph at lines 577--578
+Overfull \hbox (88.4179pt too wide) in paragraph at lines 573--574
 []\OT1/cmr/m/n/10 Columnas nue-vas (no es-ta-ban en el da-ta-set ori-gi-nal): ['fin[]de[]semana', 'mo-men-to[]dia', 'es-ta-cion[]del[]a~no', 'vs[]explotacion[]sexual[]group',
  []
 
 
-Overfull \hbox (9.37119pt too wide) in paragraph at lines 577--578
+Overfull \hbox (9.37119pt too wide) in paragraph at lines 573--574
 \OT1/cmr/m/n/10 'vs[]violacion[]group', 'vs[]tentativa[]group', 'agre-sor[]conocido[]no[]conocido[]red', 'vincu-lo[]llamante[]red', 'he-cho[]lugar[]red',
  []
 
 
-Overfull \hbox (49.98906pt too wide) in paragraph at lines 580--595
+Overfull \hbox (49.98906pt too wide) in paragraph at lines 576--591
 \OT1/cmr/m/n/10 'vic-ti-ma[]a[]resguardo', 'vic-ti-ma[]edad', 'vic-ti-ma[]genero', 'vic-ti-ma[]discapacidad', 'vic-ti-ma[]convive[]agresor', 'vs[]tocamiento[]sexual',
  []
 
 
-Overfull \hbox (14.7823pt too wide) in paragraph at lines 580--595
+Overfull \hbox (14.7823pt too wide) in paragraph at lines 576--591
 \OT1/cmr/m/n/10 'vs[]intento[]tocamiento', 'vs[]grooming', 'vs[]exhibicionismo', 'vs[]obligacion[]sacarse[]fotos[]pornograficas', 'vs[]acoso[]sexual',
  []
 
 
-Overfull \hbox (35.04236pt too wide) in paragraph at lines 580--595
+Overfull \hbox (35.04236pt too wide) in paragraph at lines 576--591
 \OT1/cmr/m/n/10 'vs[]iniciacion[]sexual[]forzada[]inducida', 'vs[]otra[]forma[]violencia[]sexual', 'vs[]no[]sabe[]no[]contesta', 'ofv[]sentimiento[]amenaza',
  []
 
 
-Overfull \hbox (93.43373pt too wide) in paragraph at lines 580--595
+Overfull \hbox (93.43373pt too wide) in paragraph at lines 576--591
 \OT1/cmr/m/n/10 'ofv[]amenaza[]explicita', 'ofv[]violencia[]fisica', 'ofv[]enganio[]seduccion', 'ofv[]grooming', 'ofv[]otra[]forma[]violencia', 'ofv[]no[]sabe[]no[]contesta',
  []
 
 
-Overfull \hbox (25.78905pt too wide) in paragraph at lines 580--595
+Overfull \hbox (25.78905pt too wide) in paragraph at lines 576--591
 \OT1/cmr/m/n/10 'fin[]de[]semana', 'mo-men-to[]dia', 'es-ta-cion[]del[]a~no', 'vs[]explotacion[]sexual[]group', 'vs[]violacion[]group', 'vs[]tentativa[]group',
  []
 
 
-Overfull \hbox (55.95462pt too wide) in paragraph at lines 580--595
+Overfull \hbox (55.95462pt too wide) in paragraph at lines 576--591
 \OT1/cmr/m/n/10 'agre-sor[]conocido[]no[]conocido[]red', 'vincu-lo[]llamante[]red', 'he-cho[]lugar[]red', 'lla-ma-do[]provincia[]red', 'vic-ti-ma[]nacionalidad[]red'],
  []
 
-[23]
+[22]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 621.
+(hyperref)                than one, level fixed on input line 617.
 
-[24] [25] (./main.bbl
-Underfull \hbox (badness 1655) in paragraph at lines 38--41
+[23] [24] (./main.bbl
+Underfull \hbox (badness 1655) in paragraph at lines 43--46
 []\OT1/cmr/m/n/10 Ministerio de Jus-ti-cia de la Rep^^Subli-ca Ar-gen-ti-na.  Nue-va L^^S^^Pnea 137: am-plia-ci^^Son de ser-vi-cios de aten-
  []
 
 
-Underfull \hbox (badness 2556) in paragraph at lines 38--41
+Underfull \hbox (badness 2556) in paragraph at lines 43--46
 \OT1/cmr/m/n/10 ci^^Son con-tra las vio-len-cias y pa-ra el ac-ce-so a de-re-chos.  []$\OT1/cmtt/m/n/10 https : / / www . argentina . gob . ar / noticias /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--41
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 \OT1/cmtt/m/n/10 nueva-[]linea-[]137-[]ampliacion-[]de-[]servicios-[]de-[]atencion-[]contra-[]las-[]violencias-[]y-[]para-[]el-[]acceso$[]\OT1/cmr/m/n/10 ,
  []
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 69.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 74.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)) [26]
-<images/latex_llamados_por_provincia.png, id=428, 729.927pt x 469.755pt>
+)) [25]
+<images/latex_llamados_por_provincia.png, id=431, 729.927pt x 469.755pt>
 File: images/latex_llamados_por_provincia.png Graphic file (type png)
 <use images/latex_llamados_por_provincia.png>
-Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 666.
+Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 662.
 (pdftex.def)             Requested size: 364.9626pt x 234.87692pt.
-<images/latex_caso_judicializado.png, id=429, 723.4227pt x 380.1402pt>
+<images/latex_caso_judicializado.png, id=432, 723.4227pt x 380.1402pt>
 File: images/latex_caso_judicializado.png Graphic file (type png)
 <use images/latex_caso_judicializado.png>
-Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 674.
+Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 670.
 (pdftex.def)             Requested size: 361.71046pt x 190.06963pt.
-<images/latex_nacionalidad_victima.png, id=430, 723.4227pt x 379.4175pt>
+<images/latex_nacionalidad_victima.png, id=433, 723.4227pt x 379.4175pt>
 File: images/latex_nacionalidad_victima.png Graphic file (type png)
 <use images/latex_nacionalidad_victima.png>
-Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 683.
+Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 679.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
- [27 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
-<images/latex_victima_discapacidad.png, id=437, 723.4227pt x 379.4175pt>
+ [26 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
+<images/latex_victima_discapacidad.png, id=440, 723.4227pt x 379.4175pt>
 File: images/latex_victima_discapacidad.png Graphic file (type png)
 <use images/latex_victima_discapacidad.png>
-Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 693.
+Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 689.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
-<images/latex_vinculo_llamante.png, id=438, 729.927pt x 453.8556pt>
+<images/latex_vinculo_llamante.png, id=441, 729.927pt x 453.8556pt>
 File: images/latex_vinculo_llamante.png Graphic file (type png)
 <use images/latex_vinculo_llamante.png>
-Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 703.
+Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 699.
 (pdftex.def)             Requested size: 364.9626pt x 226.92725pt.
- [28 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>] [29 <./images/latex_vinculo_llamante.png>] (./main.aux
+ [27 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>] [28 <./images/latex_vinculo_llamante.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -1035,18 +1030,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: FB2C3FB09E479BA882DDB13FA1290363;2434.
  ) 
 Here is how much of TeX's memory you used:
- 29003 strings out of 474116
- 588636 string characters out of 5743683
+ 29011 strings out of 474116
+ 588820 string characters out of 5743683
  1944187 words of memory out of 5000000
- 50824 multiletter control sequences out of 15000+600000
+ 50831 multiletter control sequences out of 15000+600000
  565095 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1936b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on main.pdf (31 pages, 1464495 bytes).
+Output written on main.pdf (30 pages, 1465710 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 440 compressed objects within 5 object streams
- 112 named destinations out of 1000 (max. 500000)
+ 551 PDF objects out of 1000 (max. 8388607)
+ 443 compressed objects within 5 object streams
+ 113 named destinations out of 1000 (max. 500000)
  241 words of extra memory for PDF output out of 10000 (max. 10000000)
 

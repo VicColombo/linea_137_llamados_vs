@@ -190,7 +190,7 @@ Las variables que describen la violencia sexual sufrida y otras formas de violen
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=.5]{images/latex_vs_sino.jpeg}
-\caption{Tipos de violencia sexual reportada en los llamados.}
+\caption{Tipos de violencia sexual reportada.}
 \label{vssino}
 \end{center}
 \end{figure} 
@@ -198,7 +198,7 @@ Las variables que describen la violencia sexual sufrida y otras formas de violen
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=.5]{images/latex_ofv_sino.jpeg}
-\caption{Tipos de violencia no sexual reportada en los llamados.}
+\caption{Tipos de violencia no sexual reportada.}
 \label{ofvsino}
 \end{center}
 \end{figure} 
@@ -384,7 +384,7 @@ Por último, en la figura \ref{llamvincconvive}, se puede ver que para la catego
 \end{figure} 
 
 
-Luego realicé \textit{boxplots} comparativos y un detalle del análisis de cuartiles de \texttt{victima\_edad} según cada categoría de \texttt{victima\_convive\_agresor}. Como se ve en la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad}, las víctimas que conviven con el agresor son ligeramente más jóvenes que las que no lo hacen; y las víctimas de las que no se cuenta con datos sobre la convivencia parecen estar más cerca en edad de las que conviven. Sin embargo, estas diferencias en edad no parecen significativas\footnote{Realizo en la sección \nameref{met} un análisis más detallado con respecto a la correlación estadística entre la edad de la víctima y la variable de convivencia, entre otras.}. 
+Luego realicé \textit{boxplots} comparativos y un detalle del análisis de cuartiles de \texttt{victima\_edad} según cada categoría de \texttt{victima\_convive\_agresor}. Como se ve en la figura \ref{boxplotsconvivenciaedad} y el cuadro \ref{cuartilesconviveedad}, las víctimas que conviven con el agresor son ligeramente más jóvenes que las que no lo hacen; y las víctimas de las que no se cuenta con datos sobre la convivencia parecen estar más cerca en edad de las que conviven. Sin embargo, estas diferencias en edad no parecen significativas.\todo[inline]{agregar acá el análisis de correlaciones hecho para edad}
 
 \begin{figure}[H]
     \begin{center}
@@ -440,7 +440,7 @@ Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet
 
 \section{Metodología}\label{met}
 
-La extensa cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable objetivo, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Experimenté con dos metodologías para reducir las dimensiones de los datos. Primero apliqué el método de NMDS para obtener un nuevo ordenamiento de los datos en un espacio de menor dimensión. Este paso cumple la doble función de obtener un \textit{dataset} reducido para entrenar un modelo de SVM, y, por otro lado, generar visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \texttt{victima\_conive\_agresor}. En segundo lugar, realicé una reducción “manual” de los datos, eliminando, agrupando, y transformando variables de manera más controlada, respondiendo a una exploración a conciencia de los datos. Finalmente, para el entrenamiento de modelos de SVM que predigan los datos faltantes de la variable objetivo como \texttt{SI} o \texttt{NO}, utilicé distintos conjuntos de datos que varían según los dos tipos de reducciones aplicadas y distintos tipos de preprocesamientos para solventar los datos faltantes en las variables de edad.
+La extensa cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable objetivo, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Experimenté con dos metodologías para reducir las dimensiones de los datos. Primero apliqué el método de NMDS para obtener un nuevo ordenamiento de los datos en un espacio de menor dimensión. Este paso cumple la doble función de obtener un \textit{dataset} reducido para entrenar un modelo de SVM\footnote{La idea de utilizar NMDS como preparación de los datos para entrenar un modelo de SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}(\citeyear{cai2019incorporating}) en el campo de la microbiología donde encuentran resultados moderadamente buenos en \textit{accuracy} al entrenar un modelo de SVM con un \textit{dataset} comprimido por NMDS (p.69).}, y, por otro lado, generar visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \texttt{victima\_conive\_agresor}. En segundo lugar, realicé una reducción “manual” de los datos, eliminando, agrupando, y transformando variables de manera más controlada, respondiendo a una exploración a conciencia de los datos. Finalmente, para el entrenamiento de modelos de SVM que predigan los datos faltantes de la variable objetivo como \texttt{SI} o \texttt{NO}, utilicé distintos conjuntos de datos que varían según los dos tipos de reducciones aplicadas y distintos tipos de preprocesamientos para solventar los datos faltantes en las variables de edad.
 
 
 \subsection{Reducción de los datos con NMDS}
@@ -496,16 +496,28 @@ Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de
 
 \subsection{Reducción manual de los datos}\label{reduccionmanual}
 
-Como se puede apreciar en los gráficos de las figuras \Ref{vssino} y \Ref{ofvsino} de la sección \nameref{datos}, muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas. Además, muchas comparten dominio semántico y jurídico, como por ejemplo \texttt{vs\_explotación\_sexual}, \texttt{vs\_explotación\_sexual\_comercial}, y \texttt{vs\_explotación\_sexual\_viajes\_turismo}. Teniendo en cuenta esto, reduje la cantidad de variables que describen los tipos de violencias sufridas de dos maneras. 
+Muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas (ver nuevamente la figuras \nameref{vssino} y \nameref{ofvsino} en la sección \nameref{datos}). Además, muchas comparten dominio semántico y jurídico, como por ejemplo \texttt{vs\_explotación\_sexual}, \texttt{vs\_explotación\_sexual\_comercial}, y \texttt{vs\_explotación\_sexual\_viajes\_turismo}. 
+
+Teniendo en cuenta esas características, en primer lugar eliminé aquellas variables de violencia cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos:
+\begin{multicols}{2}
+\begin{itemize}
+    \item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
+    \item \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}
+    \item \texttt{vs\_eyaculacion\_partes\_cuerpo}
+    \item \texttt{ofv\_intento\_ahorcar}
+    \item \texttt{ofv\_intento\_quemar}
+    \item \texttt{ofv\_intento\_ahogar}
+    \item \texttt{ofv\_amenaza\_muerte}
+    \item \texttt{ofv\_uso\_sustancias\_psicoactivas} 
+    \item \texttt{ofv\_intento\_privacion\_libertad}
+    \item \texttt{ofv\_privacion\_libertad}
+    \item \texttt{ofv\_uso\_animal\_victimizar}
+    \item \texttt{ofv\_intento\_matar}
+\end{itemize}
+\end{multicols} 
 
 
-
-
-
-
-
-Primero, agrupé algunas de las restantes en tres nuevas variables por dominio, como se puede ver en el cuadro \Ref{tablaagrup} a continuación. 
-
+En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por dominio, como se puede ver en el cuadro \Ref{tablaagrup} a continuación.
 
 \begin{table}[H]
     \centering
@@ -527,29 +539,13 @@ Primero, agrupé algunas de las restantes en tres nuevas variables por dominio, 
     \end{table}
 
 
-Después, eliminé las variables cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos. Las variables eliminadas fueron:
-\begin{multicols}{2}
-\begin{itemize}
-    \item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
-    \item \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}
-    \item \texttt{vs\_eyaculacion\_partes\_cuerpo}
-    \item \texttt{ofv\_intento\_ahorcar}
-    \item \texttt{ofv\_intento\_quemar}
-    \item \texttt{ofv\_intento\_ahogar}
-    \item \texttt{ofv\_amenaza\_muerte}
-    \item \texttt{ofv\_uso\_sustancias\_psicoactivas} 
-    \item \texttt{ofv\_intento\_privacion\_libertad}
-    \item \texttt{ofv\_privacion\_libertad}
-    \item \texttt{ofv\_uso\_animal\_victimizar}
-    \item \texttt{ofv\_intento\_matar}
-\end{itemize}
-\end{multicols}
 
+En \textit{Encoding methods for categorical data}, \citeyearpar{udilua2023encoding}, Udila compara métodos de \textit{encoding} según su impacto en la calidad de un modelo de SVM entrenado, y encuentra que \textit{One-hot encoding} consistentemente resulta en modelos con mejor \textit{accuracy}. 
+Por otro lado, 
+a
 
-
-
-Por último, problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
-
+se necesita que las varaibles del dataset sean problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
+por qué decidí one hot?
 
 - provincia: con porcentaje que aparece cada provincia o con agrupación por zona del país. OK
 Norte (NOA, NEA), Central (Cuyana, Pampeana), Patagónica, Bs as, CABA, NS/NC. Se podrían haber elegido otras formas de agrupar pero lo cierto es que CABA y Buenos Aires representan el 80 de los llamados, NS/NC el 9 por ciento, Córdoba, Santa Fe, Tucumán, y Mendoza el 7 por ciento, y el resto de la provincias representan individualmente menos del 1 pr ciento de los llamados recibidos.
