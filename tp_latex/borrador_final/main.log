@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  20 DEC 2024 00:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  20 DEC 2024 01:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -899,79 +899,79 @@ File: images/latex_convive_sd_edad_vic.png Graphic file (type png)
 Package pdftex.def Info: images/latex_convive_sd_edad_vic.png  used on input line 429.
 (pdftex.def)             Requested size: 363.15587pt x 192.23772pt.
  [18 <./images/latex_convive_sd_edad_vic.png>] [19] [20] [21]
-Overfull \hbox (24.87898pt too wide) in paragraph at lines 570--571
+Overfull \hbox (24.87898pt too wide) in paragraph at lines 567--568
 []\OT1/cmr/m/n/10 Columnas eli-mi-na-das del da-ta-set ori-gi-nal: ['lla-ma-do[]provincia', 'lla-man-te[]vinculo', 'he-cho[]lugar', 'vic-ti-ma[]nacionalidad',
  []
 
 
-Overfull \hbox (21.8325pt too wide) in paragraph at lines 570--571
+Overfull \hbox (21.8325pt too wide) in paragraph at lines 567--568
 \OT1/cmr/m/n/10 'vic-ti-ma[]vinculo[]agresor', 'vs[]violacion[]via[]vaginal', 'vs[]violacion[]via[]anal', 'vs[]violacion[]via[]oral', 'vs[]tentativa[]violacion',
  []
 
 
-Overfull \hbox (91.88683pt too wide) in paragraph at lines 570--571
+Overfull \hbox (91.88683pt too wide) in paragraph at lines 567--568
 \OT1/cmr/m/n/10 'vs[]Intento[]violaci^^Son[]tercera[]persona', 'vs[]amenazas[]verbales[]contenido[]sexual', 'vs[]explotacion[]sexual', 'vs[]explotacion[]sexual[]comercial',
  []
 
 
-Overfull \hbox (39.35783pt too wide) in paragraph at lines 570--571
+Overfull \hbox (39.35783pt too wide) in paragraph at lines 567--568
 \OT1/cmr/m/n/10 'vs[]explotacion[]sexual[]viajes[]turismo', 'vs[]sospecha[]trata[]personas[]fines[]sexuales', 'vs[]existencia[]facilitador[]corrupcion[]nnya',
  []
 
 
-Overfull \hbox (7.3545pt too wide) in paragraph at lines 570--571
+Overfull \hbox (7.3545pt too wide) in paragraph at lines 567--568
 \OT1/cmr/m/n/10 'vs[]eyaculacion[]partes[]cuerpo', 'ofv[]intento[]ahorcar', 'ofv[]intento[]quemar', 'ofv[]intento[]ahogar', 'ofv[]amenaza[]muerte',
  []
 
 
-Overfull \hbox (75.12701pt too wide) in paragraph at lines 570--571
+Overfull \hbox (75.12701pt too wide) in paragraph at lines 567--568
 \OT1/cmr/m/n/10 'ofv[]uso[]sustancias[]psicoactivas', 'ofv[]intento[]privacion[]libertad', 'ofv[]privacion[]libertad', 'ofv[]uso[]arma[]blanca', 'ofv[]uso[]arma[]fuego',
  []
 
 
-Overfull \hbox (88.4179pt too wide) in paragraph at lines 573--574
+Overfull \hbox (88.4179pt too wide) in paragraph at lines 570--571
 []\OT1/cmr/m/n/10 Columnas nue-vas (no es-ta-ban en el da-ta-set ori-gi-nal): ['fin[]de[]semana', 'mo-men-to[]dia', 'es-ta-cion[]del[]a~no', 'vs[]explotacion[]sexual[]group',
  []
 
 
-Overfull \hbox (9.37119pt too wide) in paragraph at lines 573--574
+Overfull \hbox (9.37119pt too wide) in paragraph at lines 570--571
 \OT1/cmr/m/n/10 'vs[]violacion[]group', 'vs[]tentativa[]group', 'agre-sor[]conocido[]no[]conocido[]red', 'vincu-lo[]llamante[]red', 'he-cho[]lugar[]red',
  []
 
 
-Overfull \hbox (49.98906pt too wide) in paragraph at lines 576--591
+Overfull \hbox (49.98906pt too wide) in paragraph at lines 573--588
 \OT1/cmr/m/n/10 'vic-ti-ma[]a[]resguardo', 'vic-ti-ma[]edad', 'vic-ti-ma[]genero', 'vic-ti-ma[]discapacidad', 'vic-ti-ma[]convive[]agresor', 'vs[]tocamiento[]sexual',
  []
 
 
-Overfull \hbox (14.7823pt too wide) in paragraph at lines 576--591
+Overfull \hbox (14.7823pt too wide) in paragraph at lines 573--588
 \OT1/cmr/m/n/10 'vs[]intento[]tocamiento', 'vs[]grooming', 'vs[]exhibicionismo', 'vs[]obligacion[]sacarse[]fotos[]pornograficas', 'vs[]acoso[]sexual',
  []
 
 
-Overfull \hbox (35.04236pt too wide) in paragraph at lines 576--591
+Overfull \hbox (35.04236pt too wide) in paragraph at lines 573--588
 \OT1/cmr/m/n/10 'vs[]iniciacion[]sexual[]forzada[]inducida', 'vs[]otra[]forma[]violencia[]sexual', 'vs[]no[]sabe[]no[]contesta', 'ofv[]sentimiento[]amenaza',
  []
 
 
-Overfull \hbox (93.43373pt too wide) in paragraph at lines 576--591
+Overfull \hbox (93.43373pt too wide) in paragraph at lines 573--588
 \OT1/cmr/m/n/10 'ofv[]amenaza[]explicita', 'ofv[]violencia[]fisica', 'ofv[]enganio[]seduccion', 'ofv[]grooming', 'ofv[]otra[]forma[]violencia', 'ofv[]no[]sabe[]no[]contesta',
  []
 
 
-Overfull \hbox (25.78905pt too wide) in paragraph at lines 576--591
+Overfull \hbox (25.78905pt too wide) in paragraph at lines 573--588
 \OT1/cmr/m/n/10 'fin[]de[]semana', 'mo-men-to[]dia', 'es-ta-cion[]del[]a~no', 'vs[]explotacion[]sexual[]group', 'vs[]violacion[]group', 'vs[]tentativa[]group',
  []
 
 
-Overfull \hbox (55.95462pt too wide) in paragraph at lines 576--591
+Overfull \hbox (55.95462pt too wide) in paragraph at lines 573--588
 \OT1/cmr/m/n/10 'agre-sor[]conocido[]no[]conocido[]red', 'vincu-lo[]llamante[]red', 'he-cho[]lugar[]red', 'lla-ma-do[]provincia[]red', 'vic-ti-ma[]nacionalidad[]red'],
  []
 
 [22]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 617.
+(hyperref)                than one, level fixed on input line 614.
 
 [23] [24] (./main.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 43--46
@@ -992,31 +992,31 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 74.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )) [25]
-<images/latex_llamados_por_provincia.png, id=431, 729.927pt x 469.755pt>
+<images/latex_llamados_por_provincia.png, id=430, 729.927pt x 469.755pt>
 File: images/latex_llamados_por_provincia.png Graphic file (type png)
 <use images/latex_llamados_por_provincia.png>
-Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 662.
+Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 659.
 (pdftex.def)             Requested size: 364.9626pt x 234.87692pt.
-<images/latex_caso_judicializado.png, id=432, 723.4227pt x 380.1402pt>
+<images/latex_caso_judicializado.png, id=431, 723.4227pt x 380.1402pt>
 File: images/latex_caso_judicializado.png Graphic file (type png)
 <use images/latex_caso_judicializado.png>
-Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 670.
+Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 667.
 (pdftex.def)             Requested size: 361.71046pt x 190.06963pt.
-<images/latex_nacionalidad_victima.png, id=433, 723.4227pt x 379.4175pt>
+<images/latex_nacionalidad_victima.png, id=432, 723.4227pt x 379.4175pt>
 File: images/latex_nacionalidad_victima.png Graphic file (type png)
 <use images/latex_nacionalidad_victima.png>
-Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 679.
+Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 676.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
  [26 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
-<images/latex_victima_discapacidad.png, id=440, 723.4227pt x 379.4175pt>
+<images/latex_victima_discapacidad.png, id=439, 723.4227pt x 379.4175pt>
 File: images/latex_victima_discapacidad.png Graphic file (type png)
 <use images/latex_victima_discapacidad.png>
-Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 689.
+Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 686.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
-<images/latex_vinculo_llamante.png, id=441, 729.927pt x 453.8556pt>
+<images/latex_vinculo_llamante.png, id=440, 729.927pt x 453.8556pt>
 File: images/latex_vinculo_llamante.png Graphic file (type png)
 <use images/latex_vinculo_llamante.png>
-Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 699.
+Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 696.
 (pdftex.def)             Requested size: 364.9626pt x 226.92725pt.
  [27 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>] [28 <./images/latex_vinculo_llamante.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 12.
@@ -1030,18 +1030,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: FB2C3FB09E479BA882DDB13FA1290363;2434.
  ) 
 Here is how much of TeX's memory you used:
- 29011 strings out of 474116
- 588820 string characters out of 5743683
+ 29010 strings out of 474116
+ 588805 string characters out of 5743683
  1944187 words of memory out of 5000000
- 50831 multiletter control sequences out of 15000+600000
+ 50830 multiletter control sequences out of 15000+600000
  565095 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1936b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on main.pdf (30 pages, 1465710 bytes).
+Output written on main.pdf (30 pages, 1465978 bytes).
 PDF statistics:
- 551 PDF objects out of 1000 (max. 8388607)
- 443 compressed objects within 5 object streams
+ 550 PDF objects out of 1000 (max. 8388607)
+ 442 compressed objects within 5 object streams
  113 named destinations out of 1000 (max. 500000)
  241 words of extra memory for PDF output out of 10000 (max. 10000000)
 

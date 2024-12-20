@@ -540,12 +540,9 @@ En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por 
 
 
 
-En \textit{Encoding methods for categorical data}, \citeyearpar{udilua2023encoding}, Udila compara métodos de \textit{encoding} según su impacto en la calidad de un modelo de SVM entrenado, y encuentra que \textit{One-hot encoding} consistentemente resulta en modelos con mejor \textit{accuracy}. 
-Por otro lado, 
-a
+En \textit{Encoding methods for categorical data}, \citep{udilua2023encoding}, el autor compara métodos de \textit{encoding} según su impacto en la calidad de un modelo de SVM entrenado, y encuentra que \textit{One-hot encoding} consistentemente resulta en modelos con mejor \textit{accuracy} (p.7). Por otro lado, en el mismo artículo el autor expone una limitación conocida del método \textit{One-hot}: con variables de alta cardinalidad el tiempo de procesamiento se vuelve potencialmente demasiado alto (p.7).
 
-se necesita que las varaibles del dataset sean problemas para aplicar métodos de \textit{encoding} como el \textit{one hot encoding}. \citetext{\citealp[p.~3]{udilua2023encoding}} 
-por qué decidí one hot?
+Por lo tanto, para aplicar \textit{One-hot encoding} al conjunto de datos (paso necesario para entrenar un modelo de SVM al contar muchas variables categóricas) sin arriesgar problemas de procesamiento, reduje la cardinalidad de las variables cuya cantidad de niveles podía tornarse un problema.
 
 - provincia: con porcentaje que aparece cada provincia o con agrupación por zona del país. OK
 Norte (NOA, NEA), Central (Cuyana, Pampeana), Patagónica, Bs as, CABA, NS/NC. Se podrían haber elegido otras formas de agrupar pero lo cierto es que CABA y Buenos Aires representan el 80 de los llamados, NS/NC el 9 por ciento, Córdoba, Santa Fe, Tucumán, y Mendoza el 7 por ciento, y el resto de la provincias representan individualmente menos del 1 pr ciento de los llamados recibidos.
