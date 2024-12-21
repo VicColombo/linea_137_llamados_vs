@@ -120,7 +120,7 @@ Mis objetivos para este trabajo son:\todo[inline]{separar con subtítulos objeti
 \end{itemize}
 
 \todo[inline]{en algún lado listar código y librerías}
-\todo[inline]{pasar todas las variables y valores de texit a texttt}
+
 \section{Datos}\label{datos}
 
 \subsection{Obtención y limpieza}\label{limpieza}
@@ -542,23 +542,19 @@ En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por 
 
 En \textit{Encoding methods for categorical data}, \citep{udilua2023encoding}, el autor compara métodos de \textit{encoding} según su impacto en la calidad de un modelo de SVM entrenado, y encuentra que \textit{One-hot encoding} consistentemente resulta en modelos con mejor \textit{accuracy} (p.7). Por otro lado, en el mismo artículo el autor expone una limitación conocida del método \textit{One-hot}: con variables de alta cardinalidad el tiempo de procesamiento se vuelve potencialmente demasiado alto (p.7).
 
-Por lo tanto, para aplicar \textit{One-hot encoding} al conjunto de datos (paso necesario para entrenar un modelo de SVM al contar muchas variables categóricas) sin arriesgar problemas de procesamiento, reduje la cardinalidad de las variables cuya cantidad de niveles podía tornarse un problema.
+Por lo tanto, para aplicar \textit{One-hot encoding} al conjunto de datos (paso necesario para entrenar un modelo de SVM que no puede aplicarse con variables categóricas) sin arriesgar problemas de procesamiento, reduje la cardinalidad de las variables con más de 5 niveles.\footnote{El desglose de cada una de las variables originales con la proporción de llamados por categoría se puede re visitar en la sección \nameref{exploración}.}   
 
-- provincia: con porcentaje que aparece cada provincia o con agrupación por zona del país. OK
-Norte (NOA, NEA), Central (Cuyana, Pampeana), Patagónica, Bs as, CABA, NS/NC. Se podrían haber elegido otras formas de agrupar pero lo cierto es que CABA y Buenos Aires representan el 80 de los llamados, NS/NC el 9 por ciento, Córdoba, Santa Fe, Tucumán, y Mendoza el 7 por ciento, y el resto de la provincias representan individualmente menos del 1 pr ciento de los llamados recibidos.
+\texttt{llamado\_provincia} tenía originalmente 25 niveles y quedó reducida a 6: \texttt{Buenos Aires}, \texttt{C.A.B.A.}, \texttt{Región Norte} (NOA y NEA), \texttt{Región Central} (Cuyo y región Pampeana), \texttt{Región Patagónica}, y \texttt{NS/NC}.    
 
-- victima nacionalidad: me quedé con argentina que representa el 80\% y NSNC que representa el 15\% y junté todas las demás en otra ya que ninguna categoría llegaba siquiera al 1\% individualmente
+\texttt{victima\_nacionalidad} tenía originalmente 9 niveles y quedó reducida a 3: \texttt{Argentina}, \texttt{NS/NC}, y \texttt{Otra} (donde entran todas las demás nacionalidaes ya que ninguna superaba individualmente el 1\% de los llamados). 
 
-- hecho lugar: ver porcentajes que representan y agrupar por dominio OK
-Otro: le sumé a la categoría Otro (5 pct), que representa el 5pct de los casos,  Residencia turística (menos del 1 pct),Obra en construcción (menos del 1 pct), Taxi (menos del 1 pct),Albergue transitorio (menos del 1 pct),Automóvil (menos de 1 pct),Comercio (menos de 2pct),Ámbito educativo(menos de 3 pct),Vivienda de un familiar (3 pct) que están todas por debajo del 3 pct.
-Espacio público: Subterráneo/Tren/Colectivo menos del 1pct, Plaza y Descampado son menos del 1 pct, Calle 3pct
-Después quedaron las categoirías originales: vivienda de la víctima(25pct), vivienda del agresor(13pct), redes sociales(12), y NS/NC(29)
+\texttt{hecho\_lugar} tenía originalmente 17 niveles y quedó reducida a 6: \texttt{NS/NC}, \texttt{Vivienda de la víctima}, \texttt{Vivienda del agresor}, \texttt{Redes sociales}, \texttt{Espacio/transporte público} (subterráneo, tren, colectivo, plaza, descampado, y calle), y \texttt{Otro} (categoría original más residencia turística, obra en construcción, taxi, albergue transitorio, automóvil, comercio,ámbito educativo, y vivienda de un familiar).   
 
 
-- llamante vínculo: agrupé por dominio y con vistas a porcentajes representados. OK
- Institición (Hospital 1.86pct pct, Comisaría 24.91 pct, Escuela 0.42 pct, Defensoría 0.10 pct, Otra Institución 2.04 pct), Conocido de la víctima (puede ser familiar o no familiar) (Madre 16.09 pct, Vecina/o 3.05, Padre 4.54 pct, Familiar 17.28 pct, Otro conocido 6.95 pct, Abuela/o 1.20 pct,Hermana/o 1.01 pct), Agresor 0.09 pct, víctima 14.28 pct, y NS/NC 6.17 pct.
+\texttt{llamante\_vinculo} tenía originalmente 16 niveles y quedó reducida a 5: \texttt{Institución} (hospital, comisaría, escuela, defensoría, y otras instituciones), \texttt{Conocido de la víctima} (madre, padre, abuela/o, hermana/o, otro familiar, y otro conocido), \texttt{Víctima}, \texttt{Agresor}, y \texttt{NS/NC}.
 
-- agresor vínculo: me quedé con la agrupación mostrada en la figura tal de la sección citar sección  de conocido no conocido  distinguiendo si el conocido es familiar o no, porque las categorías que ya existen en la variable vínculo cn el agresor me lo permiten y porque la cantidad de casos en que el agresor es conocido pero no familiar es mucho más alta que la cantidad de casos de cada fmailiar. OK
+
+Para \texttt{agresor\_vinculo} tomé la agrupación mostrada en la figura \nameref{conocidodesconocido} presentada en \nameref{exploración}, que reduce la cantidad de niveles de 15 a 4, distinguiendo entre \texttt{Conocido familiar}, \texttt{Conocido no familiar}, \texttt{NS/NC}, y \texttt{Desconocido}.
 
 
 

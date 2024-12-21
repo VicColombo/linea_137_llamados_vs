@@ -136,7 +136,7 @@ def tipo_vinculo_llamante (x):
 
 
 # reducción hecho lugar
-lista_otro = ['Residencia turística','Otro','Obra en construcción', 'Taxi','Albergue transitorio','Automóvil','Comercio','Ámbito educativo','Vivienda de un familiar' ]
+lista_otro = ['Residencia turística','Otro','Obra en construcción', 'Taxi','Albergue transitorio','Automóvil','Comercio','Ámbito educativo','Vivienda de un familiar']
 lista_espacio_publico = ['Subterráneo/Tren/Colectivo','Plaza','Descampado','Calle']
 
 
