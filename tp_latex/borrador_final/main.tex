@@ -557,34 +557,34 @@ Por lo tanto, para aplicar \textit{One-hot encoding} al conjunto de datos (paso 
 Para \texttt{agresor\_vinculo} tomé la agrupación mostrada en la figura \nameref{conocidodesconocido} presentada en \nameref{exploración}, que reduce la cantidad de niveles de 15 a 4, distinguiendo entre \texttt{Conocido familiar}, \texttt{Conocido no familiar}, \texttt{NS/NC}, y \texttt{Desconocido}.
 
 
+El conjunto de datos resultante de la reducción manual tiene 36 variables, 18 menos que el original (54). 
 
-Explicar cómo queda el dataset final
-
-Columnas eliminadas del dataset original:  ['llamado\_provincia', 'llamante\_vinculo', 'hecho\_lugar', 'victima\_nacionalidad', 'victima\_vinculo\_agresor', 'vs\_violacion\_via\_vaginal', 'vs\_violacion\_via\_anal', 'vs\_violacion\_via\_oral', 'vs\_tentativa\_violacion', 'vs\_Intento\_violación\_tercera\_persona', 'vs\_amenazas\_verbales\_contenido\_sexual', 'vs\_explotacion\_sexual', 'vs\_explotacion\_sexual\_comercial', 'vs\_explotacion\_sexual\_viajes\_turismo', 'vs\_sospecha\_trata\_personas\_fines\_sexuales', 'vs\_existencia\_facilitador\_corrupcion\_nnya', 'vs\_eyaculacion\_partes\_cuerpo', 'ofv\_intento\_ahorcar', 'ofv\_intento\_quemar', 'ofv\_intento\_ahogar', 'ofv\_amenaza\_muerte', 'ofv\_uso\_sustancias\_psicoactivas', 'ofv\_intento\_privacion\_libertad', 'ofv\_privacion\_libertad', 'ofv\_uso\_arma\_blanca', 'ofv\_uso\_arma\_fuego', 'ofv\_intento\_matar', 'ofv\_uso\_animal\_victimizar']
-
-
-Columnas nuevas (no estaban en el dataset original):  ['fin\_de\_semana', 'momento\_dia', 'estacion\_del\_año', 'vs\_explotacion\_sexual\_group', 'vs\_violacion\_group', 'vs\_tentativa\_group', 'agresor\_conocido\_no\_conocido\_red', 'vinculo\_llamante\_red', 'hecho\_lugar\_red', 'llamado\_provincia\_red', 'victima\_nacionalidad\_red']
-
-
-Columnas en el dataset final:  Index(['llamado\_fecha\_hora', 'llamante\_edad', 'llamante\_genero',
-       'caso\_judicializado', 'victima\_a\_resguardo', 'victima\_edad',
-       'victima\_genero', 'victima\_discapacidad', 'victima\_convive\_agresor',
-       'vs\_tocamiento\_sexual', 'vs\_intento\_tocamiento', 'vs\_grooming',
-       'vs\_exhibicionismo', 'vs\_obligacion\_sacarse\_fotos\_pornograficas',
-       'vs\_acoso\_sexual', 'vs\_iniciacion\_sexual\_forzada\_inducida',
-       'vs\_otra\_forma\_violencia\_sexual', 'vs\_no\_sabe\_no\_contesta',
-       'ofv\_sentimiento\_amenaza', 'ofv\_amenaza\_explicita',
-       'ofv\_violencia\_fisica', 'ofv\_enganio\_seduccion', 'ofv\_grooming',
-       'ofv\_otra\_forma\_violencia', 'ofv\_no\_sabe\_no\_contesta', 'fin\_de\_semana',
-       'momento\_dia', 'estacion\_del\_año', 'vs\_explotacion\_sexual\_group',
-       'vs\_violacion\_group', 'vs\_tentativa\_group',
-       'agresor\_conocido\_no\_conocido\_red', 'vinculo\_llamante\_red',
-       'hecho\_lugar\_red', 'llamado\_provincia\_red', 'victima\_nacionalidad\_red'],
-      dtype='object')
-
-
+\begin{multicols}{2}
+    \begin{itemize}
+        \item \texttt{llamado\_fecha\_hora} 
+        \item \texttt{llamante\_edad}
+        \item \texttt{llamante\_genero}
+        \item \texttt{caso\_judicializado}
+        \item \texttt{victima\_a\_resguardo}
+        \item \texttt{victima\_edad}
+        \item \texttt{victima\_genero}
+        \item \texttt{victima\_discapacidad} 
+        \item \texttt{victima\_convive\_agresor}
+        \item \texttt{llamado\_provincia\_reducida}
+        \item \texttt{victima\_nacionalidad\_reducida}
+        \item \texttt{hecho\_lugar\_reducida}
+        \item \texttt{vinculo\_llamante\_reducida}
+        \item \texttt{agresor\_conocido\_no\_conocido}
+        \item \texttt{fin\_de\_semana}
+        \item \texttt{momento\_dia} 
+        \item \texttt{estacion\_del\_año}
+        \item Variables de violencia sexual: 12
+        \item Variables de otros formas de violencia: 7
+    \end{itemize}
+    \end{multicols} 
 
 
+   % \texttt{vs\_tocamiento\_sexual}, \texttt{vs\_intento\_tocamiento}, \texttt{vs\_grooming} 'vs\_exhibicionismo', 'vs\_obligacion\_sacarse\_fotos\_pornograficas', 'vs\_acoso\_sexual', 'vs\_iniciacion\_sexual\_forzada\_inducida','vs\_otra\_forma\_violencia\_sexual', 'vs\_no\_sabe\_no\_contesta','vs\_explotacion\_sexual\_group' 'vs\_violacion\_group', 'vs\_tentativa\_group','ofv\_sentimiento\_amenaza', 'ofv\_amenaza\_explicita','ofv\_violencia\_fisica', 'ofv\_enganio\_seduccion', 'ofv\_grooming','ofv\_otra\_forma\_violencia', 'ofv\_no\_sabe\_no\_contesta', 
 
 \subsection{Modelos SVM}\label{svm}
 

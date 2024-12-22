@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  21 DEC 2024 17:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  21 DEC 2024 17:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -898,77 +898,7 @@ File: images/latex_convive_sd_edad_vic.png Graphic file (type png)
 <use images/latex_convive_sd_edad_vic.png>
 Package pdftex.def Info: images/latex_convive_sd_edad_vic.png  used on input line 429.
 (pdftex.def)             Requested size: 363.15587pt x 192.23772pt.
- [18 <./images/latex_convive_sd_edad_vic.png>] [19] [20] [21]
-Overfull \hbox (24.87898pt too wide) in paragraph at lines 563--564
-[]\OT1/cmr/m/n/10 Columnas eli-mi-na-das del da-ta-set ori-gi-nal: ['lla-ma-do[]provincia', 'lla-man-te[]vinculo', 'he-cho[]lugar', 'vic-ti-ma[]nacionalidad',
- []
-
-
-Overfull \hbox (21.8325pt too wide) in paragraph at lines 563--564
-\OT1/cmr/m/n/10 'vic-ti-ma[]vinculo[]agresor', 'vs[]violacion[]via[]vaginal', 'vs[]violacion[]via[]anal', 'vs[]violacion[]via[]oral', 'vs[]tentativa[]violacion',
- []
-
-
-Overfull \hbox (91.88683pt too wide) in paragraph at lines 563--564
-\OT1/cmr/m/n/10 'vs[]Intento[]violaci^^Son[]tercera[]persona', 'vs[]amenazas[]verbales[]contenido[]sexual', 'vs[]explotacion[]sexual', 'vs[]explotacion[]sexual[]comercial',
- []
-
-
-Overfull \hbox (39.35783pt too wide) in paragraph at lines 563--564
-\OT1/cmr/m/n/10 'vs[]explotacion[]sexual[]viajes[]turismo', 'vs[]sospecha[]trata[]personas[]fines[]sexuales', 'vs[]existencia[]facilitador[]corrupcion[]nnya',
- []
-
-
-Overfull \hbox (7.3545pt too wide) in paragraph at lines 563--564
-\OT1/cmr/m/n/10 'vs[]eyaculacion[]partes[]cuerpo', 'ofv[]intento[]ahorcar', 'ofv[]intento[]quemar', 'ofv[]intento[]ahogar', 'ofv[]amenaza[]muerte',
- []
-
-
-Overfull \hbox (75.12701pt too wide) in paragraph at lines 563--564
-\OT1/cmr/m/n/10 'ofv[]uso[]sustancias[]psicoactivas', 'ofv[]intento[]privacion[]libertad', 'ofv[]privacion[]libertad', 'ofv[]uso[]arma[]blanca', 'ofv[]uso[]arma[]fuego',
- []
-
-
-Overfull \hbox (88.4179pt too wide) in paragraph at lines 566--567
-[]\OT1/cmr/m/n/10 Columnas nue-vas (no es-ta-ban en el da-ta-set ori-gi-nal): ['fin[]de[]semana', 'mo-men-to[]dia', 'es-ta-cion[]del[]a~no', 'vs[]explotacion[]sexual[]group',
- []
-
-
-Overfull \hbox (9.37119pt too wide) in paragraph at lines 566--567
-\OT1/cmr/m/n/10 'vs[]violacion[]group', 'vs[]tentativa[]group', 'agre-sor[]conocido[]no[]conocido[]red', 'vincu-lo[]llamante[]red', 'he-cho[]lugar[]red',
- []
-
-
-Overfull \hbox (49.98906pt too wide) in paragraph at lines 569--584
-\OT1/cmr/m/n/10 'vic-ti-ma[]a[]resguardo', 'vic-ti-ma[]edad', 'vic-ti-ma[]genero', 'vic-ti-ma[]discapacidad', 'vic-ti-ma[]convive[]agresor', 'vs[]tocamiento[]sexual',
- []
-
-
-Overfull \hbox (14.7823pt too wide) in paragraph at lines 569--584
-\OT1/cmr/m/n/10 'vs[]intento[]tocamiento', 'vs[]grooming', 'vs[]exhibicionismo', 'vs[]obligacion[]sacarse[]fotos[]pornograficas', 'vs[]acoso[]sexual',
- []
-
-
-Overfull \hbox (35.04236pt too wide) in paragraph at lines 569--584
-\OT1/cmr/m/n/10 'vs[]iniciacion[]sexual[]forzada[]inducida', 'vs[]otra[]forma[]violencia[]sexual', 'vs[]no[]sabe[]no[]contesta', 'ofv[]sentimiento[]amenaza',
- []
-
-
-Overfull \hbox (93.43373pt too wide) in paragraph at lines 569--584
-\OT1/cmr/m/n/10 'ofv[]amenaza[]explicita', 'ofv[]violencia[]fisica', 'ofv[]enganio[]seduccion', 'ofv[]grooming', 'ofv[]otra[]forma[]violencia', 'ofv[]no[]sabe[]no[]contesta',
- []
-
-
-Overfull \hbox (25.78905pt too wide) in paragraph at lines 569--584
-\OT1/cmr/m/n/10 'fin[]de[]semana', 'mo-men-to[]dia', 'es-ta-cion[]del[]a~no', 'vs[]explotacion[]sexual[]group', 'vs[]violacion[]group', 'vs[]tentativa[]group',
- []
-
-
-Overfull \hbox (55.95462pt too wide) in paragraph at lines 569--584
-\OT1/cmr/m/n/10 'agre-sor[]conocido[]no[]conocido[]red', 'vincu-lo[]llamante[]red', 'he-cho[]lugar[]red', 'lla-ma-do[]provincia[]red', 'vic-ti-ma[]nacionalidad[]red'],
- []
-
-[22]
+ [18 <./images/latex_convive_sd_edad_vic.png>] [19] [20] [21] [22]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 610.
@@ -1038,7 +968,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,15n,101p,1936b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on main.pdf (30 pages, 1465866 bytes).
+Output written on main.pdf (30 pages, 1463020 bytes).
 PDF statistics:
  553 PDF objects out of 1000 (max. 8388607)
  445 compressed objects within 5 object streams
