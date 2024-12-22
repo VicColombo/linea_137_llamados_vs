@@ -156,7 +156,8 @@ El conjunto de datos unificado consta de 19143 observaciones y 54 variables, en 
     \label{tablavar}
     \begin{tabular}{|l|l|l|} 
     \hline
-    \textbf{Descriptor} & \textbf{Tipo variable} & \textbf{Variable(s)}         
+    \hline
+    \multicolumn{1}{|c|}{\textbf{Descriptor}} & \multicolumn{1}{c|}{\textbf{Tipo variable}} & \multicolumn{1}{c|}{\textbf{Variable(s)}} 
     \\ 
     \hline
     \multirow{2}{*}{Víctima} & Cuantitativa & victima\_edad 
@@ -498,26 +499,26 @@ Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de
 
 Muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas (ver nuevamente la figuras \nameref{vssino} y \nameref{ofvsino} en la sección \nameref{datos}). Además, muchas comparten dominio semántico y jurídico, como por ejemplo \texttt{vs\_explotación\_sexual}, \texttt{vs\_explotación\_sexual\_comercial}, y \texttt{vs\_explotación\_sexual\_viajes\_turismo}. 
 
-Teniendo en cuenta esas características, en primer lugar eliminé aquellas variables de violencia cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos:
-\begin{multicols}{2}
-\begin{itemize}
-    \item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
-    \item \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}
-    \item \texttt{vs\_eyaculacion\_partes\_cuerpo}
-    \item \texttt{ofv\_intento\_ahorcar}
-    \item \texttt{ofv\_intento\_quemar}
-    \item \texttt{ofv\_intento\_ahogar}
-    \item \texttt{ofv\_amenaza\_muerte}
-    \item \texttt{ofv\_uso\_sustancias\_psicoactivas} 
-    \item \texttt{ofv\_intento\_privacion\_libertad}
-    \item \texttt{ofv\_privacion\_libertad}
-    \item \texttt{ofv\_uso\_animal\_victimizar}
-    \item \texttt{ofv\_intento\_matar}
-\end{itemize}
-\end{multicols} 
+Teniendo en cuenta esas características, en primer lugar eliminé 12 descriptores de violencia cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos.
+%\begin{multicols}{2}
+%\begin{itemize}
+    %\item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
+    %\item \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}
+    %\item \texttt{vs\_eyaculacion\_partes\_cuerpo}
+    %\item \texttt{ofv\_intento\_ahorcar}
+    %\item \texttt{ofv\_intento\_quemar}
+    %\item \texttt{ofv\_intento\_ahogar}
+    %\item \texttt{ofv\_amenaza\_muerte}
+    %\item \texttt{ofv\_uso\_sustancias\_psicoactivas} 
+    %\item \texttt{ofv\_intento\_privacion\_libertad}
+    %\item \texttt{ofv\_privacion\_libertad}
+    %\item \texttt{ofv\_uso\_animal\_victimizar}
+    %\item \texttt{ofv\_intento\_matar}
+%\end{itemize}
+%\end{multicols} 
 
 
-En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por dominio, como se puede ver en el cuadro \Ref{tablaagrup} a continuación.
+En segundo lugar, agrupé algunos de los restantes en tres nuevas variables por dominio, como se puede ver en el cuadro \Ref{tablaagrup} a continuación.
 
 \begin{table}[H]
     \centering
@@ -526,15 +527,16 @@ En segundo lugar, agrupé algunas de las restantes en tres nuevas variables por 
     \begin{tabular}{|c|l|}
     \hline
     \multicolumn{1}{|l|}{\textbf{Nueva variable agrupadora}} & \multicolumn{1}{c|}{\textbf{Variables agrupadas}} \\ \hline
-    \multirow{4}{*}{vs\_explotación\_sexual}                 & vs\_explotación\_sexual                           \\ \cline{2-2} 
-                                                             & vs\_explotación\_sexual\_comercial                \\ \cline{2-2} 
-                                                             & vs\_explotación\_sexual\_viajes\_turismo          \\ \cline{2-2} 
-                                                             & vs\_sospecha\_trata\_personas\_fines\_sexuales    \\ \hline
-    \multirow{3}{*}{vs\_violacion}                          & vs\_violancion\_via\_vaginal                      \\ \cline{2-2} 
-                                                             & vs\_violancion\_via\_anal                         \\ \cline{2-2} 
-                                                             & vs\_violancion\_via\_oral                         \\ \hline
-    \multirow{2}{*}{vs\_tentativa\_violacion}                & vs\_tentativa\_violacion                     \\ \cline{2-2} 
-                                                             & vs\_intento\_violacion\_tercera\_persona           \\ \hline
+    \multirow{4}{*}{\texttt{vs\_explotación\_sexual}}                 & \texttt{vs\_explotación\_sexual}                           \\ \cline{2-2} 
+    & \texttt{vs\_explotación\_sexual\_comercial}                \\ \cline{2-2} 
+    & \texttt{vs\_explotación\_sexual\_viajes\_turismo}          \\ \cline{2-2} 
+    & \texttt{vs\_sospecha\_trata\_personas\_fines\_sexuales}    \\ \hline
+\multirow{3}{*}{\texttt{vs\_violacion}}                          & \texttt{vs\_violacion\_via\_vaginal}                      \\ \cline{2-2} 
+    & \texttt{vs\_violacion\_via\_anal}                         \\ \cline{2-2} 
+    & \texttt{vs\_violacion\_via\_oral}                         \\ \hline
+\multirow{2}{*}{\texttt{vs\_tentativa\_violacion}}                & \texttt{vs\_tentativa\_violacion}                     \\ \cline{2-2} 
+    & \texttt{vs\_intento\_violacion\_tercera\_persona}           \\ \hline
+
     \end{tabular}
     \end{table}
 
@@ -557,44 +559,63 @@ Por lo tanto, para aplicar \textit{One-hot encoding} al conjunto de datos (paso 
 Para \texttt{agresor\_vinculo} tomé la agrupación mostrada en la figura \nameref{conocidodesconocido} presentada en \nameref{exploración}, que reduce la cantidad de niveles de 15 a 4, distinguiendo entre \texttt{Conocido familiar}, \texttt{Conocido no familiar}, \texttt{NS/NC}, y \texttt{Desconocido}.
 
 
-El conjunto de datos resultante de la reducción manual tiene 36 variables, 18 menos que el original (54). 
+El conjunto de datos resultante de la reducción manual tiene 36 variables, 18 menos que el original (54). En el \nameref{anex} en el cuadro \ref*{tab:transformaciones} se puede ver un resumen de las variables eliminadas, agrupadas, y trasnformadas.
 
-\begin{multicols}{2}
-    \begin{itemize}
-        \item \texttt{llamado\_fecha\_hora} 
-        \item \texttt{llamante\_edad}
-        \item \texttt{llamante\_genero}
-        \item \texttt{caso\_judicializado}
-        \item \texttt{victima\_a\_resguardo}
-        \item \texttt{victima\_edad}
-        \item \texttt{victima\_genero}
-        \item \texttt{victima\_discapacidad} 
-        \item \texttt{victima\_convive\_agresor}
-        \item \texttt{llamado\_provincia\_reducida}
-        \item \texttt{victima\_nacionalidad\_reducida}
-        \item \texttt{hecho\_lugar\_reducida}
-        \item \texttt{vinculo\_llamante\_reducida}
-        \item \texttt{agresor\_conocido\_no\_conocido}
-        \item \texttt{fin\_de\_semana}
-        \item \texttt{momento\_dia} 
-        \item \texttt{estacion\_del\_año}
-        \item Variables de violencia sexual: 12
-        \item Variables de otros formas de violencia: 7
-    \end{itemize}
-    \end{multicols} 
+%\begin{multicols}{2}
+ %   \begin{itemize}
+  %      \item \texttt{llamado\_fecha\_hora} 
+   %     \item \texttt{llamante\_edad}
+%        \item \texttt{llamante\_genero}
+%        \item \texttt{caso\_judicializado}
+ %       \item \texttt{victima\_a\_resguardo}
+  %      \item \texttt{victima\_edad}
+   %     \item \texttt{victima\_genero}
+    %    \item \texttt{victima\_discapacidad} 
+     %   \item \texttt{victima\_convive\_agresor}
+      %  \item \texttt{llamado\_provincia\_reducida}
+       % \item \texttt{victima\_nacionalidad\_reducida}
+  %      \item \texttt{hecho\_lugar\_reducida}
+  %      \item \texttt{vinculo\_llamante\_reducida}
+  %      \item \texttt{agresor\_conocido\_no\_conocido}
+  %      \item \texttt{fin\_de\_semana}
+  %      \item \texttt{momento\_dia} 
+  %      \item \texttt{estacion\_del\_año}
+  %      \item Variables de violencia sexual: 12
+  %      \item Variables de otros formas de violencia: 7
+  %  \end{itemize}
+  %  \end{multicols} 
 
 
    % \texttt{vs\_tocamiento\_sexual}, \texttt{vs\_intento\_tocamiento}, \texttt{vs\_grooming} 'vs\_exhibicionismo', 'vs\_obligacion\_sacarse\_fotos\_pornograficas', 'vs\_acoso\_sexual', 'vs\_iniciacion\_sexual\_forzada\_inducida','vs\_otra\_forma\_violencia\_sexual', 'vs\_no\_sabe\_no\_contesta','vs\_explotacion\_sexual\_group' 'vs\_violacion\_group', 'vs\_tentativa\_group','ofv\_sentimiento\_amenaza', 'ofv\_amenaza\_explicita','ofv\_violencia\_fisica', 'ofv\_enganio\_seduccion', 'ofv\_grooming','ofv\_otra\_forma\_violencia', 'ofv\_no\_sabe\_no\_contesta', 
+
 
 \subsection{Modelos SVM}\label{svm}
 
 \todo[inline]{importantísimo ver si accuracy tiene sentido calcular u otra métrica}
 
+Entrené modelos de SVM con dos reducciones de datos distintas: NMDS y manual aplicando distiontos criterios. Además, para cada reducción, utilicé dos variaciones del conjunto de datos en las variables de edad: edades categorizadas y edades numéricas (quitando los datos faltantes).
+
+    \begin{table}[H]
+        \centering
+        \caption{Experimentos para entrenar modelos de SVM.}
+        \label{modelosSVM}
+        \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Experimento}                                                                            & \textbf{\textit{Dataset}} & \textbf{Especificaciones}                                                                                                                                                             \\ \hline
+        \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Reducción con \\ NMDS\end{tabular}}                  & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}\end{tabular}                                                       \\ \cline{2-3} 
+                                                                                                        & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
+        \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Reducción manual \\ con métodos mixtos\end{tabular}} & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}. \\ Aplicación de one hot encoder pot categorización.\end{tabular} \\ \cline{2-3} 
+                                                                                                        & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
+        \end{tabular}
+        \end{table}    
+
+Para entrenar los modelos de SVM en los dos experimentos correspondientes a las dos formas distintas de reducción del conjunto de datos, separé los datos en \textit{train} y \textit{test} y separé los datos faltantes de convive (NSNS) para que sean el conjunto final de datos no vistos.  
+
 
 SVM con dos vatiantes de datasets con NMDS
 SVM con dataset reducido a mano con variantes que responden a los faltantes de edad también. cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes.
 
-Separé los datos en train y test y separé los datos faltantes de convive (NSNS) para que sean el conjunto final de datos no vistos.  
+
 Apliqué encoders para hacer SVM e hice SVM con la librería tal y con una búsqueda de hiperparámetros.  Teniendo en cuenta estas variaciones los experimentos que realicé con SVM fueron: 
 tal tal tal
 
@@ -602,7 +623,7 @@ cada uno probando los siguientes hiperparámentros
 
 El mejor modelo de cada experimento lo aplioqué al conkjunto final de datos no vistos. Ante la imposiblidad de contrastar los resultados de los modelos aplicados a este testeo final, a modo de evauación de la perfomance comparé la proporción de SI y NO en la variable objetivo en el dataset original con la proporción resultante de la predicción de cada mejor modelo de cada experimento en el dataset de testeo final ciego.
 
-VER DE ARMAR UNA TABLA QUE RESUMA ESTAS VARIANTES 
+
 
 
 \section{Resultados y discusión}\label{resultados}
@@ -646,9 +667,6 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 
 \newpage
 \section{Anexo}\label{anex}
-
-
-
 
 \begin{figure}[H]
 \begin{center}
@@ -694,6 +712,26 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 \label{vinculollamante}
 \end{center}
 \end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \caption{Resumen de transformaciones de variables.}
+    \label{tab:transformaciones}
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{\textit{Dataset} original}} & \multicolumn{1}{c|}{\textbf{\textit{Dataset} reducido}} & \multicolumn{1}{c|}{\textbf{Transformación}}\\ \hline
+    \begin{tabular}[c]{@{}l@{}}\texttt{vs\_amenazas\_verbales\_contenido\_sexual}, \\ \texttt{vs\_existencia\_facilitador\_corrupcion\_nnya}, \\ \texttt{vs\_eyaculacion\_partes\_cuerpo}, \\ \texttt{ofv\_intento\_ahorcar}, \texttt{ofv\_intento\_quemar}, \\ \texttt{ofv\_intento\_ahogar}, \texttt{ofv\_amenaza\_muerte}, \\ \texttt{ofv\_uso\_sustancias\_psicoactivas}, \\ \texttt{ofv\_intento\_privacion\_libertad}, \\ \texttt{ofv\_privacion\_libertad}, \\ \texttt{ofv\_uso\_animal\_victimizar}, \texttt{ofv\_intento\_matar} \\ \end{tabular} & \texttt{Eliminadas} & No informativas (\textless 1\%) \\ \hline 
+    \begin{tabular}[c]{@{}l@{}}\texttt{vs\_explotación\_sexual}, \\ \texttt{vs\_explotación\_sexual\_comercial}, \\ \texttt{vs\_explotación\_sexual\_viajes\_turismo}, \\ \texttt{vs\_sospecha\_trata\_personas\_fines\_sexuales}\end{tabular} & \texttt{vs\_explotación\_sexual} & Agrupadas por dominio \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\texttt{vs\_violacion\_via\_vaginal}, \\ \texttt{vs\_violacion\_via\_anal}, \\ \texttt{vs\_violacion\_via\_oral}\end{tabular} & \texttt{vs\_violacion} & Agrupadas por dominio \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\texttt{vs\_tentativa\_violacion}, \\ \texttt{vs\_intento\_violacion\_tercera\_persona}\end{tabular} & \texttt{vs\_tentativa\_violacion} & Agrupadas por dominio \\ \hline
+    \texttt{llamado\_provincia} & \begin{tabular}[c]{@{}l@{}}\texttt{Buenos Aires}, \texttt{C.A.B.A.}, \\ \texttt{Región Norte}, \texttt{Región Central}, \\ \texttt{Región Patagónica}, \texttt{NS/NC}\end{tabular} & Reducción de niveles \\ \hline
+    \texttt{victima\_nacionalidad} & \begin{tabular}[c]{@{}l@{}}\texttt{Argentina}, \texttt{Otra}, \\ \texttt{NS/NC}\end{tabular} & Reducción de niveles \\ \hline
+    \texttt{hecho\_lugar} & \begin{tabular}[c]{@{}l@{}}\texttt{NS/NC}, \texttt{Vivienda víctima}, \\ \texttt{Vivienda agresor}, \texttt{Redes sociales}, \\ \texttt{Espacio/transporte público}, \texttt{Otro}\end{tabular} & Reducción de niveles \\ \hline
+    \texttt{llamante\_vinculo} & \begin{tabular}[c]{@{}l@{}}\texttt{Institución}, \texttt{Conocido víctima}, \\ \texttt{Víctima}, \texttt{Agresor}, \texttt{NS/NC}\end{tabular} & Reducción de niveles \\ \hline
+    \texttt{agresor\_vinculo} & \begin{tabular}[c]{@{}l@{}}\texttt{Conocido familiar}, \\ \texttt{Conocido no familiar}, \\ \texttt{Desconocido}, \texttt{NS/NC}\end{tabular} & Reducción de niveles \\ \hline
+    \end{tabular}
+\end{table}
 
 
 
