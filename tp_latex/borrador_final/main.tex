@@ -595,27 +595,42 @@ Finalmente también dividí este conjunto de datos final en dos tipos, A y B, qu
 
 Entrené modelos de SVM con dos las dos reducciones de datos explicadas: NMDS y manual; y por cada una, las dos variaciones del conjunto de datos en las variables de edad: edades categorizadas (A) y edad numérica de la víctima quitando los datos faltantes (B) (ver Cuadro \ref*{modelosSVM}). 
 
-Para el entrenamiento, separé los datos en \textit{train} y \textit{test} y separé los datos faltantes de convive (NSNS) para que sean el conjunto final de datos no vistos.
-
-    \begin{table}[H]
-        \centering
-        \caption{Experimentos para entrenar modelos de SVM.}
-        \label{modelosSVM}
-        \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{Experimento}                                                                            & \textbf{\textit{Dataset}} & \textbf{Especificaciones}                                                                                                                                                             \\ \hline
-        \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Reducción con \\ NMDS\end{tabular}}                  & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}\end{tabular}                                                       \\ \cline{2-3} 
-                                                                                                        & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
-        \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Reducción manual \\ con métodos mixtos\end{tabular}} & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}. \\ Aplicación de one hot encoder pot categorización.\end{tabular} \\ \cline{2-3} 
-                                                                                                        & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
-        \end{tabular}
-        \end{table}    
-
-  
+\begin{table}[]
+    \centering
+    \caption{Experimentos para entrenar modelos de SVM.}
+    \label{modelosSVM}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Experimento}                                                                            & \textbf{\textit{Dataset}} & \textbf{Especificaciones}                                                                                                                                                             \\ \hline
+    \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Reducción con \\ NMDS\end{tabular}}                  & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}\end{tabular}                                                       \\ \cline{2-3} 
+                                                                                                    & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
+    \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Reducción manual \\ con métodos mixtos\end{tabular}} & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}. \\ Aplicación de one hot encoder pot categorización.\end{tabular} \\ \cline{2-3} 
+                                                                                                    & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
+    \end{tabular}
+    \end{table}    
 
 
-SVM con dos vatiantes de datasets con NMDS
-SVM con dataset reducido a mano con variantes que responden a los faltantes de edad también. cambiando la variable edad numérica por su contraparte categórica. Esto me peritió medir el posible impacto de los datos faltantes de edad. Cuando la edad era numérica, debía dejar afuera los datos faltantes ya que SVM no puede utilizarlos. Para poder utilizar todos los datos completos de edad, pasé la edad a categorica  utilizando las categorías tal tal y tal y dejado como NSNC los datos faltantes.
+\subsubsection{Entrenamiento de SVM con reducción NMDS}
+
+Para el entrenamiento de un modelo predictivo de SVM con los \textit{datasets} A y B: 
+\begin{enumerate}
+    \item Separé \texttt{victima\_convive\_agresor} (y) del resto de los datos (X).
+    \item Extraje de y las filas correspondientes a los casos con respuesta \texttt{NS/NC}.
+    \item Generé la matriz de distancias de Gower a partir de X.
+    \item Reduje X aplicando NMDS.
+    \item Extraje de X reducido las filas originalmente correspondientes a los casos con respuesta \texttt{NS/NC} de y.
+    \item Creé el conjunto de \textit{test} final de casos no vistos, compuesto por los datos extraídos en el paso anterior.
+    \item Dividí de menera estratificada los datos de X e y en \textit{train} y \textit{test}.
+    \item Realicé una búsqueda de los mejor hiperparámetros con el método gridsearch variando el tipo de kernel, el valor de C y gamma.
+    \item Con los mejores hiperparámentros por accuracy f1 entrené un modelo final que apliqué al conjunto de \textit{test} final no visto.
+    \item Evalué stress accuracy y medí la proporción de SI NO en el dataset original y en la predicción para ver si se acercaba
+\end{enumerate}
+
+
+Explicar el tipo de kernel, el vaor de C y gamma.
+
+Para el entrenamiento, . los datos en \textit{train} y \textit{test} y separé los datos faltantes de convive (NSNS) para que sean el conjunto final de datos no vistos.
+
 
 
 Apliqué encoders para hacer SVM e hice SVM con la librería tal y con una búsqueda de hiperparámetros.  Teniendo en cuenta estas variaciones los experimentos que realicé con SVM fueron: 
