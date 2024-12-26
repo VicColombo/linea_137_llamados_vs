@@ -627,7 +627,7 @@ Para el entrenamiento de los modelos de SVM con los \textit{datasets} A y B:
     \item Creé el conjunto de prueba ciega final de casos no vistos a partir de las filas ya transformadas de \textit{X} correspondientes a los casos con respuesta \texttt{NS/NC} en \texttt{victima\_convive\_agresor}.
     \item Dividí \textit{X} e \textit{y} en entrenamiento (80\%) y testeo (\%20) de manera estratificada\footnote{Utilizando el método \texttt{StratifiedShuffleSplit} de sklearn.} para mitigar el desbalance de las clases \texttt{SI}  \texttt{NO}.\footnote{Ver nuevamente la figura 8, \nameref{convivencia}.} 
     \item Con cada variación de reducción por NMDS correspondiente a los distintos \texttt{n\_components}, realicé una optimización de los hiperparámetros de SVM \texttt{kernel}, \texttt{C}, y \texttt{gamma} entrenando con validación cruzada de 5 divisiones. Medí también el \texttt{stress} para cada reducción.
-    \item Con los mejores hiperparámentros por f1\_weighted entrené un modelo que apliqué al conjunto de \textit{test} final no visto. Ante la imposibilidad de evaluar el resultado del mejor modelo sobre el test final con métodos tradicionales, medí la proporción de SI NO en el dataset original y en la predicción para compararlas y así estimar la performance.
+    \item Con los mejores hiperparámentros por f1\_weighted entrené un modelo que apliqué al conjunto de \textit{test} final no visto. Ante la imposibilidad de evaluar el resultado del mejor modelo sobre el test final con métodos tradicionales, medí la proporción de SI NO en el dataset original y en la predicción para compararlas y así estimar la performance. Usé F1 porque hay desbalance de clases y porque me interesa saber no solo accuracy sino también cobertura del modelo.
 
 \end{enumerate}
 
@@ -640,12 +640,16 @@ Explicar el tipo de kernel, el vaor de C y gamma.
 Para entrenar modelos de SVM con los datos reducidos a mano:
 
 \begin{enumerate}
-    \item Encodeé con un método ordinal (ordinal encoder sklearn) las variables \texttt{llamado\_fecha\_hora}, \texttt{momento\_dia}, \texttt{estacion\_del\_año} y ambas variables de edad previamente categorizadas (esto último solo en el caso del \textit{dataset} A). La elección del tipo de \textit{encoder} ordinal fue para preservar la naturaleza ordinal de las variables al ser transformadas. 
+    \item Encodeé con un método ordinal (ordinal encoder sklearn) las variables \texttt{llamado\_fecha\_hora}, \texttt{momento\_dia}, \texttt{estacion\_del\_año} y ambas variables de edad previamente categorizadas (esto último solo en el caso del \textit{dataset} A, en el caso del B, solo me limité a escalar la edad de la víctima). La elección del tipo de \textit{encoder} ordinal fue para preservar la naturaleza ordinal de las variables al ser transformadas. 
     \item Escalé las variables encodeadas con \textit{ordinal encoder}, siguiendo las recomendaciones de \citealt*{udilua2023encoding}. \todo[inline]{agregar página}
     \item Encodeé las variables cuyas categorías eran solamente \texttt{SI}, \texttt{NO}, incluyendo la variable a predecir, mapeando \texttt{SI}= 1, y \texttt{NO}= 0. (En el caso de la variable objetivo, los \texttt{NS/NC} fueron previamente transformados a celdas vacías.) 
     \item Encodeé el resto de las variables con \textit{one hot encoder}.
-    \item Creé el test final ciego ut
+    \item Creé el test final ciego con las filas del conjunto de datos pertenecientes originalmente a los casos con \texttt{NS/NC} de la varaible objetivo.
+    \item 
 \end{enumerate}
+
+la preparación de los datos es distinta para cada caso pero el entrenamiento del modelo es el mismo, con cross validation y gridsearch.
+
 
 \section{Resultados y discusión}\label{resultados}
 
