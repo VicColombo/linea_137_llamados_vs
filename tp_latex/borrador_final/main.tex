@@ -641,9 +641,10 @@ Para entrenar modelos de SVM con los datos reducidos a mano:
 
 \begin{enumerate}
     \item Encodeé con un método ordinal (ordinal encoder sklearn) las variables \texttt{llamado\_fecha\_hora}, \texttt{momento\_dia}, \texttt{estacion\_del\_año} y ambas variables de edad previamente categorizadas (esto último solo en el caso del \textit{dataset} A). La elección del tipo de \textit{encoder} ordinal fue para preservar la naturaleza ordinal de las variables al ser transformadas. 
-    \item Escalé las variables encodeadas con \textit{ordinal encoder}, siguiendo 
-    \item 
-    \item 
+    \item Escalé las variables encodeadas con \textit{ordinal encoder}, siguiendo las recomendaciones de \citealt*{udilua2023encoding}. \todo[inline]{agregar página}
+    \item Encodeé las variables cuyas categorías eran solamente \texttt{SI}, \texttt{NO}, incluyendo la variable a predecir, mapeando \texttt{SI}= 1, y \texttt{NO}= 0. (En el caso de la variable objetivo, los \texttt{NS/NC} fueron previamente transformados a celdas vacías.) 
+    \item Encodeé el resto de las variables con \textit{one hot encoder}.
+    \item Creé el test final ciego ut
 \end{enumerate}
 
 \section{Resultados y discusión}\label{resultados}
