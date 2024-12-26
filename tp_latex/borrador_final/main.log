@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  23 DEC 2024 21:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.5)  26 DEC 2024 18:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -770,7 +770,7 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<images/uba2.jpg, id=101, 233.4321pt x 233.9139pt>
+<images/uba2.jpg, id=103, 233.4321pt x 233.9139pt>
 File: images/uba2.jpg Graphic file (type jpg)
 <use images/uba2.jpg>
 Package pdftex.def Info: images/uba2.jpg  used on input line 39.
@@ -795,48 +795,48 @@ LaTeX Info: Redefining \% on input line 1.
  [2]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 95.
  [3] [4] [5]
-<images/latex_vs_sino.jpeg, id=198, 912.7701pt x 711.8595pt>
+<images/latex_vs_sino.jpeg, id=201, 912.7701pt x 711.8595pt>
 File: images/latex_vs_sino.jpeg Graphic file (type jpg)
 <use images/latex_vs_sino.jpeg>
 Package pdftex.def Info: images/latex_vs_sino.jpeg  used on input line 193.
 (pdftex.def)             Requested size: 456.38393pt x 355.92888pt.
  [6]
-<images/latex_ofv_sino.jpeg, id=205, 948.9051pt x 654.0435pt>
+<images/latex_ofv_sino.jpeg, id=208, 948.9051pt x 654.0435pt>
 File: images/latex_ofv_sino.jpeg Graphic file (type jpg)
 <use images/latex_ofv_sino.jpeg>
 Package pdftex.def Info: images/latex_ofv_sino.jpeg  used on input line 201.
 (pdftex.def)             Requested size: 474.4514pt x 327.02095pt.
  [7 <./images/latex_vs_sino.jpeg>] [8 <./images/latex_ofv_sino.jpeg>]
-<images/latex_trend_llamados.png, id=221, 847.7271pt x 467.5869pt>
+<images/latex_trend_llamados.png, id=224, 847.7271pt x 467.5869pt>
 File: images/latex_trend_llamados.png Graphic file (type png)
 <use images/latex_trend_llamados.png>
 Package pdftex.def Info: images/latex_trend_llamados.png  used on input line 257.
 (pdftex.def)             Requested size: 423.8625pt x 233.79288pt.
  [9]
-<images/latex_lugar_hechos.png, id=237, 729.927pt x 510.2262pt>
+<images/latex_lugar_hechos.png, id=240, 729.927pt x 510.2262pt>
 File: images/latex_lugar_hechos.png Graphic file (type png)
 <use images/latex_lugar_hechos.png>
 Package pdftex.def Info: images/latex_lugar_hechos.png  used on input line 274.
 (pdftex.def)             Requested size: 364.9626pt x 255.11247pt.
  [10 <./images/latex_trend_llamados.png>]
-<images/latex_genero_victima.png, id=255, 723.4227pt x 379.4175pt>
+<images/latex_genero_victima.png, id=258, 723.4227pt x 379.4175pt>
 File: images/latex_genero_victima.png Graphic file (type png)
 <use images/latex_genero_victima.png>
 Package pdftex.def Info: images/latex_genero_victima.png  used on input line 304.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
  [11 <./images/latex_lugar_hechos.png>]
-<images/latex_vinculo_agr_victima.png, id=268, 736.4313pt x 495.0495pt>
+<images/latex_vinculo_agr_victima.png, id=271, 736.4313pt x 495.0495pt>
 File: images/latex_vinculo_agr_victima.png Graphic file (type png)
 <use images/latex_vinculo_agr_victima.png>
 Package pdftex.def Info: images/latex_vinculo_agr_victima.png  used on input line 316.
 (pdftex.def)             Requested size: 368.21475pt x 247.52414pt.
-<images/latex_agresor_conocido_no.png, id=269, 723.4227pt x 450.2421pt>
+<images/latex_agresor_conocido_no.png, id=272, 723.4227pt x 450.2421pt>
 File: images/latex_agresor_conocido_no.png Graphic file (type png)
 <use images/latex_agresor_conocido_no.png>
 Package pdftex.def Info: images/latex_agresor_conocido_no.png  used on input line 324.
 (pdftex.def)             Requested size: 361.71046pt x 225.12048pt.
  [12 <./images/latex_genero_victima.png> <./images/latex_vinculo_agr_victima.png>]
-<images/latex_convive.png, id=281, 723.4227pt x 379.4175pt>
+<images/latex_convive.png, id=284, 723.4227pt x 379.4175pt>
 File: images/latex_convive.png Graphic file (type png)
 <use images/latex_convive.png>
 Package pdftex.def Info: images/latex_convive.png  used on input line 342.
@@ -849,7 +849,7 @@ Overfull \hbox (42.36415pt too wide) in paragraph at lines 352--354
 []\OT1/cmr/m/n/10 Para un an^^Sali-sis mul-ti-va-ria-do se-lec-cion^^Se al-gu-nas va-ria-bles que pod^^S^^Pan es-tar m^^Sas re-la-cio-na-das con \OT1/cmtt/m/n/10 victima[]convive[]agresor\OT1/cmr/m/n/10 :
  []
 
-<images/latex_hecho_lugar_convive.png, id=294, 1075.3776pt x 570.933pt>
+<images/latex_hecho_lugar_convive.png, id=297, 1075.3776pt x 570.933pt>
 File: images/latex_hecho_lugar_convive.png Graphic file (type png)
 <use images/latex_hecho_lugar_convive.png>
 Package pdftex.def Info: images/latex_hecho_lugar_convive.png  used on input line 365.
@@ -860,7 +860,7 @@ Overfull \hbox (31.79749pt too wide) in paragraph at lines 365--366
  []
 
 [14 <./images/latex_convive.png>]
-<images/convive_vinc_agresor.png, id=304, 1076.823pt x 570.933pt>
+<images/convive_vinc_agresor.png, id=307, 1076.823pt x 570.933pt>
 File: images/convive_vinc_agresor.png Graphic file (type png)
 <use images/convive_vinc_agresor.png>
 Package pdftex.def Info: images/convive_vinc_agresor.png  used on input line 373.
@@ -870,7 +870,7 @@ Overfull \hbox (32.52019pt too wide) in paragraph at lines 373--374
  [] 
  []
 
-<images/latex_llamante_vin_convive.png, id=305, 1076.823pt x 570.933pt>
+<images/latex_llamante_vin_convive.png, id=308, 1076.823pt x 570.933pt>
 File: images/latex_llamante_vin_convive.png Graphic file (type png)
 <use images/latex_llamante_vin_convive.png>
 Package pdftex.def Info: images/latex_llamante_vin_convive.png  used on input line 381.
@@ -881,36 +881,36 @@ Overfull \hbox (32.52019pt too wide) in paragraph at lines 381--382
  []
 
 [15 <./images/latex_hecho_lugar_convive.png> <./images/convive_vinc_agresor.png>]
-<images/latex_boxplot_convive_edad.png, id=314, 726.3135pt x 379.4175pt>
+<images/latex_boxplot_convive_edad.png, id=317, 726.3135pt x 379.4175pt>
 File: images/latex_boxplot_convive_edad.png Graphic file (type png)
 <use images/latex_boxplot_convive_edad.png>
 Package pdftex.def Info: images/latex_boxplot_convive_edad.png  used on input line 392.
 (pdftex.def)             Requested size: 363.15587pt x 189.70828pt.
  [16 <./images/latex_llamante_vin_convive.png> <./images/latex_boxplot_convive_edad.png>]
-<images/convive_edad_agresor.png, id=325, 1070.3187pt x 569.4876pt>
+<images/convive_edad_agresor.png, id=328, 1070.3187pt x 569.4876pt>
 File: images/convive_edad_agresor.png Graphic file (type png)
 <use images/convive_edad_agresor.png>
 Package pdftex.def Info: images/convive_edad_agresor.png  used on input line 419.
 (pdftex.def)             Requested size: 428.11989pt x 227.791pt.
  [17 <./images/convive_edad_agresor.png>]
-<images/latex_convive_sd_edad_vic.png, id=336, 726.3135pt x 384.4764pt>
+<images/latex_convive_sd_edad_vic.png, id=339, 726.3135pt x 384.4764pt>
 File: images/latex_convive_sd_edad_vic.png Graphic file (type png)
 <use images/latex_convive_sd_edad_vic.png>
 Package pdftex.def Info: images/latex_convive_sd_edad_vic.png  used on input line 430.
 (pdftex.def)             Requested size: 363.15587pt x 192.23772pt.
  [18 <./images/latex_convive_sd_edad_vic.png>] [19] [20] [21]
-Overfull \hbox (5.83705pt too wide) in paragraph at lines 554--557
+Overfull \hbox (5.83705pt too wide) in paragraph at lines 552--555
 []\OT1/cmtt/m/n/10 llamante[]vinculo \OT1/cmr/m/n/10 ten^^S^^Pa ori-gi-nal-men-te 16 ni-ve-les y qued^^So re-du-ci-da a 5: \OT1/cmtt/m/n/10 Instituci^^Son\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 Conocido de la v^^S^^Pctima\OT1/cmr/m/n/10 ,
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 598.
+               Default added (so using `tbp') on input line 597.
 
 [22]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 646.
+(hyperref)                than one, level fixed on input line 651.
 
 [23] [24] (./main.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 43--46
@@ -931,41 +931,41 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 74.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )) [25]
-<images/latex_llamados_por_provincia.png, id=456, 729.927pt x 469.755pt>
+<images/latex_llamados_por_provincia.png, id=466, 729.927pt x 469.755pt>
 File: images/latex_llamados_por_provincia.png Graphic file (type png)
 <use images/latex_llamados_por_provincia.png>
-Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 688.
+Package pdftex.def Info: images/latex_llamados_por_provincia.png  used on input line 693.
 (pdftex.def)             Requested size: 364.9626pt x 234.87692pt.
-<images/latex_caso_judicializado.png, id=457, 723.4227pt x 380.1402pt>
+<images/latex_caso_judicializado.png, id=467, 723.4227pt x 380.1402pt>
 File: images/latex_caso_judicializado.png Graphic file (type png)
 <use images/latex_caso_judicializado.png>
-Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 696.
+Package pdftex.def Info: images/latex_caso_judicializado.png  used on input line 701.
 (pdftex.def)             Requested size: 361.71046pt x 190.06963pt.
-<images/latex_nacionalidad_victima.png, id=458, 723.4227pt x 379.4175pt>
+<images/latex_nacionalidad_victima.png, id=468, 723.4227pt x 379.4175pt>
 File: images/latex_nacionalidad_victima.png Graphic file (type png)
 <use images/latex_nacionalidad_victima.png>
-Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 705.
+Package pdftex.def Info: images/latex_nacionalidad_victima.png  used on input line 710.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
  [26 <./images/latex_llamados_por_provincia.png> <./images/latex_caso_judicializado.png>]
-<images/latex_victima_discapacidad.png, id=465, 723.4227pt x 379.4175pt>
+<images/latex_victima_discapacidad.png, id=475, 723.4227pt x 379.4175pt>
 File: images/latex_victima_discapacidad.png Graphic file (type png)
 <use images/latex_victima_discapacidad.png>
-Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 715.
+Package pdftex.def Info: images/latex_victima_discapacidad.png  used on input line 720.
 (pdftex.def)             Requested size: 361.71046pt x 189.70828pt.
-<images/latex_vinculo_llamante.png, id=466, 729.927pt x 453.8556pt>
+<images/latex_vinculo_llamante.png, id=476, 729.927pt x 453.8556pt>
 File: images/latex_vinculo_llamante.png Graphic file (type png)
 <use images/latex_vinculo_llamante.png>
-Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 725.
+Package pdftex.def Info: images/latex_vinculo_llamante.png  used on input line 730.
 (pdftex.def)             Requested size: 364.9626pt x 226.92725pt.
  [27 <./images/latex_nacionalidad_victima.png> <./images/latex_victima_discapacidad.png>]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 739.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 744.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 739.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 744.
 
-Overfull \hbox (21.05144pt too wide) in paragraph at lines 736--749
+Overfull \hbox (21.05144pt too wide) in paragraph at lines 741--754
  [][] 
  []
 
@@ -978,21 +978,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2EFC39B4673A41935CA15169819A8E1D;2715.
+(rerunfilecheck)             Checksum: A23C28C700C0B16F8533C41CFE12CC37;3080.
  ) 
 Here is how much of TeX's memory you used:
- 29047 strings out of 474116
- 589336 string characters out of 5743683
+ 29052 strings out of 474116
+ 589375 string characters out of 5743683
  1944187 words of memory out of 5000000
- 50850 multiletter control sequences out of 15000+600000
+ 50849 multiletter control sequences out of 15000+600000
  565454 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,101p,1936b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on main.pdf (31 pages, 1477269 bytes).
+Output written on main.pdf (31 pages, 1478246 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 476 compressed objects within 5 object streams
- 126 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 598 PDF objects out of 1000 (max. 8388607)
+ 487 compressed objects within 5 object streams
+ 132 named destinations out of 1000 (max. 500000)
+ 257 words of extra memory for PDF output out of 10000 (max. 10000000)
 

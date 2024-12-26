@@ -540,8 +540,6 @@ En segundo lugar, agrupé algunos de los restantes en tres nuevas variables por 
     \end{tabular}
     \end{table}
 
-
-
 En \textit{Encoding methods for categorical data}, \citep{udilua2023encoding}, el autor compara métodos de \textit{encoding} según su impacto en la calidad de un modelo de SVM entrenado, y encuentra que \textit{One-hot encoding} consistentemente resulta en modelos con mejor \textit{accuracy} (p.7). Por otro lado, en el mismo artículo el autor expone una limitación conocida del método \textit{One-hot}: con variables de alta cardinalidad el tiempo de procesamiento se vuelve potencialmente demasiado alto (p.7).
 
 Por lo tanto, para aplicar \textit{One-hot encoding} al conjunto de datos (paso necesario para entrenar un modelo de SVM que no puede aplicarse con variables categóricas) sin arriesgar problemas de procesamiento, reduje la cardinalidad de las variables con más de 5 niveles.\footnote{El desglose de cada una de las variables originales con la proporción de llamados por categoría se puede re visitar en la sección \nameref{exploración}.}   
@@ -554,11 +552,11 @@ Por lo tanto, para aplicar \textit{One-hot encoding} al conjunto de datos (paso 
     \item \texttt{llamante\_vinculo} tenía originalmente 16 niveles y quedó reducida a 5: \texttt{Institución}, %(hospital, comisaría, escuela, defensoría, y otras instituciones), 
 \texttt{Conocido de la víctima}, %(madre, padre, abuela/o, hermana/o, otro familiar, y otro conocido), 
 \texttt{Víctima}, \texttt{Agresor}, y \texttt{NS/NC}.
-\item Para \texttt{agresor\_vinculo} tomé la agrupación mostrada en la figura \nameref{conocidodesconocido} presentada en \nameref{exploración}, que reduce la cantidad de niveles de 15 a 4: \texttt{Conocido familiar}, \texttt{Conocido no familiar}, \texttt{NS/NC}, y \texttt{Desconocido}.
+\item Para \texttt{agresor\_vinculo} tomé la agrupación mostrada en la figura 7, \nameref{conocidodesconocido} presentada en \nameref{exploración}, que reduce la cantidad de niveles de 15 a 4: \texttt{Conocido familiar}, \texttt{Conocido no familiar}, \texttt{NS/NC}, y \texttt{Desconocido}.
 \end{itemize}
 
 
-El conjunto de datos resultante de la reducción manual tiene 36 variables, 18 menos que el original (54). En el \nameref{anex} en el cuadro \ref{tab:transformaciones} se puede ver un resumen de las variables eliminadas, agrupadas, y transformadas.
+El conjunto de datos resultante de la reducción manual tiene 36 variables, 18 menos que el original (54). En el cuadro \Ref{tab:transformaciones} del \nameref{anex} se puede ver un resumen de las variables eliminadas, agrupadas, y transformadas.
 
 %\begin{multicols}{2}
  %   \begin{itemize}
@@ -593,7 +591,8 @@ Finalmente también dividí este conjunto de datos final en dos tipos, A y B, qu
 
 \todo[inline]{importantísimo ver si accuracy tiene sentido calcular u otra métrica}
 
-Entrené modelos de SVM con dos las dos reducciones de datos explicadas, y las dos variaciones del conjunto de datos en las variables de edad A, y B. En el cuadro \ref{modelosSVM} se detallan los experimentos. Los distintos modelos fueron entrenados con los datos “completos” de \texttt{victima\_convive\_agresor}, es decir, las filas con respuesta \texttt{SI} o \texttt{NO} en esa variable; y las filas con respuesta \texttt{NS/NC} fueron tratadas como los datos faltantes que el modelo debe aprender a completar como \texttt{SI} o \texttt{NO} y por lo tanto como un \textit{test} final ciego.   
+Entrené modelos de SVM con dos las dos reducciones de datos explicadas, y las dos variaciones del conjunto de datos en las variables de edad A, y B. En el cuadro ref modelos SVM se detallan los experimentos. Los distintos modelos fueron entrenados con los datos “completos” de \texttt{victima\_convive\_agresor}, es decir, las filas con respuesta \texttt{SI} o \texttt{NO} en esa variable; y las filas con respuesta \texttt{NS/NC} fueron tratadas como los datos faltantes que el modelo debe aprender a completar como \texttt{SI} o \texttt{NO} y por lo tanto como un \textit{test} final ciego.   
+
 
 \begin{table}[]
     \centering
@@ -610,36 +609,42 @@ Entrené modelos de SVM con dos las dos reducciones de datos explicadas, y las d
     \end{table}    
 
 
+
+
+
 \subsubsection{Entrenamiento de SVM con reducción NMDS}
 
-Para el entrenamiento de un modelo predictivo de SVM con los \textit{datasets} A y B: 
+
+
+Para el entrenamiento de los modelos de SVM con los \textit{datasets} A y B: 
+
+
 \begin{enumerate}
-    \item Separé \texttt{victima\_convive\_agresor} (\textit{y}) del resto de los datos (X).
+    \item Separé \texttt{victima\_convive\_agresor} (\textit{y}) del resto de los datos \textit{X}.
     \item Quité a \textit{y} las filas correspondientes a los casos con respuesta \texttt{NS/NC}. 
     \item Generé a partir de X una matriz de distancias de Gower que luego utilicé para la transformación con NMDS.
+    \item Generé distintas reducciones NMDS varaindo el parámetro \texttt{n\_components}.
     \item Creé el conjunto de prueba ciega final de casos no vistos a partir de las filas ya transformadas de \textit{X} correspondientes a los casos con respuesta \texttt{NS/NC} en \texttt{victima\_convive\_agresor}.
-    \item Dividí \textit{X} e \textit{y} en entrenamiento y testeo de manera estratificada para mitigar el efecto del desbalance de las clases \texttt{SI}-\texttt{NO} (ver nuevamente la figura \ref{convivencia}).
-    \item Realicé una búsqueda de los mejores hiperparámetros con el método gridsearch variando el tipo de kernel, el valor de C y gamma. \todo[inline]{ver a partir de acá}
-    \item Con los mejores hiperparámentros por accuracy f1 entrené un modelo final que apliqué al conjunto de \textit{test} final no visto.
-    \item Evalué stress accuracy y medí la proporción de SI NO en el dataset original y en la predicción para ver si se acercaba
+    \item Dividí \textit{X} e \textit{y} en entrenamiento (80\%) y testeo (\%20) de manera estratificada\footnote{Utilizando el método \texttt{StratifiedShuffleSplit} de sklearn.} para mitigar el desbalance de las clases \texttt{SI}  \texttt{NO}.\footnote{Ver nuevamente la figura 8, \nameref{convivencia}.} 
+    \item Con cada variación de reducción por NMDS correspondiente a los distintos \texttt{n\_components}, realicé una optimización de los hiperparámetros de SVM \texttt{kernel}, \texttt{C}, y \texttt{gamma} entrenando con validación cruzada de 5 divisiones. Medí también el \texttt{stress} para cada reducción.
+    \item Con los mejores hiperparámentros por f1\_weighted entrené un modelo que apliqué al conjunto de \textit{test} final no visto. Ante la imposibilidad de evaluar el resultado del mejor modelo sobre el test final con métodos tradicionales, medí la proporción de SI NO en el dataset original y en la predicción para compararlas y así estimar la performance.
+
 \end{enumerate}
+
 
 
 Explicar el tipo de kernel, el vaor de C y gamma.
 
-Para el entrenamiento, . los datos en \textit{train} y \textit{test} y separé los datos faltantes de convive (NSNS) para que sean el conjunto final de datos no vistos.
+\subsubsection{Entrenamiento de SVM con reducción manual de los datos}
 
+Para entrenar modelos de SVM con los datos reducidos a mano:
 
-
-Apliqué encoders para hacer SVM e hice SVM con la librería tal y con una búsqueda de hiperparámetros.  Teniendo en cuenta estas variaciones los experimentos que realicé con SVM fueron: 
-tal tal tal
-
-cada uno probando los siguientes hiperparámentros
-
-El mejor modelo de cada experimento lo aplioqué al conkjunto final de datos no vistos. Ante la imposiblidad de contrastar los resultados de los modelos aplicados a este testeo final, a modo de evauación de la perfomance comparé la proporción de SI y NO en la variable objetivo en el dataset original con la proporción resultante de la predicción de cada mejor modelo de cada experimento en el dataset de testeo final ciego.
-
-
-
+\begin{enumerate}
+    \item Encodeé con un método ordinal (ordinal encoder sklearn) las variables \texttt{llamado\_fecha\_hora}, \texttt{momento\_dia}, \texttt{estacion\_del\_año} y ambas variables de edad previamente categorizadas (esto último solo en el caso del \textit{dataset} A). La elección del tipo de \textit{encoder} ordinal fue para preservar la naturaleza ordinal de las variables al ser transformadas. 
+    \item Escalé las variables encodeadas con \textit{ordinal encoder}, siguiendo 
+    \item 
+    \item 
+\end{enumerate}
 
 \section{Resultados y discusión}\label{resultados}
 
