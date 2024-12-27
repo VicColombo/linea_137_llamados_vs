@@ -391,9 +391,9 @@ INPUT ./images/latex_convive_sd_edad_vic.png
 INPUT ./images/latex_convive_sd_edad_vic.png
 INPUT ./images/latex_convive_sd_edad_vic.png
 INPUT ./images/latex_convive_sd_edad_vic.png
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm

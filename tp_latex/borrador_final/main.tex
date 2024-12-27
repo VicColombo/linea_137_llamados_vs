@@ -443,7 +443,7 @@ Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet
 
 La alta dimensionalidad del conjunto de datos y la multiplicidad de niveles de muchas de las variables presenta desafíos para analizar relaciones multivariadas con la variable objetivo; además, causa problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Apliqué entonces dos métodos para reducir las dimensiones de los datos:
 \begin{enumerate}
-    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este que método reordena los datos en espacios de menor dimensión no solo facilita el entrenamiento de SVM, sino que también permite geerar visualizaciones en 2 dimensiones para buscar agrupamientos de las clases a predecir.
+    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este que método reordena los datos en espacios de menor dimensión no solo facilita el entrenamiento de SVM, sino que también permite generar visualizaciones en 2 dimensiones para buscar agrupamientos de las clases a predecir.
     \item \textbf{Reducción manual de los datos}: Eliminé, agrupé, y transformé las variables basándome en el \nameref{exploración}.
 \end{enumerate}
 
@@ -454,9 +454,9 @@ Complementé estas estrategias de reducción con distintos preprocesamientos par
 
 \subsubsection*{NMDS}
 
-La utilización de NMDS como preprocesamiento para entrenar SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}(\citeyear{cai2019incorporating}) en el campo de la microbiología, quienes encuentran resultados moderadamente buenos en \textit{accuracy} aplicando esta metodoología(p.69).
+La utilización de NMDS como preprocesamiento para entrenar SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}\citeyearpar{cai2019incorporating} en el campo de la microbiología, quienes encuentran resultados con \textit{accuracy} moderadamente buena aplicando esta metodología (p.69). \todo[inline]{esto quizás puede ir al principio en la intro o antecedentes}
 
-NMDS, un caso particular de Escalamiento Multidimensional (en adelante, MDS, por sus siglas en inglés \textit{Multidimensional Scaling}), es un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos reorganizándolos en espacios de menor dimensión preservando el ordenamiento relativo de las distancias originales \citetext{\citealp[p. 218]{aid}}.
+NMDS, un caso particular de Escalamiento Multidimensional (MDS, por sus siglas en inglés \textit{Multidimensional Scaling}), es un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos reorganizándolos en espacios de menor dimensión preservando el orden relativo de las distancias originales \citetext{\citealp[p. 218]{aid}}. Como su nombre lo indica, este algoritmo acepta matrices de distancias no métricas como entrada, y eso resulta una ventaja para el conjunto de datos multivariado con el que trabajo. 
 
 Utilicé el método \texttt{mds} de la librería Sklearn ajustando los siguientes parámetros:
 
@@ -467,52 +467,53 @@ Utilicé el método \texttt{mds} de la librería Sklearn ajustando los siguiente
     \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica de MDS.
  \end{itemize}
 
-El algoritmo toma una matriz de distancias entre los puntos originales y calcula sus coordenadas en un espacio reducido a n-dimensiones (siendo en general \(n=2\) o \(n=3\) para facilitar la visualización), obteniendo la matriz de coordenadas \(X\), %En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica% 
-que es a su vez transformada en una matriz con las disparidades \(\hat{d}_{ij}\). En \(\hat{d}_{ij}\) no se preservan las magnitudes de las distancias originales, pero sí se preserva el rango de ordenamiento de esas magnitudes\citetext{\citealp[p. 219,220]{aid}}. A continuación, se calcula el valor del \textit{stress}, cuya fórmula para el caso particular de NMDS\footnote{ Ver \cite{kruskal1964nonmetric}, página 115.} es: 
-
-\[\textit{Stress} = \sqrt{\frac{\sum_{i<j} \left( d_{ij} - \hat{d}_{ij} \right)^2}{\sum_{i<j} d_{ij}^2}}\]
-
-El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el \textit{stress}, es decir, minimizar la diferencia entre las distancias y las disparidades \citetext{\citealp[p. 117-123]{kruskal1964nonmetric}}. 
-
-
-Para realizar el ordenamiento con NMDS utilicé el método \texttt{mds} de la librería Sklearn.\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} Los parámetros relevantes para este método fueron:
- 
-
-
-\subsubsection*{Distancia de Gower}
-
-La elección del algoritmo de NMDS para este trabajo está motivada por la flexibilidad del método con respecto a la matriz de distancias inicial que admite. Dada la variabilidad en el conjunto de datos, elegí calcular entre ellos la distancia de Gower, una medida de similitud no métrica que puede tomarse entre variables de distinto tipo.
-
-Para variables categóricas, la similitud entre dos puntos \(i\) y \(j\) se computa como 0 si los valores son idénticos (no hay distancia, máxima similitud) y 1 si no lo son (no hay similutud, máxima distancia). 
-Para variables numéricas se divide el valor absoluto de la diferencia entre dos puntos \(i\) y \(j\) por el rango de la variable, resultando en un valor entre 0 y 1:   
+Dada la naturaleza mixta de las variables del conjunto de datos, elegí utilizar la distancia de Gower para la matriz de entrada a NMDS. La similitud se calcula de a pares para variables numéricas y ordinales\footnote{Si bien \cite{podani1999extending} propone un tratamiento especial para las variables ordinales largamente utilizado hoy en día, la librería gower de sikit learn que utilizo en este trabajo trata a las variables ordinales como variables numéricas como en el trabajo original de Gower. (ver \url{https://sourceforge.net/projects/gower-distance-4python/files/}).} con:
 
 \[s_{ijk} = 1-\frac{|x_{i} - x_{j}|}{R_{k}}\]
-Este mismo cálculo se aplica en variables ordinales.\footnote{Si bien \cite{podani1999extending} propone un tratamiento especial para las variables ordinales largamente utilizado hoy en día, la librería gower de sikit learn que utilizo en este trabajo trata a las variables ordinales como variables numéricas como en el trabajo original de Gower. (ver \url{https://sourceforge.net/projects/gower-distance-4python/files/}).} 
+
+Donde:
+\begin{itemize}
+    \item \(s_{ijk}\) es la similitud (o distancia) entre dos individuos o filas \(i\), \(j\) en la variable \(k\).
+    \item \(R_{k}\) es el rango de \(k\).
+\end{itemize}
+
+Para variables categóricas, la similitud entre dos puntos \(i\) y \(j\) se computa de manera binaria como 0 (los valores son idénticos, mínima distancia) o 1 (no hay similitud, máxima distancia).
 
 Luego, se calcula la matriz de similitud final con:
 
 \[S(i,j) = \frac{\sum_{k=1}^{p}  s_{ijk}}{\sum_{k=1}^{p} \delta_{ijk}}\]
 
-Donde \(s_{ijk}\) es la similitud (o distancia) entre dos individuos o filas \(i\), \(j\) en la variable \(k\). Y \(\delta_{ijk}\) es la cantidad total de variables o la cantidad total de variables en las que puede realizarse la comparación \citetext{\citealp[p. 859-860]{gower1971general}}. \(S(i,j)\) es una matriz cuadrada con diagonal cero, que representa las distancias entre cada par de filas del conjunto de datos.
+Donde \(\delta_{ijk}\) es la cantidad total de variables o la cantidad total de variables en las que puede realizarse la comparación \citetext{\citealp[p. 859-860]{gower1971general}}.
 
-La librería que utilicé para el cálculo de la distancia de Gower\todo[inline]{citar} no admite datos vacíos, lo que generaba un impedimento para incluir las variables de edad (las únicas con datos vacíos) en el análisis sin mediar algún tipo de transformación o filtrado. Una posible solución, que llamé solución \texttt{A}, es transformar las variables de edad de numéricas a categóricas y llenar los faltantes con \texttt{NS/NC}. Otra solución, que llamé solución \texttt{B}, es eliminar los casos vacíos en las variables de edad. Ambas tienen la desventaja de la pérdida de información, ya sea por la agrupación de rangos de edad bajo categorías unificadoras o por la literal eliminación de casos. Creé dos \textit{datasets} siguiendo en cada uno una estrategia distinta:
+ 
+%\(S(i,j)\) es una matriz cuadrada con diagonal cero, que representa las distancias entre cada par de filas del conjunto de datos.
+
+A partir de la matriz de distancias originales \textit{S}, NMDS calcula las coordenadas en un espacio reducido a n-dimensiones (en general \(n=2\) o \(n=3\) para facilitar la visualización), %obteniendo la matriz de coordenadas \(X\), %En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica% 
+%que es 
+y a su vez las transforma en una matriz con las disparidades \(\hat{d}_{ij}\). En \(\hat{d}_{ij}\) no se preservan las magnitudes de las distancias originales, pero sí se preserva el rango de ordenamiento de esas magnitudes. %\citetext{\citealp[p. 219,220]{aid}}. 
+A continuación, se calcula el valor del \textit{stress}: 
+
+\[\textit{Stress} = \sqrt{\frac{\sum_{i<j} \left( d_{ij} - \hat{d}_{ij} \right)^2}{\sum_{i<j} d_{ij}^2}}\]
+
+El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el \textit{stress}, es decir, minimizar la diferencia entre las distancias y las disparidades \citetext{\citealp[p. 117-123]{kruskal1964nonmetric}}. 
+
+\subsubsection*{Faltantes en edad}
+
+Las implementaciones usadas tanto para el cálculo de la distancia de Gower como para SVM no admiten datos vacíos. Por lo tanto, trabajé con dos estrategias las variables de edad (las únicas con celdas con datos vacíos), generando dos conjuntos de datos alternativos:
 \begin{itemize}
-    \item \textit{dataset} A: las variables de edad están categorizadas, y los datos faltantes clasificados como \texttt{NS/NC}.
-    \item  \textit{dataset} B: la variable \texttt{llamante\_edad} es descartada, y también se descartan las filas con datos vacíos en la variable \texttt{victima\_edad}.
+    \item Conjunto A: las variables de edad fueron categorizadas\footnote{1 - 11 años = niñez; 12 - 18 años = adolescencia; 19 - 30 años = juventud; 31 - 65 años = adultez, más de 66 años = vejez.}, y los datos faltantes clasificados como \texttt{NS/NC}.
+    \item Conjunto B: la variable \texttt{llamante\_edad} es descartada, y también se descartan las filas con datos vacíos en la variable \texttt{victima\_edad}.  
 \end{itemize}
 
-La decisión que genera el \textit{dataset} B responde por un lado al supuesto de que la edad de quien llama es menos relevante para la variable objetivo que la edad de la víctima; y por otro lado, a que la edad de la víctima falta en el 9.82\% de los casos, mientras que la edad de quien llama falta en el 44.82\%, y dejar afuera estos últimos casos reduciría demasiado el conjunto de datos. 
+La decisión sobre el conjunto B responde por un lado al supuesto de que la edad de la víctima es más relevante para la variable objetivo; y por otro lado, la edad de quien llama falta en el 44.82\%, y filtrar casos reduciría demasiado el conjunto de datos.
 
-Una vez creados los conjuntos de datos A y B, calculé para cada uno la matriz de similitudes de Gower para luego aplicar NMDS y construir el modelo de SVM.\@ En \nameref{resultados} comparo y evalúo ambas soluciones según los valores de \textit{stress} para NMDS y según la performance de los modelos de SVM.
-
-Apliqué entonces NMDS sobre los \textit{datasets} A y B variando los valores de \texttt{n\_components}. Con el ordenamiento obtenido con \(\texttt{n\_components} = 2\) generé dos visualizaciones (una para cada conjunto de datos A y B) en las que mapeé los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de \texttt{victima\_convive\_agresor} para buscar agrupamientos de los datos en torno a estas categorías. Luego entrené, para cada \textit{dataset} A y B, y para cada ordenamiento de datos según los distintos valores de \texttt{n\_components} un modelo de SVM (ver más abajo la subsección \nameref{svm}).
-
+Apliqué NMDS se aplicó a los conjuntos de datos A y B  variando los valores de \texttt{n\_components}. Generé visualizaciones con las proyecciones resultantes de \(\texttt{n\_components} = 2\) para evaluar la agrupación basada en \texttt{victima\_convive\_agresor}; y entrené modelos de SVM para cada reducción dimensional.
 
 \subsection{Reducción manual de los datos}\label{reduccionmanual}
 
-Muchas de las variables que describen la violencia sufrida tienen en su mayoría respuestas \texttt{NO}, por lo que resultan poco informativas (ver nuevamente la figuras \nameref{vssino} y \nameref{ofvsino} en la sección \nameref{datos}). Además, muchas comparten dominio semántico y jurídico, como por ejemplo \texttt{vs\_explotación\_sexual}, \texttt{vs\_explotación\_sexual\_comercial}, y \texttt{vs\_explotación\_sexual\_viajes\_turismo}. 
+Eliminé 12 de las variables que describen la violencia sufrida por considerarlas poco informativas, ya que tenían tasas de respuesta positivas menores a 1\% (ver nuevamente la figuras \nameref{vssino} y \nameref{ofvsino} en la sección \nameref{datos}). 
 
-Teniendo en cuenta esas características, en primer lugar eliminé 12 descriptores de violencia cuya tasa de respuesta \texttt{SI} representaba menos del 1\% de los casos.
+Además, agrupé en tres categorías más amplias algunas variables que comparten dominio semántico y jurídico, como se puede ver en el cuadro \Ref{tablaagrup}:
 %\begin{multicols}{2}
 %\begin{itemize}
     %\item \texttt{vs\_amenazas\_verbales\_contenido\_sexual} 
@@ -530,8 +531,6 @@ Teniendo en cuenta esas características, en primer lugar eliminé 12 descriptor
 %\end{itemize}
 %\end{multicols} 
 
-
-En segundo lugar, agrupé algunos de los restantes en tres nuevas variables por dominio, como se puede ver en el cuadro \Ref{tablaagrup} a continuación.
 
 \begin{table}[H]
     \centering
@@ -553,56 +552,27 @@ En segundo lugar, agrupé algunos de los restantes en tres nuevas variables por 
     \end{tabular}
     \end{table}
 
-En \textit{Encoding methods for categorical data}, \citep{udilua2023encoding}, el autor compara métodos de \textit{encoding} según su impacto en la calidad de un modelo de SVM entrenado, y encuentra que \textit{One-hot encoding} consistentemente resulta en modelos con mejor \textit{accuracy} (p.7). Por otro lado, en el mismo artículo el autor expone una limitación conocida del método \textit{One-hot}: con variables de alta cardinalidad el tiempo de procesamiento se vuelve potencialmente demasiado alto (p.7).
+A la hora de elegir un método de encodeo para transformar los datos para SVM, basé mi elección de \textit{one-hot enconder} en los hallazgos de \citet{udilua2023encoding} en \textit{Encoding methods for categorical data}. Comparando la performance de un modelo de SVM entrenado con distintos métodos de encodeo, el autor encuentra que \textit{one-hot encoding} resulta en modelos con mejor \textit{accuracy} de manera consistente (p.7). 
 
-Por lo tanto, para aplicar \textit{One-hot encoding} al conjunto de datos (paso necesario para entrenar un modelo de SVM que no puede aplicarse con variables categóricas) sin arriesgar problemas de procesamiento, reduje la cardinalidad de las variables con más de 5 niveles.\footnote{El desglose de cada una de las variables originales con la proporción de llamados por categoría se puede re visitar en la sección \nameref{exploración}.}   
+En el mismo artículo, sin embargo, el autor advierte sobre el procesamiento potencialmente costoso (en tiempo y capacidad) en que este método incurre con variables de alta cardinalidad puede resultar demasiado alto (p.7). Por lo tanto, reduje la cardinalidad de las variables con más de 5 niveles de la siguiente manera:
 
 \begin{itemize}
-    \item \texttt{llamado\_provincia} tenía originalmente 25 niveles y quedó reducida a 6: \texttt{Buenos Aires}, \texttt{C.A.B.A.}, \texttt{Región Norte}, \texttt{Región Central}, \texttt{Región Patagónica}, y \texttt{NS/NC}. 
-    \item \texttt{victima\_nacionalidad} tenía originalmente 9 niveles y quedó reducida a 3: \texttt{Argentina}, \texttt{NS/NC}, y \texttt{Otra}. %(donde entran todas las demás nacionalidaes ya que ninguna superaba individualmente el 1\% de los llamados).
-    \item \texttt{hecho\_lugar} tenía originalmente 17 niveles y quedó reducida a 6: \texttt{NS/NC}, \texttt{Vivienda de la víctima}, \texttt{Vivienda del agresor}, \texttt{Redes sociales}, \texttt{Espacio/transporte público}, %(subterráneo, tren, colectivo, plaza, descampado, y calle), 
+    \item \texttt{llamado\_provincia} de 25 niveles a 6: \texttt{Buenos Aires}, \texttt{C.A.B.A.}, \texttt{Región Norte}, \texttt{Región Central}, \texttt{Región Patagónica}, y \texttt{NS/NC}. 
+    \item \texttt{victima\_nacionalidad} de 9 niveles a 3: \texttt{Argentina}, \texttt{NS/NC}, y \texttt{Otra}. %(donde entran todas las demás nacionalidaes ya que ninguna superaba individualmente el 1\% de los llamados).
+    \item \texttt{hecho\_lugar} de 17 niveles a 6: \texttt{NS/NC}, \texttt{Vivienda de la víctima}, \texttt{Vivienda del agresor}, \texttt{Redes sociales}, \texttt{Espacio/transporte público}, %(subterráneo, tren, colectivo, plaza, descampado, y calle), 
     y \texttt{Otro}. %(categoría original más residencia turística, obra en construcción, taxi, albergue transitorio, automóvil, comercio,ámbito educativo, y vivienda de un familiar).  
-    \item \texttt{llamante\_vinculo} tenía originalmente 16 niveles y quedó reducida a 5: \texttt{Institución}, %(hospital, comisaría, escuela, defensoría, y otras instituciones), 
+    \item \texttt{llamante\_vinculo} de 16 niveles a 5: \texttt{Institución}, %(hospital, comisaría, escuela, defensoría, y otras instituciones), 
 \texttt{Conocido de la víctima}, %(madre, padre, abuela/o, hermana/o, otro familiar, y otro conocido), 
 \texttt{Víctima}, \texttt{Agresor}, y \texttt{NS/NC}.
-\item Para \texttt{agresor\_vinculo} tomé la agrupación mostrada en la figura 7, \nameref{conocidodesconocido} presentada en \nameref{exploración}, que reduce la cantidad de niveles de 15 a 4: \texttt{Conocido familiar}, \texttt{Conocido no familiar}, \texttt{NS/NC}, y \texttt{Desconocido}.
+\item \texttt{agresor\_vinculo} de 16 niveles a 4 tomando la agrupación mostrada en la figura 7, \nameref{conocidodesconocido}: \texttt{Conocido familiar}, \texttt{Conocido no familiar}, \texttt{NS/NC}, y \texttt{Desconocido}.
 \end{itemize}
 
 
 El conjunto de datos resultante de la reducción manual tiene 36 variables, 18 menos que el original (54). En el cuadro \Ref{tab:transformaciones} del \nameref{anex} se puede ver un resumen de las variables eliminadas, agrupadas, y transformadas.
 
-%\begin{multicols}{2}
- %   \begin{itemize}
-  %      \item \texttt{llamado\_fecha\_hora} 
-   %     \item \texttt{llamante\_edad}
-%        \item \texttt{llamante\_genero}
-%        \item \texttt{caso\_judicializado}
- %       \item \texttt{victima\_a\_resguardo}
-  %      \item \texttt{victima\_edad}
-   %     \item \texttt{victima\_genero}
-    %    \item \texttt{victima\_discapacidad} 
-     %   \item \texttt{victima\_convive\_agresor}
-      %  \item \texttt{llamado\_provincia\_reducida}
-       % \item \texttt{victima\_nacionalidad\_reducida}
-  %      \item \texttt{hecho\_lugar\_reducida}
-  %      \item \texttt{vinculo\_llamante\_reducida}
-  %      \item \texttt{agresor\_conocido\_no\_conocido}
-  %      \item \texttt{fin\_de\_semana}
-  %      \item \texttt{momento\_dia} 
-  %      \item \texttt{estacion\_del\_año}
-  %      \item Variables de violencia sexual: 12
-  %      \item Variables de otros formas de violencia: 7
-  %  \end{itemize}
-  %  \end{multicols} 
-
-
-   % \texttt{vs\_tocamiento\_sexual}, \texttt{vs\_intento\_tocamiento}, \texttt{vs\_grooming} 'vs\_exhibicionismo', 'vs\_obligacion\_sacarse\_fotos\_pornograficas', 'vs\_acoso\_sexual', 'vs\_iniciacion\_sexual\_forzada\_inducida','vs\_otra\_forma\_violencia\_sexual', 'vs\_no\_sabe\_no\_contesta','vs\_explotacion\_sexual\_group' 'vs\_violacion\_group', 'vs\_tentativa\_group','ofv\_sentimiento\_amenaza', 'ofv\_amenaza\_explicita','ofv\_violencia\_fisica', 'ofv\_enganio\_seduccion', 'ofv\_grooming','ofv\_otra\_forma\_violencia', 'ofv\_no\_sabe\_no\_contesta', 
-
-Finalmente también dividí este conjunto de datos final en dos tipos, A y B, que responden a las transformaciones o filtrado de las variables de edad explicadas al final de la sección anterior, \nameref{NMDS}. 
+También dividí este conjunto en los tipos A y B, siguiendo el enfoque de la sección anterior, \nameref{NMDS}. 
 
 \subsection{Modelos SVM}\label{svm}
-
-\todo[inline]{importantísimo ver si accuracy tiene sentido calcular u otra métrica}
 
 Entrené modelos de SVM con dos las dos reducciones de datos explicadas, y las dos variaciones del conjunto de datos en las variables de edad A, y B. En el cuadro ref modelos SVM se detallan los experimentos. Los distintos modelos fueron entrenados con los datos “completos” de \texttt{victima\_convive\_agresor}, es decir, las filas con respuesta \texttt{SI} o \texttt{NO} en esa variable; y las filas con respuesta \texttt{NS/NC} fueron tratadas como los datos faltantes que el modelo debe aprender a completar como \texttt{SI} o \texttt{NO} y por lo tanto como un \textit{test} final ciego.   
 
