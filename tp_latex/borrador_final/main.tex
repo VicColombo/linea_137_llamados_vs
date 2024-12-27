@@ -443,18 +443,30 @@ Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet
 
 La alta dimensionalidad del conjunto de datos y la multiplicidad de niveles de muchas de las variables presenta desafíos para analizar relaciones multivariadas con la variable objetivo; además, causa problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Apliqué entonces dos métodos para reducir las dimensiones de los datos:
 \begin{enumerate}
-    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este paso cumple la doble función de obtener un \textit{dataset} reducido para entrenar un modelo de SVM\footnote{La idea de utilizar NMDS como preparación de los datos para entrenar un modelo de SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}(\citeyear{cai2019incorporating}) en el campo de la microbiología donde encuentran resultados moderadamente buenos en \textit{accuracy} al entrenar un modelo de SVM con un \textit{dataset} comprimido por NMDS (p.69).}, y, por otro lado, generar visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \texttt{victima\_conive\_agresor}.
-    \item \textbf{Reducción manual de los datos}: eliminé, agrupé, y transformé las variables basándome en el \nameref{exploración}.
+    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este que método reordena los datos en espacios de menor dimensión no solo facilita el entrenamiento de SVM, sino que también permite geerar visualizaciones en 2 dimensiones para buscar agrupamientos de las clases a predecir.
+    \item \textbf{Reducción manual de los datos}: Eliminé, agrupé, y transformé las variables basándome en el \nameref{exploración}.
 \end{enumerate}
 
-Complementé estas estrategias de reducción con distintos preprocesamientos para mitigar el efecto de los datos faltantes en las variables de edad, que explico más adelante. Generé múltiples conjuntos de datos para evaluar los efectos de estos métodos y los distintos preprocesamientos en el rendimiento del modelo SVM para predecir los datos faltantes de la variable objetivo.
+Complementé estas estrategias de reducción con distintos preprocesamientos para tratar con los datos faltantes en las variables de edad, que explico más adelante. Para evaluar los efectos de estos métodos y los distintos preprocesamientos en el rendimiento del modelo SVM, generé múltiples conjuntos de datos con las distintas variaciones.
 
 
 \subsection{Reducción de los datos con NMDS}\label{NMDS}
 
 \subsubsection*{NMDS}
 
-El algoritmo de NMDS es un caso particular del algoritmo MDS (por sus siglas en inglés \textit{Multidimensional Scaling}), un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos representándolos en espacios de menor dimensión. En comparación con otros métodos de ordenamiento y reducción, el Escalamiento Multidimensional prioriza preservar en el nuevo espacio de dimensiones reducidas el ordenamiento relativo de las distancias (o diferencias) que existen entre los puntos en el espacio original \citetext{\citealp[p. 218]{aid}}.
+La utilización de NMDS como preprocesamiento para entrenar SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}(\citeyear{cai2019incorporating}) en el campo de la microbiología, quienes encuentran resultados moderadamente buenos en \textit{accuracy} aplicando esta metodoología(p.69).
+
+NMDS, un caso particular de Escalamiento Multidimensional (en adelante, MDS, por sus siglas en inglés \textit{Multidimensional Scaling}), es un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos reorganizándolos en espacios de menor dimensión preservando el ordenamiento relativo de las distancias originales \citetext{\citealp[p. 218]{aid}}.
+
+Utilicé el método \texttt{mds} de la librería Sklearn ajustando los siguientes parámetros:
+
+\begin{itemize}
+    \item \texttt{n\_dimensions}: las dimensiones para la proyección del nuevo ordenamiento de los datos. Realicé pruebas con valores de 2 a 7.
+    \item \texttt{metric}: configurado \texttt{False} para aplicar escalamiento no-métrico. 
+    \item \texttt{dissimilarity}: para especificar la medida de distancia a utilizar. En este caso lo configuré como \texttt{precomputed} para pasarle la matriz de distancias de Gower.
+    \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica de MDS.
+ \end{itemize}
+
 El algoritmo toma una matriz de distancias entre los puntos originales y calcula sus coordenadas en un espacio reducido a n-dimensiones (siendo en general \(n=2\) o \(n=3\) para facilitar la visualización), obteniendo la matriz de coordenadas \(X\), %En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica% 
 que es a su vez transformada en una matriz con las disparidades \(\hat{d}_{ij}\). En \(\hat{d}_{ij}\) no se preservan las magnitudes de las distancias originales, pero sí se preserva el rango de ordenamiento de esas magnitudes\citetext{\citealp[p. 219,220]{aid}}. A continuación, se calcula el valor del \textit{stress}, cuya fórmula para el caso particular de NMDS\footnote{ Ver \cite{kruskal1964nonmetric}, página 115.} es: 
 
@@ -465,12 +477,7 @@ El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimiz
 
 Para realizar el ordenamiento con NMDS utilicé el método \texttt{mds} de la librería Sklearn.\footnote{La función que se utiliza es para MDS (escalamiento métrico) pero se ajustan los parámetros necesarios para convertirla en NMDS.} Los parámetros relevantes para este método fueron:
  
-\begin{itemize}
-   \item \texttt{n\_dimensions}: las dimensiones en las que al algoritmo proyecta el nuevo ordenamiento de los datos. Realicé pruebas con valores de 2 a 7, y 20 (para probar un valor extremo).
-   \item \texttt{metric}: \texttt{False} para aplicar escalamiento no-métrico. 
-   \item \texttt{dissimilarity}: para especificar la medida de similitud o diferencia a utilizar con los datos. En este caso toma el valor \texttt{precomputed} que me permite pasarle directamente al método \texttt{fit\_transform} la matriz de distancias de Gower.
-   \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica, con la fórmula presentada más arriba.
-\end{itemize}
+
 
 \subsubsection*{Distancia de Gower}
 
