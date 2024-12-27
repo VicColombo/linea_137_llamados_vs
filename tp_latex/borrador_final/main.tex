@@ -146,7 +146,7 @@ El siguiente paso fue limpiar el conjunto de datos unificado de inconsistencias 
 
 \end{itemize}
 
-\subsection{Exploración}\label{exploración}
+\subsection{Análisis exploratorio}\label{exploración}
 
 El conjunto de datos unificado consta de 19143 observaciones y 54 variables, en su mayoría categóricas, que aportan información sobre la víctima, el agresor, la persona que llama para reportar el hecho, el contexto del hecho y el tipo de violencia sufrida. En el cuadro \ref{tablavar} se puede ver un detalle de las variables y su tipo.
 
@@ -441,7 +441,13 @@ Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet
 
 \section{Metodología}\label{met}
 
-La extensa cantidad de variables que presenta el conjunto de datos acarrea limitaciones a la hora de buscar relaciones de más de dos o tres variables con la variable objetivo, y puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Experimenté con dos metodologías para reducir las dimensiones de los datos. Primero apliqué el método de NMDS para obtener un nuevo ordenamiento de los datos en un espacio de menor dimensión. Este paso cumple la doble función de obtener un \textit{dataset} reducido para entrenar un modelo de SVM\footnote{La idea de utilizar NMDS como preparación de los datos para entrenar un modelo de SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}(\citeyear{cai2019incorporating}) en el campo de la microbiología donde encuentran resultados moderadamente buenos en \textit{accuracy} al entrenar un modelo de SVM con un \textit{dataset} comprimido por NMDS (p.69).}, y, por otro lado, generar visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \texttt{victima\_conive\_agresor}. En segundo lugar, realicé una reducción “manual” de los datos, eliminando, agrupando, y transformando variables de manera más controlada, respondiendo a una exploración a conciencia de los datos. Finalmente, para el entrenamiento de modelos de SVM que predigan los datos faltantes de la variable objetivo como \texttt{SI} o \texttt{NO}, utilicé distintos conjuntos de datos que varían según los dos tipos de reducciones aplicadas y distintos tipos de preprocesamientos para solventar los datos faltantes en las variables de edad.
+La alta dimensionalidad del conjunto de datos y la multiplicidad de niveles de muchas de las variables presenta desafíos para analizar relaciones multivariadas con la variable objetivo; además, causa problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Apliqué entonces dos métodos para reducir las dimensiones de los datos:
+\begin{enumerate}
+    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este paso cumple la doble función de obtener un \textit{dataset} reducido para entrenar un modelo de SVM\footnote{La idea de utilizar NMDS como preparación de los datos para entrenar un modelo de SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}(\citeyear{cai2019incorporating}) en el campo de la microbiología donde encuentran resultados moderadamente buenos en \textit{accuracy} al entrenar un modelo de SVM con un \textit{dataset} comprimido por NMDS (p.69).}, y, por otro lado, generar visualizaciones en 2 dimensiones del total del conjunto de datos para buscar agrupamientos entre las clases de \texttt{victima\_conive\_agresor}.
+    \item \textbf{Reducción manual de los datos}: eliminé, agrupé, y transformé las variables basándome en el \nameref{exploración}.
+\end{enumerate}
+
+Complementé estas estrategias de reducción con distintos preprocesamientos para mitigar el efecto de los datos faltantes en las variables de edad, que explico más adelante. Generé múltiples conjuntos de datos para evaluar los efectos de estos métodos y los distintos preprocesamientos en el rendimiento del modelo SVM para predecir los datos faltantes de la variable objetivo.
 
 
 \subsection{Reducción de los datos con NMDS}\label{NMDS}
