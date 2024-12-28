@@ -609,18 +609,11 @@ Finalmente, probé el modelo entrenado con los mejores hiperparámetros en el co
 
 \subsubsection{Entrenamiento de SVM con reducción manual de los datos}
 
-Para entrenar modelos de SVM con los datos reducidos a mano:
+Para este experimento, comencé por codificar las variables. Para \texttt{llamado\_fecha\_hora}, \texttt{momento\_dia}, \texttt{estacion\_del\_año}, y las variables de edad (en el caso del conjunto A) utilicé un encoder ordinal (\texttt{OrdinalEncoder} de sklearn) para preservar la naturaleza ordinal de los datos. En el caso del conjunto B, escalé la edad de la víctima.
 
-\begin{enumerate}
-    \item Encodeé con un método ordinal (ordinal encoder sklearn) las variables \texttt{llamado\_fecha\_hora}, \texttt{momento\_dia}, \texttt{estacion\_del\_año} y ambas variables de edad previamente categorizadas (esto último solo en el caso del \textit{dataset} A, en el caso del B, solo me limité a escalar la edad de la víctima). La elección del tipo de \textit{encoder} ordinal fue para preservar la naturaleza ordinal de las variables al ser transformadas. 
-    \item Escalé las variables encodeadas con \textit{ordinal encoder}, siguiendo las recomendaciones de \citealt*{udilua2023encoding}. \todo[inline]{agregar página}
-    \item Encodeé las variables cuyas categorías eran solamente \texttt{SI}, \texttt{NO}, incluyendo la variable a predecir, mapeando \texttt{SI}= 1, y \texttt{NO}= 0. (En el caso de la variable objetivo, los \texttt{NS/NC} fueron previamente transformados a celdas vacías.) 
-    \item Encodeé el resto de las variables con \textit{one hot encoder}.
-    \item Creé el test final ciego con las filas del conjunto de datos pertenecientes originalmente a los casos con \texttt{NS/NC} de la varaible objetivo.
-    \item 
-\end{enumerate}
+Transformé las variables binarias (\texttt{SI}, \texttt{NO}), incluida la variable objetivo, asignando \texttt{SI} = 1 y \texttt{NO} = 0. Al igual que en el experimento anterior, los valores \texttt{NS/NC} en la variable objetivo los reemplacé por datos vacíos. Para el resto de las variables categóricas, utilicé \texttt{OneHotEncoder}.
 
-la preparación de los datos es distinta para cada caso pero el entrenamiento del modelo es el mismo, con cross validation y gridsearch.
+Generé el conjunto de prueba ciega  de manera similar al enfoque NMDS, utilizando las filas correspondientes a casos con \texttt{NS/NC} en la variable objetivo. Entrené el modelo fue entrenado con la misma metodología de validación cruzada y búsqueda de hiperparámetros (\texttt{kernel}, \texttt{C}, \texttt{gamma}), optimizando \texttt{f1\_weighted}.
 
 
 \section{Resultados y discusión}\label{resultados}
