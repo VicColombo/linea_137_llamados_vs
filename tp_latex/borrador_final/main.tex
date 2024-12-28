@@ -443,7 +443,7 @@ Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet
 
 La alta dimensionalidad del conjunto de datos y la multiplicidad de niveles de muchas de las variables presenta desafíos para analizar relaciones multivariadas con la variable objetivo; además, causa problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Apliqué entonces dos métodos para reducir las dimensiones de los datos:
 \begin{enumerate}
-    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este que método reordena los datos en espacios de menor dimensión no solo facilita el entrenamiento de SVM, sino que también permite generar visualizaciones en 2 dimensiones para buscar agrupamientos de las clases a predecir.
+    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este método no solo facilita el entrenamiento de SVM, sino que también permite generar visualizaciones en 2 dimensiones para buscar agrupamientos de las clases a predecir.
     \item \textbf{Reducción manual de los datos}: Eliminé, agrupé, y transformé las variables basándome en el \nameref{exploración}.
 \end{enumerate}
 
@@ -568,13 +568,15 @@ En el mismo artículo, sin embargo, el autor advierte sobre el procesamiento pot
 \end{itemize}
 
 
-El conjunto de datos resultante de la reducción manual tiene 36 variables, 18 menos que el original (54). En el cuadro \Ref{tab:transformaciones} del \nameref{anex} se puede ver un resumen de las variables eliminadas, agrupadas, y transformadas.
+El conjunto de datos resultante de la reducción manual tiene 36 variables, (el original tenía 54). En el cuadro \Ref{tab:transformaciones} del \nameref{anex} se puede ver un resumen de las variables eliminadas, agrupadas, y transformadas.
 
 También dividí este conjunto en los tipos A y B, siguiendo el enfoque de la sección anterior, \nameref{NMDS}. 
 
 \subsection{Modelos SVM}\label{svm}
 
-Entrené modelos de SVM con dos las dos reducciones de datos explicadas, y las dos variaciones del conjunto de datos en las variables de edad A, y B. En el cuadro ref modelos SVM se detallan los experimentos. Los distintos modelos fueron entrenados con los datos “completos” de \texttt{victima\_convive\_agresor}, es decir, las filas con respuesta \texttt{SI} o \texttt{NO} en esa variable; y las filas con respuesta \texttt{NS/NC} fueron tratadas como los datos faltantes que el modelo debe aprender a completar como \texttt{SI} o \texttt{NO} y por lo tanto como un \textit{test} final ciego.   
+Agregar minima explicación de SVM y por qué lo elegí acá
+
+El cuadro \Ref{modelosSVM} ofrece una sistematización de los distintos conjuntos de datos para los experimentos de entrenamiento de SVM.
 
 
 \begin{table}[]
@@ -584,9 +586,9 @@ Entrené modelos de SVM con dos las dos reducciones de datos explicadas, y las d
     \begin{tabular}{|c|c|c|}
     \hline
     \textbf{Experimento}                                                                            & \textbf{\textit{Dataset}} & \textbf{Especificaciones}                                                                                                                                                             \\ \hline
-    \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Reducción con \\ NMDS\end{tabular}}                  & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}\end{tabular}                                                       \\ \cline{2-3} 
+    \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}1. Reducción con \\ NMDS\end{tabular}}                  & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}\end{tabular}                                                       \\ \cline{2-3} 
                                                                                                     & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
-    \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Reducción manual \\ con métodos mixtos\end{tabular}} & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}. \\ Aplicación de one hot encoder pot categorización.\end{tabular} \\ \cline{2-3} 
+    \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}2. Reducción manual \\ con métodos mixtos\end{tabular}} & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}. \\ Aplicación de one hot encoder pot categorización.\end{tabular} \\ \cline{2-3} 
                                                                                                     & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
     \end{tabular}
     \end{table}    
@@ -597,22 +599,17 @@ Entrené modelos de SVM con dos las dos reducciones de datos explicadas, y las d
 
 \subsubsection{Entrenamiento de SVM con reducción NMDS}
 
+Preparé los datos comenzando por reemplazar los valores \texttt{NS/NC} en \texttt{victima\_convive\_agresor} por \texttt{NA}. Después, separé la variable objetivo \texttt{victima\_convive\_agresor} (\textit{y}) del resto de los datos \textit{X}; y quité a \textit{y} las filas vacías, guardando sus índices. Calculé a partir de X label matriz de distancias de Gower para utilizar en NMDS.
+
+Generé distintas reducciones NMDS variando el parámetro \texttt{n\_components}. Para cada reducción, creé el conjunto de prueba ciega final de casos no vistos a partir de las filas ya transformadas de \textit{X} correspondientes a los casos con respuesta vacía en \texttt{victima\_convive\_agresor}. Dividí conjunto principal \textit{X} e \textit{y} de manera estratificada en entrenamiento (80\%) y testeo (\%20) de manera estratificada utilizando \texttt{StratifiedShuffleSplit} de sklearn para mitigar el desbalance de las clases \texttt{SI} y \texttt{NO}.
+
+Para el entrenamiento, implementé una búsqueda de hiperparámetros (\texttt{kernel}, \texttt{C}, \texttt{gamma}) mediante validación cruzada de 5 divisiones, evaluando el rendimiento con la métrica \texttt{f1\_weighted}. Elegí esta métrica tanto por el desbalance entre las clases (\textit{accuracy} o \textit{precision} ) para intentar garantizar un modelo que balanceara precisión y cobertura. para abordar el desbalance de clases. Además, se calculó el \texttt{stress} asociado a cada reducción NMDS como una métrica adicional de evaluación.
+
+  Con cada variación de reducción por NMDS correspondiente a los distintos \texttt{n\_components}, realicé una optimización de los hiperparámetros de SVM \texttt{kernel}, \texttt{C}, y \texttt{gamma} entrenando con validación cruzada de 5 divisiones. Medí también el \texttt{stress} para cada reducción.
+   Con los mejores hiperparámentros por f1\_weighted entrené un modelo que apliqué al conjunto de \textit{test} final no visto. Ante la imposibilidad de evaluar el resultado del mejor modelo sobre el test final con métodos tradicionales, medí la proporción de SI NO en el dataset original y en la predicción para compararlas y así estimar la performance. Usé F1 porque hay desbalance de clases y porque me interesa saber no solo accuracy sino también cobertura del modelo.
 
 
-Para el entrenamiento de los modelos de SVM con los \textit{datasets} A y B: 
 
-
-\begin{enumerate}
-    \item Separé \texttt{victima\_convive\_agresor} (\textit{y}) del resto de los datos \textit{X}.
-    \item Quité a \textit{y} las filas correspondientes a los casos con respuesta \texttt{NS/NC}. 
-    \item Generé a partir de X una matriz de distancias de Gower que luego utilicé para la transformación con NMDS.
-    \item Generé distintas reducciones NMDS varaindo el parámetro \texttt{n\_components}.
-    \item Creé el conjunto de prueba ciega final de casos no vistos a partir de las filas ya transformadas de \textit{X} correspondientes a los casos con respuesta \texttt{NS/NC} en \texttt{victima\_convive\_agresor}.
-    \item Dividí \textit{X} e \textit{y} en entrenamiento (80\%) y testeo (\%20) de manera estratificada\footnote{Utilizando el método \texttt{StratifiedShuffleSplit} de sklearn.} para mitigar el desbalance de las clases \texttt{SI}  \texttt{NO}.\footnote{Ver nuevamente la figura 8, \nameref{convivencia}.} 
-    \item Con cada variación de reducción por NMDS correspondiente a los distintos \texttt{n\_components}, realicé una optimización de los hiperparámetros de SVM \texttt{kernel}, \texttt{C}, y \texttt{gamma} entrenando con validación cruzada de 5 divisiones. Medí también el \texttt{stress} para cada reducción.
-    \item Con los mejores hiperparámentros por f1\_weighted entrené un modelo que apliqué al conjunto de \textit{test} final no visto. Ante la imposibilidad de evaluar el resultado del mejor modelo sobre el test final con métodos tradicionales, medí la proporción de SI NO en el dataset original y en la predicción para compararlas y así estimar la performance. Usé F1 porque hay desbalance de clases y porque me interesa saber no solo accuracy sino también cobertura del modelo.
-
-\end{enumerate}
 
 
 
