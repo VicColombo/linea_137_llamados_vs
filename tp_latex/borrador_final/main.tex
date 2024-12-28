@@ -595,25 +595,17 @@ El cuadro \Ref{modelosSVM} ofrece una sistematización de los distintos conjunto
 
 
 
-
-
 \subsubsection{Entrenamiento de SVM con reducción NMDS}
 
 Preparé los datos comenzando por reemplazar los valores \texttt{NS/NC} en \texttt{victima\_convive\_agresor} por \texttt{NA}. Después, separé la variable objetivo \texttt{victima\_convive\_agresor} (\textit{y}) del resto de los datos \textit{X}; y quité a \textit{y} las filas vacías, guardando sus índices. Calculé a partir de X label matriz de distancias de Gower para utilizar en NMDS.
 
 Generé distintas reducciones NMDS variando el parámetro \texttt{n\_components}. Para cada reducción, creé el conjunto de prueba ciega final de casos no vistos a partir de las filas ya transformadas de \textit{X} correspondientes a los casos con respuesta vacía en \texttt{victima\_convive\_agresor}. Dividí conjunto principal \textit{X} e \textit{y} de manera estratificada en entrenamiento (80\%) y testeo (\%20) de manera estratificada utilizando \texttt{StratifiedShuffleSplit} de sklearn para mitigar el desbalance de las clases \texttt{SI} y \texttt{NO}.
 
-Para el entrenamiento, implementé una búsqueda de hiperparámetros (\texttt{kernel}, \texttt{C}, \texttt{gamma}) mediante validación cruzada de 5 divisiones, evaluando el rendimiento con la métrica \texttt{f1\_weighted}. Elegí esta métrica tanto por el desbalance entre las clases (\textit{accuracy} o \textit{precision} ) para intentar garantizar un modelo que balanceara precisión y cobertura. para abordar el desbalance de clases. Además, se calculó el \texttt{stress} asociado a cada reducción NMDS como una métrica adicional de evaluación.
-
-  Con cada variación de reducción por NMDS correspondiente a los distintos \texttt{n\_components}, realicé una optimización de los hiperparámetros de SVM \texttt{kernel}, \texttt{C}, y \texttt{gamma} entrenando con validación cruzada de 5 divisiones. Medí también el \texttt{stress} para cada reducción.
-   Con los mejores hiperparámentros por f1\_weighted entrené un modelo que apliqué al conjunto de \textit{test} final no visto. Ante la imposibilidad de evaluar el resultado del mejor modelo sobre el test final con métodos tradicionales, medí la proporción de SI NO en el dataset original y en la predicción para compararlas y así estimar la performance. Usé F1 porque hay desbalance de clases y porque me interesa saber no solo accuracy sino también cobertura del modelo.
+Para el entrenamiento, implementé una búsqueda de hiperparámetros (\texttt{kernel}, \texttt{C}, \texttt{gamma}) mediante validación cruzada de 5 divisiones, evaluando el rendimiento con la métrica \texttt{f1\_weighted}. Elegí esta métrica tanto por el desbalance entre las clases (\textit{accuracy} o \textit{precision} pueden arrojar valores para la clase predominante), como para intentar garantizar un modelo que balanceara precisión y cobertura, ya que me interesa no solo predecir de manera correcta los verdaderos positivos, sino también, no dejar afuera potenciales casos positivos. Además, calculé el \texttt{stress} asociado a cada reducción NMDS como una métrica adicional de evaluación.
 
 
+Finalmente, probé el modelo entrenado con los mejores hiperparámetros en el conjunto ciego. Aunque no me es posible realizar una evaluación tradicional del conjunto final porque son realmente datos faltantes, comparé las proporciones de clases \texttt{SI} y \texttt{NO} entre el conjunto original con las predicciones para obtener una estimación de la performance del modelo. 
 
-
-
-
-Explicar el tipo de kernel, el vaor de C y gamma.
 
 \subsubsection{Entrenamiento de SVM con reducción manual de los datos}
 
