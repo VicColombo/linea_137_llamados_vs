@@ -92,7 +92,7 @@ La clasificación de las identidades de género de víctimas y perpetradores es 
 
 La  recopilación, sistematización, y análisis de datos sobre violencia sexual por parte de los Estados es crucial para planificar y llevar adelante políticas efectivas de prevención, asistencia, y erradicación de la violencia sexual. En Argentina, si bien no hay un sistema estatal único y centralizado de este tipo de información, existen entidades judiciales y programas estatales que, además de ofrecer auxilio, asistencia y/o acceso a la justicia, recaban datos sobre violencia sexual, y mantienen un registro público de ellos. Unos de esos programas es Las Víctimas contra las Violencias. 
 
-Desde el año 2016, en el marco del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia de la Nación, la línea 137 funciona las 24 horas del día para solicitar asistencia en casos de violencia sexual o familiar\footnote{Además, desde 2020 cuenta también con el canal de \textit{Whatsapp} (54911) 3133-1000.}. El programa cuenta con equipos de intervención de abogadas, psicólogas, y trabajadoras sociales. Al recibir una llamada solicitando asistencia se coordina el envío de equipos móviles para proveer a la víctima, en base a las necesidades del caso, de contención emocional, acompañamiento a un hospital y/o a radicar una denuncia, y/o a un lugar seguro donde pueda alojarse \citep*{linea_137}.\todo[inline]{rever cómo sigue el programa ahora}
+Desde el año 2016, en el marco del programa Las Víctimas contra las Violencias, dependiente del Ministerio de Justicia de la Nación, la línea 137 funciona las 24 horas del día para solicitar asistencia en casos de violencia sexual o familiar.\footnote{Además, desde 2020 cuenta también con el canal de \textit{Whatsapp} (54911) 3133-1000.} El programa cuenta con equipos de intervención de abogadas, psicólogas, y trabajadoras sociales. Al recibir una llamada solicitando asistencia se coordina el envío de equipos móviles para proveer a la víctima, en base a las necesidades del caso, de contención emocional, acompañamiento a un hospital y/o a radicar una denuncia, y/o acompañamiento a un lugar seguro donde pueda alojarse \citep*{linea_137}.\todo[inline]{rever cómo sigue el programa ahora}
 
 Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 2017 y están disponibles en el \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos de la Justicia Argentina}. Allí se encuentran publicados cuatro tipos de \textit{datasets}: 
 
@@ -103,24 +103,26 @@ Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 
     \item Intervenciones domiciliarias por situaciones de violencia sexual
 \end{itemize}
 
-Los llamados para reportar violencia sexual presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta (en adelante \texttt{NS/NC}) en lugar de sí o no en algunas variables categóricas. Me resulta de particular interés la variable \texttt{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC}.
+En este trabajo, analizo los datos de llamados por situaciones de violencia sexual. Estos llamados presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta (en adelante \texttt{NS/NC}) en variables categóricas. Me resulta de particular interés la variable \texttt{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC}. La información que provee esta variable puede ser crucial para determinar el tipo de asistencia y los pasos a seguir para asegurar el bienestar de la víctima. Teniendo en cuenta lo dicho al comienzo de la introducción sobre los desafíos para recopilar datos sobre violencia sexual, es probale que los datos faltantes en \texttt{victima\_convive\_agresor} estén relacionados con el motivo mismo por el que faltan o con otras variables (por ejemplo, quien llama para reportar el incidente puede no estar familiarizado con la situación convivencial de la víctima). Determinar la razón por la que faltan es un desafío que no forma parte de este trabajo. 
 
-\subsection{Objetivos generales}
+
+\subsection{Objetivos}
 
 Mis objetivos generales para este trabajo son:
 
 \begin{itemize}
     \item Ampliar y aportar al campo de las investigaciones en materia de violencia de género y violencia sexual en Argentina.
-    \item Concientizar sobre la importancia de la existencia de bases de datos públicas y abiertas a toda la población, en particular sobre el tema de violencia de género y violencia sexual. 
-    \item Explorar los datos visualmente en busca de patrones de ordenamiento que permitan distinguir los grupos de víctimas que conviven con su agresor de los que no.
+    \item Concientizar sobre la importancia de la existencia de bases de datos públicas y abiertas a toda la población. 
+    \item Explorar los datos en busca de patrones de ordenamiento que distingan a los grupos de víctimas que conviven con su agresor de los que no.
     \item Entrenar un modelo predictivo de clasificación para imputar los datos faltantes en la variable \texttt{victima\_convive\_agresor}. 
-    \item Contrastar y comparar distintos tipos de preprocesamientos de los datos para el entrenamiento del modelo predictivo. 
+    \item Contrastar y comparar distintos tipos de preprocesamientos de los datos para el entrenamiento del modelo predictivo según su impacto en el modelo final. 
 
 \end{itemize}
 
-\subsection{Objetivos particulares}
+Mis objetivos particulares, por lo tanto, son:
+
 \begin{itemize}
-\item Visualizar las clases \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de la variable \texttt{victima\_convive\_agresor} utilizando la técnica de Escalamiento Multidimensional No Métrico.\footnote{En adelante, \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling.}}
+\item Visualizar las clases \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de la variable \texttt{victima\_convive\_agresor} utilizando la técnica de Escalamiento Multidimensional No Métrico.
 \item Entrenar un modelo de Máquinas de Soporte Vectorial para completar los datos faltantes de la variable \texttt{victima\_convive\_agresor}.
 \item Contrastar tipos de preprocesamientos de los datos para entrenar el modelo: 
 \begin{itemize}
@@ -132,6 +134,13 @@ Mis objetivos generales para este trabajo son:
 \item Evaluar y comparar el rendimiento de los diferentes modelos según el preprocesamiento de los datos utilizando principalmente la métrica \textit{F1}.
     
 \end{itemize}
+
+
+Utilizo la técnica de Escalamiento Multidimensional No Métrico (en adelante \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}) para reducir las dimensiones del conjunto de datos y tanto para explorar el comportamiento de los casos de \texttt{victima\_convive\_agresor} sin respuestas y para intentar imputar esos casos con \texttt{SI} o \texttt{NO}, utilizo . entre los grupos de víctimas que conviven con su agresor y los que no Mention that you use NMDS for visualization and dimensionality reduction, and SVM for classification and imputation.
+Explain briefly why they are well-suited to the problem.
+Recommendation: Keep the detailed explanation in Methodology but consider adding 2-3 sentences in the Introduction to provide a high-level context about why SVM and NMDS were chosen. This ensures a smoother narrative flow and prepares readers for the Methodology section.
+
+sobre la situación convivencial se agrupan (se asemejan) con aquellos en que las víctimas sí conviven o con aquellos en los que no. Para explorar estos agrupamientos
 
 Todo el código generado para este trabajo de especialización fue escrito en \textit{python} y puede encontrarse en el repositorio público: \url{https://github.com/VicColombo/linea_137_llamados_vs}
 
@@ -447,11 +456,7 @@ Por último, puse en relación \texttt{victima\_convive\_agresor} con los valore
     \label{conviveedadfaltantevic}
     \end{center}
     \end{figure}
-
-
-
-
-Teniendo en cuenta la clasificación de datos faltantes que se origina en \citet{rubin1976inference}, los datos faltantes en el \textit{dataset} de llamados son posiblemente del tipo \textit{missing at random} (MAR) y \textit{missing not at random/ non-ignorable missing data} (MNAR). Es decir, o bien los datos faltan por motivos que tienen que ver con otras variables (MAR), o bien el valor faltante está relacionado con el motivo mismo por el que falta (MNAR).\todo[inline]{tipo de datos faltantes que son podría ir en datos o en resultados también quizás}    
+  
 
 
 \section{Metodología}\label{met}
