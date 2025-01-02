@@ -103,10 +103,13 @@ Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 
     \item Intervenciones domiciliarias por situaciones de violencia sexual
 \end{itemize}
 
-En este trabajo, analizo los datos de llamados por situaciones de violencia sexual. Estos llamados presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta (en adelante \texttt{NS/NC}) en variables categóricas. Me resulta de particular interés la variable \texttt{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC}. La información que provee esta variable puede ser crucial para determinar el tipo de asistencia y los pasos a seguir para asegurar el bienestar de la víctima. Teniendo en cuenta lo dicho al comienzo de la introducción sobre los desafíos para recopilar datos sobre violencia sexual, es probale que los datos faltantes en \texttt{victima\_convive\_agresor} estén relacionados con el motivo mismo por el que faltan o con otras variables (por ejemplo, quien llama para reportar el incidente puede no estar familiarizado con la situación convivencial de la víctima). Determinar la razón por la que faltan es un desafío que no forma parte de este trabajo. 
+Para mi trabajo, analizo los datos de llamados por situaciones de violencia sexual. Estos llamados presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta (en adelante \texttt{NS/NC}) en variables categóricas. Me resulta de particular interés la variable \texttt{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC}. La información que provee esta variable puede ser crucial para determinar el tipo de asistencia y los pasos a seguir para asegurar el bienestar de la víctima. Teniendo en cuenta lo dicho al comienzo de la introducción sobre los desafíos para recopilar datos sobre violencia sexual, es probale que los datos faltantes en \texttt{victima\_convive\_agresor} estén relacionados con el motivo mismo por el que faltan. Sin embargo, determinar la razón por la que faltan es un desafío que no forma parte de este trabajo. 
 
 
 \subsection{Objetivos}
+
+En este trabajo utilizo la técnica de Escalamiento Multidimensional No Métrico (en adelante \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}) para reducir las dimensiones del conjunto de datos y explorar agrupamientos entre las clases de la variable objetivo \texttt{victima\_convive\_agresor}. Luego entreno Máquinas de Soporte Vectorial (en adelante \textit{SVM} por sus siglas en inglés \textit{Support Vector Machine}) para imputar los datos faltantes en la variable objetivo. Para el entrenamiento de SVM experimento con un preprocesamiento de los datos utilizando NMDS y otro reduciendo de manera manual la cantidad y cardinalidad de las variables. 
+
 
 Mis objetivos generales para este trabajo son:
 
@@ -136,11 +139,6 @@ Mis objetivos particulares, por lo tanto, son:
 \end{itemize}
 
 
-Utilizo la técnica de Escalamiento Multidimensional No Métrico (en adelante \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}) para reducir las dimensiones del conjunto de datos y tanto para explorar el comportamiento de los casos de \texttt{victima\_convive\_agresor} sin respuestas y para intentar imputar esos casos con \texttt{SI} o \texttt{NO}, utilizo . entre los grupos de víctimas que conviven con su agresor y los que no Mention that you use NMDS for visualization and dimensionality reduction, and SVM for classification and imputation.
-Explain briefly why they are well-suited to the problem.
-Recommendation: Keep the detailed explanation in Methodology but consider adding 2-3 sentences in the Introduction to provide a high-level context about why SVM and NMDS were chosen. This ensures a smoother narrative flow and prepares readers for the Methodology section.
-
-sobre la situación convivencial se agrupan (se asemejan) con aquellos en que las víctimas sí conviven o con aquellos en los que no. Para explorar estos agrupamientos
 
 Todo el código generado para este trabajo de especialización fue escrito en \textit{python} y puede encontrarse en el repositorio público: \url{https://github.com/VicColombo/linea_137_llamados_vs}
 
@@ -481,7 +479,7 @@ Finalmente evalué los efectos de estos métodos de reducción y los distintos p
 
 \subsubsection*{NMDS}
 
-La utilización de NMDS como preprocesamiento para entrenar SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}\citeyearpar{cai2019incorporating} en el campo de la microbiología, quienes encuentran resultados con \textit{accuracy} moderadamente buena aplicando esta metodología (p.69). \todo[inline]{esto quizás puede ir al principio en la intro o antecedentes}
+La utilización de NMDS como preprocesamiento para entrenar SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}\citeyearpar{cai2019incorporating} en el campo de la microbiología, quienes encuentran resultados con \textit{accuracy} moderadamente buena aplicando esta metodología (p.69).
 
 NMDS, un caso particular de Escalamiento Multidimensional (MDS, por sus siglas en inglés \textit{Multidimensional Scaling}), es un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos reorganizándolos en espacios de menor dimensión preservando el orden relativo de las distancias originales \citetext{\citealp[p. 218]{aid}}. Como su nombre lo indica, este algoritmo acepta matrices de distancias no métricas como entrada, y eso resulta una ventaja para el conjunto de datos multivariado con el que trabajo. 
 
