@@ -103,26 +103,25 @@ Los registros de las llamadas a la línea 137 se encuentran digitalizados desde 
     \item Intervenciones domiciliarias por situaciones de violencia sexual
 \end{itemize}
 
-Para mi trabajo, analizo los datos de llamados por situaciones de violencia sexual. Estos llamados presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta (en adelante \texttt{NS/NC}) en variables categóricas. Me resulta de particular interés la variable \texttt{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC}. La información que provee esta variable puede ser crucial para determinar el tipo de asistencia y los pasos a seguir para asegurar el bienestar de la víctima. Teniendo en cuenta lo dicho al comienzo de la introducción sobre los desafíos para recopilar datos sobre violencia sexual, es probale que los datos faltantes en \texttt{victima\_convive\_agresor} estén relacionados con el motivo mismo por el que faltan. Sin embargo, determinar la razón por la que faltan es un desafío que no forma parte de este trabajo. 
+En este trabajo, analizo los datos de llamados por situaciones de violencia sexual. Estos llamados presentan datos faltantes de dos maneras: celdas vacías en algunas variables numéricas, y respuestas no-sabe/no-contesta (en adelante \texttt{NS/NC}) en variables categóricas. Me resulta de particular interés la variable \texttt{victima\_convive\_agresor}, que codifica la situación convivencial entre la víctima y el agresor, y toma los valores \texttt{SI}, \texttt{NO}, y \texttt{NS/NC}. La información que provee esta variable puede ser crucial para determinar el tipo de asistencia y los pasos a seguir para asegurar el bienestar de la víctima. Teniendo en cuenta lo dicho al comienzo de la introducción sobre los desafíos para recopilar datos sobre violencia sexual, es probale que los datos faltantes en \texttt{victima\_convive\_agresor} estén relacionados con el motivo mismo por el que faltan. Sin embargo, determinar la razón por la que faltan es un desafío que no forma parte de este trabajo. 
 
 
 \subsection{Objetivos}
 
-En este trabajo utilizo la técnica de Escalamiento Multidimensional No Métrico (en adelante \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}) para reducir las dimensiones del conjunto de datos y explorar agrupamientos entre las clases de la variable objetivo \texttt{victima\_convive\_agresor}. Luego entreno Máquinas de Soporte Vectorial (en adelante \textit{SVM} por sus siglas en inglés \textit{Support Vector Machine}) para imputar los datos faltantes en la variable objetivo. Para el entrenamiento de SVM experimento con un preprocesamiento de los datos utilizando NMDS y otro reduciendo de manera manual la cantidad y cardinalidad de las variables. 
+Elegí -por su versatilidad para operar con variables de distinto tipo- la técnica de Escalamiento Multidimensional No Métrico\footnote{En adelante \textit{NMDS} por sus siglas en inglés \textit{Non-Metric Multidimensional Scaling}} para generar visualizaciones del conjunto de datos dos dimensiones y explorar agrupamientos entre las clases de la variable objetivo \texttt{victima\_convive\_agresor}. Luego, por ser clasificadores con buen rendimiento tanto para datos lineales como no lineales, elegí entrenar Máquinas de Soporte Vectorial\footnote{en adelante \textit{SVM} por sus siglas en inglés \textit{Support Vector Machine}} para imputar los datos faltantes en la variable objetivo experimentando con distintas estrategias de preprocesamiento. 
 
 
 Mis objetivos generales para este trabajo son:
 
 \begin{itemize}
     \item Ampliar y aportar al campo de las investigaciones en materia de violencia de género y violencia sexual en Argentina.
-    \item Concientizar sobre la importancia de la existencia de bases de datos públicas y abiertas a toda la población. 
     \item Explorar los datos en busca de patrones de ordenamiento que distingan a los grupos de víctimas que conviven con su agresor de los que no.
     \item Entrenar un modelo predictivo de clasificación para imputar los datos faltantes en la variable \texttt{victima\_convive\_agresor}. 
     \item Contrastar y comparar distintos tipos de preprocesamientos de los datos para el entrenamiento del modelo predictivo según su impacto en el modelo final. 
 
 \end{itemize}
 
-Mis objetivos particulares, por lo tanto, son:
+Mis objetivos particulares:
 
 \begin{itemize}
 \item Visualizar las clases \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} de la variable \texttt{victima\_convive\_agresor} utilizando la técnica de Escalamiento Multidimensional No Métrico.
@@ -461,11 +460,11 @@ Por último, puse en relación \texttt{victima\_convive\_agresor} con los valore
 
 La alta dimensionalidad del conjunto de datos y la multiplicidad de niveles de muchas de las variables presenta desafíos para analizar relaciones multivariadas con la variable objetivo; además, puede causar problemas de procesamiento en el entrenamiento del modelo predictivo con SVM. Apliqué entonces dos métodos para reducir las dimensiones de los datos:
 \begin{enumerate}
-    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este método no solo facilita el entrenamiento de SVM, sino que también permite generar visualizaciones en 2 dimensiones para buscar agrupamientos de las clases a predecir.
-    \item \textbf{Reducción manual de los datos}: Eliminé, agrupé, y transformé las variables basándome en el \nameref{exploración}.
+    \item \textbf{Escalamiento Multidimensional No Métrico (NMDS)}: Este método me permite generar visualizaciones en 2 dimensiones para buscar agrupamientos de las clases a predecir; y también funciona como preprocesamiento para el entrenamiento de SVM.
+    \item \textbf{Reducción manual de los datos}: Eliminé, agrupé, y transformé las variables basándome en el conocimiento del dominio y el \nameref{exploración}.
 \end{enumerate}
 
-Complementé estas estrategias de reducción con dos preprocesamientos distintos para tratar los datos faltantes en las variables de edad\footnote{Si bien las respuestas \texttt{NS/NC} se pueden considerar como datos faltantes (de hecho así las considero para la variable objetivo), no son celdas vacías. Las variables de edad son las únicas que sí tienen celdas vacías.}, ya que algunas implementaciones (distancia de Gower y SVM principalmente) no admiten datos vacíos. Generé dos conjuntos de datos alternativos:
+Complementé estas estrategias de reducción con dos preprocesamientos distintos para tratar los datos faltantes en las variables de edad, ya que las implementaciones que utilizo para distancia de Gower y SVM no admiten datos vacíos. Generé dos conjuntos de datos alternativos:
 \begin{itemize}
     \item Conjunto A: categoricé las variables de edad\footnote{1 - 11 años = niñez; 12 - 18 años = adolescencia; 19 - 30 años = juventud; 31 - 65 años = adultez, más de 66 años = vejez.}, y clasifiqué los datos faltantes como \texttt{NS/NC}.
     \item Conjunto B: descarté la variable \texttt{llamante\_edad}, y también las filas con datos vacíos en la variable \texttt{victima\_edad}.  
@@ -475,24 +474,22 @@ La decisión sobre el conjunto B responde por un lado al supuesto de que la edad
 
 Finalmente evalué los efectos de estos métodos de reducción y los distintos preprocesamientos en el rendimiento del modelo SVM.
 
-\subsection{Reducción de los datos con NMDS}\label{NMDS}
+\subsection{Reordenamiento y reducción con NMDS}\label{NMDS}
 
-\subsubsection*{NMDS}
+NMDS, un caso particular de Escalamiento Multidimensional (MDS, por sus siglas en inglés \textit{Multidimensional Scaling}), es un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos reorganizándolos en espacios de menor dimensión preservando el orden relativo de las distancias originales \citetext{\citealp[p. 218]{aid}}. Como su nombre lo indica, acepta matrices de distancias no métricas como entrada, y eso resulta una ventaja para el conjunto de datos multivariado con el que trabajo. 
 
-La utilización de NMDS como preprocesamiento para entrenar SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}\citeyearpar{cai2019incorporating} en el campo de la microbiología, quienes encuentran resultados con \textit{accuracy} moderadamente buena aplicando esta metodología (p.69).
+La utilización de este método como preprocesamiento para entrenar SVM fue suscitada por los experimentos de \citeauthor{cai2019incorporating}\citeyearpar{cai2019incorporating} en el campo de la microbiología, quienes encuentran resultados con buen \textit{accuracy} aplicando esta metodología (p.69).
 
-NMDS, un caso particular de Escalamiento Multidimensional (MDS, por sus siglas en inglés \textit{Multidimensional Scaling}), es un método de ordenamiento que se suele utilizar para mostrar similitudes y diferencias entre los datos reorganizándolos en espacios de menor dimensión preservando el orden relativo de las distancias originales \citetext{\citealp[p. 218]{aid}}. Como su nombre lo indica, este algoritmo acepta matrices de distancias no métricas como entrada, y eso resulta una ventaja para el conjunto de datos multivariado con el que trabajo. 
-
-Utilicé el método \texttt{mds} de la librería \textit{scikit learn} ajustando los siguientes parámetros:
+Implementé el método \texttt{mds} de la librería \textit{scikit-learn}\citetext{\citealp{scikit-learn}} ajustando los siguientes parámetros:
 
 \begin{itemize}
-    \item \texttt{n\_dimensions}: las dimensiones para la proyección del nuevo ordenamiento de los datos. Realicé pruebas con valores de 2 a 7.
+    \item \texttt{n\_dimensions}: probé los valores entre 2 y 7.
     \item \texttt{metric}: configurado \texttt{False} para aplicar escalamiento no-métrico. 
-    \item \texttt{dissimilarity}: para especificar la medida de distancia a utilizar. En este caso lo configuré como \texttt{precomputed} para pasarle la matriz de distancias de Gower.
-    \item \texttt{normalized\_stress}: \texttt{True} para calcular el \textit{stress} normalizado para la versión no métrica de MDS.
+    \item \texttt{dissimilarity}: configurado como \texttt{precomputed} para usar la matriz de distancias de Gower.
+    \item \texttt{normalized\_stress}: configurado en \texttt{True} calcula el \textit{stress} NMDS.
  \end{itemize}
 
-Dada la naturaleza mixta de las variables del conjunto de datos, elegí utilizar la distancia de Gower para la matriz de entrada a NMDS. La similitud se calcula de a pares para variables numéricas y ordinales\footnote{Si bien \cite{podani1999extending} propone un tratamiento especial para las variables ordinales largamente utilizado hoy en día, el método que utilizo en este trabajo trata a las variables ordinales como variables numéricas como en el trabajo original de Gower. (ver \url{https://sourceforge.net/projects/gower-distance-4python/files/}).} con:
+Dada la naturaleza mixta de las variables del conjunto de datos, elegí la distancia de Gower para la matriz de entrada a NMDS. La similitud se calcula de a pares para variables numéricas y ordinales\footnote{Si bien \cite{podani1999extending} propone un tratamiento especial para las variables ordinales largamente utilizado hoy en día, el método que utilizo en este trabajo trata a las variables ordinales como variables numéricas como en el trabajo original de Gower. (ver \url{https://sourceforge.net/projects/gower-distance-4python/files/}).} con:
 
 \[s_{ijk} = 1-\frac{|x_{i} - x_{j}|}{R_{k}}\]
 
@@ -577,7 +574,7 @@ Las máquinas de soporte vectorial son modelos de aprendizaje supervisado amplia
 
 La capacidad de SVM para trabajar con datos que no son linealmente separables utilizando distintos \textit{kernel tricks} es el motivo por el que las elegí, dadas las relaciones complejas entre la variable objetivo y el resto de las variables. 
 
-Para entrenar los modelos de SVM, utilicé el método \texttt{svc} de la librería \textit{scikit learn} y optimianzdo los hiperparámetros:
+Para entrenar los modelos de SVM, utilicé el método \texttt{svc} de \textit{scikit-learn}\citetext{\citealp{scikit-learn}} y optimianzdo los hiperparámetros:
 
 \texttt{kernel}: Define el tipo de función que transformará el espacio.
 \texttt{C}: Controla el equilibrio entre maximizar el margen y minimizar errores de clasificación en el conjunto de entrenamiento.
@@ -606,7 +603,7 @@ El cuadro \Ref{modelosSVM} ofrece un resumen de los distintos conjuntos de datos
 
 Preparé los datos comenzando por reemplazar los valores \texttt{NS/NC} en \texttt{victima\_convive\_agresor} por \texttt{NA}. Después, separé la variable objetivo \texttt{victima\_convive\_agresor} (\textit{y}) del resto de los datos \textit{X}; y quité a \textit{y} las filas vacías, guardando sus índices. Calculé a partir de X label matriz de distancias de Gower para utilizar en NMDS.
 
-Generé distintas reducciones NMDS variando el parámetro \texttt{n\_components}. Para cada reducción, creé el conjunto de prueba ciega final de casos no vistos a partir de las filas ya transformadas de \textit{X} correspondientes a los casos con respuesta vacía en \texttt{victima\_convive\_agresor}. Dividí conjunto principal \textit{X} e \textit{y} de manera estratificada en entrenamiento (80\%) y testeo (\%20) de manera estratificada utilizando \texttt{StratifiedShuffleSplit} de \textit{scikit learn} para mitigar el desbalance de las clases \texttt{SI} y \texttt{NO}.
+Generé distintas reducciones NMDS variando el parámetro \texttt{n\_components}. Para cada reducción, creé el conjunto de prueba ciega final de casos no vistos a partir de las filas ya transformadas de \textit{X} correspondientes a los casos con respuesta vacía en \texttt{victima\_convive\_agresor}. Dividí conjunto principal \textit{X} e \textit{y} de manera estratificada en entrenamiento (80\%) y testeo (\%20) de manera estratificada utilizando \texttt{StratifiedShuffleSplit} de \textit{scikit-learn}\citetext{\citealp{scikit-learn}} para mitigar el desbalance de las clases \texttt{SI} y \texttt{NO}.
 
 Para el entrenamiento, implementé una búsqueda de hiperparámetros (\texttt{kernel}, \texttt{C}, \texttt{gamma}) mediante validación cruzada de 5 divisiones, evaluando el rendimiento con la métrica \texttt{f1\_weighted}. Elegí esta métrica tanto por el desbalance entre las clases (\textit{accuracy} o \textit{precision} pueden arrojar valores para la clase predominante), como para intentar garantizar un modelo que balanceara precisión y cobertura, ya que me interesa no solo predecir de manera correcta los verdaderos positivos, sino también, no dejar afuera potenciales casos positivos. Además, calculé el \texttt{stress} asociado a cada reducción NMDS como una métrica adicional de evaluación.
 
@@ -616,7 +613,7 @@ Finalmente, probé el modelo entrenado con los mejores hiperparámetros en el co
 
 \subsubsection{Entrenamiento de SVM con reducción manual de los datos}
 
-Para este experimento, comencé por codificar las variables. Para \texttt{llamado\_fecha\_hora}, \texttt{momento\_dia}, \texttt{estacion\_del\_año}, y las variables de edad (en el caso del conjunto A) utilicé un encoder ordinal (\texttt{OrdinalEncoder} de \textit{scikit learn}) para preservar la naturaleza ordinal de los datos. En el caso del conjunto B, escalé la edad de la víctima.
+Para este experimento, comencé por codificar las variables. Para \texttt{llamado\_fecha\_hora}, \texttt{momento\_dia}, \texttt{estacion\_del\_año}, y las variables de edad (en el caso del conjunto A) utilicé un encoder ordinal (\texttt{OrdinalEncoder} de \textit{scikit-learn}\citetext{\citealp{scikit-learn}}) para preservar la naturaleza ordinal de los datos. En el caso del conjunto B, escalé la edad de la víctima.
 
 Transformé las variables binarias (\texttt{SI}, \texttt{NO}), incluida la variable objetivo, asignando \texttt{SI} = 1 y \texttt{NO} = 0. Al igual que en el experimento anterior, los valores \texttt{NS/NC} en la variable objetivo los reemplacé por datos vacíos. Para el resto de las variables categóricas, utilicé \texttt{OneHotEncoder}.
 
@@ -627,10 +624,27 @@ Generé el conjunto de prueba ciega  de manera similar al enfoque NMDS, utilizan
 
 \subsubsection{Visualización del ordenamiento con NMDS}
 
-NMDS graficar vemos que no hay en ninguna de las veriones del dtaset que usé una separación clara entre las categorías de interés. El valor del stress para dos dimensiones es malo.
+Las figuras \Ref{nmds_a} y \Ref{nmds_b} muestran que en el reordenamiento en dos dimensines de los datos las categorías \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} no presentan una separación clara. \texttt{SI} y \texttt{NO} aparecen mezcladas entre sí, y, por consiguiente, \texttt{NS/NC} no se agrupa distintivamente cerca de ninguna de las dos clases, ni de forma aislada. Esto sugiere que, al menos con esta técnica de reducción, no hay patrones evidentes que me permitan discriminar entre las clases de la variable objetivo.
+
+Cabe remarcar que los valores de \textit{stress} obtenidos en ambas configuraciones de NMDS son considerablemente altos: 0.3, cuando que un valor óptimo suele encontrarse alrededor de 0.05. Esto parece indicar que los reordenamientos no representan adecuadamente las distancias originales, los datos parecen estar distribuídos de manera aleatoria.
 
 
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/nmds_a.png}
+    \caption{Visualización de los datos reducidos con NMDS \textit{dataset A}}
+    \label{nmds_a}
+    \end{center}
+    \end{figure}
 
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[scale=.5]{images/nmds_b.png}
+    \caption{Visualización de los datos reducidos con NMDS  \textit{dataset B}}
+    \label{nmds_b}
+    \end{center}
+    \end{figure}    
 
 \subsubsection{Modelos predictivos de SVM}
 
