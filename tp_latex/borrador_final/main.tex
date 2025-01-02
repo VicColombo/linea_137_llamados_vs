@@ -648,12 +648,29 @@ Cabe remarcar que los valores de \textit{stress} obtenidos en ambas configuracio
 
 \subsubsection{Modelos predictivos de SVM}
 
-modelos entrenados con datos reducidos A y B. El gridsearch encontró los siguientes mejores parámetros, con los mismos valores para todas las versiones de n componenets. Es decir, la cantidad de dimensiones a la que se reducen los datos, y por lo tanto el valor stress de NMDS no afecta el entrenamiento del modelo positiva ni negativamente. Durante la etapa de entrenamiento y búsqueda de mejores parámentros, el modelo resultante consistentemente es únicamente bueno rediciendo respuestas NO, es decir,buen accuracy, del 80, pero el peor recall de la vida, peor precision de la vida, y peor F1 de la vida.
+\subsubsection{Ppreprocesamiento con NMDS}
+
+El gridsearch encontró los siguientes mejores parámetros, con los mismos valores para todas las versiones de n componenets. Es decir, la cantidad de dimensiones a la que se reducen los datos, y por lo tanto el valor stress de NMDS no afecta el entrenamiento del modelo positiva ni negativamente. Durante la etapa de entrenamiento y búsqueda de mejores parámentros, el modelo resultante consistentemente es únicamente bueno rediciendo respuestas NO, es decir,buen accuracy, del 80, pero el peor recall de la vida, peor precision de la vida, y peor F1 de la vida.
+
+agregar tabla con los resultados de los mejores modelos y parámetros para dataset a y b
+
+ver que la macro avg es bajísima y explicar por qué
+
 
 Al aplicar estos “mejores modelos“ al set de testeo final ciego, es decir, al set de datos que no tienen etiqueta SI o NO en convive porque son los datos faltante, el modelo predice mayoría de NO.
 
 
-Los modelos entrenados con el dataset reducido a mano dieron mejor. Igual no se puede saber porque es un test a ciegas al fin y al cabo, solo pude aplicarlos al test final y comparar la proporción de NO y SI que predijo con la proporción de NO y SI en el dataset original. Es parecida.
+\subsubsection{Ppreprocesamiento manual}
+
+Los modelos entrenados con el dataset reducido a mano dieron mejor. 
+
+
+agregar tabla con los resultados de los mejores modelos y parámetros para dataset a y b
+
+notar que la macro avg es bastante buena.
+
+Al comparar la proporción de no y si que predice en el test ciego con la proporción de no y si en el dataset original es bastante parecida. si bien podria decir que es probable que este modelo sea más certero mirando las métricas y este testeo final ciego, lo cierto es que esa información no es suficiente para para saber si este modelo podría servir para predecir casos reales. 
+
 
 \section{Conclusiones}\label{conc}
 cruzamiento de datos ovd líneas de asistencia, observatorio de género.
