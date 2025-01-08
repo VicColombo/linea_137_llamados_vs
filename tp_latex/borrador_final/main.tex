@@ -173,6 +173,7 @@ El conjunto de datos unificado consta de 19143 observaciones y 54 variables, en 
 
 \begin{table}[H]
     \centering
+    \small
     \caption{Resumen de las variables.}
     \label{tablavar}
     \begin{tabular}{|l|l|l|} 
@@ -211,7 +212,7 @@ Las variables que describen la violencia sexual sufrida y otras formas de violen
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_vs_sino.jpeg}
+\includegraphics[scale=.4]{images/latex_vs_sino.jpeg}
 \caption{Tipos de violencia sexual reportada.}
 \label{vssino}
 \end{center}
@@ -219,7 +220,7 @@ Las variables que describen la violencia sexual sufrida y otras formas de violen
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_ofv_sino.jpeg}
+\includegraphics[scale=.4]{images/latex_ofv_sino.jpeg}
 \caption{Tipos de violencia no sexual reportada.}
 \label{ofvsino}
 \end{center}
@@ -233,6 +234,7 @@ Las variables \texttt{victima\_edad} y \texttt{llamante\_edad} presentaban valor
 
 \begin{table}[H]
     \centering
+    \small
     \caption{Outliers en variables de edad.}
     \label{tabla_out}
     \begin{tabular}{lcc}
@@ -253,7 +255,8 @@ Una vez removidos estos valores, tomé las medidas descriptivas de las variables
 
 
     \begin{table}[H]
-        \centering
+    \centering    
+    \small
     \caption{Medidas descriptivas de las variables de edad.}
     \label{tabla_descr_ed}
         \begin{tabular}{lcc}    
@@ -275,7 +278,7 @@ Para explorar patrones en la distribución temporal de los llamados realicé el 
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/latex_trend_llamados.png}
+    \includegraphics[scale=.4]{images/latex_trend_llamados.png}
     \caption{Cantidad de llamados en el tiempo con media móvil de 4 meses.}
     \label{trend}
     \end{center}
@@ -292,7 +295,7 @@ En cuanto a la variable \texttt{hecho\_lugar}, como ilustra el gráfico de barra
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/latex_lugar_hechos.png}
+    \includegraphics[scale=.4]{images/latex_lugar_hechos.png}
     \caption{Lugar de los hechos.}
     \label{hecholugar}
     \end{center}
@@ -322,7 +325,7 @@ En cuanto al género de las víctimas, en el gráfico de barras de la figura \Re
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/latex_genero_victima.png}
+    \includegraphics[scale=.4]{images/latex_genero_victima.png}
     \caption{Género de las víctimas.}
     \label{genero}
     \end{center}
@@ -334,7 +337,7 @@ Los vínculos entre víctimas y agresores nuevamente reflejan la persistencia de
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/latex_vinculo_agr_victima.png}
+    \includegraphics[scale=.4]{images/latex_vinculo_agr_victima.png}
     \caption{Vínculos víctima-agresor.}
     \label{vinculoagresor}
     \end{center}
@@ -342,7 +345,7 @@ Los vínculos entre víctimas y agresores nuevamente reflejan la persistencia de
 
     \begin{figure}[H]
         \begin{center}
-        \includegraphics[scale=.5]{images/latex_agresor_conocido_no.png}
+        \includegraphics[scale=.4]{images/latex_agresor_conocido_no.png}
         \caption{Agresor conocido o no por la víctima.}
         \label{conocidodesconocido}
         \end{center}
@@ -360,7 +363,7 @@ En cuanto a la variable de interés \texttt{victima\_convive\_agresor}, encontr�
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/latex_convive.png}
+    \includegraphics[scale=.4]{images/latex_convive.png}
     \caption{Convivencia víctima-agresor.}
     \label{convivencia}
     \end{center}
@@ -383,7 +386,7 @@ Por último, en la figura \ref{llamvincconvive}, se puede ver que para la catego
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_hecho_lugar_convive.png}
+\includegraphics[scale=.4]{images/latex_hecho_lugar_convive.png}
 \caption{Convivencia con el agresor según lugar de los hechos.}
 \label{hecholugconvive}
 \end{center}
@@ -391,7 +394,7 @@ Por último, en la figura \ref{llamvincconvive}, se puede ver que para la catego
     
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/convive_vinc_agresor.png}
+\includegraphics[scale=.4]{images/convive_vinc_agresor.png}
 \caption{Convivencia con el agresor según vínculos víctima-agresor.}
 \label{agrvincconvive}
 \end{center}
@@ -399,7 +402,7 @@ Por último, en la figura \ref{llamvincconvive}, se puede ver que para la catego
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_llamante_vin_convive.png}
+\includegraphics[scale=.4]{images/latex_llamante_vin_convive.png}
 \caption{Convivencia con el agresor según vínculos víctima-llamante.}
 \label{llamvincconvive}
 \end{center}
@@ -410,7 +413,7 @@ Luego realicé \textit{boxplots} comparativos y un detalle del análisis de cuar
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/latex_boxplot_convive_edad.png}
+    \includegraphics[scale=.4]{images/latex_boxplot_convive_edad.png}
     \caption{Distribución de la edad de la víctima según su convivencia o no con el agresor.}
     \label{boxplotsconvivenciaedad}
     \end{center}
@@ -418,6 +421,8 @@ Luego realicé \textit{boxplots} comparativos y un detalle del análisis de cuar
 
 
 \begin{table}[H]
+    \centering
+    \small
     \begin{center}
     \caption{Cuartiles de edad según categoría de \texttt{victima\_convive\_agresor}.}
     \label{cuartilesconviveedad}
@@ -448,7 +453,7 @@ Por último, puse en relación \texttt{victima\_convive\_agresor} con los valore
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/latex_convive_sd_edad_vic.png}
+    \includegraphics[scale=.4]{images/latex_convive_sd_edad_vic.png}
     \caption{Convivencia víctima-agresor en las filas de datos faltantes para \texttt{victima\_edad}.}
     \label{conviveedadfaltantevic}
     \end{center}
@@ -530,6 +535,7 @@ Además, agrupé en tres categorías más amplias algunas variables que comparte
 
 \begin{table}[H]
     \centering
+    \small
     \caption{Agrupación de variables de violencia por dominio.}
     \label{tablaagrup}
     \begin{tabular}{|c|l|}
@@ -583,13 +589,14 @@ Para entrenar los modelos de SVM, utilicé el método \texttt{svc} de \textit{sc
 El cuadro \Ref{modelosSVM} ofrece un resumen de los distintos conjuntos de datos para los experimentos de entrenamiento de SVM.
 
 
-\begin{table}[]
+\begin{table}[H]
     \centering
-    \caption{Experimentos para entrenar modelos de SVM.}
+    \small
+    \caption{Preprocesamientos para entrenar modelos de SVM.}
     \label{modelosSVM}
     \begin{tabular}{|c|c|c|}
     \hline
-    \textbf{Experimento}                                                                            & \textbf{\textit{Dataset}} & \textbf{Especificaciones}                                                                                                                                                             \\ \hline
+    \textbf{Preprocesamiento}                                                                            & \textbf{Dataset} & \textbf{Especificaciones}                                                                                                                                                             \\ \hline
     \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}1. Reducción con \\ NMDS\end{tabular}}                  & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}\end{tabular}                                                       \\ \cline{2-3} 
                                                                                                     & B                & \begin{tabular}[c]{@{}c@{}}Solo datos completos de edad de la víctima (numérica). \\ Edad de quien llama eliminada.\end{tabular}                                                      \\ \hline
     \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}2. Reducción manual \\ con métodos mixtos\end{tabular}} & A                & \begin{tabular}[c]{@{}c@{}}Variables de edad transformadas a categóricas. \\ Datos faltantes codificados como \texttt{NS/NC}. \\ Aplicación de one hot encoder pot categorización.\end{tabular} \\ \cline{2-3} 
@@ -622,7 +629,7 @@ Generé el conjunto de prueba ciega  de manera similar al enfoque NMDS, utilizan
 
 \section{Resultados y discusión}\label{resultados}
 
-\subsubsection{Visualización del ordenamiento con NMDS}
+\subsection{Visualización del ordenamiento con NMDS}
 
 Las figuras \Ref{nmds_a} y \Ref{nmds_b} muestran que en el reordenamiento en dos dimensines de los datos las categorías \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} no presentan una separación clara. \texttt{SI} y \texttt{NO} aparecen mezcladas entre sí, y, por consiguiente, \texttt{NS/NC} no se agrupa distintivamente cerca de ninguna de las dos clases, ni de forma aislada. Esto sugiere que, al menos con esta técnica de reducción, no hay patrones evidentes que me permitan discriminar entre las clases de la variable objetivo.
 
@@ -631,7 +638,7 @@ Cabe remarcar que los valores de \textit{stress} obtenidos en ambas configuracio
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/nmds_a.png}
+    \includegraphics[scale=.4]{images/nmds_a.png}
     \caption{Visualización de los datos reducidos con NMDS \textit{dataset A}}
     \label{nmds_a}
     \end{center}
@@ -640,39 +647,105 @@ Cabe remarcar que los valores de \textit{stress} obtenidos en ambas configuracio
 
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[scale=.5]{images/nmds_b.png}
+    \includegraphics[scale=.4]{images/nmds_b.png}
     \caption{Visualización de los datos reducidos con NMDS  \textit{dataset B}}
     \label{nmds_b}
     \end{center}
     \end{figure}    
 
-\subsubsection{Modelos predictivos de SVM}
+\subsection{Modelos predictivos de SVM}
 
 \subsubsection{Ppreprocesamiento con NMDS}
 
-El gridsearch encontró los siguientes mejores parámetros, con los mismos valores para todas las versiones de n componenets. Es decir, la cantidad de dimensiones a la que se reducen los datos, y por lo tanto el valor stress de NMDS no afecta el entrenamiento del modelo positiva ni negativamente. Durante la etapa de entrenamiento y búsqueda de mejores parámentros, el modelo resultante consistentemente es únicamente bueno rediciendo respuestas NO, es decir,buen accuracy, del 80, pero el peor recall de la vida, peor precision de la vida, y peor F1 de la vida.
+Para los conjuntos de datos A y B, y para todas las variaciones de \texttt{n\_components}, la optimización de hiperparámetros mediante \textit{gridsearch} encontró siempre los mejores resultados con:
 
-agregar tabla con los resultados de los mejores modelos y parámetros para dataset a y b
+\begin{itemize}
+    \item \texttt{Kernel: polynomial}
+    \item \texttt{C: 0.1}
+    \item \texttt{Gamma: auto}
+\end{itemize}
 
-ver que la macro avg es bajísima y explicar por qué
+Los valores de \textit{stress} para los ordenamientos aún en dimensiones \(>2\) resultaron nuevamente altos, siendo el más bajo 0.16 para 7 dimensiones.
+
+La performance de los modelos, que también se igualó en ambos conjuntos de datos y para todos los \texttt{n\_components}, puede verse en el cuadro \Ref{svmperfonmds} a continuación: 
 
 
-Al aplicar estos “mejores modelos“ al set de testeo final ciego, es decir, al set de datos que no tienen etiqueta SI o NO en convive porque son los datos faltante, el modelo predice mayoría de NO.
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Performance de modelos SVM utilizando NMDS como preprocesamiento.}
+    \label{svmperfonmds}
+    \begin{tabular}{cccccccc}
+    \hline
+    \multicolumn{1}{l}{\textbf{Clase}} & \multicolumn{1}{l}{\textbf{F1}} & \multicolumn{1}{l}{\textbf{Cobertura}} & \multicolumn{1}{l}{\textbf{Precisión}} & \multicolumn{1}{l}{\textbf{Macro F1}} & \multicolumn{1}{l}{\textbf{Macro Cobertura}} & \multicolumn{1}{l}{\textbf{Macro Precisión}} & \multicolumn{1}{l}{\textbf{Accuracy}} \\ \hline
+    0 (NO) & 0.90 & 1.00 & 0.82 & \multirow{2}{*}{0.45} & \multirow{2}{*}{0.50} & \multirow{2}{*}{0.91} & \multirow{2}{*}{0.82} \\
+    1 (SI) & 0.00 & 0.00 & 1.00 &  &  &  &  \\ \hline
+    \end{tabular}
+    \end{table}
+
+Los modelos resultan sumamente afectados por el desbalance de clases y no generalizan bien para la clase minoritaria. Las métricas F1, cobertura, y precisión son buenas para la clase mayoritaria \texttt{NO} (0.90, 1.00, y 0.82 respectivamente), indicando que son modelos capaces de identificar correctamente la mayoría de los puntos de esta clase. Para la clase minoritaria \texttt{SI}, si bien los modelos no comenten errores de clasificación en falsos positivos (de ahí la precisión de 1.0), tampoco pueden identificar correctamente nigún caso perteneciente a la clase, haciendo que  la cobertura, y por lo tanto F1, sean 0.
+
+Las métricas que promedian el rendimiento de ambas clases, F1 macro (0.45) y cobertura macro (0.50), reflejan correctamente el problema del desbalance de las clases. La métrica general de \textit{accuracy} por el contrario resulta engañosa por sí sola, pero su valor alto (0.82) responde al sobreajuste del modelo para la clase mayoritaria.
+
+Finalmente, al aplicar los mejores modelos a los sets de testeo final ciegos para A y B, encontré que identificaban todos los casos como pertenecientes a la clase mayoritaria \texttt{NO}.  
 
 
-\subsubsection{Ppreprocesamiento manual}
+\subsubsection{Preprocesamiento con reducción manual}
 
 Los modelos entrenados con el dataset reducido a mano dieron mejor. 
 
+Para A la optimización de hiperparámetros mediante \textit{gridsearch} encontró  los mejores resultados con:
 
-agregar tabla con los resultados de los mejores modelos y parámetros para dataset a y b
+\begin{itemize}
+    \item \texttt{Kernel: polynomial}
+    \item \texttt{C: 1}
+    \item \texttt{Gamma: scale}
+\end{itemize}
 
-notar que la macro avg es bastante buena.
 
-Al comparar la proporción de no y si que predice en el test ciego con la proporción de no y si en el dataset original es bastante parecida. si bien podria decir que es probable que este modelo sea más certero mirando las métricas y este testeo final ciego, lo cierto es que esa información no es suficiente para para saber si este modelo podría servir para predecir casos reales. 
+Para B la optimización de hiperparámetros mediante \textit{gridsearch} encontró  los mejores resultados con:
+
+\begin{itemize}
+    \item \texttt{Kernel: rbf}
+    \item \texttt{C: 100}
+    \item \texttt{Gamma: auto}
+\end{itemize}
+
+
+
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Performance de modelos SVM reducción manual como preprocesamiento.}
+    \label{svmperfomanual}
+    \begin{tabular}{cccccccc}
+    \hline
+    \multicolumn{1}{l}{\textbf{Clase}} & \multicolumn{1}{l}{\textbf{F1}} & \multicolumn{1}{l}{\textbf{Cobertura}} & \multicolumn{1}{l}{\textbf{Precisión}} & \multicolumn{1}{l}{\textbf{Macro F1}} & \multicolumn{1}{l}{\textbf{Macro Cobertura}} & \multicolumn{1}{l}{\textbf{Macro Precisión}} & \multicolumn{1}{l}{\textbf{Accuracy}} \\ \hline
+    0 (NO) & 0.93 & 0.95 & 0.90 & \multirow{2}{*}{0.77} & \multirow{2}{*}{0.75} & \multirow{2}{*}{0.81} & \multirow{2}{*}{0.88} \\
+    1 (SI) & 0.62 & 0.54 & 0.72 &  &  &  &  \\ \hline
+    \end{tabular}
+    \end{table}
+
+
+Al comparar las proporciones de \texttt{SI} y \texttt{NO} predichas por los mejores modelos en los sets de testeo ciegos con la proporción existente en el \textit{dataset} original, encontré que \dots
+a
+
+Proporción de SI en dataset original 0.18269804441498178 Proporción de SI predichos 0.08551010349926072
+Proporción de NO en dataset original 0.8173019555850183 Proporción de NO predichos 0.9144898965007393
+
+B
+
+Proporción de SI en dataset original 0.18318633627327455 Proporción de SI predichos 0.10312395028552233
+Proporción de NO en dataset original 0.8168136637267255 Proporción de NO predichos 0.8968760497144777
 
 
 \section{Conclusiones}\label{conc}
+
+
+Conclusión Es decir, las distintas dimensiones y las estragtegias con valores faltantes de edad para el reordenamiento de los datos no parecerían afectar este aspecto  del entrenamiento del modelo.
+
+Addressing class imbalance, possibly through resampling methods (e.g., oversampling the minority class or undersampling the majority class) or cost-sensitive learning, could help improve the model's performance for class 1.0.
+
 cruzamiento de datos ovd líneas de asistencia, observatorio de género.
 acceso y análisis de datos extensivo a provincias, no solo benos aitres
 
@@ -697,7 +770,7 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_llamados_por_provincia.png}
+\includegraphics[scale=.4]{images/latex_llamados_por_provincia.png}
 \caption{Llamados por provincia.}
 \label{provincia}
 \end{center}
@@ -705,7 +778,7 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_caso_judicializado.png}
+\includegraphics[scale=.4]{images/latex_caso_judicializado.png}
 \caption{Caso judicializado.}
 \label{casojudicializado}
 \end{center}
@@ -714,7 +787,7 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_nacionalidad_victima.png}
+\includegraphics[scale=.4]{images/latex_nacionalidad_victima.png}
 \caption{Nacionalidad de las víctimas.}
 \label{nacionalidad}
 \end{center}
@@ -724,7 +797,7 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_victima_discapacidad.png}
+\includegraphics[scale=.4]{images/latex_victima_discapacidad.png}
 \caption{Presencia de discapacidad en las víctimas.}
 \label{discapacidad}
 \end{center}
@@ -734,7 +807,7 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=.5]{images/latex_vinculo_llamante.png}
+\includegraphics[scale=.4]{images/latex_vinculo_llamante.png}
 \caption{Vínculos víctima-llamante.}
 \label{vinculollamante}
 \end{center}
@@ -743,6 +816,7 @@ Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a
 
 \begin{table}[H]
     \centering
+    \small
     \caption{Resumen de transformaciones de variables.}
     \label{tab:transformaciones}
     \begin{tabular}{|l|l|l|}
