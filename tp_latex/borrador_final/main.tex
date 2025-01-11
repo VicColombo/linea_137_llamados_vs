@@ -147,7 +147,7 @@ Todo el código generado para este trabajo de especialización fue escrito en \t
 \subsection{Obtención y limpieza}\label{limpieza}
 Descargué del \href{http://datos.jus.gob.ar/}{Portal de Datos Abiertos} mencionado arriba 5 conjuntos de datos en formato \textit{csv} de llamados a la línea 137 para solicitar asistencia por violencia sexual. Los archivos pertenecen, a razón de uno de por año, al período entre enero de 2017 y julio de 2021. 
 
-Una vez descargados, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas\footnote{La limpieza, normalización, y preprocesamiento de los datos y la aplicación de los métodos exploratorios y predictivos fueron realizados en Python}:
+Una vez descargados, unifiqué los 5 archivos en un solo \textit{dataset}. Para eso fue necesario realizar una primera limpieza destinada a dejar consistentes los distintos archivos en términos de cantidad y nombre de columnas:
 
 \begin{itemize}
     \item Eliminé la variable \texttt{caso\_id}, que solo existe a partir de 2020.
@@ -491,7 +491,7 @@ Implementé el método \texttt{mds} de la librería \textit{scikit-learn}\citete
     \item \texttt{n\_dimensions}: probé los valores entre 2 y 7.
     \item \texttt{metric}: configurado \texttt{False} para aplicar escalamiento no-métrico. 
     \item \texttt{dissimilarity}: configurado como \texttt{precomputed} para usar la matriz de distancias de Gower.
-    \item \texttt{normalized\_stress}: configurado en \texttt{True} calcula el \textit{stress} NMDS.
+    \item \texttt{normalized\_stress}: configurado en \texttt{True} calcula el estrés para NMDS.
  \end{itemize}
 
 Dada la naturaleza mixta de las variables del conjunto de datos, elegí la distancia de Gower para la matriz de entrada a NMDS. La similitud se calcula de a pares para variables numéricas y ordinales\footnote{Si bien \cite{podani1999extending} propone un tratamiento especial para las variables ordinales largamente utilizado hoy en día, el método que utilizo en este trabajo trata a las variables ordinales como variables numéricas como en el trabajo original de Gower. (ver \url{https://sourceforge.net/projects/gower-distance-4python/files/}).} con:
@@ -518,11 +518,11 @@ Donde \(\delta_{ijk}\) es la cantidad total de variables o la cantidad total de 
 A partir de la matriz de distancias originales \textit{S}, NMDS calcula las coordenadas en un espacio reducido a n-dimensiones (en general \(n=2\) o \(n=3\) para facilitar la visualización), %obteniendo la matriz de coordenadas \(X\), %En \(X\), cada punto \(d_{ij}\) representa la distancia entre los puntos \(i\), \(j\), en el nuevo espacio reducido. Luego, se aplica a \(X\) una transformación monotónica% 
 %que es 
 y a su vez las transforma en una matriz con las disparidades \(\hat{d}_{ij}\). En \(\hat{d}_{ij}\) no se preservan las magnitudes de las distancias originales, pero sí se preserva el rango de ordenamiento de esas magnitudes. %\citetext{\citealp[p. 219,220]{aid}}. 
-A continuación, se calcula el valor del \textit{stress}: 
+A continuación, se calcula el valor del estrés: 
 
 \[\textit{Stress} = \sqrt{\frac{\sum_{i<j} \left( d_{ij} - \hat{d}_{ij} \right)^2}{\sum_{i<j} d_{ij}^2}}\]
 
-El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el \textit{stress}, es decir, minimizar la diferencia entre las distancias y las disparidades \citetext{\citealp[p. 117-123]{kruskal1964nonmetric}}. 
+El algoritmo luego itera recalculando \(d_{ij}\) y \(\hat{d}_{ij}\) para minimizar el estrés, es decir, minimizar la diferencia entre las distancias y las disparidades \citetext{\citealp[p. 117-123]{kruskal1964nonmetric}}. 
 
 Apliqué NMDS a los conjuntos de datos A y B mencionados al comienzo de esta sección, variando los valores de \texttt{n\_components}. Generé visualizaciones con las proyecciones resultantes de \(\texttt{n\_components} = 2\) para evaluar la agrupación basada en \texttt{victima\_convive\_agresor}; y entrené modelos de SVM para cada reducción dimensional.
 
@@ -578,13 +578,17 @@ También dividí este conjunto en los tipos A y B, siguiendo el enfoque de la se
 
 Las máquinas de soporte vectorial son modelos de aprendizaje supervisado ampliamente utilizados para tareas de clasificación que buscan encontrar el hiperplano que mejor separa las clases en el espacio original si los datos son linealmente separables, o en un espacio transformado de mayores dimensiones cuando no lo son, maximizando el margen entre los puntos de datos más cercanos de cada clase.  
 
-La capacidad de SVM para trabajar con datos que no son linealmente separables utilizando distintos \textit{kernel tricks} es el motivo por el que las elegí, dadas las relaciones complejas entre la variable objetivo y el resto de las variables. 
+La capacidad de SVM para trabajar con datos que no son linealmente separables utilizando distintos \textit{kernel tricks} es el motivo por el que las elegí, dadas las relaciones complejas entre la variable objetivo y el resto de las variables \citetext{\citealp[p. 323-331]{aid}}. 
 
-Para entrenar los modelos de SVM, utilicé el método \texttt{svc} de \textit{scikit-learn}\citetext{\citealp{scikit-learn}} y optimianzdo los hiperparámetros:
+En la implementación y entrenamiento de los modelos de SVM, utilicé el método \texttt{svc} de \textit{scikit-learn}\citetext{\citealp{scikit-learn}} optimizando los hiperparámetros:
 
-\texttt{kernel}: Define el tipo de función que transformará el espacio.
-\texttt{C}: Controla el equilibrio entre maximizar el margen y minimizar errores de clasificación en el conjunto de entrenamiento.
-\texttt{gamma}: Influye en la forma del modelo para \textit{kernels} no lineales, controlando el alcance de influencia de un solo punto de datos.
+\begin{itemize}
+    \item \texttt{kernel}: define el tipo de función para transformar el espacio de entrada.
+    \item \texttt{C}: regulariza el equilibrio entre maximizar el margen entre las clases y minimizar errores de clasificación.
+    \item \texttt{gamma}: un peso que controla la influencia de \textit{datapoints} individuales en la frontera de decisión del modelo.
+\end{itemize}
+
+
 
 El cuadro \Ref{modelosSVM} ofrece un resumen de los distintos conjuntos de datos para los experimentos de entrenamiento de SVM.
 
@@ -612,7 +616,7 @@ Preparé los datos comenzando por reemplazar los valores \texttt{NS/NC} en \text
 
 Generé distintas reducciones NMDS variando el parámetro \texttt{n\_components}. Para cada reducción, creé el conjunto de prueba ciega final de casos no vistos a partir de las filas ya transformadas de \textit{X} correspondientes a los casos con respuesta vacía en \texttt{victima\_convive\_agresor}. Dividí conjunto principal \textit{X} e \textit{y} de manera estratificada en entrenamiento (80\%) y testeo (\%20) de manera estratificada utilizando \texttt{StratifiedShuffleSplit} de \textit{scikit-learn}\citetext{\citealp{scikit-learn}} para mitigar el desbalance de las clases \texttt{SI} y \texttt{NO}.
 
-Para el entrenamiento, implementé una búsqueda de hiperparámetros (\texttt{kernel}, \texttt{C}, \texttt{gamma}) mediante validación cruzada de 5 divisiones, evaluando el rendimiento con la métrica \texttt{f1\_weighted}. Elegí esta métrica tanto por el desbalance entre las clases (\textit{accuracy} o \textit{precision} pueden arrojar valores para la clase predominante), como para intentar garantizar un modelo que balanceara precisión y cobertura, ya que me interesa no solo predecir de manera correcta los verdaderos positivos, sino también, no dejar afuera potenciales casos positivos. Además, calculé el \texttt{stress} asociado a cada reducción NMDS como una métrica adicional de evaluación.
+Para el entrenamiento, implementé una búsqueda de hiperparámetros (\texttt{kernel}, \texttt{C}, \texttt{gamma}) mediante validación cruzada de 5 divisiones, evaluando el rendimiento con la métrica \texttt{f1\_weighted}. Elegí esta métrica tanto por el desbalance entre las clases (\textit{accuracy} o \textit{precision} pueden arrojar valores para la clase predominante), como para intentar garantizar un modelo que balanceara precisión y cobertura, ya que me interesa no solo predecir de manera correcta los verdaderos positivos, sino también, no dejar afuera potenciales casos positivos. Además, calculé el estrés asociado a cada reducción NMDS como una métrica adicional de evaluación.
 
 
 Finalmente, probé el modelo entrenado con los mejores hiperparámetros en el conjunto ciego. Aunque no me es posible realizar una evaluación tradicional del conjunto final porque son realmente datos faltantes, comparé las proporciones de clases \texttt{SI} y \texttt{NO} entre el conjunto original con las predicciones para obtener una estimación de la performance del modelo. 
@@ -633,8 +637,7 @@ Generé el conjunto de prueba ciega  de manera similar al enfoque NMDS, utilizan
 
 Las figuras \Ref{nmds_a} y \Ref{nmds_b} muestran que en el reordenamiento en dos dimensines de los datos las categorías \texttt{SI}, \texttt{NO}, y \texttt{NS/NC} no presentan una separación clara. \texttt{SI} y \texttt{NO} aparecen mezcladas entre sí, y, por consiguiente, \texttt{NS/NC} no se agrupa distintivamente cerca de ninguna de las dos clases, ni de forma aislada. Esto sugiere que, al menos con esta técnica de reducción, no hay patrones evidentes que me permitan discriminar entre las clases de la variable objetivo.
 
-Cabe remarcar que los valores de \textit{stress} obtenidos en ambas configuraciones de NMDS son considerablemente altos: 0.3, cuando que un valor óptimo suele encontrarse alrededor de 0.05. Esto parece indicar que los reordenamientos no representan adecuadamente las distancias originales, los datos parecen estar distribuídos de manera aleatoria.
-
+Cabe remarcar que los valores de estrés obtenidos en ambas configuraciones de NMDS son considerablemente altos: 0.3, cuando que un valor óptimo suele encontrarse alrededor de 0.05. 
 
 \begin{figure}[H]
     \begin{center}
@@ -655,20 +658,25 @@ Cabe remarcar que los valores de \textit{stress} obtenidos en ambas configuracio
 
 \subsection{Modelos predictivos de SVM}
 
-\subsubsection{Ppreprocesamiento con NMDS}
+\subsubsection{Preprocesamiento con NMDS}
 
-Para los conjuntos de datos A y B, y para todas las variaciones de \texttt{n\_components}, la optimización de hiperparámetros mediante \textit{gridsearch} encontró siempre los mejores resultados con:
+
+Los valores de estrés para los ordenamientos aún en dimensiones \(>2\) resultaron nuevamente altos, siendo el más bajo 0.16 para 7 dimensiones.
+
+Para los conjuntos de datos A y B, y para todas las variaciones de \texttt{n\_components}, la optimización de hiperparámetros encontró siempre los mejores resultados con:
 
 \begin{itemize}
-    \item \texttt{Kernel: polynomial}
+    \item \texttt{kernel: polynomial}
     \item \texttt{C: 0.1}
-    \item \texttt{Gamma: auto}
+    \item \texttt{gamma: auto}
 \end{itemize}
 
-Los valores de \textit{stress} para los ordenamientos aún en dimensiones \(>2\) resultaron nuevamente altos, siendo el más bajo 0.16 para 7 dimensiones.
+La selección del \texttt{kernel} polinomial da cuenta de la no linealidad de los datos en el espacio de entrada. El valor bajo de la penalización \texttt{C} indica una preferencia por generalizar antes que por minimizar los errores de entrenamiento. La configuración de \texttt{gamma} en \textit{auto} hace que el valor resultante para este parámetro resulte de \(\frac{1}{\texttt{n\_components}}\): \(0.5 \leq \gamma \leq \pi\), ya que \(2 \leq \texttt{n\_components} \leq 7\). 
 
-La performance de los modelos, que también se igualó en ambos conjuntos de datos y para todos los \texttt{n\_components}, puede verse en el cuadro \Ref{svmperfonmds} a continuación: 
 
+La performance de los modelos también se igualó en ambos conjuntos de datos y para todos los \texttt{n\_components}, puede verse resumida en el cuadro \Ref{svmperfonmds} a continuación. Los modelos resultan sumamente afectados por el desbalance de clases y no generalizan bien para la clase minoritaria. Las métricas F1, cobertura, y precisión son buenas para la clase mayoritaria \texttt{NO} (0.90, 1.00, y 0.82 respectivamente), indicando que son modelos capaces de identificar correctamente la mayoría de los puntos de esta clase. Para la clase minoritaria \texttt{SI}, si bien los modelos no incurren en falsos positivos en la clasficación (de ahí la precisión de 1.0), tampoco pueden identificar correctamente nigún caso perteneciente a la clase, haciendo que la cobertura, y por lo tanto F1, sean 0.
+
+Las métricas F1 macro (0.45) y cobertura macro (0.50), que promedian el rendimiento en ambas clases, dan cuenta del problema del desbalance de los datos. La métrica general de \textit{accuracy} por el contrario resulta engañosa por sí sola, pero su valor alto (0.82) responde al sobreajuste del modelo para la clase mayoritaria. Otro tanto sucede con la macro precisión que promedia la precisión por clase, y como comenté anteriormente, la precisión para la clase minoritaria solo es alta porque el modelo no incurre en falsos positivos.
 
 \begin{table}[H]
     \centering
@@ -683,35 +691,39 @@ La performance de los modelos, que también se igualó en ambos conjuntos de dat
     \end{tabular}
     \end{table}
 
-Los modelos resultan sumamente afectados por el desbalance de clases y no generalizan bien para la clase minoritaria. Las métricas F1, cobertura, y precisión son buenas para la clase mayoritaria \texttt{NO} (0.90, 1.00, y 0.82 respectivamente), indicando que son modelos capaces de identificar correctamente la mayoría de los puntos de esta clase. Para la clase minoritaria \texttt{SI}, si bien los modelos no comenten errores de clasificación en falsos positivos (de ahí la precisión de 1.0), tampoco pueden identificar correctamente nigún caso perteneciente a la clase, haciendo que  la cobertura, y por lo tanto F1, sean 0.
 
-Las métricas que promedian el rendimiento de ambas clases, F1 macro (0.45) y cobertura macro (0.50), reflejan correctamente el problema del desbalance de las clases. La métrica general de \textit{accuracy} por el contrario resulta engañosa por sí sola, pero su valor alto (0.82) responde al sobreajuste del modelo para la clase mayoritaria.
-
-Finalmente, al aplicar los mejores modelos a los sets de testeo final ciegos para A y B, encontré que identificaban todos los casos como pertenecientes a la clase mayoritaria \texttt{NO}.  
+Al aplicar los mejores modelos a los sets de testeo final ciegos para A y B, encontré que identificaban todos los casos como pertenecientes a la clase mayoritaria \texttt{NO}.  
 
 
 \subsubsection{Preprocesamiento con reducción manual}
 
-Los modelos entrenados con el dataset reducido a mano dieron mejor. 
 
-Para A la optimización de hiperparámetros mediante \textit{gridsearch} encontró  los mejores resultados con:
-
-\begin{itemize}
-    \item \texttt{Kernel: polynomial}
-    \item \texttt{C: 1}
-    \item \texttt{Gamma: scale}
-\end{itemize}
+La optimización de hiperparámetros encontró los mejores resultados con:
 
 
-Para B la optimización de hiperparámetros mediante \textit{gridsearch} encontró  los mejores resultados con:
+\begin{multicols}{2}
+\textbf{Conjunto A}
+    \begin{itemize}
+        \item \texttt{kernel: polynomial}
+        \item \texttt{C: 1}
+        \item \texttt{gamma: scale}
+    \end{itemize}    
+    \columnbreak
+    \textbf{Conjunto B}
+    \begin{itemize}
+        \item \texttt{kernel: rbf}
+        \item \texttt{C: 100}
+        \item \texttt{gamma: auto}
+    \end{itemize}
+\end{multicols}    
 
-\begin{itemize}
-    \item \texttt{Kernel: rbf}
-    \item \texttt{C: 100}
-    \item \texttt{Gamma: auto}
-\end{itemize}
+
+Ambos \textit{kernels} apropiados para datos no lineales. El mejor valor del parámetro de regularización \texttt{C} es significativamente más alto que para el experimento anterior, sobre todo en el caso del conjunto B. 
+
+Al igual que en el experimento anterior, las métricas de performance se igualaron para los modelos entrenados con cada conjunto A y B. Los resultados pueden verse en el cuadro \Ref{svmperfomanual}. En este segundo experimento el modelo resulta mejor clasificador de la clase minoritaria que en el experimento anterior mirando F1, cobertura, y precisión para \texttt{NO} (0.62, 0.54, y 0.72 respectivamente), y mantiene la buena performance para la clase mayoritaria (0.93, 0.95, y 0.90 respectivamente). Si bien la mejora es notable, las cifras alcanzadas no hablan de un modelo confiable para clasificar casos de \texttt{SI}, de hecho la cobertura parece estar cerca de una clasificación por azar. La precisión de 0.72 en \texttt{SI} es la más alta de las tres métricas para esta clase porque responde al mismo fenómeno que en el experimento anterior.
 
 
+Las métricas F1 macro (0.77), cobertura macro (0.75) también mejoraron con respecto al experimento anterior. La precisión macro (0.81) y la \textit{accuracy} (0.88) responden a los mismos fenómenos que en el experimento anterior aunque esta vez la diferencia de performance por clase no es tan extrema.
 
 \begin{table}[H]
     \centering
@@ -727,22 +739,37 @@ Para B la optimización de hiperparámetros mediante \textit{gridsearch} encontr
     \end{table}
 
 
-Al comparar las proporciones de \texttt{SI} y \texttt{NO} predichas por los mejores modelos en los sets de testeo ciegos con la proporción existente en el \textit{dataset} original, encontré que \dots
-a
+Al comparar las proporciones de \texttt{SI} y \texttt{NO} predichas por los mejores modelos en los sets de testeo ciegos con la proporción existente en el \textit{dataset} original\footnote{Tomo el conjunto de datos post procesamiento manual, sin las filas \texttt{NS/NC} en cada caso A y B.}, encontré los resultados resumidos en el cuadro a continuación:
 
-Proporción de SI en dataset original 0.18269804441498178 Proporción de SI predichos 0.08551010349926072
-Proporción de NO en dataset original 0.8173019555850183 Proporción de NO predichos 0.9144898965007393
+\begin{table}[H]
+    \centering
+    \caption{Proporciones predichas vs. originales para cada clase.}
+    \label{predichovsoriginal}
+    \begin{tabular}{lcccc}
+    \hline
+    \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Conjunto\end{tabular}}} & \multicolumn{1}{l}{\textbf{\texttt{SI} original}} & \multicolumn{1}{l}{\textbf{\texttt{SI} predicho}} & \multicolumn{1}{l}{\textbf{\texttt{NO} original}} & \multicolumn{1}{l}{\textbf{\texttt{NO} predicho}} \\ \hline
+    \textbf{A} & 0.18 & 0.09 & 0.82 & 0.91 \\
+    \textbf{B} & 0.18 & 0.10 & 0.82 & 0.90 \\ \hline
+    \end{tabular}
+    \end{table}
 
-B
-
-Proporción de SI en dataset original 0.18318633627327455 Proporción de SI predichos 0.10312395028552233
-Proporción de NO en dataset original 0.8168136637267255 Proporción de NO predichos 0.8968760497144777
 
 
 \section{Conclusiones}\label{conc}
 
+Valores de estrés malos en ordenamiento de NMDS, las visualizaciones no aportaron ninguna información, los datos parecen ubicados de manera aleatoria. El preprocesamiento con NMDS para entrenar un modelo SVM no dio buenos resultados, el clasificdor resulta desbalanceado esto parece indicar que los reordenamientos no representan adecuadamente las distancias originales, los datos parecen estar distribuídos de manera aleatoria.
+
 
 Conclusión Es decir, las distintas dimensiones y las estragtegias con valores faltantes de edad para el reordenamiento de los datos no parecerían afectar este aspecto  del entrenamiento del modelo.
+
+
+
+El valor bajo del parámetro de regularización \texttt{C} reportado más arriba (0.1) puede estar contribuyendo largamente a la mala performance del modelo, favoreciendo la sobregenralización de la clase mayoritaria en el primer experimento con NMDS. Sin embargo, no es posible afirmar que es el único motivo por el cual esos modelos performan mal, ya que durante el entrenamiento la implementación probó copn otros valotrs de C como scale y supouestamente estos eran los mejores resultados. En el segundo experimento C es un poco más alto para el dataset A (1) y muchísimo más alto para el dataset B (100) y funciona mucho mejor. 
+
+Gamma en scale para el segundo y tmb en auto entonces quiás no es por sí solo un parámetro tan influyente.
+
+Ambos experimentos muestran el problema del desbalance de las clases si bien queda claro que el preprocesamiento manual del dataset tiene resultados por demás superiores. 
+
 
 Addressing class imbalance, possibly through resampling methods (e.g., oversampling the minority class or undersampling the majority class) or cost-sensitive learning, could help improve the model's performance for class 1.0.
 
