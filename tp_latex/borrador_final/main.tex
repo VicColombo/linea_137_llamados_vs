@@ -757,36 +757,23 @@ Al comparar las proporciones de \texttt{SI} y \texttt{NO} predichas por los mejo
 
 \section{Conclusiones}\label{conc}
 
-Valores de estrés malos en ordenamiento de NMDS, las visualizaciones no aportaron ninguna información, los datos parecen ubicados de manera aleatoria. El preprocesamiento con NMDS para entrenar un modelo SVM no dio buenos resultados, el clasificdor resulta desbalanceado esto parece indicar que los reordenamientos no representan adecuadamente las distancias originales, los datos parecen estar distribuídos de manera aleatoria.
+Valores de estrés malos en ordenamiento de NMDS, las visualizaciones no aportaron ninguna información, los reordenamientos no representan adecuandamente las distancias originales y los datos parecen ubicados de manera aleatoria en ellas. En el futuro se podría probar otra metodología de redimensionar y visualizar como PCA transformando los datos debidamente. Es posible también que los patrones de de estos datos con respecto a las clases de convive sean demasiado complejos para expresar en dos o tres dimensiones. 
 
 
-Conclusión Es decir, las distintas dimensiones y las estragtegias con valores faltantes de edad para el reordenamiento de los datos no parecerían afectar este aspecto  del entrenamiento del modelo.
-
-
-
-El valor bajo del parámetro de regularización \texttt{C} reportado más arriba (0.1) puede estar contribuyendo largamente a la mala performance del modelo, favoreciendo la sobregenralización de la clase mayoritaria en el primer experimento con NMDS. Sin embargo, no es posible afirmar que es el único motivo por el cual esos modelos performan mal, ya que durante el entrenamiento la implementación probó copn otros valotrs de C como scale y supouestamente estos eran los mejores resultados. En el segundo experimento C es un poco más alto para el dataset A (1) y muchísimo más alto para el dataset B (100) y funciona mucho mejor. 
-
-Gamma en scale para el segundo y tmb en auto entonces quiás no es por sí solo un parámetro tan influyente.
 
 Ambos experimentos muestran el problema del desbalance de las clases si bien queda claro que el preprocesamiento manual del dataset tiene resultados por demás superiores. 
 
+El preprocesamiento con NMDS para entrenar un modelo SVM no dio buenos resultados. Las distintas dimensiones y las estragtegias con valores faltantes de edad para el reordenamiento de los datos no parecerían afectar este aspecto  del entrenamiento del modelo. El valor bajo del parámetro de regularización \texttt{C} reportado más arriba (0.1) puede estar contribuyendo largamente a la mala performance del modelo, favoreciendo la sobregenralización de la clase mayoritaria en el primer experimento con NMDS. En el segundo experimento C es un poco más alto para el dataset A (1) y muchísimo más alto para el dataset B (100) y funciona mucho mejor. Sin embargo, esto no quiere decir que el parámetro C es el único motivo para explicar la diferencia de performance entre ambos experimentos, ya que durante la etapa de optimización de hiperparámetros enel primer experimento también se probaron valores más altos de C sin mejores resultados. 
 
-Addressing class imbalance, possibly through resampling methods (e.g., oversampling the minority class or undersampling the majority class) or cost-sensitive learning, could help improve the model's performance for class 1.0.
+Gamma en scale para el segundo y tmb en auto entonces quiás no es por sí solo un parámetro tan influyente.
 
-cruzamiento de datos ovd líneas de asistencia, observatorio de género.
-acceso y análisis de datos extensivo a provincias, no solo benos aitres
+En el futuro podría utilizar métodos para mitigar el desbalance de clases como la generación artificial de casos de la clase minoritaria. sobre muestreo o sub muesdtreo de clases minoritaria o mayoritaria. 
 
+para futuros trabajos sería interesante poder cruzamiento de datos de disttintas bases sobre violencia de género y violencia sexual disponibles en Argentina como los datos de llamados a la línea 144, los datos de intervenciones por situaciones de violencia sexual reportadas a la misma línea 137, los datos de la OVD (Oficina de Violencia Doméstica) y los datos del observatorio de datos de género. Además, es importante poder ampliar el análisis con datos recabados de otras provincias aparte de Buenos Aires y Ciudad Autónoma de Buenos Aires que en este trabajo constituyeron el 73\% de los casos.
 
-
-en \textit{La guerra contra las mujeres}, \citeyearpar{segato2016guerra}, Rita Segato habla de la violencia sexual como algo siempre dirigido hacia cuerpos femeninos y \textit{feminizados} (resaltado propio). Con esto último quiere decir cuerpos percibidos o construidos por los abusadores como femeninos con respecto a posiciones de poder: menores, débiles, racializados, pertenecientes a disidencias sexuales. Esto se condice con datos sobre la mayor incidencia de la violencia sexual contra identidades masculinas durante la niñez y la adolescencia, es decir, en períodos en que los cuerpos y los sujetos son más vulnerables, y por lo tanto, también percibidos como feminizados \citep*{contreras2016violencia,ufem_relevamiento,ferris2002world}.
-
-Si las denuncias de violencia sexual contra disidencias de género representan una minoría en los datos, ¿quiere decir esto que esas personas sufren menos violencia sexual?, ¿O quiere decir que, como minoría social, están subrepresentados en general y que tienen menos acceso a la justicia?
+Por útlimo, con respecto al género de víctimas y victimarios, es importante que la recolección de datos sea hecha con conciencia y perspectiva de género para realizar análisis más profundos sobre el tema. En \textit{La guerra contra las mujeres}, \citeyearpar{segato2016guerra}, Rita Segato habla de la violencia sexual como algo siempre dirigido hacia cuerpos femeninos y \textit{feminizados} (resaltado propio). Con esto último quiere decir cuerpos percibidos o construidos por los abusadores como femeninos con respecto a posiciones de poder: menores, débiles, racializados, pertenecientes a disidencias sexuales. Esto se condice con datos sobre la mayor incidencia de la violencia sexual contra identidades masculinas durante la niñez y la adolescencia, es decir, en períodos en que los cuerpos y los sujetos son más vulnerables, y por lo tanto, también percibidos como feminizados \citep*{contreras2016violencia,ufem_relevamiento,ferris2002world}. Al respecto de esta reflexión entonces me interesa plantea como pregunta para un fiuturo trabajo si las denuncias de violencia sexual contra disidencias de género representan una minoría en los datos, ¿quiere decir esto que esas personas sufren menos violencia sexual?, ¿O quiere decir que, como minoría social, están subrepresentados en general y que tienen menos acceso a la justicia?
 
 
-
-Análisis de series temporales, porsibilidad de hacer forcasting
-
-Las víctimas que sí conviven suelen ser más jóvenes pero por muy pocos, no a significativa la correlación, salvo en el caso de agresores parejas o ex parejas de las víctimas. Pero además hay vínculos con agresores más comuens que otros para esas víctimas que sí conviven y son jóvenes.
 \newpage
 
 
