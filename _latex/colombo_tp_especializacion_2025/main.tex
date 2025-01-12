@@ -41,7 +41,9 @@
     \end{figure}
     
     \begin{large}
-    Maestría en Explotación de Datos y Descubrimiento del Conocimiento\\
+    Especialización en Explotación de Datos y Descubrimiento del Conocimiento\\
+    \vspace*{0.15in}
+    Facultad de Ciencias Exactas y Naturales \\
     \vspace*{0.15in}
     Universidad de Buenos Aires \\
     
@@ -50,6 +52,9 @@
     
     \begin{large}
     Trabajo integrador\\
+
+    \vspace*{0.15in}
+    Clasificación e imputación de datos faltantes utilizando máquinas de soporte vectorial en datos de llamados para reportar violencia sexual a la línea 137 \\
     
     
     \end{large}
@@ -61,11 +66,11 @@
     \rule{80mm}{0.1mm}\\
     \vspace*{0.1in}
     \begin{large}
-    Victoria Colombo
+    María Victoria Colombo
     
     \vspace*{0.3in}
     
-    \vspace*{0.1in}fecha
+    \vspace*{0.1in}.01.2025
     \end{large}
     \end{center}
     
@@ -74,8 +79,7 @@
 \newpage
 
 \begin{abstract}
-
-
+    En las estadísticas sobre violencia sexual, las dificultades para recolectar datos a menudo resultan en información faltante. En este trabajo analizo llamados a la línea nacional 137 para reportar situaciones de violencia sexual. Con particular foco en la situación convivencial entre la víctima y su agresor, utilizo NMDS para buscar agrupamientos visuales en los casos según esta variable. Luego, implemento SVM con el objetivo de imputar los datos faltantes en la variable. Experimento con dos tipos de preprocesamientos para entrenar los clasificadores: uno con NMDS, y uno manual. Las visualizaciones con NMDS no resultan informativas. El preprocesamiento manual obtiene los mejores resultados en SVM. Sin embargo, el desbalance de las clases en la variable objetivo afecta largamente la performance del clasificador.  
 \end{abstract}
 \newpage
 \tableofcontents
@@ -86,9 +90,11 @@
 \subsection{Antecedentes}
 
 
-La violencia sexual comprende una multiplicidad de conductas o intentos de conductas, que van desde actos hasta comentarios sexuales, dirigidos contra la sexualidad de otra persona de manera coercitiva. El trabajo con datos sobre violencia sexual presenta complicaciones porque los datos suelen ser escasos o presentar gran cantidad de faltantes \citetext{\citealp[p.~150]{ferris2002world}}. Uno de los motivos es que las víctimas o su entorno a menudo se rehúsan a denunciar o participar en encuestas sobre este tipo de agresiones, o proveen información incompleta. Esto puede deberse a la vergüenza y el estigma social frecuentemente asociado no solo con la violencia sexual sino con la sexualidad en general, pero también a la falta de acceso a la justicia, al temor a las represalias por parte de los agresores, o el temor a que la denuncia no sea creída \citetext{\citealp{murphy2022unfounded}}. Otros posibles motivos para la escasez y/o mala calidad de los datos pueden ser la falta de vías adecuadas para recabar esta información, o la negligencia o desconocimiento de procedimientos adecuados por parte de oficiales de policía encargados de recibir denuncias. A pesar de las dificultades en la recolección de datos, diversos estudios a nivel mundial logran identificar patrones frecuentes en la violencia sexual. Para este trabajo, resultan relevantes dos de ellos: la mayoría de las víctimas son mujeres, mientras que los perpetradores suelen ser hombres \citetext{\citealp[p.~149]{ferris2002world}; \citealp[p.~15]{contreras2016violencia}}; y en la mayoría de los casos, los agresores son personas conocidas por las víctimas, como parejas, exparejas u otros conocidos \citetext{\citealp[p.~9]{garcia2005multi},\citealp[p.~22]{unicef2018analisis}, \citealp[p.~151]{ferris2002world}}.
+La violencia sexual comprende una multiplicidad de conductas o intentos de conductas dirigidos contra la sexualidad de otra persona de manera coercitiva. Los datos sobre violencia sexual suelen ser escasos o presentar gran cantidad de faltantes \citetext{\citealp[p.~150]{ferris2002world}}. Uno de los motivos es que las víctimas o su entorno a menudo se rehúsan a denunciar o reportar estas situaciones, o proveen información incompleta. Esto puede deberse a la vergüenza y el estigma social frecuentemente asociado no solo con la violencia sexual sino con la sexualidad en general; pero también a la falta de acceso a la justicia, al temor a las represalias por parte de los agresores, o al temor a que la denuncia no sea creída \citetext{\citealp{murphy2022unfounded}}. Otros posibles motivos para la escasez y/o mala calidad de los datos pueden ser la falta de vías adecuadas para recabar esta información, o la negligencia o desconocimiento de procedimientos adecuados por parte de oficiales encargados de recibir denuncias. 
+
+A pesar de estas dificultades, diversos estudios a nivel mundial logran identificar patrones en la violencia sexual. Dos de los más frecuentes son: la mayoría de las víctimas son mujeres, mientras que los perpetradores suelen ser hombres \citetext{\citealp[p.~149]{ferris2002world}; \citealp[p.~15]{contreras2016violencia}}; y en la mayoría de los casos, los agresores son personas conocidas por las víctimas, como parejas, exparejas u otros conocidos \citetext{\citealp[p.~9]{garcia2005multi},\citealp[p.~22]{unicef2018analisis}, \citealp[p.~151]{ferris2002world}}.
  
-La clasificación de las identidades de género de víctimas y perpetradores es compleja. Por un lado, muchos estudios clasifican a las personas únicamente como hombres o mujeres, omitiendo las identidades de género disidentes.\footnote{Entre los estudios e informes consultados para este trabajo, solamente el \textit{Relevamiento de fuentes secundarias de datos sobre violencia sexual} de la \citet{ufem_relevamiento} menciona identidades de género cuando especifica que la violencia sexual “afecta particularmente a las mujeres cis y personas LGBTI+” (p.7).}. Por otro lado, aunque se reportan pocos casos de violencia sexual contra hombres cisgénero, es probable que estén subrepresentados debido a los prejuicios y estigmas sociales sobre la masculinidad que dificultan las denuncias y el acceso a la justicia para estas víctimas \citep*[p.~149]{ferris2002world}. Analizar esas complejidades excede a este trabajo de especialización. En mi análisis las categorías de género de víctimas, victimarios y llamantes se limitan a las registradas en el \textit{dataset}: hombre, mujer, y transgénero, sin especificar si es un hombre o una mujer transgénero. Reconozco esto como una limitación no solo de mi trabajo sino también de los datos disponibles.  
+La clasificación de las identidades de género de víctimas y perpetradores es más compleja de lo que parece. Por un lado, muchos estudios clasifican a las personas únicamente como hombres o mujeres, omitiendo las identidades de género disidentes.\footnote{Entre los estudios e informes consultados para este trabajo, solamente el \textit{Relevamiento de fuentes secundarias de datos sobre violencia sexual} de la \citet{ufem_relevamiento} menciona identidades de género cuando especifica que la violencia sexual “afecta particularmente a las mujeres cis y personas LGBTI+” (p.7).}. Por otro lado, es probable que los casos de violencia sexual contra hombres cis género estén subrepresentados debido a prejuicios y estigmas sociales que dificultan el acceso a la justicia para estas víctimas \citep*[p.~149]{ferris2002world}. En mi análisis las categorías de género de los sujetos se limitan a las registradas en el \textit{dataset}: hombre, mujer, y transgénero, sin especificar si es un hombre o una mujer transgénero. Reconozco esto como una limitación no solo de mi trabajo sino también de los datos disponibles. 
 
 La  recopilación, sistematización, y análisis de datos sobre violencia sexual por parte de los Estados es crucial para planificar y llevar adelante políticas efectivas de prevención, asistencia, y erradicación de la violencia sexual. En Argentina, si bien no hay un sistema estatal único y centralizado de este tipo de información, existen entidades judiciales y programas estatales que, además de ofrecer auxilio, asistencia y/o acceso a la justicia, recaban datos sobre violencia sexual, y mantienen un registro público de ellos. Unos de esos programas es Las Víctimas contra las Violencias. 
 
