@@ -1,8 +1,8 @@
-PWD /Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final
+PWD /Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/_latex/colombo_tp_especializacion_2025
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/tp_latex/borrador_final/main.tex
+INPUT /Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/_latex/colombo_tp_especializacion_2025/main.tex
 OUTPUT main.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
