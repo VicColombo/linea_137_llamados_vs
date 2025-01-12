@@ -13,5 +13,3 @@ En el marco del trabajo para la Especialización en Exploración de Datos de la 
 * [code/scripts](/code/scripts): contiene limpieza_normalizacion.py donde unifico, normalizo y limpio los datos, y genero los datasets para los experimentos 1 y 2. Y contiene herramientas.py con funciones auxiliares para el script anterior.
 * [code/notebooks](/code/notebooks): contiene una notebook de exploración, una para graficar nmds, y tres con los experimentos 1 y 2 de svm.
 * [_latex](/_latex): contiene los archivos de Latex con el trabajo escrito.
-* 
-
