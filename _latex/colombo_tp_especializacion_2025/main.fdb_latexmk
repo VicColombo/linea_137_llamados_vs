@@ -1,20 +1,20 @@
 # Fdb version 4
-["bibtex main"] 1736795493.71664 "main.aux" "main.bbl" "main" 1736795669.2602 0
+["bibtex main"] 1737113673.26044 "main.aux" "main.bbl" "main" 1737114008.42189 0
   "./bibtex_reporte.bib" 1736673607.67846 5182 57e141a50993023a5be7bfd6107d395d ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1736795668.96866 14254 c83917aa760a60a2d041e6a6bfe73d0f "pdflatex"
+  "main.aux" 1737114008.12705 14383 e70eafad34cf4ab87b443b04b33758ac "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["makeindex main.idx"] 1736614410.81711 "main.idx" "main.ind" "main" 1736795669.26 0
-  "main.idx" 1736795667.14265 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1737045081.08425 "main.idx" "main.ind" "main" 1737114008.42169 0
+  "main.idx" 1737114006.09762 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1736795666.47906 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/_latex/colombo_tp_especializacion_2025/main.tex" "main.pdf" "main" 1736795669.26037 0
-  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/_latex/colombo_tp_especializacion_2025/main.tex" 1736795665.98673 70949 625870a8beef95be3b2fc1517bf8acaa ""
+["pdflatex"] 1737114005.39695 "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/_latex/colombo_tp_especializacion_2025/main.tex" "main.pdf" "main" 1737114008.42207 0
+  "/Users/vcolombo/Documents/tp especializacion/linea_137_llamados_vs/_latex/colombo_tp_especializacion_2025/main.tex" 1737114005.16891 71969 0806b534b39f7748451414c62fb7e1fe ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -235,12 +235,12 @@
   "images/nmds_a.png" 1736673607.69495 1212495 219955220d5a8ce42ff1d93bfe69df7f ""
   "images/nmds_b.png" 1736673607.69792 1163446 98177ea06152ffef588d35fc3f4ca9dc ""
   "images/uba2.jpg" 1736673607.701 277040 1c8a339774a8540d58333d1dee311fd8 ""
-  "main.aux" 1736795668.96866 14254 c83917aa760a60a2d041e6a6bfe73d0f "pdflatex"
-  "main.bbl" 1736795493.82627 4857 773e2da26c32399046f1337806337119 "bibtex main"
-  "main.ind" 1736673607.70331 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1736795668.97076 3576 b78423dfeeb1c3cda841079efe28c8c1 "pdflatex"
-  "main.tex" 1736795665.98673 70949 625870a8beef95be3b2fc1517bf8acaa ""
-  "main.toc" 1736795668.97104 1837 de63eec2ef2759eab7ab47f3c840774d "pdflatex"
+  "main.aux" 1737114008.12705 14383 e70eafad34cf4ab87b443b04b33758ac "pdflatex"
+  "main.bbl" 1737113673.36411 4857 773e2da26c32399046f1337806337119 "bibtex main"
+  "main.ind" 1737045081.20316 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1737114008.12919 3750 009168dea126d90112b1f35066d40d6d "pdflatex"
+  "main.tex" 1737114005.16891 71969 0806b534b39f7748451414c62fb7e1fe ""
+  "main.toc" 1737114008.12951 1925 5f19f133209b4641886e3717bcfd068e "pdflatex"
   (generated)
   "main.aux"
   "main.idx"
